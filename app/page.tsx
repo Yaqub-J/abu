@@ -1,52 +1,4782 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-import "./../app/app.css";
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
-import "@aws-amplify/ui-react/styles.css";
 
-Amplify.configure(outputs);
+import { Flex, View, Text, Icon } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import React from 'react';
 
-const client = generateClient<Schema>();
-
-export default function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
-
-  useEffect(() => {
-    listTodos();
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
-    });
-  }
-
+export default function Example() {
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
-      </div>
-    </main>
-  );
+  <Flex
+    width="1440px"
+    height="10010px"
+    overflow="hidden"
+    position="relative"
+    backgroundColor="rgba(255,255,255,1)"
+  >
+    <Flex
+      width="1445px"
+      height="564px"
+      overflow="hidden"
+      position="absolute"
+      top="2421px"
+      left="-5px"
+    >
+      <View
+        width="1225px"
+        height="490px"
+        display="block"
+        position="absolute"
+        top="37px"
+        left="119px"
+      >
+        <Text
+          fontFamily="DM Sans"
+          fontSize="32px"
+          fontWeight="200"
+          color="rgba(30,30,30,1)"
+          lineHeight="41.66400146484375px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0.49px"
+          width="562px"
+          position="absolute"
+          top="13.47%"
+          bottom="26.53%"
+          left="calc(50% - 281px - 212.5px)"
+          whiteSpace="pre-wrap"
+        >
+          Your donations empower the next generation of Ahmadu Bello University Leaders. Every Naira you give directly supports ABU's students, research, and community initiatives. Invest in the future, and leave a legacy that transforms lives.   
+        </Text>
+        <View
+          width="592px"
+          height="490px"
+          display="block"
+          position="absolute"
+          top="37px"
+          left="752px"
+        >
+          <View
+            width="592px"
+            height="490px"
+            display="block"
+            position="absolute"
+            top="37px"
+            left="752px"
+          >
+            {/* <Image
+              width="283.06px"
+              height="174.68px"
+              display="block"
+              position="absolute"
+              top="37px"
+              left="760.9px"
+              borderRadius="50px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            {/* <Image
+              width="283.06px"
+              height="287.55px"
+              display="block"
+              position="absolute"
+              top="239.45px"
+              left="752px"
+              borderRadius="74px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            {/* <Image
+              width="283.06px"
+              height="287.55px"
+              display="block"
+              position="absolute"
+              top="239.45px"
+              left="1060.94px"
+              borderRadius="74px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            <Icon
+              width="283.06px"
+              height="174.68px"
+              viewBox={{"minX":0,"minY":0,"width":283.0602111816406,"height":174.68006896972656}}
+              paths={[{"d":"M 0 0 L 283.0602111816406 0 L 283.0602111816406 174.68006896972656 L 0 174.68006896972656 L 0 0 Z","fillRule":"nonzero"},{"d":"M0 50 C0 22.3857 22.3858 0 50 0 L233.06 0 C260.674 0 283.06 22.3858 283.06 50 L283.06 124.68 C283.06 152.294 260.674 174.68 233.06 174.68 L50 174.68 C22.3857 174.68 0 152.294 0 124.68 L0 50 Z","fillRule":"nonzero"}]}
+              display="block"
+              position="absolute"
+              top="37px"
+              left="1060.94px"
+            />
+          </View>
+        </View>
+      </View>
+      <Flex
+        gap="8px"
+        direction="column"
+        width="319px"
+        height="59px"
+        justifyContent="center"
+        alignItems="center"
+        overflow="hidden"
+        position="absolute"
+        top="422px"
+        left="calc(50% - 159.5px - 444px)"
+        borderRadius="100px"
+        backgroundColor="rgba(30,30,30,1)"
+      >
+        <Flex
+          gap="8px"
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          padding="10px 24px 10px 24px"
+        >
+          <Text
+            fontFamily="Roboto"
+            fontSize="24px"
+            fontWeight="500"
+            color="rgba(255,255,255,1)"
+            lineHeight="20px"
+            textAlign="center"
+            display="block"
+            letterSpacing="0px"
+            shrink="0"
+            position="relative"
+            whiteSpace="pre-wrap"
+          >
+            Donate now
+          </Text>
+        </Flex>
+      </Flex>
+    </Flex>
+    <View
+      width="1445px"
+      height="543px"
+      display="block"
+      position="absolute"
+      top="4119px"
+      left="-5px"
+      backgroundColor="rgba(35,130,43,0.5)"
+    />
+    <Text
+      fontFamily="DM Sans"
+      fontSize="28px"
+      fontWeight="300"
+      color="rgba(255,255,255,1)"
+      lineHeight="40px"
+      textAlign="left"
+      display="block"
+      width="548px"
+      height="275px"
+      position="absolute"
+      top="4207px"
+      left="95px"
+      whiteSpace="pre-wrap"
+    >
+      “Philantropy is the golden thread linking our greatest  achievements .
+
+You can donate today - online, by phone or by post.
+Legacy gifts are also a vital way to secure our  future.  
+    </Text>
+    {/* <Image
+      width="821.94px"
+      height="773px"
+      display="block"
+      position="absolute"
+      top="calc(50% - 386.5px - -640.5px)"
+      left="261px"
+      opacity="0.4000000059604645"
+      objectFit="cover"
+      alt=""
+    /> */}
+    <Flex
+      width="148px"
+      height="108px"
+      overflow="hidden"
+      position="absolute"
+      top="67px"
+      left="calc(50% - 74px - 0px)"
+      backgroundColor="rgba(240,247,252,1)"
+    />
+    <Flex
+      width="1440px"
+      height="97px"
+      overflow="hidden"
+      position="absolute"
+      top="60px"
+      left="0px"
+      backgroundColor="rgba(30,30,30,1)"
+    >
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="982px"
+        whiteSpace="pre-wrap"
+      >
+        Projects
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="861px"
+        whiteSpace="pre-wrap"
+      >
+        News
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="1122px"
+        whiteSpace="pre-wrap"
+      >
+        Career Opportunities
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="497px"
+        whiteSpace="pre-wrap"
+      >
+        About Us
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="293px"
+        whiteSpace="pre-wrap"
+      >
+        Event & Program
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="40px"
+        left="170px"
+        whiteSpace="pre-wrap"
+      >
+        Home
+      </Text>
+    </Flex>
+    <Flex
+      width="1441px"
+      height="60px"
+      overflow="hidden"
+      position="absolute"
+      top="0px"
+      left="-1px"
+      backgroundColor="rgba(69,69,69,1)"
+    >
+      <Flex
+        width="125px"
+        height="45px"
+        overflow="hidden"
+        position="absolute"
+        top="7px"
+        left="1272px"
+        backgroundColor="rgba(240,247,252,1)"
+      />
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="400"
+        color="rgba(0,0,0,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="21px"
+        left="1286px"
+        whiteSpace="pre-wrap"
+      >
+        Login/signup
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="500"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="25px"
+        left="193px"
+        whiteSpace="pre-wrap"
+      >
+        Email address: alumniabu@gmail.com
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="16px"
+        fontWeight="500"
+        color="rgba(255,255,255,1)"
+        lineHeight="19.363636016845703px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="25px"
+        left="510px"
+        whiteSpace="pre-wrap"
+      >
+        Contact no.: 0917689999965
+      </Text>
+    </Flex>
+    <Flex
+      width="1408px"
+      height="710px"
+      overflow="hidden"
+      position="absolute"
+      top="173px"
+      left="calc(50% - 704px - 0px)"
+      borderRadius="30px"
+    >
+      <Icon
+        width="1282px"
+        height="1009px"
+        viewBox={{"minX":0,"minY":0,"width":1282,"height":1009}}
+        paths={[{"d":"M1282 504.5 C1282 783.128 995.015 1009 641 1009 C286.985 1009 0 783.128 0 504.5 C0 225.872 286.985 0 641 0 C995.015 0 1282 225.872 1282 504.5 Z","fill":"rgba(30,30,30,0.75)","fillRule":"nonzero"}]}
+        display="block"
+        position="absolute"
+        top="29px"
+        left="-251px"
+      />
+      <Text
+        fontFamily="DM Sans"
+        fontSize="80px"
+        fontWeight="700"
+        color="rgba(255,255,255,1)"
+        lineHeight="100px"
+        textAlign="left"
+        display="block"
+        width="761px"
+        position="absolute"
+        top="97px"
+        left="calc(50% - 380.5px - 196.5px)"
+        whiteSpace="pre-wrap"
+      >
+        Bringing Change Since 1962
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="20px"
+        fontWeight="300"
+        color="rgba(255,255,255,1)"
+        lineHeight="30px"
+        textAlign="left"
+        display="block"
+        width="721px"
+        position="absolute"
+        top="329px"
+        left="calc(50% - 360.5px - 216.5px)"
+        whiteSpace="pre-wrap"
+      >
+        For over six decades, ABU has been a catalyst for progress, shaping leaders and driving innovation. Your support empowers us to continue this legacy. Join us as we build  a future where ABU's impact resounds for generations.
+      </Text>
+      <Flex
+        gap="8px"
+        direction="column"
+        width="230px"
+        height="59px"
+        justifyContent="center"
+        alignItems="center"
+        overflow="hidden"
+        position="absolute"
+        top="453px"
+        left="calc(50% - 115px - 199px)"
+        borderRadius="100px"
+        backgroundColor="rgba(4,91,4,1)"
+      >
+        <Flex
+          gap="8px"
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          padding="10px 24px 10px 24px"
+        >
+          <Text
+            fontFamily="Roboto"
+            fontSize="14px"
+            fontWeight="500"
+            color="rgba(255,255,255,1)"
+            lineHeight="20px"
+            textAlign="center"
+            display="block"
+            letterSpacing="0px"
+            shrink="0"
+            position="relative"
+            whiteSpace="pre-wrap"
+          >
+            Donate now
+          </Text>
+        </Flex>
+      </Flex>
+    </Flex>
+    {/* <Image
+      width="90.38px"
+      height="85px"
+      display="block"
+      position="absolute"
+      top="62px"
+      left="calc(50% - 45.19px - -0.19px)"
+      objectFit="cover"
+      alt=""
+    /> */}
+    <View
+      width="292px"
+      height="314px"
+      display="block"
+      position="absolute"
+      top="7653px"
+      left="729px"
+      borderRadius="10px"
+      backgroundColor="rgba(217,217,217,1)"
+    />
+    <Text
+      fontFamily="DM Sans"
+      fontSize="48px"
+      fontWeight="700"
+      color="rgba(30,30,30,1)"
+      lineHeight="62.496002197265625px"
+      textAlign="center"
+      display="block"
+      position="absolute"
+      top="7380px"
+      left="calc(50% - 205px - -4px)"
+      whiteSpace="pre-wrap"
+    >
+      Upcoming Events
+    </Text>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="30px"
+      fontWeight="700"
+      color="rgba(30,30,30,1)"
+      lineHeight="39.060001373291016px"
+      textAlign="center"
+      display="block"
+      width="253px"
+      position="absolute"
+      top="7677px"
+      left="calc(50% - 126.5px - -451.5px)"
+      whiteSpace="pre-wrap"
+    >
+      Latest Blog posts
+    </Text>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="24px"
+      fontWeight="600"
+      color="rgba(35,130,43,1)"
+      lineHeight="31.248001098632812px"
+      textAlign="center"
+      display="block"
+      position="absolute"
+      top="7931px"
+      left="calc(50% - 70.5px - -395.5px)"
+      whiteSpace="pre-wrap"
+    >
+      Read more...
+    </Text>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="50px"
+      fontWeight="700"
+      color="rgba(30,30,30,1)"
+      fontStyle="italic"
+      lineHeight="65.10000610351562px"
+      textAlign="center"
+      display="block"
+      width="664px"
+      position="absolute"
+      top="2250px"
+      left="calc(50% - 332px - 0px)"
+      whiteSpace="pre-wrap"
+    >
+      “Your Support Can Change Lives. Join Us Today.”
+    </Text>
+    <Text
+      fontFamily="Inter"
+      fontSize="20px"
+      fontWeight="300"
+      color="rgba(30,30,30,1)"
+      lineHeight="30px"
+      textAlign="center"
+      display="block"
+      width="916px"
+      position="absolute"
+      top="7479px"
+      left="calc(50% - 458px - -3px)"
+      whiteSpace="pre-wrap"
+    >
+      In essence, alumni events that make a change are about transforming connections into action. They demonstrate the power of a united alumni community to make a lasting difference in the world
+    </Text>
+    <Flex
+      gap="24px"
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="center"
+      position="absolute"
+      top="7653px"
+      left="83px"
+    >
+      <View
+        width="292px"
+        height="314px"
+        display="block"
+        shrink="0"
+        position="relative"
+        borderRadius="10px"
+        backgroundColor="rgba(217,217,217,1)"
+      />
+      <Flex
+        gap="20px"
+        direction="column"
+        width="306px"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        shrink="0"
+        position="relative"
+      >
+        <Flex
+          gap="24px"
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+        >
+          <Text
+            fontFamily="DM Sans"
+            fontSize="30px"
+            fontWeight="700"
+            color="rgba(30,30,30,1)"
+            lineHeight="39.060001373291016px"
+            textAlign="left"
+            display="block"
+            shrink="0"
+            alignSelf="stretch"
+            position="relative"
+            whiteSpace="pre-wrap"
+          >
+            Latest Blog posts
+          </Text>
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="300"
+            color="rgba(30,30,30,1)"
+            lineHeight="30px"
+            textAlign="left"
+            display="block"
+            shrink="0"
+            alignSelf="stretch"
+            position="relative"
+            whiteSpace="pre-wrap"
+          >
+            Your donations empowers the next generation of Ahmadu Bello University Leaders. Invest in the future, and leave a legacy that transforms lives. 
+          </Text>
+        </Flex>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="24px"
+          fontWeight="600"
+          color="rgba(35,130,43,1)"
+          lineHeight="31.248001098632812px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Read more...
+        </Text>
+      </Flex>
+    </Flex>
+    <Text
+      fontFamily="Inter"
+      fontSize="20px"
+      fontWeight="300"
+      color="rgba(30,30,30,1)"
+      lineHeight="30px"
+      textAlign="left"
+      display="block"
+      width="306px"
+      position="absolute"
+      top="7750px"
+      left="calc(50% - 153px - -478px)"
+      whiteSpace="pre-wrap"
+    >
+      Your donations empowers the next generation of Ahmadu Bello University Leaders. Invest in the future, and leave a legacy that transforms lives. 
+    </Text>
+    <Flex
+      gap="8px"
+      direction="column"
+      width="235px"
+      height="60px"
+      justifyContent="center"
+      alignItems="center"
+      overflow="hidden"
+      position="absolute"
+      top="4528px"
+      left="calc(50% - 117.5px - 507.5px)"
+      borderRadius="100px"
+      backgroundColor="rgba(255,255,255,1)"
+    >
+      <Flex
+        gap="8px"
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="10px 24px 10px 24px"
+      >
+        <Text
+          fontFamily="Roboto"
+          fontSize="16px"
+          fontWeight="500"
+          color="rgba(0,0,0,1)"
+          lineHeight="20px"
+          textAlign="center"
+          display="block"
+          letterSpacing="0px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Make a Donation
+        </Text>
+      </Flex>
+    </Flex>
+    <Icon
+      width="512px"
+      height="536px"
+      viewBox={{"minX":0,"minY":0,"width":512,"height":536}}
+      paths={[{"d":"M512 268 C512 416.012 397.385 536 256 536 C114.615 536 0 416.012 0 268 C0 119.988 114.615 0 256 0 C397.385 0 512 119.988 512 268 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+      display="block"
+      position="absolute"
+      top="8225px"
+      left="92px"
+    />
+    {/* <Image
+      width="1040px"
+      height="780px"
+      display="block"
+      position="absolute"
+      top="8083px"
+      left="-109px"
+      objectFit="cover"
+      alt=""
+    /> */}
+    <Text
+      fontFamily="DM Sans"
+      fontSize="60px"
+      fontWeight="700"
+      color="rgba(30,30,30,1)"
+      lineHeight="70px"
+      textAlign="left"
+      display="block"
+      width="533px"
+      position="absolute"
+      top="8371px"
+      left="calc(50% - 266.5px - -300.5px)"
+      whiteSpace="pre-wrap"
+    >
+      Download Our Mobile app
+    </Text>
+    <Text
+      fontFamily="Inter"
+      fontSize="20px"
+      fontWeight="300"
+      color="rgba(30,30,30,1)"
+      lineHeight="30px"
+      textAlign="left"
+      display="block"
+      width="580px"
+      position="absolute"
+      top="8538px"
+      left="calc(50% - 290px - -326px)"
+      whiteSpace="pre-wrap"
+    >
+      Your donations empowers the next generation of Ahmadu Bello University Leaders. Invest in the future, and leave a legacy 
+    </Text>
+    <Flex
+      gap="8px"
+      direction="column"
+      width="228px"
+      height="79px"
+      justifyContent="center"
+      alignItems="flex-start"
+      overflow="hidden"
+      position="absolute"
+      top="8672px"
+      left="calc(50% - 114px - -148px)"
+      borderRadius="10px"
+      backgroundColor="rgba(35,130,43,1)"
+    >
+      <Flex
+        gap="8px"
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="10px 24px 10px 24px"
+      >
+        <Flex
+          width="32px"
+          height="32px"
+          overflow="hidden"
+          shrink="0"
+          position="relative"
+        >
+          <Icon
+            width="28.73px"
+            height="32px"
+            viewBox={{"minX":0,"minY":0,"width":28.732786178588867,"height":31.999467849731445}}
+            paths={[{"d":"M 27.72399963689852 17.73036794402872 L 22.498667896926367 20.68770049635481 L 17.81199939722632 16.03036721486581 L 22.536001068325373 11.335700763545647 L 27.72399963689852 14.271701529186194 C 28.030188207179496 14.44484101841686 28.284918119533952 14.69617039568395 28.462156289788023 15.000004788234747 C 28.639394460042094 15.303839180785545 28.73278617858887 15.649283813445887 28.732786178588867 16.00103473660746 C 28.73278617858887 16.35278565976903 28.639394460042094 16.69822902086364 28.462156289788023 17.002063413414437 C 28.284918119533952 17.305897805965234 28.030188207179496 17.557228454798057 27.72399963689852 17.73036794402872 Z M 0.14933332137890773 1.2317014290546993 C 0.05084914081556026 1.4720535383208988 0.0001268185082324163 1.7292882456517815 0 1.989034772136453 L 0 30.01170289492206 C 0 30.301036212811074 0.05999993417307822 30.57036752361306 0.16533327468501272 30.811700844522058 L 15.038666104251492 16.029034613980826 L 0.14933332137890773 1.2317014290546993 Z M 16.425332750738907 14.651701318185628 L 20.769333345314276 10.334367546746346 L 2.9666666051548156 0.2597014256376874 C 2.5849340931349545 0.04081131933506335 2.140648531597104 -0.04325540526199094 1.705333270614291 0.021034764328894732 L 16.425332750738907 14.651701318185628 Z M 16.425332750738907 17.40770051066101 L 1.7586665542651228 31.985035578696582 C 2.155999906880842 32.0330355756766 2.5746665967987523 31.963701487298152 2.9666666051548156 31.741034830777593 L 20.73200017391527 21.687703019617725 L 16.425332750738907 17.40770051066101 Z","fillRule":"nonzero"},{"d":"M27.724 17.7304 L22.4987 20.6877 L17.812 16.0304 L22.536 11.3357 L27.724 14.2717 C28.0302 14.4448 28.2849 14.6962 28.4622 15 C28.6394 15.3038 28.7328 15.6493 28.7328 16.001 C28.7328 16.3528 28.6394 16.6982 28.4622 17.0021 C28.2849 17.3059 28.0302 17.5572 27.724 17.7304 Z M0.149333 1.2317 C0.0508491 1.47205 0.000126819 1.72929 0 1.98903 L0 30.0117 C0 30.301 0.0599999 30.5704 0.165333 30.8117 L15.0387 16.029 L0.149333 1.2317 Z M16.4253 14.6517 L20.7693 10.3344 L2.96667 0.259701 C2.58493 0.0408113 2.14065 -0.0432554 1.70533 0.0210348 L16.4253 14.6517 Z M16.4253 17.4077 L1.75867 31.985 C2.156 32.033 2.57467 31.9637 2.96667 31.741 L20.732 21.6877 L16.4253 17.4077 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+            display="block"
+            position="absolute"
+            top="0%"
+            bottom="0%"
+            left="5.1%"
+            right="5.11%"
+          />
+        </Flex>
+        <Text
+          fontFamily="Roboto"
+          fontSize="14px"
+          fontWeight="500"
+          color="rgba(255,255,255,1)"
+          lineHeight="29px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Get it on 
+Google Play
+        </Text>
+      </Flex>
+    </Flex>
+    <Flex
+      gap="8px"
+      direction="column"
+      width="228px"
+      height="79px"
+      justifyContent="center"
+      alignItems="flex-start"
+      overflow="hidden"
+      position="absolute"
+      top="8672px"
+      left="calc(50% - 114px - -401px)"
+      borderRadius="10px"
+      backgroundColor="rgba(30,30,30,1)"
+    >
+      <Flex
+        gap="8px"
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="10px 24px 10px 24px"
+      >
+        <Flex
+          width="40px"
+          height="40px"
+          overflow="hidden"
+          shrink="0"
+          position="relative"
+        >
+          <Icon
+            width="25.28px"
+            height="30px"
+            viewBox={{"minX":0,"minY":0,"width":25.27846336364746,"height":30.003786087036133}}
+            paths={[{"d":"M 21.061795552571617 28.80000114440918 C 19.42846218744914 30.383334457874298 17.645130554835003 30.13333191474279 15.92846393585205 29.383331934611004 C 14.111797213554382 28.616665254036587 12.44512935479482 28.583331952492397 10.528462727864584 29.383331934611004 C 8.128462632497152 30.416665275891624 6.861796975135803 30.116667846838634 5.428463617960612 28.80000114440918 C -2.704869906107585 20.416667461395264 -1.5048694610595712 7.64999990661939 7.728463808695476 7.183333237965902 C 9.978463848431906 7.299999905129274 11.545130312442781 8.416666096697252 12.861797014872234 8.516666094462078 C 14.828463594118755 8.116666103402775 16.711796522140506 6.966666628917059 18.811796506245933 7.116666634877523 C 21.328463157018028 7.316666630407175 23.228464126586914 8.316666086514791 24.478464126586914 10.116666158040365 C 19.278464317321777 13.233332832654318 20.511796871821083 20.08333464463552 25.27846336364746 22.000001271565758 C 24.32846337556839 24.500001271565758 23.095131715138752 26.98333481947581 21.04513168334961 28.816668192545574 L 21.061795552571617 28.80000114440918 Z M 12.69512971242269 7.083333333333334 C 12.445129702488583 3.3666666348775234 15.4617977142334 0.30000001192092896 18.928464253743492 0 C 19.411797573169075 4.299999872843425 15.028463006019592 7.500000000000001 12.69512971242269 7.083333333333334 Z","fillRule":"nonzero"},{"d":"M21.0618 28.8 C19.4285 30.3833 17.6451 30.1333 15.9285 29.3833 C14.1118 28.6167 12.4451 28.5833 10.5285 29.3833 C8.12846 30.4167 6.8618 30.1167 5.42846 28.8 C-2.70487 20.4167 -1.50487 7.65 7.72846 7.18333 C9.97846 7.3 11.5451 8.41667 12.8618 8.51667 C14.8285 8.11667 16.7118 6.96667 18.8118 7.11667 C21.3285 7.31667 23.2285 8.31667 24.4785 10.1167 C19.2785 13.2333 20.5118 20.0833 25.2785 22 C24.3285 24.5 23.0951 26.9833 21.0451 28.8167 L21.0618 28.8 Z M12.6951 7.08333 C12.4451 3.36667 15.4618 0.3 18.9285 0 C19.4118 4.3 15.0285 7.5 12.6951 7.08333 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+            display="block"
+            position="absolute"
+            top="12.5%"
+            bottom="12.49%"
+            left="18.39%"
+            right="18.42%"
+          />
+        </Flex>
+        <Text
+          fontFamily="Roboto"
+          fontSize="14px"
+          fontWeight="500"
+          color="rgba(255,255,255,1)"
+          lineHeight="29px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Download from
+App Store
+        </Text>
+      </Flex>
+    </Flex>
+    <View
+      width="1262px"
+      height="233px"
+      display="block"
+      position="absolute"
+      top="767px"
+      left="calc(50% - 631px - 0px)"
+      boxShadow="0px 4px 20px rgba(0, 0, 0, 0.07000000029802322)"
+      borderRadius="30px"
+      backgroundColor="rgba(255,255,255,1)"
+    />
+    <Icon
+      width="0px"
+      height="158px"
+      viewBox={{"minX":0,"minY":0,"width":0.000008436301868641749,"height":158}}
+      paths={[{"d":"M0 0 L158 0 L158 -1 L0 -1 L0 0 Z","stroke":"rgba(117,117,117,1)","fillRule":"nonzero","strokeWidth":1}]}
+      display="block"
+      position="absolute"
+      top="797px"
+      left="499px"
+      transformOrigin="top left"
+      transform="rotate(90deg)"
+    />
+    <Icon
+      width="0px"
+      height="158px"
+      viewBox={{"minX":0,"minY":0,"width":0.000008436301868641749,"height":158}}
+      paths={[{"d":"M0 0 L158 0 L158 -1 L0 -1 L0 0 Z","stroke":"rgba(117,117,117,1)","fillRule":"nonzero","strokeWidth":1}]}
+      display="block"
+      position="absolute"
+      top="797px"
+      left="936px"
+      transformOrigin="top left"
+      transform="rotate(90deg)"
+    />
+    <Flex
+      gap="8px"
+      direction="column"
+      width="231px"
+      height="60px"
+      justifyContent="center"
+      alignItems="center"
+      overflow="hidden"
+      position="absolute"
+      top="625.5px"
+      left="calc(50% - 115px - 462.5px)"
+      border="1px SOLID rgba(255,255,255,1)"
+      borderRadius="100.5px"
+    >
+      <Flex
+        gap="8px"
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        padding="10px 24px 10px 24px"
+      >
+        <Text
+          fontFamily="Roboto"
+          fontSize="14px"
+          fontWeight="500"
+          color="rgba(255,255,255,1)"
+          lineHeight="20px"
+          textAlign="center"
+          display="block"
+          letterSpacing="0px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Login/signup
+        </Text>
+      </Flex>
+    </Flex>
+    <Flex
+      gap="0"
+      direction="column"
+      width="269px"
+      justifyContent="flex-start"
+      alignItems="center"
+      position="absolute"
+      top="801px"
+      left="146px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="80px"
+        fontWeight="600"
+        color="rgba(4,91,4,1)"
+        lineHeight="104.16000366210938px"
+        textAlign="center"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        100
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="30px"
+        fontWeight="400"
+        color="rgba(59,59,59,1)"
+        lineHeight="39.060001373291016px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Donations received
+      </Text>
+    </Flex>
+    <Flex
+      gap="0"
+      direction="column"
+      justifyContent="flex-start"
+      alignItems="center"
+      position="absolute"
+      top="801px"
+      left="calc(50% - 136px - 0px)"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="80px"
+        fontWeight="600"
+        color="rgba(4,91,4,1)"
+        lineHeight="104.16000366210938px"
+        textAlign="center"
+        display="block"
+        shrink="0"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        40
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="30px"
+        fontWeight="400"
+        color="rgba(59,59,59,1)"
+        lineHeight="39.060001373291016px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Supported projects
+      </Text>
+    </Flex>
+    <Flex
+      gap="0"
+      direction="column"
+      justifyContent="flex-start"
+      alignItems="center"
+      position="absolute"
+      top="804px"
+      left="calc(50% - 122px - -414px)"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="80px"
+        fontWeight="600"
+        color="rgba(4,91,4,1)"
+        lineHeight="104.16000366210938px"
+        textAlign="center"
+        display="block"
+        shrink="0"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        400
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="30px"
+        fontWeight="400"
+        color="rgba(59,59,59,1)"
+        lineHeight="39.060001373291016px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Alumni registered
+      </Text>
+    </Flex>
+    <Icon
+      width="704px"
+      height="543px"
+      viewBox={{"minX":0,"minY":0,"width":704,"height":543}}
+      paths={[{"d":"M 0 0 L 704 0 L 704 543 L 0 543 L 0 0 Z","fillRule":"nonzero"},{"d":"M0 0 L704 0 L704 543 L0 543 L0 0 Z","fillRule":"nonzero"}]}
+      display="block"
+      position="absolute"
+      top="4119px"
+      left="736px"
+    />
+    <View
+      width="1443px"
+      height="562px"
+      display="block"
+      position="absolute"
+      top="9448px"
+      left="0px"
+    >
+      <View
+        width="1443px"
+        height="562px"
+        display="block"
+        position="absolute"
+        top="9448px"
+        left="0px"
+      >
+        <View
+          width="1443px"
+          height="562px"
+          display="block"
+          position="absolute"
+          top="9448px"
+          left="0px"
+          backgroundColor="rgba(30,30,30,1)"
+        />
+      </View>
+      <View
+        width="1232px"
+        height="434px"
+        display="block"
+        position="absolute"
+        top="9531px"
+        left="103px"
+      >
+        <View
+          width="1232px"
+          height="434px"
+          display="block"
+          position="absolute"
+          top="9531px"
+          left="103px"
+        >
+          <View
+            width="1232px"
+            height="434px"
+            display="block"
+            position="absolute"
+            top="9531px"
+            left="103px"
+          >
+            <View
+              width="159.55px"
+              height="70.87px"
+              display="block"
+              position="absolute"
+              top="9531px"
+              left="103px"
+            >
+              <View
+                width="159.55px"
+                height="70.87px"
+                display="block"
+                position="absolute"
+                top="9531px"
+                left="103px"
+              >
+                <View
+                  width="142.8px"
+                  height="18.05px"
+                  display="block"
+                  position="absolute"
+                  top="9531px"
+                  left="103px"
+                >
+                  <View
+                    width="142.8px"
+                    height="18.05px"
+                    display="block"
+                    position="absolute"
+                    top="9531px"
+                    left="103px"
+                  >
+                    <Icon
+                      width="8.66px"
+                      height="10.32px"
+                      viewBox={{"minX":0,"minY":0,"width":8.664609909057617,"height":10.320830345153809}}
+                      paths={[{"d":"M 8.445026613641836 2.980416512370981 L 5.998101711334394 3.136594832905477 C 5.9562737642108745 2.9196794672552593 5.866338254447393 2.724456293523293 5.728306766107454 2.5509242194541955 C 5.590275277767515 2.3730537070014472 5.40832684403376 2.2320581032285034 5.182457268974094 2.1279384918575017 C 4.960770231934464 2.0194811759619355 4.695167319052335 1.96525251374753 4.385642195292978 1.96525251374753 C 3.971547730273162 1.96525251374753 3.62228173246821 2.0563568014343354 3.337853120290649 2.238565393874436 C 3.0534247055687156 2.4164359063271843 2.9112141675915013 2.655042747103059 2.9112141675915013 2.954385882069079 C 2.9112141675915013 3.192992705778463 3.0032351543332485 3.394724629341288 3.1872771442713788 3.559580560502171 C 3.371319134209509 3.7244361162002657 3.6871198420995706 3.856753759483771 4.134676618745223 3.956534565541579 L 5.878891166900182 4.320952467214376 C 6.81583200912958 4.52051443772629 7.514347517194554 4.8415490648844575 7.974452467357925 5.284056297489406 C 8.434557779523281 5.726563530094355 8.664609909057617 6.307896080624774 8.664609909057617 7.028055007203068 C 8.664609909057617 7.683139201207565 8.478482804143207 8.257964879221065 8.106215924244927 8.752531836445685 C 7.738131944368666 9.247098691271363 7.2320164761524675 9.633208341133663 6.587869552505602 9.910859932708066 C 5.9479051339695 10.18417320536425 5.209643683831148 10.320830345153809 4.373089282840189 10.320830345153809 C 3.0973436090641764 10.320830345153809 2.080933853359402 10.045347836239307 1.323852051682207 9.49438295494223 C 0.5709530183899469 8.939079771793425 0.12966591043347958 8.184214362135352 0 7.229786930765893 L 2.6288747346852293 7.086622833126964 C 2.708347556136575 7.4900854173323275 2.900755699893412 7.798104882937956 3.206098088177105 8.010681810204524 C 3.5114404764607983 8.218920572151287 3.902529879909829 8.3230395435289 4.379365739066584 8.3230395435289 C 4.8478364892739965 8.3230395435289 5.22428663119628 8.229766207315173 5.508715045918214 8.043219005826518 C 5.797326360662167 7.852333451286665 5.943724011048131 7.607219601461949 5.9479069110701515 7.307876637160833 C 5.943724011048131 7.056254856696795 5.8412433060559845 6.850185040878011 5.640470078031758 6.689667735832173 C 5.43969719555488 6.524811992402684 5.130168912505477 6.3990005560429735 4.71189154746364 6.312234519008425 L 3.042969199705045 5.967339590062054 C 2.1018453258165417 5.772115870202397 1.4012279684108209 5.433727506576118 0.941123018247449 4.952175591438603 C 0.4852007706504696 4.470623505636185 0.2572420327741508 3.8567537594837704 0.2572420327741508 3.1105652948589584 C 0.2572420327741508 2.4684957333457977 0.424551353072882 1.9153615645909339 0.7591731858696625 1.4511628568603288 C 1.0979777212328354 0.9869645245925116 1.5727216367395105 0.6290542634287 2.183406413306897 0.3774321245683646 C 2.798273958259218 0.12581070250062476 3.5177174921448056 0 4.34172385125513 0 C 5.5589105043678835 0 6.5167563688372425 0.26680559801421844 7.215279281488263 0.8004167599096746 C 7.9179850941613035 1.3340286727307071 8.327908926089984 2.0606956323472643 8.445026613641836 2.980416512370981 Z","fillRule":"nonzero"},{"d":"M8.44503 2.98042 L5.9981 3.13659 C5.95627 2.91968 5.86634 2.72446 5.72831 2.55092 C5.59027 2.37305 5.40833 2.23206 5.18246 2.12794 C4.96077 2.01948 4.69517 1.96525 4.38564 1.96525 C3.97155 1.96525 3.62228 2.05636 3.33785 2.23857 C3.05342 2.41644 2.91121 2.65504 2.91121 2.95439 C2.91121 3.19299 3.00324 3.39472 3.18728 3.55958 C3.37132 3.72444 3.68712 3.85675 4.13468 3.95653 L5.87889 4.32095 C6.81583 4.52051 7.51435 4.84155 7.97445 5.28406 C8.43456 5.72656 8.66461 6.3079 8.66461 7.02806 C8.66461 7.68314 8.47848 8.25797 8.10622 8.75253 C7.73813 9.2471 7.23202 9.63321 6.58787 9.91086 C5.94791 10.1842 5.20964 10.3208 4.37309 10.3208 C3.09734 10.3208 2.08093 10.0453 1.32385 9.49438 C0.570953 8.93908 0.129666 8.18421 0 7.22979 L2.62887 7.08662 C2.70835 7.49009 2.90076 7.7981 3.2061 8.01068 C3.51144 8.21892 3.90253 8.32304 4.37937 8.32304 C4.84784 8.32304 5.22429 8.22977 5.50871 8.04322 C5.79733 7.85233 5.94372 7.60722 5.94791 7.30788 C5.94372 7.05625 5.84124 6.85018 5.64047 6.68967 C5.4397 6.52481 5.13017 6.399 4.71189 6.31223 L3.04297 5.96734 C2.10185 5.77212 1.40123 5.43373 0.941123 4.95218 C0.485201 4.47062 0.257242 3.85675 0.257242 3.11057 C0.257242 2.4685 0.424551 1.91536 0.759173 1.45116 C1.09798 0.986965 1.57272 0.629054 2.18341 0.377432 C2.79827 0.125811 3.51772 0 4.34172 0 C5.55891 0 6.51676 0.266806 7.21528 0.800417 C7.91798 1.33403 8.32791 2.0607 8.44503 2.98042 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="237.14px"
+                    />
+                    <Icon
+                      width="9.2px"
+                      height="10.32px"
+                      viewBox={{"minX":0,"minY":0,"width":9.204193115234375,"height":10.320830345153809}}
+                      paths={[{"d":"M 4.780908195694735 10.320830345153809 C 3.7895909137307004 10.320830345153809 2.9363029741957973 10.112591173611275 2.221048721114661 9.696113786249672 C 1.5099773688465241 9.275298097036341 0.9620302298711434 8.680950402019874 0.5772150378687414 7.913070223338541 C 0.19239991168489445 7.140851674539518 0 6.227637905963585 0 5.173429395472471 C 0 4.1452511739534526 0.19239991168489445 3.2428836378685686 0.5772150378687414 2.46632685548378 C 0.9620302298711434 1.6897700730989913 1.5037045972723475 1.0845761114584946 2.2022277736499274 0.6507450046952705 C 2.904933521747731 0.21691499018742993 3.728935297740237 0 4.674242118769492 0 C 5.310023757508736 0 5.901887702090801 0.10628846363328384 6.449830859043599 0.3188653908998515 C 7.001956916809396 0.5271038797827687 7.482981723527205 0.8416310029638736 7.892893728040606 1.2624467945761466 C 8.306988271364954 1.6832625861884196 8.629061810546549 2.212535855827917 8.859114329130751 2.85026663762762 C 9.089166847714953 3.48365932237348 9.204193115234375 4.225509758210411 9.204193115234375 5.075817808606488 L 9.204193115234375 5.837190807574077 L 1.0666017958270757 5.837190807574077 L 1.0666017958270757 4.119221635906934 L 6.68825199299703 4.119221635906934 C 6.68825199299703 3.7200976948831053 6.604597481575103 3.3665258891694343 6.437286368992127 3.058506218765921 C 6.269975601956564 2.7504862070326 6.03782951031746 2.5097101470649004 5.740852339371618 2.3361780729958026 C 5.448058398331551 2.1583075605430544 5.107166725428454 2.0693717581889888 4.718168895887272 2.0693717581889888 C 4.31243979218687 2.0693717581889888 3.9527138435616322 2.166982986658674 3.639005760458622 2.362206518786938 C 3.329480578168611 2.5530919879943395 3.0868828619834687 2.81122178443015 2.9112062933219076 3.136594832905477 C 2.735529905661373 3.457629442997154 2.645602447063422 3.8155396870944758 2.641419721852271 4.210325565197442 L 2.641419721852271 5.8436984651495525 C 2.641419721852271 6.33826531997523 2.7292534482481114 6.765588223035287 2.904929835908646 7.125667686324434 C 3.08478912438218 7.48574714961358 3.33784690634305 7.763397921996446 3.664103165336617 7.958621641856103 C 3.9903594243301845 8.153845361715762 4.3772698513060035 8.251457494709436 4.824826548037464 8.251457494709436 C 5.121803718983306 8.251457494709436 5.393679289118266 8.208074749256006 5.640462719859637 8.121308712221458 C 5.887246496148422 8.034542581321212 6.098481226558535 7.904393619635086 6.274157449672682 7.730861272502143 C 6.449834018334243 7.55732901070165 6.5836780658004335 7.3447520834350835 6.675699078170506 7.09313049070244 L 9.147721848065123 7.262324126387887 C 9.022238336740523 7.878363535460876 8.76500185812686 8.416313613601712 8.37600402858568 8.876174053613571 C 7.991188737855445 9.331696191773702 7.49343124187948 9.687437063080786 6.882746349832681 9.94339712833006 C 6.276244358598881 10.195018874661118 5.575635128936319 10.320830345153809 4.780908195694735 10.320830345153809 Z","fillRule":"nonzero"},{"d":"M4.78091 10.3208 C3.78959 10.3208 2.9363 10.1126 2.22105 9.69611 C1.50998 9.2753 0.96203 8.68095 0.577215 7.91307 C0.1924 7.14085 0 6.22764 0 5.17343 C0 4.14525 0.1924 3.24288 0.577215 2.46633 C0.96203 1.68977 1.5037 1.08458 2.20223 0.650745 C2.90493 0.216915 3.72894 0 4.67424 0 C5.31002 0 5.90189 0.106288 6.44983 0.318865 C7.00196 0.527104 7.48298 0.841631 7.89289 1.26245 C8.30699 1.68326 8.62906 2.21254 8.85911 2.85027 C9.08917 3.48366 9.20419 4.22551 9.20419 5.07582 L9.20419 5.83719 L1.0666 5.83719 L1.0666 4.11922 L6.68825 4.11922 C6.68825 3.7201 6.6046 3.36653 6.43729 3.05851 C6.26998 2.75049 6.03783 2.50971 5.74085 2.33618 C5.44806 2.15831 5.10717 2.06937 4.71817 2.06937 C4.31244 2.06937 3.95271 2.16698 3.63901 2.36221 C3.32948 2.55309 3.08688 2.81122 2.91121 3.13659 C2.73553 3.45763 2.6456 3.81554 2.64142 4.21033 L2.64142 5.8437 C2.64142 6.33827 2.72925 6.76559 2.90493 7.12567 C3.08479 7.48575 3.33785 7.7634 3.6641 7.95862 C3.99036 8.15385 4.37727 8.25146 4.82483 8.25146 C5.1218 8.25146 5.39368 8.20807 5.64046 8.12131 C5.88725 8.03454 6.09848 7.90439 6.27416 7.73086 C6.44983 7.55733 6.58368 7.34475 6.6757 7.09313 L9.14772 7.26232 C9.02224 7.87836 8.765 8.41631 8.376 8.87617 C7.99119 9.3317 7.49343 9.68744 6.88275 9.9434 C6.27624 10.195 5.57563 10.3208 4.78091 10.3208 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="226.62px"
+                    />
+                    <Icon
+                      width="9.41px"
+                      height="14.08px"
+                      viewBox={{"minX":0,"minY":0,"width":9.411239624023438,"height":14.082141876220703}}
+                      paths={[{"d":"M 4.69934756749441 14.082141876220703 C 3.833513496809931 14.082141876220703 3.091072883912918 13.95849965783013 2.4720225695129843 13.711216313304375 C 1.8571548264942361 13.468271048808871 1.3677720244091969 13.13639086853733 1.0038708394211042 12.715575277561527 C 0.6399696544330115 12.29475958418678 0.40363607383920275 11.821884711805243 0.294883952444401 11.296949602294506 L 2.7669065219573854 10.9520535776821 C 2.8421964515209157 11.151615652566411 2.9614015705767756 11.33816353855944 3.1245297691236154 11.511695750876509 C 3.287657967670455 11.685228014393049 3.5030713854993145 11.82405339342407 3.7707689366041213 11.928172732760853 C 4.042649042635476 12.036630416658491 4.373089064207138 12.09085980473501 4.762086862216239 12.09085980473501 C 5.34349245454031 12.09085980473501 5.822423698745067 11.943356994189939 6.198873157334389 11.648352192291346 C 6.579505516397645 11.357685692287381 6.7698201162840785 10.86962529555646 6.7698201162840785 10.18417291354552 L 6.7698201162840785 8.35557682177859 L 6.656886015875039 8.35557682177859 C 6.539768315669974 8.633228416098667 6.364092806118196 8.895695885521585 6.129857405708067 9.142979366579263 C 5.895622005297938 9.39026279643747 5.59446019730486 9.591995029192036 5.226376177661383 9.748174050997081 C 4.858292158017905 9.904353072802126 4.4190985012247985 9.982442080243176 3.908800439856766 9.982442080243176 C 3.185180575443216 9.982442080243176 2.5263948127344995 9.808909287665431 1.9324410455370244 9.461844760632351 C 1.3426700471763842 9.110441999970606 0.8721135223329866 8.574661340521182 0.5207605780368482 7.8545024750872505 C 0.1735904683960942 7.130005376024654 0 6.214623198396285 0 5.108355054744636 C 0 3.97605723625714 0.17776941975704325 3.0303063992386745 0.5333050670714666 2.2711026119552 C 0.8888408131137147 1.5118991660015362 1.361490993115496 0.943581242342398 1.9512619914761362 0.5661487385788426 C 2.5452157586736113 0.1887162348152872 3.195643816116079 0 3.902532407726641 0 C 4.44211008131744 0 4.89384858914719 0.0954427270142818 5.257750037409481 0.28632819810933596 C 5.621651156579024 0.4728752307778372 5.914446801622209 0.7071436184202341 6.13613386261256 0.9891333781030172 C 6.362003462074821 1.2667850577555486 6.53558541519604 1.5400983160480177 6.656886015875039 1.8090731188474434 L 6.75727562724946 1.8090731188474434 L 6.75727562724946 0.1301487837750093 L 9.411239624023438 0.1301487837750093 L 9.411239624023438 10.223217767129102 C 9.411239624023438 11.073525757667852 9.210465304756553 11.785008565440224 8.80891880532565 12.357665029924858 C 8.407372996989519 12.93032142614353 7.851067571888143 13.359813723307534 7.1399962772592955 13.64614192141687 C 6.433107488193085 13.936808387287854 5.619557567239191 14.082141876220703 4.69934756749441 14.082141876220703 Z M 4.755818830086113 7.900054986310662 C 5.186644250645012 7.900054986310662 5.550541124518096 7.789428902391292 5.847517942298284 7.56817536923331 C 6.148677660552406 7.3425833123163216 6.3787301604886 7.021547794525958 6.537675458561506 6.605070437178821 C 6.700803657108346 6.184254846203017 6.782364605318697 5.681011109633497 6.782364605318697 5.095339739464977 C 6.782364605318697 4.509668369296458 6.702897213538906 4.002087115890874 6.543951915466 3.5725948187268703 C 6.385006617393094 3.1387640831363135 6.154954117456899 2.8025452937733144 5.853794399202777 2.563938467704365 C 5.552634680948655 2.3253316416354153 5.186644250645012 2.206028220067695 4.755818830086113 2.206028220067695 C 4.3166276085793465 2.206028220067695 3.9464500654145858 2.3296693462028752 3.6452903471604636 2.5769526907286293 C 3.3441306289063415 2.819897955224132 3.1161634416273487 3.158285963800407 2.9614008630273654 3.5921166993909637 C 2.806638284427382 4.025947059518729 2.729264630079162 4.527021406210066 2.729264630079162 5.095339739464977 C 2.729264630079162 5.672334369312316 2.806638284427382 6.171240418380867 2.9614008630273654 6.592056214154557 C 3.120346161100271 7.008533571501694 3.3483133648339014 7.33173757464624 3.6452903471604636 7.56166771159348 C 3.9464500654145858 7.787259683178016 4.3166276085793465 7.900054986310662 4.755818830086113 7.900054986310662 Z","fillRule":"nonzero"},{"d":"M4.69935 14.0821 C3.83351 14.0821 3.09107 13.9585 2.47202 13.7112 C1.85715 13.4683 1.36777 13.1364 1.00387 12.7156 C0.63997 12.2948 0.403636 11.8219 0.294884 11.2969 L2.76691 10.9521 C2.8422 11.1516 2.9614 11.3382 3.12453 11.5117 C3.28766 11.6852 3.50307 11.8241 3.77077 11.9282 C4.04265 12.0366 4.37309 12.0909 4.76209 12.0909 C5.34349 12.0909 5.82242 11.9434 6.19887 11.6484 C6.57951 11.3577 6.76982 10.8696 6.76982 10.1842 L6.76982 8.35558 L6.65689 8.35558 C6.53977 8.63323 6.36409 8.8957 6.12986 9.14298 C5.89562 9.39026 5.59446 9.592 5.22638 9.74817 C4.85829 9.90435 4.4191 9.98244 3.9088 9.98244 C3.18518 9.98244 2.52639 9.80891 1.93244 9.46184 C1.34267 9.11044 0.872113 8.57466 0.520761 7.8545 C0.17359 7.13001 0 6.21462 0 5.10836 C0 3.97606 0.177769 3.03031 0.533305 2.2711 C0.888841 1.5119 1.36149 0.943581 1.95126 0.566149 C2.54522 0.188716 3.19564 0 3.90253 0 C4.44211 0 4.89385 0.0954427 5.25775 0.286328 C5.62165 0.472875 5.91445 0.707144 6.13613 0.989133 C6.362 1.26679 6.53558 1.5401 6.65689 1.80907 L6.75728 1.80907 L6.75728 0.130149 L9.41124 0.130149 L9.41124 10.2232 C9.41124 11.0735 9.21046 11.785 8.80892 12.3577 C8.40737 12.9303 7.85107 13.3598 7.14 13.6461 C6.43311 13.9368 5.61956 14.0821 4.69935 14.0821 Z M4.75582 7.90005 C5.18664 7.90005 5.55054 7.78943 5.84752 7.56818 C6.14868 7.34258 6.37873 7.02155 6.53768 6.60507 C6.7008 6.18425 6.78236 5.68101 6.78236 5.09534 C6.78236 4.50967 6.7029 4.00209 6.54395 3.57259 C6.38501 3.13876 6.15495 2.80255 5.85379 2.56394 C5.55263 2.32533 5.18664 2.20603 4.75582 2.20603 C4.31663 2.20603 3.94645 2.32967 3.64529 2.57695 C3.34413 2.8199 3.11616 3.15829 2.9614 3.59212 C2.80664 4.02595 2.72926 4.52702 2.72926 5.09534 C2.72926 5.67233 2.80664 6.17124 2.9614 6.59206 C3.12035 7.00853 3.34831 7.33174 3.64529 7.56167 C3.94645 7.78726 4.31663 7.90005 4.75582 7.90005 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="215.47px"
+                    />
+                    <Icon
+                      width="8.63px"
+                      height="10.31px"
+                      viewBox={{"minX":0,"minY":0,"width":8.626969337463379,"height":10.314322471618652}}
+                      paths={[{"d":"M 3.1998221201477572 10.314322471618652 C 2.5849544813850445 10.314322471618652 2.0370158530184526 10.203695384186618 1.5559969217227771 9.982441772516717 C 1.0749779904271017 9.756849859085923 0.6943403160201705 9.424969654912198 0.41409452819824216 8.986800767466269 C 0.13803150939941405 8.544293578259447 0 7.993328503700507 0 7.333906021651168 C 0 6.778602850129214 0.09829360758005895 6.312234932971523 0.29488396557606755 5.934802270178094 C 0.4914742906627998 5.557369778049564 0.7591794557314533 5.25368785266204 1.0979840427860617 5.023757535071414 C 1.436788728568499 4.793827217480787 1.8215968968384546 4.620295513974613 2.252422501129098 4.503161323764283 C 2.687430841533565 4.386027133553954 3.143356811620313 4.303599353164143 3.6201931055299936 4.255877986861476 C 4.180684615355298 4.195141672609905 4.632423472394468 4.138743067058699 4.9754107955629 4.086683262463218 C 5.318398480733372 4.03028538650446 5.567277203175637 3.94785869837001 5.722039607666432 3.839401017815771 C 5.876802374159268 3.7309433372615324 5.954184275726788 3.5704254894489 5.954184275726788 3.3578485666332347 L 5.954184275726788 3.31880371425328 C 5.954184275726788 2.906664808037608 5.8286983090174616 2.58779870702153 5.577731641083024 2.3622064693274263 C 5.330948219356194 2.136614590029613 4.979596855513634 2.0238192050416313 4.523674373810179 2.0238192050416313 C 4.042655541242333 2.0238192050416313 3.659932405993593 2.1344461047422767 3.3755039478763935 2.3556999041435676 C 3.091075292303536 2.5726152652520455 2.9028460049194647 2.8459285151191493 2.8108249959107487 3.175639619611899 L 0.3388107410892844 2.967401135089047 C 0.4642939845559931 2.3600380011065805 0.7110706351992158 1.8351029760438564 1.0791546712340787 1.3925960940338553 C 1.4472387072689417 0.9457500569384609 1.9219826293887818 0.6030236205007828 2.5033881159666924 0.3644168017873111 C 3.0889763057491506 0.12147226157360705 3.766588507511791 0 4.536218863403424 0 C 5.071613660362297 0 5.584001779685961 0.06507438988147124 6.073386413574219 0.19522316964441372 C 6.5669535861206425 0.32537267473318165 7.004053376855212 0.52710386874635 7.384685752868652 0.8004167431506735 C 7.769500667540258 1.0737303514140675 8.072756407470393 1.425133288974591 8.294443478332832 1.854625572898734 C 8.516130187193232 2.2797794185300644 8.626969337463379 2.7895302850307235 8.626969337463379 3.383878104134751 L 8.626969337463379 10.125605867158098 L 6.092215785126202 10.125605867158098 L 6.092215785126202 8.739517430563462 L 6.0169235732425 8.739517430563462 C 5.862160806749665 9.051875430411581 5.655113542650543 9.32735798475754 5.3957817809451365 9.565964803471012 C 5.13644965723769 9.80023332042359 4.824827786894381 9.984610718599283 4.460926651519723 10.119098209718878 C 4.097025516145066 10.249247390544335 3.676658414057438 10.314322471618652 3.1998221201477572 10.314322471618652 Z M 3.9652718790285286 8.401129074022306 C 4.3584525950205455 8.401129074022306 4.705625287044909 8.32087069624367 5.0067846567081284 8.160353394558719 C 5.307944388373387 7.995497739913404 5.544269488898222 7.774244589038734 5.715763150482438 7.496593088610207 C 5.887257157614056 7.21894141751678 5.973005222504026 6.904413908391924 5.973005222504026 6.553011158562791 L 5.973005222504026 5.492295763630873 C 5.88934966926832 5.548693639589631 5.774323414177916 5.600752714592664 5.627926449005492 5.6484740808953315 C 5.485712038945872 5.691857188103332 5.324675283464768 5.733071626559228 5.144816166107542 5.772116295474415 C 4.964956703202915 5.806822709561557 4.785093735460357 5.839359723170837 4.605234618103132 5.869727880296622 C 4.4253751551985046 5.895757782594362 4.262244843193612 5.919618463612385 4.115847878021188 5.941309927617312 C 3.802139970923734 5.98903129391998 3.528170689649714 6.064950870742891 3.2939352788086977 6.169070292202462 C 3.0597000325140633 6.273189534463888 2.8777515792477395 6.414185314482833 2.748085698395036 6.592056010942747 C 2.618419636541313 6.765588081378457 2.55358292388916 6.982502537962963 2.55358292388916 7.242801002012819 C 2.55358292388916 7.620233664806249 2.68534184294455 7.908731260966808 2.9488565053101627 8.108293227300324 C 3.2165540683359812 8.303517028404869 3.5553600869441104 8.401129074022306 3.9652718790285286 8.401129074022306 Z","fillRule":"nonzero"},{"d":"M3.19982 10.3143 C2.58495 10.3143 2.03702 10.2037 1.556 9.98244 C1.07498 9.75685 0.69434 9.42497 0.414095 8.9868 C0.138032 8.54429 0 7.99333 0 7.33391 C0 6.7786 0.0982936 6.31223 0.294884 5.9348 C0.491474 5.55737 0.759179 5.25369 1.09798 5.02376 C1.43679 4.79383 1.8216 4.6203 2.25242 4.50316 C2.68743 4.38603 3.14336 4.3036 3.62019 4.25588 C4.18068 4.19514 4.63242 4.13874 4.97541 4.08668 C5.3184 4.03029 5.56728 3.94786 5.72204 3.8394 C5.8768 3.73094 5.95418 3.57043 5.95418 3.35785 L5.95418 3.3188 C5.95418 2.90666 5.8287 2.5878 5.57773 2.36221 C5.33095 2.13661 4.9796 2.02382 4.52367 2.02382 C4.04266 2.02382 3.65993 2.13445 3.3755 2.3557 C3.09108 2.57262 2.90285 2.84593 2.81083 3.17564 L0.338811 2.9674 C0.464294 2.36004 0.711071 1.8351 1.07915 1.3926 C1.44724 0.94575 1.92198 0.603024 2.50339 0.364417 C3.08898 0.121472 3.76659 0 4.53622 0 C5.07161 0 5.584 0.0650744 6.07339 0.195223 C6.56695 0.325373 7.00405 0.527104 7.38469 0.800417 C7.7695 1.07373 8.07276 1.42513 8.29444 1.85463 C8.51613 2.27978 8.62697 2.78953 8.62697 3.38388 L8.62697 10.1256 L6.09222 10.1256 L6.09222 8.73952 L6.01692 8.73952 C5.86216 9.05188 5.65511 9.32736 5.39578 9.56596 C5.13645 9.80023 4.82483 9.98461 4.46093 10.1191 C4.09703 10.2492 3.67666 10.3143 3.19982 10.3143 Z M3.96527 8.40113 C4.35845 8.40113 4.70563 8.32087 5.00678 8.16035 C5.30794 7.9955 5.54427 7.77424 5.71576 7.49659 C5.88726 7.21894 5.97301 6.90441 5.97301 6.55301 L5.97301 5.4923 C5.88935 5.54869 5.77432 5.60075 5.62793 5.64847 C5.48571 5.69186 5.32468 5.73307 5.14482 5.77212 C4.96496 5.80682 4.78509 5.83936 4.60523 5.86973 C4.42538 5.89576 4.26224 5.91962 4.11585 5.94131 C3.80214 5.98903 3.52817 6.06495 3.29394 6.16907 C3.0597 6.27319 2.87775 6.41419 2.74809 6.59206 C2.61842 6.76559 2.55358 6.9825 2.55358 7.2428 C2.55358 7.62023 2.68534 7.90873 2.94886 8.10829 C3.21655 8.30352 3.55536 8.40113 3.96527 8.40113 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="205.13px"
+                    />
+                    <Icon
+                      width="9.4px"
+                      height="13.87px"
+                      viewBox={{"minX":0,"minY":0,"width":9.398686408996582,"height":13.873903274536133}}
+                      paths={[{"d":"M 0 13.873903274536133 L 0 0.130148783326149 L 2.6351430416107178 0.130148783326149 L 2.6351430416107178 1.8090730905532837 L 2.7543535232543945 1.8090730905532837 C 2.8714710474014282 1.5400982797145844 3.040874034166336 1.2667850255966187 3.262561082839966 0.989133358001709 C 3.4884308576583862 0.7071436047554016 3.7812267541885376 0.4728752225637436 4.140944957733154 0.28632819652557373 C 4.504846394062042 0.09544272720813751 4.9565847516059875 0 5.496162414550781 0 C 6.198868274688721 0 6.847194194793701 0.19088545441627502 7.441147804260254 0.5726563930511475 C 8.035101771354675 0.9500888884067535 8.509845942258835 1.5205760598182678 8.865381240844727 2.2841179370880127 C 9.220917224884033 3.043321371078491 9.398686408996582 3.995579242706299 9.398686408996582 5.140892028808594 C 9.398686408996582 6.255836844444275 9.225104659795761 7.197249233722687 8.877934455871582 7.965129375457764 C 8.534947156906128 8.728671252727509 8.06647539138794 9.307835578918457 7.472521781921387 9.702621459960938 C 6.882750749588013 10.093069016933441 6.221871256828308 10.288291931152344 5.4898858070373535 10.288291931152344 C 4.97122198343277 10.288291931152344 4.529943436384201 10.199357777833939 4.166042327880859 10.02148723602295 C 3.8063237965106964 9.843616664409637 3.511434569954872 9.620194137096405 3.2813820838928223 9.351219177246094 C 3.0513295978307724 9.077905833721161 2.875653773546219 8.802423268556595 2.7543535232543945 8.524771690368652 L 2.6727848052978516 8.524771690368652 L 2.6727848052978516 13.873903274536133 L 0 13.873903274536133 Z M 2.6163220405578613 5.127878189086914 C 2.6163220405578613 5.722226023674011 2.695797711610794 6.240653067827225 2.854743003845215 6.683160305023193 C 3.0136882960796356 7.125667542219162 3.2437409460544586 7.470562383532524 3.54490065574646 7.717845916748047 C 3.8460603654384613 7.960791006684303 4.21205073595047 8.082263946533203 4.642876148223877 8.082263946533203 C 5.077884793281555 8.082263946533203 5.44596865773201 7.9586228132247925 5.747128009796143 7.711339473724365 C 6.048287719488144 7.459717690944672 6.276246532797813 7.1126517951488495 6.431009292602539 6.670144557952881 C 6.58995458483696 6.22329905629158 6.669430255889893 5.709211230278015 6.669430255889893 5.127878189086914 C 6.669430255889893 4.5508833527565 6.592047810554504 4.043300896883011 6.437285423278809 3.6051321029663086 C 6.282522663474083 3.1669633090496063 6.054564327001572 2.8242363929748535 5.75340461730957 2.5769526958465576 C 5.452244907617569 2.3296693563461304 5.0820673406124115 2.2060282230377197 4.642876148223877 2.2060282230377197 C 4.207867830991745 2.2060282230377197 3.8397837579250336 2.3253315538167953 3.5386240482330322 2.5639383792877197 C 3.241647243499756 2.802545204758644 3.0136882960796356 3.1409325301647186 2.854743003845215 3.579101324081421 C 2.695797711610794 4.017270505428314 2.6163220405578613 4.533530354499817 2.6163220405578613 5.127878189086914 Z","fillRule":"nonzero"},{"d":"M0 13.8739 L0 0.130149 L2.63514 0.130149 L2.63514 1.80907 L2.75435 1.80907 C2.87147 1.5401 3.04087 1.26679 3.26256 0.989133 C3.48843 0.707144 3.78123 0.472875 4.14094 0.286328 C4.50485 0.0954427 4.95658 0 5.49616 0 C6.19887 0 6.84719 0.190885 7.44115 0.572656 C8.0351 0.950089 8.50985 1.52058 8.86538 2.28412 C9.22092 3.04332 9.39869 3.99558 9.39869 5.14089 C9.39869 6.25584 9.2251 7.19725 8.87793 7.96513 C8.53495 8.72867 8.06647 9.30784 7.47252 9.70262 C6.88275 10.0931 6.22187 10.2883 5.48989 10.2883 C4.97122 10.2883 4.52994 10.1994 4.16604 10.0215 C3.80632 9.84362 3.51143 9.62019 3.28138 9.35122 C3.05133 9.07791 2.87565 8.80242 2.75435 8.52477 L2.67278 8.52477 L2.67278 13.8739 L0 13.8739 Z M2.61632 5.12788 C2.61632 5.72223 2.6958 6.24065 2.85474 6.68316 C3.01369 7.12567 3.24374 7.47056 3.5449 7.71785 C3.84606 7.96079 4.21205 8.08226 4.64288 8.08226 C5.07788 8.08226 5.44597 7.95862 5.74713 7.71134 C6.04829 7.45972 6.27625 7.11265 6.43101 6.67014 C6.58995 6.2233 6.66943 5.70921 6.66943 5.12788 C6.66943 4.55088 6.59205 4.0433 6.43729 3.60513 C6.28252 3.16696 6.05456 2.82424 5.7534 2.57695 C5.45224 2.32967 5.08207 2.20603 4.64288 2.20603 C4.20787 2.20603 3.83978 2.32533 3.53862 2.56394 C3.24165 2.80255 3.01369 3.14093 2.85474 3.5791 C2.6958 4.01727 2.61632 4.53353 2.61632 5.12788 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="194.4px"
+                    />
+                    <Icon
+                      width="2.67px"
+                      height="13.33px"
+                      viewBox={{"minX":0,"minY":0,"width":2.6727850437164307,"height":13.327277183532715}}
+                      paths={[{"d":"M 2.672785043716431 0 L 2.672785043716431 13.327277183532717 L 0 13.327277183532717 L 0 0 L 2.672785043716431 0 Z","fillRule":"nonzero"},{"d":"M2.67279 0 L2.67279 13.3273 L0 13.3273 L0 0 L2.67279 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9531.76px"
+                      left="185.49px"
+                    />
+                    <Icon
+                      width="8.63px"
+                      height="10.31px"
+                      viewBox={{"minX":0,"minY":0,"width":8.626969337463379,"height":10.314322471618652}}
+                      paths={[{"d":"M 3.1998221201477572 10.314322471618652 C 2.5849544813850445 10.314322471618652 2.0370158530184526 10.203695384186618 1.5559969217227771 9.982441772516717 C 1.0749779904271017 9.756849859085923 0.6943403160201705 9.424969654912198 0.41409452819824216 8.986800767466269 C 0.13803150939941405 8.544293578259447 0 7.993328503700507 0 7.333906021651168 C 0 6.778602850129214 0.09829360758005895 6.312234932971523 0.29488396557606755 5.934802270178094 C 0.4914742906627998 5.557369778049564 0.7591794557314533 5.25368785266204 1.0979840427860617 5.023757535071414 C 1.436788728568499 4.793827217480787 1.8215968968384546 4.620295513974613 2.252422501129098 4.503161323764283 C 2.687430841533565 4.386027133553954 3.143356811620313 4.303599353164143 3.6201931055299936 4.255877986861476 C 4.180684615355298 4.195141672609905 4.632423472394468 4.138743067058699 4.9754107955629 4.086683262463218 C 5.318398480733372 4.03028538650446 5.567277203175637 3.94785869837001 5.722039607666432 3.839401017815771 C 5.876802374159268 3.7309433372615324 5.954184275726788 3.5704254894489 5.954184275726788 3.3578485666332347 L 5.954184275726788 3.31880371425328 C 5.954184275726788 2.906664808037608 5.8286983090174616 2.58779870702153 5.577731641083024 2.3622064693274263 C 5.330948219356194 2.136614590029613 4.979596855513634 2.0238192050416313 4.523674373810179 2.0238192050416313 C 4.042655541242333 2.0238192050416313 3.659932405993593 2.1344461047422767 3.3755039478763935 2.3556999041435676 C 3.091075292303536 2.5726152652520455 2.9028460049194647 2.8459285151191493 2.8108249959107487 3.175639619611899 L 0.3388107410892844 2.967401135089047 C 0.4642939845559931 2.3600380011065805 0.7110706351992158 1.8351029760438564 1.0791546712340787 1.3925960940338553 C 1.4472387072689417 0.9457500569384609 1.9219826293887818 0.6030236205007828 2.5033881159666924 0.3644168017873111 C 3.0889763057491506 0.12147226157360705 3.766588507511791 0 4.536218863403424 0 C 5.071613660362297 0 5.584001779685961 0.06507438988147124 6.073386413574219 0.19522316964441372 C 6.5669535861206425 0.32537267473318165 7.004053376855212 0.52710386874635 7.384685752868652 0.8004167431506735 C 7.769500667540258 1.0737303514140675 8.072756407470393 1.425133288974591 8.294443478332832 1.854625572898734 C 8.516130187193232 2.2797794185300644 8.626969337463379 2.7895302850307235 8.626969337463379 3.383878104134751 L 8.626969337463379 10.125605867158098 L 6.092215785126202 10.125605867158098 L 6.092215785126202 8.739517430563462 L 6.0169235732425 8.739517430563462 C 5.862160806749665 9.051875430411581 5.655113542650543 9.32735798475754 5.3957817809451365 9.565964803471012 C 5.13644965723769 9.80023332042359 4.824827786894381 9.984610718599283 4.460926651519723 10.119098209718878 C 4.097025516145066 10.249247390544335 3.676658414057438 10.314322471618652 3.1998221201477572 10.314322471618652 Z M 3.9652718790285286 8.401129074022306 C 4.3584525950205455 8.401129074022306 4.705625287044909 8.32087069624367 5.0067846567081284 8.160353394558719 C 5.307944388373387 7.995497739913404 5.544269488898222 7.774244589038734 5.715763150482438 7.496593088610207 C 5.887257157614056 7.21894141751678 5.973005222504026 6.904413908391924 5.973005222504026 6.553011158562791 L 5.973005222504026 5.492295763630873 C 5.88934966926832 5.548693639589631 5.774323414177916 5.600752714592664 5.627926449005492 5.6484740808953315 C 5.485712038945872 5.691857188103332 5.324675283464768 5.733071626559228 5.144816166107542 5.772116295474415 C 4.964956703202915 5.806822709561557 4.785093735460357 5.839359723170837 4.605234618103132 5.869727880296622 C 4.4253751551985046 5.895757782594362 4.262244843193612 5.919618463612385 4.115847878021188 5.941309927617312 C 3.802139970923734 5.98903129391998 3.528170689649714 6.064950870742891 3.2939352788086977 6.169070292202462 C 3.0597000325140633 6.273189534463888 2.8777515792477395 6.414185314482833 2.748085698395036 6.592056010942747 C 2.618419636541313 6.765588081378457 2.55358292388916 6.982502537962963 2.55358292388916 7.242801002012819 C 2.55358292388916 7.620233664806249 2.68534184294455 7.908731260966808 2.9488565053101627 8.108293227300324 C 3.2165540683359812 8.303517028404869 3.5553600869441104 8.401129074022306 3.9652718790285286 8.401129074022306 Z","fillRule":"nonzero"},{"d":"M3.19982 10.3143 C2.58495 10.3143 2.03702 10.2037 1.556 9.98244 C1.07498 9.75685 0.69434 9.42497 0.414095 8.9868 C0.138032 8.54429 0 7.99333 0 7.33391 C0 6.7786 0.0982936 6.31223 0.294884 5.9348 C0.491474 5.55737 0.759179 5.25369 1.09798 5.02376 C1.43679 4.79383 1.8216 4.6203 2.25242 4.50316 C2.68743 4.38603 3.14336 4.3036 3.62019 4.25588 C4.18068 4.19514 4.63242 4.13874 4.97541 4.08668 C5.3184 4.03029 5.56728 3.94786 5.72204 3.8394 C5.8768 3.73094 5.95418 3.57043 5.95418 3.35785 L5.95418 3.3188 C5.95418 2.90666 5.8287 2.5878 5.57773 2.36221 C5.33095 2.13661 4.9796 2.02382 4.52367 2.02382 C4.04266 2.02382 3.65993 2.13445 3.3755 2.3557 C3.09108 2.57262 2.90285 2.84593 2.81083 3.17564 L0.338811 2.9674 C0.464294 2.36004 0.711071 1.8351 1.07915 1.3926 C1.44724 0.94575 1.92198 0.603024 2.50339 0.364417 C3.08898 0.121472 3.76659 0 4.53622 0 C5.07161 0 5.584 0.0650744 6.07339 0.195223 C6.56695 0.325373 7.00405 0.527104 7.38469 0.800417 C7.7695 1.07373 8.07276 1.42513 8.29444 1.85463 C8.51613 2.27978 8.62697 2.78953 8.62697 3.38388 L8.62697 10.1256 L6.09222 10.1256 L6.09222 8.73952 L6.01692 8.73952 C5.86216 9.05188 5.65511 9.32736 5.39578 9.56596 C5.13645 9.80023 4.82483 9.98461 4.46093 10.1191 C4.09703 10.2492 3.67666 10.3143 3.19982 10.3143 Z M3.96527 8.40113 C4.35845 8.40113 4.70563 8.32087 5.00678 8.16035 C5.30794 7.9955 5.54427 7.77424 5.71576 7.49659 C5.88726 7.21894 5.97301 6.90441 5.97301 6.55301 L5.97301 5.4923 C5.88935 5.54869 5.77432 5.60075 5.62793 5.64847 C5.48571 5.69186 5.32468 5.73307 5.14482 5.77212 C4.96496 5.80682 4.78509 5.83936 4.60523 5.86973 C4.42538 5.89576 4.26224 5.91962 4.11585 5.94131 C3.80214 5.98903 3.52817 6.06495 3.29394 6.16907 C3.0597 6.27319 2.87775 6.41419 2.74809 6.59206 C2.61842 6.76559 2.55358 6.9825 2.55358 7.2428 C2.55358 7.62023 2.68534 7.90873 2.94886 8.10829 C3.21655 8.30352 3.55536 8.40113 3.96527 8.40113 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="174.79px"
+                    />
+                    <Icon
+                      width="2.89px"
+                      height="14.09px"
+                      viewBox={{"minX":0,"minY":0,"width":2.8861169815063477,"height":14.08864974975586}}
+                      paths={[{"d":"M 0.1003853976726532 14.08864974975586 L 0.1003853976726532 4.093192100524902 L 2.773174524307251 4.093192100524902 L 2.773174524307251 14.08864974975586 L 0.1003853976726532 14.08864974975586 Z M 1.4430584907531738 2.804715156555176 C 1.0456950664520264 2.804715156555176 0.7047952711582184 2.6680584847927094 0.42036673426628113 2.394744873046875 C 0.14012092351913452 2.117093563079834 0 1.785213142633438 0 1.3991037607192993 C 0 1.0173328220844269 0.14012092351913452 0.6897909343242645 0.42036673426628113 0.41647806763648987 C 0.7047952711582184 0.13882601261138916 1.0456950664520264 0 1.4430584907531738 0 C 1.8404219150543213 0 2.1792238354682922 0.13882601261138916 2.4594695568084717 0.41647806763648987 C 2.743898183107376 0.6897909343242645 2.8861169815063477 1.0173328220844269 2.8861169815063477 1.3991037607192993 C 2.8861169815063477 1.785213142633438 2.743898183107376 2.117093563079834 2.4594695568084717 2.394744873046875 C 2.1792238354682922 2.6680584847927094 1.8404219150543213 2.804715156555176 1.4430584907531738 2.804715156555176 Z","fillRule":"nonzero"},{"d":"M0.100385 14.0886 L0.100385 4.09319 L2.77317 4.09319 L2.77317 14.0886 L0.100385 14.0886 Z M1.44306 2.80472 C1.0457 2.80472 0.704795 2.66806 0.420367 2.39474 C0.140121 2.11709 0 1.78521 0 1.3991 C0 1.01733 0.140121 0.689791 0.420367 0.416478 C0.704795 0.138826 1.0457 0 1.44306 0 C1.84042 0 2.17922 0.138826 2.45947 0.416478 C2.7439 0.689791 2.88612 1.01733 2.88612 1.3991 C2.88612 1.78521 2.7439 2.11709 2.45947 2.39474 C2.17922 2.66806 1.84042 2.80472 1.44306 2.80472 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9531px"
+                      left="170.33px"
+                    />
+                    <Icon
+                      width="9.05px"
+                      height="10.32px"
+                      viewBox={{"minX":0,"minY":0,"width":9.047334671020508,"height":10.320830345153809}}
+                      paths={[{"d":"M 4.743265151977539 10.320830345153809 C 3.7561309933662415 10.320830345153809 2.9070264101028442 10.103914588689804 2.1959550380706787 9.670083999633789 C 1.4890665411949158 9.231915056705475 0.9453069269657135 8.624552547931671 0.5646746158599854 7.847995758056641 C 0.18822512030601501 7.071438848972321 0 6.177746891975403 0 5.166921615600586 C 0 4.143081545829773 0.19031456112861633 3.2450533509254456 0.5709468722343445 2.472834587097168 C 0.9557619094848633 1.6962777972221375 1.5016151666641235 1.0910834074020386 2.2085037231445312 0.6572526693344116 C 2.915392220020294 0.21908420324325562 3.7561306953430176 0 4.730716705322266 0 C 5.5714539885520935 0 6.3076218366622925 0.15834790468215942 6.939220428466797 0.47504371404647827 C 7.570819020271301 0.7917402684688568 8.070661544799805 1.2364166975021362 8.438745498657227 1.8090730905532837 C 8.806829452514648 2.381729483604431 9.00968997552991 3.0541669726371765 9.047334671020508 3.826385736465454 L 6.525125980377197 3.826385736465454 C 6.454018786549568 3.327480226755142 6.265793323516846 2.9261876046657562 5.960451126098633 2.6225063800811768 C 5.659291446208954 2.314486712217331 5.2640193700790405 2.160475730895996 4.774634838104248 2.160475730895996 C 4.360540390014648 2.160475730895996 3.9987290799617767 2.277609869837761 3.689203977584839 2.511878252029419 C 3.3838616013526917 2.7418085783720016 3.1454468816518784 3.0780272781848907 2.9739532470703125 3.5205345153808594 C 2.8024596124887466 3.963041752576828 2.7167112827301025 4.498823940753937 2.7167112827301025 5.127878189086914 C 2.7167112827301025 5.7656092047691345 2.8003659695386887 6.307896643877029 2.967676877975464 6.75474214553833 C 3.1391705125570297 7.201587826013565 3.379678875207901 7.542145535349846 3.689203977584839 7.776413917541504 C 3.9987290799617767 8.010682493448257 4.360540390014648 8.127816200256348 4.774634838104248 8.127816200256348 C 5.079977422952652 8.127816200256348 5.35395060479641 8.062741070985794 5.596551418304443 7.932591915130615 C 5.843334794044495 7.802442759275436 6.046199128031731 7.613727167248726 6.20514440536499 7.366443634033203 C 6.368272572755814 7.1148218512535095 6.474932584911585 6.813309192657471 6.525125980377197 6.461906433105469 L 9.047334671020508 6.461906433105469 C 9.005507074296474 7.225448310375214 8.804735988378525 7.897886395454407 8.44501781463623 8.479219436645508 C 8.089482218027115 9.056214153766632 7.598005652427673 9.507397413253784 6.970589637756348 9.832770347595215 C 6.343173921108246 10.158143281936646 5.600733637809753 10.320830345153809 4.743265151977539 10.320830345153809 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.75613 10.3208 2.90703 10.1039 2.19596 9.67008 C1.48907 9.23192 0.945307 8.62455 0.564675 7.848 C0.188225 7.07144 0 6.17775 0 5.16692 C0 4.14308 0.190315 3.24505 0.570947 2.47283 C0.955762 1.69628 1.50162 1.09108 2.2085 0.657253 C2.91539 0.219084 3.75613 0 4.73072 0 C5.57145 0 6.30762 0.158348 6.93922 0.475044 C7.57082 0.79174 8.07066 1.23642 8.43875 1.80907 C8.80683 2.38173 9.00969 3.05417 9.04733 3.82639 L6.52513 3.82639 C6.45402 3.32748 6.26579 2.92619 5.96045 2.62251 C5.65929 2.31449 5.26402 2.16048 4.77463 2.16048 C4.36054 2.16048 3.99873 2.27761 3.6892 2.51188 C3.38386 2.74181 3.14545 3.07803 2.97395 3.52053 C2.80246 3.96304 2.71671 4.49882 2.71671 5.12788 C2.71671 5.76561 2.80037 6.3079 2.96768 6.75474 C3.13917 7.20159 3.37968 7.54215 3.6892 7.77641 C3.99873 8.01068 4.36054 8.12782 4.77463 8.12782 C5.07998 8.12782 5.35395 8.06274 5.59655 7.93259 C5.84333 7.80244 6.0462 7.61373 6.20514 7.36644 C6.36827 7.11482 6.47493 6.81331 6.52513 6.46191 L9.04733 6.46191 C9.00551 7.22545 8.80474 7.89789 8.44502 8.47922 C8.08948 9.05621 7.59801 9.5074 6.97059 9.83277 C6.34317 10.1581 5.60073 10.3208 4.74327 10.3208 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="159.67px"
+                    />
+                    <Icon
+                      width="9.49px"
+                      height="10.32px"
+                      viewBox={{"minX":0,"minY":0,"width":9.486528396606445,"height":10.320830345153809}}
+                      paths={[{"d":"M 4.743266304496987 10.320830345153809 C 3.7686802301068725 10.320830345153809 2.925852240502139 10.106084198695415 2.214780690218908 9.67659190577863 C 1.5078920407519674 9.242761276877136 0.9620386554030694 8.639736193098656 0.5772234630979177 7.867517712565595 C 0.19240833661132117 7.090960930180807 0 6.190761862362172 0 5.166921737896996 C 0 4.13440473666452 0.19240833661132117 3.2320375419094427 0.5772234630979177 2.4598191979083044 C 0.9620386554030694 1.6832624155235159 1.5078920407519674 1.0802376730748444 2.214780690218908 0.6507450046952705 C 2.925852240502139 0.21691499018742993 3.7686802301068725 0 4.743266304496987 0 C 5.717852378887102 0 6.5585908268217885 0.21691499018742993 7.2654796737443945 0.6507450046952705 C 7.9765510265719595 1.0802376730748444 8.524490004477595 1.6832624155235159 8.909304933508526 2.4598191979083044 C 9.294120586543563 3.2320375419094427 9.486528396606445 4.13440473666452 9.486528396606445 5.166921737896996 C 9.486528396606445 6.190761862362172 9.294120586543563 7.090960930180807 8.909304933508526 7.867517712565595 C 8.524490004477595 8.639736193098656 7.9765510265719595 9.242761276877136 7.2654796737443945 9.67659190577863 C 6.5585908268217885 10.106084198695415 5.717852378887102 10.320830345153809 4.743266304496987 10.320830345153809 Z M 4.755815006945857 8.173367788314495 C 5.199189165215192 8.173367788314495 5.569362526290171 8.043219739685604 5.866339368376882 7.782921440850564 C 6.163316210463592 7.518284703631873 6.387096122196063 7.158205257409216 6.537675993647563 6.702683050983124 C 6.692438765915353 6.2471608445570315 6.769820670370369 5.72873278341916 6.769820670370369 5.1473998574259525 C 6.769820670370369 4.566066931432745 6.692438765915353 4.0476388702948745 6.537675993647563 3.5921166638687816 C 6.387096122196063 3.136594457442689 6.163316210463592 2.7765150112200327 5.866339368376882 2.511878274001342 C 5.569362526290171 2.247241536782651 5.199189165215192 2.1149242689619343 4.755815006945857 2.1149242689619343 C 4.3082583098622855 2.1149242689619343 3.931807767364999 2.247241536782651 3.626465485647762 2.511878274001342 C 3.325305742744762 2.7765150112200327 3.0973427491949748 3.136594457442689 2.9425801579282114 3.5921166638687816 C 2.7920002864767115 4.0476388702948745 2.7167119386236043 4.566066931432745 2.7167119386236043 5.1473998574259525 C 2.7167119386236043 5.72873278341916 2.7920002864767115 6.2471608445570315 2.9425801579282114 6.702683050983124 C 3.0973427491949748 7.158205257409216 3.325305742744762 7.518284703631873 3.626465485647762 7.782921440850564 C 3.931807767364999 8.043219739685604 4.3082583098622855 8.173367788314495 4.755815006945857 8.173367788314495 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.76868 10.3208 2.92585 10.1061 2.21478 9.67659 C1.50789 9.24276 0.962039 8.63974 0.577223 7.86752 C0.192408 7.09096 0 6.19076 0 5.16692 C0 4.1344 0.192408 3.23204 0.577223 2.45982 C0.962039 1.68326 1.50789 1.08024 2.21478 0.650745 C2.92585 0.216915 3.76868 0 4.74327 0 C5.71785 0 6.55859 0.216915 7.26548 0.650745 C7.97655 1.08024 8.52449 1.68326 8.9093 2.45982 C9.29412 3.23204 9.48653 4.1344 9.48653 5.16692 C9.48653 6.19076 9.29412 7.09096 8.9093 7.86752 C8.52449 8.63974 7.97655 9.24276 7.26548 9.67659 C6.55859 10.1061 5.71785 10.3208 4.74327 10.3208 Z M4.75582 8.17337 C5.19919 8.17337 5.56936 8.04322 5.86634 7.78292 C6.16332 7.51828 6.3871 7.15821 6.53768 6.70268 C6.69244 6.24716 6.76982 5.72873 6.76982 5.1474 C6.76982 4.56607 6.69244 4.04764 6.53768 3.59212 C6.3871 3.13659 6.16332 2.77652 5.86634 2.51188 C5.56936 2.24724 5.19919 2.11492 4.75582 2.11492 C4.30826 2.11492 3.93181 2.24724 3.62647 2.51188 C3.32531 2.77652 3.09734 3.13659 2.94258 3.59212 C2.792 4.04764 2.71671 4.56607 2.71671 5.1474 C2.71671 5.72873 2.792 6.24716 2.94258 6.70268 C3.09734 7.15821 3.32531 7.51828 3.62647 7.78292 C3.93181 8.04322 4.30826 8.17337 4.75582 8.17337 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="148.84px"
+                    />
+                    <Icon
+                      width="8.66px"
+                      height="10.32px"
+                      viewBox={{"minX":0,"minY":0,"width":8.6646146774292,"height":10.320830345153809}}
+                      paths={[{"d":"M 8.445018730762355 2.980416512370981 L 5.998097883829359 3.136594832905477 C 5.956269934021853 2.9196794672552593 5.866338630874451 2.724456293523293 5.728307133677405 2.5509242194541955 C 5.590275636480359 2.3730537070014472 5.408327191071465 2.2320581032285034 5.18245760151836 2.1279384918575017 C 4.960770550253672 2.0194811759619355 4.695163407941524 1.96525251374753 4.385638264320777 1.96525251374753 C 3.971543772729639 1.96525251374753 3.622281964900232 2.0563568014343354 3.3378533344716557 2.238565393874436 C 3.0534249014987203 2.4164359063271843 2.911210142009241 2.655042747103059 2.911210142009241 2.954385882069079 C 2.911210142009241 3.192992705778463 3.003231134655726 3.394724629341288 3.187273136403333 3.559580560502171 C 3.3713151381509396 3.7244361162002657 3.6871158663050787 3.856753759483771 4.134672671669239 3.956534565541579 L 5.878887331745728 4.320952467214376 C 6.815828234096086 4.52051443772629 7.514352211756909 4.8415490648844575 7.97445719144397 5.284056297489406 C 8.43456253313304 5.726563530094355 8.6646146774292 6.307896080624774 8.6646146774292 7.028055007203068 C 8.6646146774292 7.683139201207565 8.478483348184518 8.257964879221065 8.106216444398878 8.752531836445685 C 7.738132440903665 9.247098691271363 7.2320169402114045 9.633208341133663 6.5878699752313725 9.910859932708066 C 5.9479055156304845 10.18417320536425 5.209644018119892 10.320830345153809 4.3730895634495 10.320830345153809 C 3.0973438078123374 10.320830345153809 2.0809297745002997 10.045347836239307 1.323847924243213 9.49438295494223 C 0.5709488426394584 8.939079771793425 0.12966591875379035 8.184214362135352 0 7.229786930765893 L 2.6288749033730103 7.086622833126964 C 2.708347729923912 7.4900854173323275 2.9007558860270595 7.798104882937956 3.206098293903748 8.010681810204524 C 3.5114407017804363 8.218920572151287 3.902530130324616 8.3230395435289 4.379366020078638 8.3230395435289 C 4.847836800346552 8.3230395435289 5.224286966424624 8.229766207315173 5.508715399397559 8.043219005826518 C 5.79732673266092 7.852333451286665 5.943720180053826 7.607219601461949 5.947903080344251 7.307876637160833 C 5.943720180053826 7.056254856696795 5.8412436808727675 6.850185040878011 5.640470439965466 6.689667735832173 C 5.439697544605536 6.524811992402684 5.13017345408154 6.3990005560429735 4.711896062199976 6.312234519008425 L 3.0429693949641483 5.967339590062054 C 2.1018454606862713 5.772115870202397 1.4012322707108291 5.433727506576118 0.9411272910237671 4.952175591438603 C 0.48520501417149026 4.470623505636185 0.25724204928067623 3.8567537594837704 0.25724204928067623 3.1105652948589584 C 0.25724204928067623 2.4684957333457977 0.424551380315194 1.9153615645909339 0.7591732345837525 1.4511628568603288 C 1.097977791687096 0.9869645245925116 1.5727259500438033 0.6290542634287 2.18341076579718 0.3774321245683646 C 2.798278350203889 0.12581070250062476 3.5177135054802235 0 4.341719917464808 0 C 5.558906648681136 0 6.516760999386872 0.26680559801421844 7.215283956860218 0.8004167599096746 C 7.91798981462399 1.3340286727307071 8.327901035695376 2.0606956323472643 8.445018730762355 2.980416512370981 Z","fillRule":"nonzero"},{"d":"M8.44502 2.98042 L5.9981 3.13659 C5.95627 2.91968 5.86634 2.72446 5.72831 2.55092 C5.59028 2.37305 5.40833 2.23206 5.18246 2.12794 C4.96077 2.01948 4.69516 1.96525 4.38564 1.96525 C3.97154 1.96525 3.62228 2.05636 3.33785 2.23857 C3.05342 2.41644 2.91121 2.65504 2.91121 2.95439 C2.91121 3.19299 3.00323 3.39472 3.18727 3.55958 C3.37132 3.72444 3.68712 3.85675 4.13467 3.95653 L5.87889 4.32095 C6.81583 4.52051 7.51435 4.84155 7.97446 5.28406 C8.43456 5.72656 8.66461 6.3079 8.66461 7.02806 C8.66461 7.68314 8.47848 8.25797 8.10622 8.75253 C7.73813 9.2471 7.23202 9.63321 6.58787 9.91086 C5.94791 10.1842 5.20964 10.3208 4.37309 10.3208 C3.09734 10.3208 2.08093 10.0453 1.32385 9.49438 C0.570949 8.93908 0.129666 8.18421 0 7.22979 L2.62888 7.08662 C2.70835 7.49009 2.90076 7.7981 3.2061 8.01068 C3.51144 8.21892 3.90253 8.32304 4.37937 8.32304 C4.84784 8.32304 5.22429 8.22977 5.50872 8.04322 C5.79733 7.85233 5.94372 7.60722 5.9479 7.30788 C5.94372 7.05625 5.84124 6.85018 5.64047 6.68967 C5.4397 6.52481 5.13017 6.399 4.7119 6.31223 L3.04297 5.96734 C2.10185 5.77212 1.40123 5.43373 0.941127 4.95218 C0.485205 4.47062 0.257242 3.85675 0.257242 3.11057 C0.257242 2.4685 0.424551 1.91536 0.759173 1.45116 C1.09798 0.986965 1.57273 0.629054 2.18341 0.377432 C2.79828 0.125811 3.51771 0 4.34172 0 C5.55891 0 6.51676 0.266806 7.21528 0.800417 C7.91799 1.33403 8.3279 2.0607 8.44502 2.98042 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.96px"
+                      left="138.88px"
+                    />
+                    <Icon
+                      width="5.85px"
+                      height="10.14px"
+                      viewBox={{"minX":0,"minY":0,"width":5.84751558303833,"height":10.13862133026123}}
+                      paths={[{"d":"M 0 10.13862133026123 L 0 0.14316409673441258 L 2.5912266961037034 0.14316409673441258 L 2.5912266961037034 1.887163341557115 L 2.6916141969400034 1.887163341557115 C 2.867290562757399 1.2667852249562017 3.1621757365376895 0.7982482524670833 3.576270228374613 0.4815524582227408 C 3.9903647202115367 0.16051747469658673 4.467200248246577 0 5.006777898485758 0 C 5.140626849246514 0 5.28493305073954 0.008676512982906278 5.439695441640769 0.02602953788206319 C 5.594458194544005 0.04338329130702311 5.7303978879018365 0.06724397480719564 5.84751558303833 0.09761158624926948 L 5.84751558303833 2.557431860871723 C 5.722032432863391 2.51838700792094 5.548446291322014 2.48367950107102 5.326759239925744 2.453311524832717 C 5.1050721885294745 2.422943548594414 4.902208204905929 2.4077601066029506 4.718166203049083 2.4077601066029506 C 4.324985521581959 2.4077601066029506 3.9736341721366535 2.4966948161397404 3.664109028332188 2.674565327468696 C 3.3587666202742636 2.8480974004414117 3.116164705411444 3.0910430193958045 2.93630543930114 3.4034011262094785 C 2.760629073483744 3.7157592330231526 2.672791145621916 4.075838694037304 2.672791145621916 4.483639509251933 L 2.672791145621916 10.13862133026123 L 0 10.13862133026123 Z","fillRule":"nonzero"},{"d":"M0 10.1386 L0 0.143164 L2.59123 0.143164 L2.59123 1.88716 L2.69161 1.88716 C2.86729 1.26679 3.16218 0.798248 3.57627 0.481552 C3.99036 0.160517 4.4672 0 5.00678 0 C5.14063 0 5.28493 0.00867651 5.4397 0.0260295 C5.59446 0.0433833 5.7304 0.067244 5.84752 0.0976116 L5.84752 2.55743 C5.72203 2.51839 5.54845 2.48368 5.32676 2.45331 C5.10507 2.42294 4.90221 2.40776 4.71817 2.40776 C4.32499 2.40776 3.97363 2.49669 3.66411 2.67457 C3.35877 2.8481 3.11616 3.09104 2.93631 3.4034 C2.76063 3.71576 2.67279 4.07584 2.67279 4.48364 L2.67279 10.1386 L0 10.1386 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9534.95px"
+                      left="127.99px"
+                    />
+                    <Icon
+                      width="8.85px"
+                      height="10.13px"
+                      viewBox={{"minX":0,"minY":0,"width":8.852840423583984,"height":10.125605583190918}}
+                      paths={[{"d":"M 6.1800470228301005 5.739578939570265 L 6.1800470228301005 0 L 8.852840423583984 0 L 8.852840423583984 9.995456807077927 L 6.286708880049378 9.995456807077927 L 6.286708880049378 8.179876137476136 L 6.186321373619095 8.179876137476136 C 5.968817210395554 8.765547473165459 5.607007915416447 9.236252962090779 5.1008923862210525 9.591994071970197 C 4.598959428458901 9.947735147716635 3.986181844588577 10.125605583190918 3.2625623660799308 10.125605583190918 C 2.6184153648231834 10.125605583190918 2.0516504107428712 9.973765162349874 1.562265957103056 9.670083774540123 C 1.0728814376446898 9.366402352597392 0.6901575248531402 8.93474075923362 0.4140945149118841 8.37509930164562 C 0.1422142738595228 7.815457878190597 0.004182768888894754 7.145189558137402 0 6.3642943756190125 L 0 0 L 2.672792347657074 0 L 2.672792347657074 5.869727715683255 C 2.676975072581234 6.459737284745848 2.8296454898958463 6.926105359489397 3.1308052118982967 7.268831427919216 C 3.431964933900747 7.611557667013931 3.835603579687204 7.78292105962512 4.341719108882598 7.78292105962512 C 4.663792609510972 7.78292105962512 4.964952331513422 7.707000388409381 5.245198241980674 7.555159609172057 C 5.525443790445898 7.398980750159871 5.75131340917404 7.169050251286133 5.922807065255826 6.865368692811486 C 6.0984836218636085 6.561687305001734 6.184229923356097 6.186424418006437 6.1800470228301005 5.739578939570265 Z","fillRule":"nonzero"},{"d":"M6.18005 5.73958 L6.18005 0 L8.85284 0 L8.85284 9.99546 L6.28671 9.99546 L6.28671 8.17988 L6.18632 8.17988 C5.96882 8.76555 5.60701 9.23625 5.10089 9.59199 C4.59896 9.94773 3.98618 10.1256 3.26256 10.1256 C2.61842 10.1256 2.05165 9.97376 1.56227 9.67008 C1.07288 9.3664 0.690157 8.93474 0.414095 8.3751 C0.142214 7.81546 0.00418277 7.14519 0 6.36429 L0 0 L2.67279 0 L2.67279 5.86973 C2.67698 6.45974 2.82965 6.92611 3.13081 7.26883 C3.43196 7.61156 3.8356 7.78292 4.34172 7.78292 C4.66379 7.78292 4.96495 7.707 5.2452 7.55516 C5.52544 7.39898 5.75131 7.16905 5.92281 6.86537 C6.09848 6.56169 6.18423 6.18642 6.18005 5.73958 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9535.09px"
+                      left="117px"
+                    />
+                    <Icon
+                      width="12.03px"
+                      height="13.69px"
+                      viewBox={{"minX":0,"minY":0,"width":12.033838272094727,"height":13.691694259643555}}
+                      paths={[{"d":"M 12.033838272094727 6.8458471298217765 C 12.033838272094727 8.299179748010436 11.76823215286811 9.535596455016886 11.23701994732415 10.555098343096509 C 10.709990642284112 11.574600231176131 9.990553508640449 12.353326435412068 9.078708579302438 12.891276409676628 C 8.171047274472402 13.424888047968395 7.150450815326893 13.691694259643553 6.016919136047363 13.691694259643553 C 4.875022050671292 13.691694259643553 3.850242427747661 13.422718692250601 2.942580728006323 12.884768752119022 C 2.0349190282649854 12.346818811987443 1.31757357523821 11.568093665873908 0.7905441714703462 10.548591777794286 C 0.2635147347932071 9.52908968491678 0 8.294841309638699 0 6.8458471298217765 C 0 5.39251464816504 0.2635147347932071 4.156097599828783 0.7905441714703462 3.1365959165470447 C 1.31757357523821 2.1170934823397323 2.0349190282649854 1.3405366679545672 2.942580728006323 0.8069255075245303 C 3.850242427747661 0.2689751577971833 4.875022050671292 0 6.016919136047363 0 C 7.150450815326893 0 8.171047274472402 0.2689751577971833 9.078708579302438 0.8069255075245303 C 9.990553508640449 1.3405366679545672 10.709990642284112 2.1170934823397323 11.23701994732415 3.1365959165470447 C 11.76823215286811 4.156097599828783 12.033838272094727 5.39251464816504 12.033838272094727 6.8458471298217765 Z M 9.279482538006656 6.8458471298217765 C 9.279482538006656 5.9044347431247575 9.14354213846903 5.110524755513319 8.871661322939142 4.4641170987215 C 8.60396411546259 3.8177097832594873 8.225423203922526 3.327481368163741 7.736038588318952 2.993431819301278 C 7.246654334717404 2.6593822704388153 6.673614506323783 2.4923574789410936 6.016919136047363 2.4923574789410936 C 5.360223765770944 2.4923574789410936 4.787183674103122 2.6593822704388153 4.297799420501574 2.993431819301278 C 3.808414804898 3.327481368163741 3.427782360832788 3.8177097832594873 3.155902071851301 4.4641170987215 C 2.888204683373736 5.110524755513319 2.754355997362272 5.9044347431247575 2.754355997362272 6.8458471298217765 C 2.754355997362272 7.787259516518795 2.888204683373736 8.581170050257924 3.155902071851301 9.227577707049743 C 3.427782360832788 9.873985363841562 3.808414804898 10.364212891479813 4.297799420501574 10.698262440342276 C 4.787183674103122 11.03231198920474 5.360223765770944 11.19933678070246 6.016919136047363 11.19933678070246 C 6.673614506323783 11.19933678070246 7.246654334717404 11.03231198920474 7.736038588318952 10.698262440342276 C 8.225423203922526 10.364212891479813 8.60396411546259 9.873985363841562 8.871661322939142 9.227577707049743 C 9.14354213846903 8.581170050257924 9.279482538006656 7.787259516518795 9.279482538006656 6.8458471298217765 Z","fillRule":"nonzero"},{"d":"M12.0338 6.84585 C12.0338 8.29918 11.7682 9.5356 11.237 10.5551 C10.71 11.5746 9.99055 12.3533 9.07871 12.8913 C8.17105 13.4249 7.15045 13.6917 6.01692 13.6917 C4.87502 13.6917 3.85024 13.4227 2.94258 12.8848 C2.03492 12.3468 1.31757 11.5681 0.790544 10.5486 C0.263515 9.52909 0 8.29484 0 6.84585 C0 5.39251 0.263515 4.1561 0.790544 3.1366 C1.31757 2.11709 2.03492 1.34054 2.94258 0.806926 C3.85024 0.268975 4.87502 0 6.01692 0 C7.15045 0 8.17105 0.268975 9.07871 0.806926 C9.99055 1.34054 10.71 2.11709 11.237 3.1366 C11.7682 4.1561 12.0338 5.39251 12.0338 6.84585 Z M9.27948 6.84585 C9.27948 5.90443 9.14354 5.11052 8.87166 4.46412 C8.60396 3.81771 8.22542 3.32748 7.73604 2.99343 C7.24665 2.65938 6.67361 2.49236 6.01692 2.49236 C5.36022 2.49236 4.78718 2.65938 4.2978 2.99343 C3.80841 3.32748 3.42778 3.81771 3.1559 4.46412 C2.8882 5.11052 2.75436 5.90443 2.75436 6.84585 C2.75436 7.78726 2.8882 8.58117 3.1559 9.22758 C3.42778 9.87399 3.80841 10.3642 4.2978 10.6983 C4.78718 11.0323 5.36022 11.1993 6.01692 11.1993 C6.67361 11.1993 7.24665 11.0323 7.73604 10.6983 C8.22542 10.3642 8.60396 9.87399 8.87166 9.22758 C9.14354 8.58117 9.27948 7.78726 9.27948 6.84585 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                      display="block"
+                      position="absolute"
+                      top="9531.58px"
+                      left="103px"
+                    />
+                  </View>
+                </View>
+                <View
+                  width="159.55px"
+                  height="27.87px"
+                  display="block"
+                  position="absolute"
+                  top="9574px"
+                  left="103px"
+                >
+                  <Flex
+                    width="26.48px"
+                    height="27.49px"
+                    position="absolute"
+                    top="9574px"
+                    left="103px"
+                    backgroundColor="rgba(30,30,30,1)"
+                  >
+                    <View
+                      width="26.48px"
+                      height="27.49px"
+                      display="block"
+                      position="absolute"
+                      top="0px"
+                      left="0px"
+                    >
+                      <Icon
+                        width="26.48px"
+                        height="27.49px"
+                        viewBox={{"minX":0,"minY":0,"width":26.479982376098633,"height":27.487504959106445}}
+                        paths={[{"d":"M 15.761769454441605 11.640420453761333 L 25.621148228730025 0 L 23.285613292415015 0 L 14.721104452628161 10.10514857092888 L 7.885738450416485 0 L 0 0 L 10.338667353587386 15.282227947217432 L 0 27.487504959106445 L 2.3355344097666078 27.487504959106445 L 11.374035278448282 16.813839682497473 L 18.594243925682147 27.487504959106445 L 26.479982376098633 27.487504959106445 M 3.178480485568005 1.7888621640700915 L 6.766518745183908 1.7888621640700915 L 23.283850408355658 25.786531391825825 L 19.69492807396805 25.786531391825825","fillRule":"nonzero"},{"d":"M15.7618 11.6404 L25.6211 0 L23.2856 0 L14.7211 10.1051 L7.88574 0 L0 0 L10.3387 15.2822 L0 27.4875 L2.33553 27.4875 L11.374 16.8138 L18.5942 27.4875 L26.48 27.4875 M3.17848 1.78886 L6.76652 1.78886 L23.2838 25.7865 L19.6949 25.7865","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                        display="block"
+                        position="absolute"
+                        top="0%"
+                        bottom="0%"
+                        left="0%"
+                        right="0%"
+                      />
+                    </View>
+                  </Flex>
+                  <Flex
+                    width="34.77px"
+                    height="27.75px"
+                    overflow="hidden"
+                    position="absolute"
+                    top="9574.12px"
+                    left="138.8px"
+                    backgroundColor="rgba(30,30,30,1)"
+                  >
+                    <View
+                      width="34.77px"
+                      height="27.75px"
+                      display="block"
+                      position="absolute"
+                      top="0px"
+                      left="0px"
+                    >
+                      <Icon
+                        width="34.77px"
+                        height="27.75px"
+                        viewBox={{"minX":0,"minY":0,"width":34.774044036865234,"height":27.75308609008789}}
+                        paths={[{"d":"M 17.387022018432617 2.5012470073837294 C 22.029356891826943 2.5012470073837294 22.579946433675293 2.5151234751620892 24.41427730360101 2.58219343128322 C 29.126160406012296 2.7533374643777124 31.327065614531612 4.537629604402392 31.54150555552254 8.270419597500146 C 31.625542826193488 9.733238493623066 31.641481285868394 10.172662902606362 31.641481285868394 13.87769989122186 C 31.641481285868394 17.583893174610996 31.624093910153277 18.022160737416375 31.54150555552254 19.484979633539297 C 31.32561669309376 23.214300466614002 29.130507191916422 25.00206038815103 24.41427730360101 25.173204421245522 C 22.579946433675293 25.240274377366653 22.032254864246056 25.254152775059993 17.387022018432617 25.254152775059993 C 12.744687145038293 25.254152775059993 12.194098121363577 25.240274377366653 10.361216237647417 25.173204421245522 C 5.637741936457853 25.000904007220473 3.448426199471366 23.208519268447954 3.2339862584804377 19.483823890169937 C 3.1499489878094904 18.021004994047015 3.132561714649569 17.582736328433082 3.132561714649569 13.876543045043945 C 3.132561714649569 10.171506056428447 3.1513979038497015 9.733238631474137 3.2339862584804377 8.26926330272651 C 3.4498751209092196 4.537629604402392 5.644986349332006 2.752181169604076 10.361216237647417 2.5810371365095834 C 12.195547107573134 2.515123557011162 12.744687145038293 2.5012470073837294 17.387022018432617 2.5012470073837294 Z M 17.387022018432617 0 C 12.664996530728065 0 12.073837793155729 0.01618929856500509 10.219222152643473 0.08325925468613585 C 3.904835610363004 0.3145349755498117 0.3955547536829348 3.1106584654325307 0.10577104905761085 8.154781849072302 C 0.020284856948810173 9.636102840084106 0 10.107905156942063 0 13.876543045043945 C 0 17.645180933145827 0.020284856948810187 18.118139682628488 0.10432212761975754 19.598304241015587 C 0.39410583224508144 24.63780189415653 3.8975908520397606 27.438550528671033 10.21777333915846 27.669826249534708 C 12.073837965880273 27.73689620565584 12.664996530728065 27.75308609008789 17.387022018432617 27.75308609008789 C 22.10904750613717 27.75308609008789 22.70165505719452 27.73689620565584 24.556270697706776 27.669826249534708 C 30.864861986047195 27.438550528671033 34.38283611226757 24.642427624655358 34.66827305257933 19.598304241015587 C 34.75375924468813 18.118139682628488 34.774044036865234 17.645180933145827 34.774044036865234 13.876543045043945 C 34.774044036865234 10.107905156942063 34.75375844583711 9.636102702233035 34.66972117516616 8.155938143845939 C 34.38573315629225 3.121065669799539 30.87790130741231 0.31569135648036684 24.55771882029361 0.08441563561669103 C 22.701654193571795 0.016189298565005103 22.10904750613717 0 17.387022018432617 0 Z M 17.387022018432617 6.75093798408587 C 12.456352189126278 6.75093798408587 8.458785952189753 9.941386578644256 8.458785952189753 13.876543045043945 C 8.458785952189753 17.811699511443635 12.456352189126278 21.003304400775654 17.387022018432617 21.003304400775654 C 22.317691847738956 21.003304400775654 26.315258775573664 17.81285580621727 26.315258775573664 13.876543045043945 C 26.315258775573664 9.941386578644256 22.317691847738956 6.75093798408587 17.387022018432617 6.75093798408587 Z M 17.387022018432617 18.502057393391926 C 14.186360888251102 18.502057393391926 11.591348012288412 16.432139766618548 11.591348012288412 13.876543045043945 C 11.591348012288412 11.32210261824298 14.186360888251102 9.251028696695963 17.387022018432617 9.251028696695963 C 20.587683148614133 9.251028696695963 23.182696024576824 11.32210261824298 23.182696024576824 13.876543045043945 C 23.182696024576824 16.432139766618548 20.587683148614133 18.502057393391926 17.387022018432617 18.502057393391926 Z M 26.66879413825124 4.804753271964349 C 25.51545500550136 4.804753271964349 24.58090259964653 5.550616956100545 24.58090259964653 6.469937952133856 C 24.58090259964653 7.389258948167167 25.51545500550136 8.135123183707643 26.66879413825124 8.135123183707643 C 27.82068437115384 8.135123183707643 28.75378666808956 7.389258948167167 28.75378666808956 6.469937952133856 C 28.75378666808956 5.550616956100545 27.82068437115384 4.804753271964349 26.66879413825124 4.804753271964349 Z","fillRule":"nonzero"},{"d":"M17.387 2.50125 C22.0294 2.50125 22.5799 2.51512 24.4143 2.58219 C29.1262 2.75334 31.3271 4.53763 31.5415 8.27042 C31.6255 9.73324 31.6415 10.1727 31.6415 13.8777 C31.6415 17.5839 31.6241 18.0222 31.5415 19.485 C31.3256 23.2143 29.1305 25.0021 24.4143 25.1732 C22.5799 25.2403 22.0323 25.2542 17.387 25.2542 C12.7447 25.2542 12.1941 25.2403 10.3612 25.1732 C5.63774 25.0009 3.44843 23.2085 3.23399 19.4838 C3.14995 18.021 3.13256 17.5827 3.13256 13.8765 C3.13256 10.1715 3.1514 9.73324 3.23399 8.26926 C3.44988 4.53763 5.64499 2.75218 10.3612 2.58104 C12.1955 2.51512 12.7447 2.50125 17.387 2.50125 Z M17.387 0 C12.665 0 12.0738 0.0161893 10.2192 0.0832593 C3.90484 0.314535 0.395555 3.11066 0.105771 8.15478 C0.0202849 9.6361 0 10.1079 0 13.8765 C0 17.6452 0.0202849 18.1181 0.104322 19.5983 C0.394106 24.6378 3.89759 27.4386 10.2178 27.6698 C12.0738 27.7369 12.665 27.7531 17.387 27.7531 C22.109 27.7531 22.7017 27.7369 24.5563 27.6698 C30.8649 27.4386 34.3828 24.6424 34.6683 19.5983 C34.7538 18.1181 34.774 17.6452 34.774 13.8765 C34.774 10.1079 34.7538 9.6361 34.6697 8.15594 C34.3857 3.12107 30.8779 0.315691 24.5577 0.0844156 C22.7017 0.0161893 22.109 0 17.387 0 Z M17.387 6.75094 C12.4564 6.75094 8.45879 9.94139 8.45879 13.8765 C8.45879 17.8117 12.4564 21.0033 17.387 21.0033 C22.3177 21.0033 26.3153 17.8129 26.3153 13.8765 C26.3153 9.94139 22.3177 6.75094 17.387 6.75094 Z M17.387 18.5021 C14.1864 18.5021 11.5913 16.4321 11.5913 13.8765 C11.5913 11.3221 14.1864 9.25103 17.387 9.25103 C20.5877 9.25103 23.1827 11.3221 23.1827 13.8765 C23.1827 16.4321 20.5877 18.5021 17.387 18.5021 Z M26.6688 4.80475 C25.5155 4.80475 24.5809 5.55062 24.5809 6.46994 C24.5809 7.38926 25.5155 8.13512 26.6688 8.13512 C27.8207 8.13512 28.7538 7.38926 28.7538 6.46994 C28.7538 5.55062 27.8207 4.80475 26.6688 4.80475 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                        display="block"
+                        position="absolute"
+                        top="0%"
+                        bottom="0%"
+                        left="0%"
+                        right="0%"
+                      />
+                    </View>
+                  </Flex>
+                  <Flex
+                    width="31.71px"
+                    height="27.75px"
+                    overflow="hidden"
+                    position="absolute"
+                    top="9574.12px"
+                    left="185.84px"
+                  >
+                    <View
+                      width="31.71px"
+                      height="27.75px"
+                      display="block"
+                      position="absolute"
+                      top="0px"
+                      left="0px"
+                    >
+                      <Icon
+                        width="31.71px"
+                        height="27.75px"
+                        viewBox={{"minX":0,"minY":0,"width":31.705747604370117,"height":27.75308609008789}}
+                        paths={[{"d":"M 25.100383520126343 0 L 6.605364084243774 0 C 2.9578821452734587 0 0 2.5891317513293184 0 5.781892935434977 L 0 21.971193154652912 C 0 25.163954338758572 2.9578821452734587 27.75308609008789 6.605364084243774 27.75308609008789 L 25.100383520126343 27.75308609008789 C 28.749186751131447 27.75308609008789 31.705747604370117 25.163954338758572 31.705747604370117 21.971193154652912 L 31.705747604370117 5.781892935434977 C 31.705747604370117 2.5891317513293184 28.749186751131447 0 25.100383520126343 0 Z M 10.568582534790039 21.971193154652912 L 6.605364084243774 21.971193154652912 L 6.605364084243774 9.251028696695963 L 10.568582534790039 9.251028696695963 L 10.568582534790039 21.971193154652912 Z M 8.586973309516907 7.784740502698923 C 7.310816941353735 7.784740502698923 6.275095880031586 6.8712014630125395 6.275095880031586 5.744888745657211 C 6.275095880031586 4.618576028301883 7.310816941353735 3.705036988615499 8.586973309516907 3.705036988615499 C 9.863129677680078 3.705036988615499 10.898850739002228 4.618576028301883 10.898850739002228 5.744888745657211 C 10.898850739002228 6.8712014630125395 9.864450733488638 7.784740502698923 8.586973309516907 7.784740502698923 Z M 26.421456336975098 21.971193154652912 L 22.458237886428833 21.971193154652912 L 22.458237886428833 15.490847446747768 C 22.458237886428833 11.596164330148895 17.173946619033813 11.891041002193106 17.173946619033813 15.490847446747768 L 17.173946619033813 21.971193154652912 L 13.210728168487549 21.971193154652912 L 13.210728168487549 9.251028696695963 L 17.173946619033813 9.251028696695963 L 17.173946619033813 11.292037299915592 C 19.018164307891 8.30164231340973 26.421456336975098 8.08077402092105 26.421456336975098 14.155230487448685 L 26.421456336975098 21.971193154652912 Z","fillRule":"nonzero"},{"d":"M25.1004 0 L6.60536 0 C2.95788 0 0 2.58913 0 5.78189 L0 21.9712 C0 25.164 2.95788 27.7531 6.60536 27.7531 L25.1004 27.7531 C28.7492 27.7531 31.7057 25.164 31.7057 21.9712 L31.7057 5.78189 C31.7057 2.58913 28.7492 0 25.1004 0 Z M10.5686 21.9712 L6.60536 21.9712 L6.60536 9.25103 L10.5686 9.25103 L10.5686 21.9712 Z M8.58697 7.78474 C7.31082 7.78474 6.2751 6.8712 6.2751 5.74489 C6.2751 4.61858 7.31082 3.70504 8.58697 3.70504 C9.86313 3.70504 10.8989 4.61858 10.8989 5.74489 C10.8989 6.8712 9.86445 7.78474 8.58697 7.78474 Z M26.4215 21.9712 L22.4582 21.9712 L22.4582 15.4908 C22.4582 11.5962 17.1739 11.891 17.1739 15.4908 L17.1739 21.9712 L13.2107 21.9712 L13.2107 9.25103 L17.1739 9.25103 L17.1739 11.292 C19.0182 8.30164 26.4215 8.08077 26.4215 14.1552 L26.4215 21.9712 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                        display="block"
+                        position="absolute"
+                        top="0%"
+                        bottom="0%"
+                        left="0%"
+                        right="0%"
+                      />
+                    </View>
+                  </Flex>
+                  <Flex
+                    width="27.87px"
+                    height="27.87px"
+                    overflow="hidden"
+                    position="absolute"
+                    top="9574px"
+                    left="234.68px"
+                    borderRadius="5px"
+                  >
+                    <Icon
+                      width="31.36px"
+                      height="27.87px"
+                      viewBox={{"minX":0,"minY":0,"width":31.35752296447754,"height":27.873353958129883}}
+                      paths={[{"d":"M 21.519101729298807 27.873353958129883 L 21.519101729298807 17.079398018854214 L 25.595579980501903 17.079398018854214 L 26.20548414950045 12.873309838718114 L 21.517533385305594 12.873309838718114 L 21.517533385305594 10.187711234985198 C 21.517533385305594 8.969645538313246 21.898527724827428 8.139019789948255 23.86464434780188 8.139019789948255 L 26.37010931975965 8.139019789948255 L 26.37010931975965 4.376116717627951 C 25.156819549932784 4.260238751006098 23.937220407537183 4.204405850875749 22.716957681741203 4.208876531854268 C 19.104571080979927 4.208876531854271 16.632029980107056 6.169767571602261 16.632029980107056 9.769611324344776 L 16.632029980107056 12.873309838718114 L 12.54300940730853 12.873309838718114 L 12.54300940730853 17.079398018854214 L 16.630462743701408 17.079398018854214 L 16.630462743701408 27.873353958129883 L 1.7309354942515762 27.873353958129883 C 0.7745310006390962 27.873353958129883 0 27.184883821381217 0 26.334746464187145 L 0 1.5386094322209942 C 0 0.6884720750269224 0.7745310006390962 0 1.7309354942515762 0 L 29.626587331777518 0 C 30.58299182539 0 31.35752296447754 0.6884720750269224 31.35752296447754 1.5386094322209942 L 31.35752296447754 26.334746464187145 C 31.35752296447754 27.184883821381217 30.58299182539 27.873353958129883 29.626587331777518 27.873353958129883 L 21.519101729298807 27.873353958129883 Z","fillRule":"evenodd"},{"d":"M21.5191 27.8734 L21.5191 17.0794 L25.5956 17.0794 L26.2055 12.8733 L21.5175 12.8733 L21.5175 10.1877 C21.5175 8.96965 21.8985 8.13902 23.8646 8.13902 L26.3701 8.13902 L26.3701 4.37612 C25.1568 4.26024 23.9372 4.20441 22.717 4.20888 C19.1046 4.20888 16.632 6.16977 16.632 9.76961 L16.632 12.8733 L12.543 12.8733 L12.543 17.0794 L16.6305 17.0794 L16.6305 27.8734 L1.73094 27.8734 C0.774531 27.8734 0 27.1849 0 26.3347 L0 1.53861 C0 0.688472 0.774531 0 1.73094 0 L29.6266 0 C30.583 0 31.3575 0.688472 31.3575 1.53861 L31.3575 26.3347 C31.3575 27.1849 30.583 27.8734 29.6266 27.8734 L21.5191 27.8734 Z","fill":"rgba(255,255,255,1)","fillRule":"evenodd"}]}
+                      display="block"
+                      position="absolute"
+                      top="0%"
+                      bottom="0%"
+                      left="-12.5%"
+                      right="0%"
+                    />
+                  </Flex>
+                </View>
+              </View>
+            </View>
+            <View
+              width="98.89px"
+              height="15.18px"
+              display="block"
+              position="absolute"
+              top="9531.26px"
+              left="462.19px"
+            >
+              <Icon
+                width="8.66px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":8.664618492126465,"height":10.320830345153809}}
+                paths={[{"d":"M 8.445018343151855 2.980416512370981 L 5.998101820914736 3.136594832905477 C 5.956273873027055 2.9196794672552593 5.866338361620525 2.724456293523293 5.728306870758866 2.5509242194541955 C 5.590275379897206 2.3730537070014472 5.4083269428394045 2.2320581032285034 5.182457363653289 2.1279384918575017 C 4.960770322563621 2.0194811759619355 4.695167404829147 1.96525251374753 4.385642275415023 1.96525251374753 C 3.971547802830045 1.96525251374753 3.6222817986442917 2.0563568014343354 3.337853181270456 2.238565393874436 C 3.0534247613522516 2.4164359063271843 2.911214220776969 2.655042747103059 2.911214220776969 2.954385882069079 C 2.911214220776969 3.192992705778463 3.003235209199863 3.394724629341288 3.1872772025002876 3.559580560502171 C 3.3713191958007123 3.7244361162002657 3.6871199094601916 3.856753759483771 4.1346766942823345 3.956534565541579 L 5.878891274302647 4.320952467214376 C 6.8158321336491765 4.52051443772629 7.514356079249061 4.8415490648844575 7.974461037818168 5.284056297489406 C 8.434566358389267 5.726563530094355 8.664618492126465 6.307896080624774 8.664618492126465 7.028055007203068 C 8.664618492126465 7.683139201207565 8.478482959038054 8.257964879221065 8.106216072338766 8.752531836445685 C 7.7381320857379166 9.247098691271363 7.2320166082754085 9.633208341133663 6.587869672860513 9.910859932708066 C 5.947905242632792 10.18417320536425 5.209643779007016 10.320830345153809 4.373089362732902 10.320830345153809 C 3.097343665650074 10.320830345153809 2.080933891376337 10.045347836239307 1.3238520758678856 9.49438295494223 C 0.5709530288207848 8.939079771793425 0.1296659128023682 8.184214362135352 0 7.229786930765893 L 2.6288747827125896 7.086622833126964 C 2.7083476056158378 7.4900854173323275 2.900755752887812 7.798104882937956 3.206098146749857 8.010681810204524 C 3.5114405406119023 8.218920572151287 3.902529951205812 8.3230395435289 4.379365819073962 8.3230395435289 C 4.847836577839947 8.3230395435289 5.224286726639663 8.229766207315173 5.508715146557868 8.043219005826518 C 5.797326466574511 7.852333451286665 5.943724119635037 7.607219601461949 5.947907019733476 7.307876637160833 C 5.943724119635037 7.056254856696795 5.841243412770654 6.850185040878011 5.6404701810784665 6.689667735832173 C 5.439697294933635 6.524811992402684 5.130169006229406 6.3990005560429735 4.7118916335459895 6.312234519008425 L 3.042969255297568 5.967339590062054 C 2.101845364215512 5.772115870202397 1.4012279940100933 5.433727506576118 0.9411230354409859 4.952175591438603 C 0.48520077951468527 4.470623505636185 0.2572420374737493 3.8567537594837704 0.2572420374737493 3.1105652948589584 C 0.2572420374737493 2.4684957333457977 0.42455136082908296 1.9153615645909339 0.7591731997391268 1.4511628568603288 C 1.0979777412919773 0.9869645245925116 1.5727216654718297 0.6290542634287 2.1834064531959205 0.3774321245683646 C 2.798274009381362 0.12581070250062476 3.5177175564105863 0 4.341723930574823 0 C 5.5589106059245665 0 6.516764912666586 0.26680559801421844 7.215287838079041 0.8004167599096746 C 7.917993663589934 1.3340286727307071 8.32790065346036 2.0606956323472643 8.445018343151855 2.980416512370981 Z","fillRule":"nonzero"},{"d":"M8.44502 2.98042 L5.9981 3.13659 C5.95627 2.91968 5.86634 2.72446 5.72831 2.55092 C5.59028 2.37305 5.40833 2.23206 5.18246 2.12794 C4.96077 2.01948 4.69517 1.96525 4.38564 1.96525 C3.97155 1.96525 3.62228 2.05636 3.33785 2.23857 C3.05342 2.41644 2.91121 2.65504 2.91121 2.95439 C2.91121 3.19299 3.00324 3.39472 3.18728 3.55958 C3.37132 3.72444 3.68712 3.85675 4.13468 3.95653 L5.87889 4.32095 C6.81583 4.52051 7.51436 4.84155 7.97446 5.28406 C8.43457 5.72656 8.66462 6.3079 8.66462 7.02806 C8.66462 7.68314 8.47848 8.25797 8.10622 8.75253 C7.73813 9.2471 7.23202 9.63321 6.58787 9.91086 C5.94791 10.1842 5.20964 10.3208 4.37309 10.3208 C3.09734 10.3208 2.08093 10.0453 1.32385 9.49438 C0.570953 8.93908 0.129666 8.18421 0 7.22979 L2.62888 7.08662 C2.70835 7.49009 2.90076 7.7981 3.2061 8.01068 C3.51144 8.21892 3.90253 8.32304 4.37937 8.32304 C4.84784 8.32304 5.22429 8.22977 5.50872 8.04322 C5.79733 7.85233 5.94372 7.60722 5.94791 7.30788 C5.94372 7.05625 5.84124 6.85018 5.64047 6.68967 C5.4397 6.52481 5.13017 6.399 4.71189 6.31223 L3.04297 5.96734 C2.10185 5.77212 1.40123 5.43373 0.941123 4.95218 C0.485201 4.47062 0.257242 3.85675 0.257242 3.11057 C0.257242 2.4685 0.424551 1.91536 0.759173 1.45116 C1.09798 0.986965 1.57272 0.629054 2.18341 0.377432 C2.79827 0.125811 3.51772 0 4.34172 0 C5.55891 0 6.51677 0.266806 7.21529 0.800417 C7.91799 1.33403 8.3279 2.0607 8.44502 2.98042 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9535.22px"
+                left="552.42px"
+              />
+              <Icon
+                width="9.15px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.153997421264648,"height":13.327277183532715}}
+                paths={[{"d":"M 2.4218193014323415 10.450979745545098 L 2.4280957582393405 7.125668107622153 L 2.817092859111225 7.125668107622153 L 5.903980688406784 3.331819295883179 L 8.972047572055585 3.331819295883179 L 4.824826081992162 8.35557832542116 L 4.191139838163939 8.35557832542116 L 2.4218193014323415 10.450979745545098 Z M 0 13.327277183532717 L 0 0 L 2.672784901195679 0 L 2.672784901195679 13.327277183532717 L 0 13.327277183532717 Z M 6.023191243868573 13.327277183532717 L 3.1872690143363513 8.97378726330078 L 4.969134039907708 7.015041199064518 L 9.153997421264648 13.327277183532717 L 6.023191243868573 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M2.42182 10.451 L2.4281 7.12567 L2.81709 7.12567 L5.90398 3.33182 L8.97205 3.33182 L4.82483 8.35558 L4.19114 8.35558 L2.42182 10.451 Z M0 13.3273 L0 0 L2.67278 0 L2.67278 13.3273 L0 13.3273 Z M6.02319 13.3273 L3.18727 8.97379 L4.96913 7.01504 L9.154 13.3273 L6.02319 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9532.02px"
+                left="542.57px"
+              />
+              <Icon
+                width="8.88px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":8.884215354919434,"height":10.125605583190918}}
+                paths={[{"d":"M 2.6727891938119925 4.34698288459102 L 2.6727891938119925 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 2.5473106025509478 0.13014877611298983 L 2.5473106025509478 1.8936703721717185 L 2.660244704595684 1.8936703721717185 C 2.8735661322742114 1.312337133323748 3.2311900921695482 0.8524765110390398 3.7331228864079247 0.5140885394505739 C 4.235055516099925 0.17136284648352457 4.843652109422129 0 5.5589063148843945 0 C 6.22815006247508 0 6.811647475489308 0.15184059150593848 7.309397533739544 0.4555218086507945 C 7.8071475919897795 0.7592030257956506 8.194057828660217 1.1930335310481823 8.470120839163904 1.757013392674348 C 8.746183849667592 2.31665481612937 8.884215354919434 2.9847544632246588 8.884215354919434 3.761311207571905 L 8.884215354919434 10.125605583190918 L 6.211421948720196 10.125605583190918 L 6.211421948720196 4.255877867507663 C 6.215604498308145 3.6441766537170164 6.065019376915261 3.166963029673273 5.759677115766761 2.824236961243454 C 5.454334492616232 2.4771724546424916 5.033967403159794 2.3036396722808345 4.498572622288463 2.3036396722808345 C 4.138854069290071 2.3036396722808345 3.820968010020044 2.383899327795382 3.5449049995163575 2.5444164372473277 C 3.273024708546174 2.704933922162043 3.0596964357383736 2.9392019205500017 2.9049338548968646 3.2472215758660012 C 2.754353993588859 3.550903134340648 2.676971918744674 3.9174906127117572 2.6727891938119925 4.34698288459102 Z","fillRule":"nonzero"},{"d":"M2.67279 4.34698 L2.67279 10.1256 L0 10.1256 L0 0.130149 L2.54731 0.130149 L2.54731 1.89367 L2.66024 1.89367 C2.87357 1.31234 3.23119 0.852476 3.73312 0.514089 C4.23506 0.171363 4.84365 0 5.55891 0 C6.22815 0 6.81165 0.151841 7.3094 0.455522 C7.80715 0.759203 8.19406 1.19303 8.47012 1.75701 C8.74618 2.31665 8.88422 2.98475 8.88422 3.76131 L8.88422 10.1256 L6.21142 10.1256 L6.21142 4.25588 C6.2156 3.64418 6.06502 3.16696 5.75968 2.82424 C5.45433 2.47717 5.03397 2.30364 4.49857 2.30364 C4.13885 2.30364 3.82097 2.3839 3.54491 2.54442 C3.27302 2.70493 3.0597 2.9392 2.90493 3.24722 C2.75435 3.5509 2.67697 3.91749 2.67279 4.34698 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9535.22px"
+                left="531.57px"
+              />
+              <Icon
+                width="2.89px"
+                height="14.09px"
+                viewBox={{"minX":0,"minY":0,"width":2.886112928390503,"height":14.08864974975586}}
+                paths={[{"d":"M 0.10038540112657841 14.088649749755858 L 0.10038540112657841 4.093192201062022 L 2.7731788255746928 4.093192201062022 L 2.7731788255746928 14.088649749755858 L 0.10038540112657841 14.088649749755858 Z M 1.4430585703888885 2.804715289825312 C 1.0456951275099688 2.804715289825312 0.7047953134742939 2.668058487920035 0.42036676323379796 2.39474486704299 C 0.14012094901000138 2.117093541532014 0 1.7852132025763043 0 1.3991038160428795 C 0 1.01733286800249 0.14012094901000138 0.6897909675398157 0.42036676323379796 0.4164780805218751 C 0.7047953134742939 0.13882602115179477 1.0456951275099688 0 1.4430585703888885 0 C 1.8404220132678082 0 2.179223959713207 0.13882602115179477 2.4594697081184522 0.4164780805218751 C 2.743898357086775 0.6897909675398157 2.886112928390503 1.01733286800249 2.886112928390503 1.3991038160428795 C 2.886112928390503 1.7852132025763043 2.743898357086775 2.117093541532014 2.4594697081184522 2.39474486704299 C 2.179223959713207 2.668058487920035 1.8404220132678082 2.804715289825312 1.4430585703888885 2.804715289825312 Z","fillRule":"nonzero"},{"d":"M0.100385 14.0886 L0.100385 4.09319 L2.77318 4.09319 L2.77318 14.0886 L0.100385 14.0886 Z M1.44306 2.80472 C1.0457 2.80472 0.704795 2.66806 0.420367 2.39474 C0.140121 2.11709 0 1.78521 0 1.3991 C0 1.01733 0.140121 0.689791 0.420367 0.416478 C0.704795 0.138826 1.0457 0 1.44306 0 C1.84042 0 2.17922 0.138826 2.45947 0.416478 C2.7439 0.689791 2.88611 1.01733 2.88611 1.3991 C2.88611 1.78521 2.7439 2.11709 2.45947 2.39474 C2.17922 2.66806 1.84042 2.80472 1.44306 2.80472 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.26px"
+                left="526.66px"
+              />
+              <Icon
+                width="8.23px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.225423812866211,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 2.7167119368697077 0 L 2.7167119368697077 11.004114288333273 L 8.225423812866211 11.004114288333273 L 8.225423812866211 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L2.71671 0 L2.71671 11.0041 L8.22542 11.0041 L8.22542 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9532.02px"
+                left="516.79px"
+              />
+              <Icon
+                width="9.15px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.154001235961914,"height":13.327277183532715}}
+                paths={[{"d":"M 2.4218276209917944 10.450979745545098 L 2.4280998651391807 7.125668107622153 L 2.8170969491113307 7.125668107622153 L 5.903984644298986 3.331819295883179 L 8.972047182270611 3.331819295883179 L 4.824830084767558 8.35557832542116 L 4.1911396560825 8.35557832542116 L 2.4218276209917944 10.450979745545098 Z M 0 13.327277183532717 L 0 0 L 2.672793209852089 0 L 2.672793209852089 13.327277183532717 L 0 13.327277183532717 Z M 6.0231951945817475 13.327277183532717 L 3.1872730882543863 8.97378726330078 L 4.9691338240268 7.015041199064518 L 9.154001235961914 13.327277183532717 L 6.0231951945817475 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M2.42183 10.451 L2.4281 7.12567 L2.8171 7.12567 L5.90398 3.33182 L8.97205 3.33182 L4.82483 8.35558 L4.19114 8.35558 L2.42183 10.451 Z M0 13.3273 L0 0 L2.67279 0 L2.67279 13.3273 L0 13.3273 Z M6.0232 13.3273 L3.18727 8.97379 L4.96913 7.01504 L9.154 13.3273 L6.0232 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9532.02px"
+                left="502.36px"
+              />
+              <Icon
+                width="9.05px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":9.047334671020508,"height":10.320830345153809}}
+                paths={[{"d":"M 4.743265372845466 10.320830345153809 C 3.7561311848064087 10.320830345153809 2.907026509649586 10.103914842971667 2.195955099031904 9.670084248203153 C 1.4890665884089254 9.231915317449932 0.9453069651926658 8.624552614479342 0.5646746497381127 7.847995832094552 C 0.1882251355504494 7.0714389131778415 0 6.17774695680699 0 5.166921737896996 C 0 4.1430816134318205 0.19031668427561427 3.2450532666561624 0.5709489997301673 2.4728345130592557 C 0.955764050633068 1.6962777306744672 1.5016152225744923 1.0910833935711821 2.2085037990160132 0.6572526622707461 C 2.915392309638992 0.2190842093792551 3.756130658258071 0 4.730716672861356 0 C 5.571453968383759 0 6.307621857510068 0.15834791518910946 6.939220471877369 0.47504371143434765 C 7.570819086244669 0.7917402586051621 8.07066191244564 1.236416710401936 8.438745889918065 1.8090731009576502 C 8.80682986739049 2.381729491513364 9.00968997382586 3.0541670294566945 9.047334671020508 3.826385783053601 L 6.525126009561867 3.826385783053601 C 6.454018815845265 3.3274802850463883 6.265793581567002 2.926187500293523 5.960451359823754 2.6225062682736597 C 5.659291676073227 2.314486597870146 5.264019572639196 2.160475687479496 4.774635016612388 2.160475687479496 C 4.360540554296885 2.160475687479496 3.9987312888184965 2.277609888675608 3.6892061670805454 2.511878274001342 C 3.383863780790942 2.7418085964062135 3.1454449642192728 3.0780273824443687 2.9739513299198226 3.5205346150493173 C 2.8024576956203724 3.963041847654266 2.7167114050189847 4.4988237305927 2.7167114050189847 5.12787797695491 C 2.7167114050189847 5.765608963552497 2.8003660646220294 6.307896626752466 2.967676979927768 6.754742127076161 C 3.139170614227218 7.201587798064761 3.3796810453425943 7.542145397949354 3.6892061670805454 7.776413783275088 C 3.9987312888184965 8.010682356332216 4.360540554296885 8.127816369796934 4.774635016612388 8.127816369796934 C 5.079977600357618 8.127816369796934 5.353950869428637 8.062741253227104 5.596551697444689 7.932592103809585 C 5.8433350799080985 7.802442954392064 6.046199411071146 7.613726900641127 6.2051446909338335 7.366443370829345 C 6.368272870791224 7.114821590365308 6.47493261238311 6.813309031409577 6.525126009561867 6.461906274222828 L 9.047334671020508 6.461906274222828 C 9.005507073831158 7.225448151052435 8.804736311199788 7.897885893793649 8.445018133716768 8.47921895631878 C 8.089482527135742 9.056213648726223 7.5980061591096 9.507397280236741 6.970590115644292 9.832770226313126 C 6.343174401271694 10.158143172389511 5.600733873435428 10.320830345153809 4.743265372845466 10.320830345153809 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.75613 10.3208 2.90703 10.1039 2.19596 9.67008 C1.48907 9.23192 0.945307 8.62455 0.564675 7.848 C0.188225 7.07144 0 6.17775 0 5.16692 C0 4.14308 0.190317 3.24505 0.570949 2.47283 C0.955764 1.69628 1.50162 1.09108 2.2085 0.657253 C2.91539 0.219084 3.75613 0 4.73072 0 C5.57145 0 6.30762 0.158348 6.93922 0.475044 C7.57082 0.79174 8.07066 1.23642 8.43875 1.80907 C8.80683 2.38173 9.00969 3.05417 9.04733 3.82639 L6.52513 3.82639 C6.45402 3.32748 6.26579 2.92619 5.96045 2.62251 C5.65929 2.31449 5.26402 2.16048 4.77463 2.16048 C4.36054 2.16048 3.99873 2.27761 3.68921 2.51188 C3.38386 2.74181 3.14544 3.07803 2.97395 3.52053 C2.80246 3.96304 2.71671 4.49882 2.71671 5.12788 C2.71671 5.76561 2.80037 6.3079 2.96768 6.75474 C3.13917 7.20159 3.37968 7.54215 3.68921 7.77641 C3.99873 8.01068 4.36054 8.12782 4.77463 8.12782 C5.07998 8.12782 5.35395 8.06274 5.59655 7.93259 C5.84333 7.80244 6.0462 7.61373 6.20514 7.36644 C6.36827 7.11482 6.47493 6.81331 6.52513 6.46191 L9.04733 6.46191 C9.00551 7.22545 8.80474 7.89789 8.44502 8.47922 C8.08948 9.05621 7.59801 9.5074 6.97059 9.83277 C6.34317 10.1581 5.60073 10.3208 4.74327 10.3208 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9535.22px"
+                left="491.61px"
+              />
+              <Icon
+                width="2.89px"
+                height="14.09px"
+                viewBox={{"minX":0,"minY":0,"width":2.886112928390503,"height":14.08864974975586}}
+                paths={[{"d":"M 0.10038750732021541 14.088649749755858 L 0.10038750732021541 4.093192201062022 L 2.7731788255746928 4.093192201062022 L 2.7731788255746928 14.088649749755858 L 0.10038750732021541 14.088649749755858 Z M 1.4430564641952515 2.804715289825312 C 1.0456930213163318 2.804715289825312 0.7047974196679309 2.668058487920035 0.42036886942743495 2.39474486704299 C 0.14012305520363838 2.117093541532014 0 1.7852132025763043 0 1.3991038160428795 C 0 1.01733286800249 0.14012305520363838 0.6897909675398157 0.42036886942743495 0.4164780805218751 C 0.7047974196679309 0.13882602115179477 1.0456930213163318 0 1.4430564641952515 0 C 1.8404199070741711 0 2.179223959713207 0.13882602115179477 2.4594697081184522 0.4164780805218751 C 2.743898357086775 0.6897909675398157 2.886112928390503 1.01733286800249 2.886112928390503 1.3991038160428795 C 2.886112928390503 1.7852132025763043 2.743898357086775 2.117093541532014 2.4594697081184522 2.39474486704299 C 2.179223959713207 2.668058487920035 1.8404199070741711 2.804715289825312 1.4430564641952515 2.804715289825312 Z","fillRule":"nonzero"},{"d":"M0.100388 14.0886 L0.100388 4.09319 L2.77318 4.09319 L2.77318 14.0886 L0.100388 14.0886 Z M1.44306 2.80472 C1.04569 2.80472 0.704797 2.66806 0.420369 2.39474 C0.140123 2.11709 0 1.78521 0 1.3991 C0 1.01733 0.140123 0.689791 0.420369 0.416478 C0.704797 0.138826 1.04569 0 1.44306 0 C1.84042 0 2.17922 0.138826 2.45947 0.416478 C2.7439 0.689791 2.88611 1.01733 2.88611 1.3991 C2.88611 1.78521 2.7439 2.11709 2.45947 2.39474 C2.17922 2.66806 1.84042 2.80472 1.44306 2.80472 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.26px"
+                left="487.08px"
+              />
+              <Icon
+                width="8.85px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":8.852840423583984,"height":10.125605583190918}}
+                paths={[{"d":"M 6.1800470228301005 5.739578939570265 L 6.1800470228301005 0 L 8.852840423583984 0 L 8.852840423583984 9.995456807077927 L 6.286708880049378 9.995456807077927 L 6.286708880049378 8.179876137476136 L 6.186321373619095 8.179876137476136 C 5.968817210395554 8.765547473165459 5.607007915416447 9.236252962090779 5.1008923862210525 9.591994071970197 C 4.598959428458901 9.947735147716635 3.986181844588577 10.125605583190918 3.2625623660799308 10.125605583190918 C 2.6184153648231834 10.125605583190918 2.0516504107428712 9.973765162349874 1.562265957103056 9.670083774540123 C 1.0728814376446898 9.366402352597392 0.6901575248531402 8.93474075923362 0.4140945149118841 8.37509930164562 C 0.1422142738595228 7.815457878190597 0.004182768888894754 7.145189558137402 0 6.3642943756190125 L 0 0 L 2.672792347657074 0 L 2.672792347657074 5.869727715683255 C 2.676975072581234 6.459737284745848 2.8296454898958463 6.926105359489397 3.1308052118982967 7.268831427919216 C 3.431964933900747 7.611557667013931 3.835603579687204 7.78292105962512 4.341719108882598 7.78292105962512 C 4.663792609510972 7.78292105962512 4.964952331513422 7.707000388409381 5.245198241980674 7.555159609172057 C 5.525443790445898 7.398980750159871 5.75131340917404 7.169050251286133 5.922807065255826 6.865368692811486 C 6.0984836218636085 6.561687305001734 6.184229923356097 6.186424418006437 6.1800470228301005 5.739578939570265 Z","fillRule":"nonzero"},{"d":"M6.18005 5.73958 L6.18005 0 L8.85284 0 L8.85284 9.99546 L6.28671 9.99546 L6.28671 8.17988 L6.18632 8.17988 C5.96882 8.76555 5.60701 9.23625 5.10089 9.59199 C4.59896 9.94773 3.98618 10.1256 3.26256 10.1256 C2.61842 10.1256 2.05165 9.97376 1.56227 9.67008 C1.07288 9.3664 0.690157 8.93474 0.414095 8.3751 C0.142214 7.81546 0.00418277 7.14519 0 6.36429 L0 0 L2.67279 0 L2.67279 5.86973 C2.67698 6.45974 2.82965 6.92611 3.13081 7.26883 C3.43196 7.61156 3.8356 7.78292 4.34172 7.78292 C4.66379 7.78292 4.96495 7.707 5.2452 7.55516 C5.52544 7.39898 5.75131 7.16905 5.92281 6.86537 C6.09848 6.56169 6.18423 6.18642 6.18005 5.73958 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9535.35px"
+                left="476.19px"
+              />
+              <Icon
+                width="12.03px"
+                height="14.6px"
+                viewBox={{"minX":0,"minY":0,"width":12.033838272094727,"height":14.602739334106445}}
+                paths={[{"d":"M 5.0757954828271075 8.876175317694273 L 7.384686003505977 8.876175317694273 L 8.545405614601295 10.424949791401815 L 9.687302699977367 11.804531718404059 L 11.839338664146393 14.602739334106444 L 9.304578887933381 14.602739334106444 L 7.823876866159297 12.715575397966683 L 7.064703592827209 11.596292133234648 L 5.0757954828271075 8.876175317694273 Z M 12.033838272094727 6.8458472811442075 C 12.033838272094727 8.299179931457719 11.76823215286811 9.535596665794252 11.23701994732415 10.555098576409216 C 10.709990642284112 11.574600487024181 9.990553508640449 12.35332670847329 9.078708579302438 12.89127669462884 C 8.171047274472402 13.424888344715699 7.150450815326893 13.691694562288415 6.016919136047363 13.691694562288415 C 4.875022050671292 13.691694562288415 3.850242427747661 13.422718988949956 2.942580728006323 12.884769036927388 C 2.0349190282649854 12.34681908490482 1.31757357523821 11.568093921578136 0.7905441714703462 10.548592010963171 C 0.2635147347932071 9.52908989555032 0 8.294841492990084 0 6.8458472811442075 C 0 5.392514767362622 0.2635147347932071 4.156097691696273 0.7905441714703462 3.136595985879197 C 1.31757357523821 2.1170935291365307 2.0349190282649854 1.3405366975861472 2.942580728006323 0.8069255253610269 C 3.850242427747661 0.2689751637426818 4.875022050671292 0 6.016919136047363 0 C 7.150450815326893 0 8.171047274472402 0.2689751637426818 9.078708579302438 0.8069255253610269 C 9.990553508640449 1.3405366975861472 10.709990642284112 2.1170935291365307 11.23701994732415 3.136595985879197 C 11.76823215286811 4.156097691696273 12.033838272094727 5.392514767362622 12.033838272094727 6.8458472811442075 Z M 9.279482538006656 6.8458472811442075 C 9.279482538006656 5.904434873637959 9.14354213846903 5.110524868477722 8.871661322939142 4.4641171973975355 C 8.60396411546259 3.8177098676471632 8.225423203922526 3.327481441715276 7.736038588318952 2.993431885468893 C 7.246654334717404 2.65938232922251 6.673614506323783 2.492357534032828 6.016919136047363 2.492357534032828 C 5.360223765770944 2.492357534032828 4.787183674103122 2.65938232922251 4.297799420501574 2.993431885468893 C 3.808414804898 3.327481441715276 3.427782360832788 3.8177098676471632 3.155902071851301 4.4641171973975355 C 2.888204683373736 5.110524868477722 2.754355997362272 5.904434873637959 2.754355997362272 6.8458472811442075 C 2.754355997362272 7.787259688650456 2.888204683373736 8.581170239938395 3.155902071851301 9.227577911018582 C 3.427782360832788 9.873985582098769 3.808414804898 10.364213120573138 4.297799420501574 10.698262676819521 C 4.787183674103122 11.032312233065904 5.360223765770944 11.199337028255586 6.016919136047363 11.199337028255586 C 6.673614506323783 11.199337028255586 7.246654334717404 11.032312233065904 7.736038588318952 10.698262676819521 C 8.225423203922526 10.364213120573138 8.60396411546259 9.873985582098769 8.871661322939142 9.227577911018582 C 9.14354213846903 8.581170239938395 9.279482538006656 7.787259688650456 9.279482538006656 6.8458472811442075 Z","fillRule":"nonzero"},{"d":"M5.0758 8.87617 L7.38469 8.87617 L8.54541 10.4249 L9.6873 11.8045 L11.8393 14.6027 L9.30458 14.6027 L7.82388 12.7156 L7.0647 11.5963 L5.0758 8.87617 Z M12.0338 6.84585 C12.0338 8.29918 11.7682 9.5356 11.237 10.5551 C10.71 11.5746 9.99055 12.3533 9.07871 12.8913 C8.17105 13.4249 7.15045 13.6917 6.01692 13.6917 C4.87502 13.6917 3.85024 13.4227 2.94258 12.8848 C2.03492 12.3468 1.31757 11.5681 0.790544 10.5486 C0.263515 9.52909 0 8.29484 0 6.84585 C0 5.39251 0.263515 4.1561 0.790544 3.1366 C1.31757 2.11709 2.03492 1.34054 2.94258 0.806926 C3.85024 0.268975 4.87502 0 6.01692 0 C7.15045 0 8.17105 0.268975 9.07871 0.806926 C9.99055 1.34054 10.71 2.11709 11.237 3.1366 C11.7682 4.1561 12.0338 5.39251 12.0338 6.84585 Z M9.27948 6.84585 C9.27948 5.90443 9.14354 5.11052 8.87166 4.46412 C8.60396 3.81771 8.22542 3.32748 7.73604 2.99343 C7.24665 2.65938 6.67361 2.49236 6.01692 2.49236 C5.36022 2.49236 4.78718 2.65938 4.2978 2.99343 C3.80841 3.32748 3.42778 3.81771 3.1559 4.46412 C2.8882 5.11052 2.75436 5.90443 2.75436 6.84585 C2.75436 7.78726 2.8882 8.58117 3.1559 9.22758 C3.42778 9.87399 3.80841 10.3642 4.2978 10.6983 C4.78718 11.0323 5.36022 11.1993 6.01692 11.1993 C6.67361 11.1993 7.24665 11.0323 7.73604 10.6983 C8.22542 10.3642 8.60396 9.87399 8.87166 9.22758 C9.14354 8.58117 9.27948 7.78726 9.27948 6.84585 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.84px"
+                left="462.19px"
+              />
+            </View>
+            <View
+              width="98.89px"
+              height="15.18px"
+              display="block"
+              position="absolute"
+              top="9531px"
+              left="631px"
+            >
+              <Icon
+                width="8.66px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":8.664618492126465,"height":10.320830345153809}}
+                paths={[{"d":"M 8.445018343151855 2.980416512370981 L 5.998101820914736 3.136594832905477 C 5.956273873027055 2.9196794672552593 5.866338361620525 2.724456293523293 5.728306870758866 2.5509242194541955 C 5.590275379897206 2.3730537070014472 5.4083269428394045 2.2320581032285034 5.182457363653289 2.1279384918575017 C 4.960770322563621 2.0194811759619355 4.695167404829147 1.96525251374753 4.385642275415023 1.96525251374753 C 3.971547802830045 1.96525251374753 3.6222817986442917 2.0563568014343354 3.337853181270456 2.238565393874436 C 3.0534247613522516 2.4164359063271843 2.911214220776969 2.655042747103059 2.911214220776969 2.954385882069079 C 2.911214220776969 3.192992705778463 3.003235209199863 3.394724629341288 3.1872772025002876 3.559580560502171 C 3.3713191958007123 3.7244361162002657 3.6871199094601916 3.856753759483771 4.1346766942823345 3.956534565541579 L 5.878891274302647 4.320952467214376 C 6.8158321336491765 4.52051443772629 7.514356079249061 4.8415490648844575 7.974461037818168 5.284056297489406 C 8.434566358389267 5.726563530094355 8.664618492126465 6.307896080624774 8.664618492126465 7.028055007203068 C 8.664618492126465 7.683139201207565 8.478482959038054 8.257964879221065 8.106216072338766 8.752531836445685 C 7.7381320857379166 9.247098691271363 7.2320166082754085 9.633208341133663 6.587869672860513 9.910859932708066 C 5.947905242632792 10.18417320536425 5.209643779007016 10.320830345153809 4.373089362732902 10.320830345153809 C 3.097343665650074 10.320830345153809 2.080933891376337 10.045347836239307 1.3238520758678856 9.49438295494223 C 0.5709530288207848 8.939079771793425 0.1296659128023682 8.184214362135352 0 7.229786930765893 L 2.6288747827125896 7.086622833126964 C 2.7083476056158378 7.4900854173323275 2.900755752887812 7.798104882937956 3.206098146749857 8.010681810204524 C 3.5114405406119023 8.218920572151287 3.902529951205812 8.3230395435289 4.379365819073962 8.3230395435289 C 4.847836577839947 8.3230395435289 5.224286726639663 8.229766207315173 5.508715146557868 8.043219005826518 C 5.797326466574511 7.852333451286665 5.943724119635037 7.607219601461949 5.947907019733476 7.307876637160833 C 5.943724119635037 7.056254856696795 5.841243412770654 6.850185040878011 5.6404701810784665 6.689667735832173 C 5.439697294933635 6.524811992402684 5.130169006229406 6.3990005560429735 4.7118916335459895 6.312234519008425 L 3.042969255297568 5.967339590062054 C 2.101845364215512 5.772115870202397 1.4012279940100933 5.433727506576118 0.9411230354409859 4.952175591438603 C 0.48520077951468527 4.470623505636185 0.2572420374737493 3.8567537594837704 0.2572420374737493 3.1105652948589584 C 0.2572420374737493 2.4684957333457977 0.42455136082908296 1.9153615645909339 0.7591731997391268 1.4511628568603288 C 1.0979777412919773 0.9869645245925116 1.5727216654718297 0.6290542634287 2.1834064531959205 0.3774321245683646 C 2.798274009381362 0.12581070250062476 3.5177175564105863 0 4.341723930574823 0 C 5.5589106059245665 0 6.516764912666586 0.26680559801421844 7.215287838079041 0.8004167599096746 C 7.917993663589934 1.3340286727307071 8.32790065346036 2.0606956323472643 8.445018343151855 2.980416512370981 Z","fillRule":"nonzero"},{"d":"M8.44502 2.98042 L5.9981 3.13659 C5.95627 2.91968 5.86634 2.72446 5.72831 2.55092 C5.59028 2.37305 5.40833 2.23206 5.18246 2.12794 C4.96077 2.01948 4.69517 1.96525 4.38564 1.96525 C3.97155 1.96525 3.62228 2.05636 3.33785 2.23857 C3.05342 2.41644 2.91121 2.65504 2.91121 2.95439 C2.91121 3.19299 3.00324 3.39472 3.18728 3.55958 C3.37132 3.72444 3.68712 3.85675 4.13468 3.95653 L5.87889 4.32095 C6.81583 4.52051 7.51436 4.84155 7.97446 5.28406 C8.43457 5.72656 8.66462 6.3079 8.66462 7.02806 C8.66462 7.68314 8.47848 8.25797 8.10622 8.75253 C7.73813 9.2471 7.23202 9.63321 6.58787 9.91086 C5.94791 10.1842 5.20964 10.3208 4.37309 10.3208 C3.09734 10.3208 2.08093 10.0453 1.32385 9.49438 C0.570953 8.93908 0.129666 8.18421 0 7.22979 L2.62888 7.08662 C2.70835 7.49009 2.90076 7.7981 3.2061 8.01068 C3.51144 8.21892 3.90253 8.32304 4.37937 8.32304 C4.84784 8.32304 5.22429 8.22977 5.50872 8.04322 C5.79733 7.85233 5.94372 7.60722 5.94791 7.30788 C5.94372 7.05625 5.84124 6.85018 5.64047 6.68967 C5.4397 6.52481 5.13017 6.399 4.71189 6.31223 L3.04297 5.96734 C2.10185 5.77212 1.40123 5.43373 0.941123 4.95218 C0.485201 4.47062 0.257242 3.85675 0.257242 3.11057 C0.257242 2.4685 0.424551 1.91536 0.759173 1.45116 C1.09798 0.986965 1.57272 0.629054 2.18341 0.377432 C2.79827 0.125811 3.51772 0 4.34172 0 C5.55891 0 6.51677 0.266806 7.21529 0.800417 C7.91799 1.33403 8.3279 2.0607 8.44502 2.98042 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.96px"
+                left="721.23px"
+              />
+              <Icon
+                width="9.15px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.153997421264648,"height":13.327277183532715}}
+                paths={[{"d":"M 2.4218193014323415 10.450979745545098 L 2.4280957582393405 7.125668107622153 L 2.817092859111225 7.125668107622153 L 5.903980688406784 3.331819295883179 L 8.972047572055585 3.331819295883179 L 4.824826081992162 8.35557832542116 L 4.191139838163939 8.35557832542116 L 2.4218193014323415 10.450979745545098 Z M 0 13.327277183532717 L 0 0 L 2.672784901195679 0 L 2.672784901195679 13.327277183532717 L 0 13.327277183532717 Z M 6.023191243868573 13.327277183532717 L 3.1872690143363513 8.97378726330078 L 4.969134039907708 7.015041199064518 L 9.153997421264648 13.327277183532717 L 6.023191243868573 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M2.42182 10.451 L2.4281 7.12567 L2.81709 7.12567 L5.90398 3.33182 L8.97205 3.33182 L4.82483 8.35558 L4.19114 8.35558 L2.42182 10.451 Z M0 13.3273 L0 0 L2.67278 0 L2.67278 13.3273 L0 13.3273 Z M6.02319 13.3273 L3.18727 8.97379 L4.96913 7.01504 L9.154 13.3273 L6.02319 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.76px"
+                left="711.37px"
+              />
+              <Icon
+                width="8.88px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":8.884215354919434,"height":10.125605583190918}}
+                paths={[{"d":"M 2.6727891938119925 4.34698288459102 L 2.6727891938119925 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 2.5473106025509478 0.13014877611298983 L 2.5473106025509478 1.8936703721717185 L 2.660244704595684 1.8936703721717185 C 2.8735661322742114 1.312337133323748 3.2311900921695482 0.8524765110390398 3.7331228864079247 0.5140885394505739 C 4.235055516099925 0.17136284648352457 4.843652109422129 0 5.5589063148843945 0 C 6.22815006247508 0 6.811647475489308 0.15184059150593848 7.309397533739544 0.4555218086507945 C 7.8071475919897795 0.7592030257956506 8.194057828660217 1.1930335310481823 8.470120839163904 1.757013392674348 C 8.746183849667592 2.31665481612937 8.884215354919434 2.9847544632246588 8.884215354919434 3.761311207571905 L 8.884215354919434 10.125605583190918 L 6.211421948720196 10.125605583190918 L 6.211421948720196 4.255877867507663 C 6.215604498308145 3.6441766537170164 6.065019376915261 3.166963029673273 5.759677115766761 2.824236961243454 C 5.454334492616232 2.4771724546424916 5.033967403159794 2.3036396722808345 4.498572622288463 2.3036396722808345 C 4.138854069290071 2.3036396722808345 3.820968010020044 2.383899327795382 3.5449049995163575 2.5444164372473277 C 3.273024708546174 2.704933922162043 3.0596964357383736 2.9392019205500017 2.9049338548968646 3.2472215758660012 C 2.754353993588859 3.550903134340648 2.676971918744674 3.9174906127117572 2.6727891938119925 4.34698288459102 Z","fillRule":"nonzero"},{"d":"M2.67279 4.34698 L2.67279 10.1256 L0 10.1256 L0 0.130149 L2.54731 0.130149 L2.54731 1.89367 L2.66024 1.89367 C2.87357 1.31234 3.23119 0.852476 3.73312 0.514089 C4.23506 0.171363 4.84365 0 5.55891 0 C6.22815 0 6.81165 0.151841 7.3094 0.455522 C7.80715 0.759203 8.19406 1.19303 8.47012 1.75701 C8.74618 2.31665 8.88422 2.98475 8.88422 3.76131 L8.88422 10.1256 L6.21142 10.1256 L6.21142 4.25588 C6.2156 3.64418 6.06502 3.16696 5.75968 2.82424 C5.45433 2.47717 5.03397 2.30364 4.49857 2.30364 C4.13885 2.30364 3.82097 2.3839 3.54491 2.54442 C3.27302 2.70493 3.0597 2.9392 2.90493 3.24722 C2.75435 3.5509 2.67697 3.91749 2.67279 4.34698 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.96px"
+                left="700.38px"
+              />
+              <Icon
+                width="2.89px"
+                height="14.09px"
+                viewBox={{"minX":0,"minY":0,"width":2.886112928390503,"height":14.08864974975586}}
+                paths={[{"d":"M 0.10038540112657841 14.088649749755858 L 0.10038540112657841 4.093192201062022 L 2.7731788255746928 4.093192201062022 L 2.7731788255746928 14.088649749755858 L 0.10038540112657841 14.088649749755858 Z M 1.4430585703888885 2.804715289825312 C 1.0456951275099688 2.804715289825312 0.7047953134742939 2.668058487920035 0.42036676323379796 2.39474486704299 C 0.14012094901000138 2.117093541532014 0 1.7852132025763043 0 1.3991038160428795 C 0 1.01733286800249 0.14012094901000138 0.6897909675398157 0.42036676323379796 0.4164780805218751 C 0.7047953134742939 0.13882602115179477 1.0456951275099688 0 1.4430585703888885 0 C 1.8404220132678082 0 2.179223959713207 0.13882602115179477 2.4594697081184522 0.4164780805218751 C 2.743898357086775 0.6897909675398157 2.886112928390503 1.01733286800249 2.886112928390503 1.3991038160428795 C 2.886112928390503 1.7852132025763043 2.743898357086775 2.117093541532014 2.4594697081184522 2.39474486704299 C 2.179223959713207 2.668058487920035 1.8404220132678082 2.804715289825312 1.4430585703888885 2.804715289825312 Z","fillRule":"nonzero"},{"d":"M0.100385 14.0886 L0.100385 4.09319 L2.77318 4.09319 L2.77318 14.0886 L0.100385 14.0886 Z M1.44306 2.80472 C1.0457 2.80472 0.704795 2.66806 0.420367 2.39474 C0.140121 2.11709 0 1.78521 0 1.3991 C0 1.01733 0.140121 0.689791 0.420367 0.416478 C0.704795 0.138826 1.0457 0 1.44306 0 C1.84042 0 2.17922 0.138826 2.45947 0.416478 C2.7439 0.689791 2.88611 1.01733 2.88611 1.3991 C2.88611 1.78521 2.7439 2.11709 2.45947 2.39474 C2.17922 2.66806 1.84042 2.80472 1.44306 2.80472 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531px"
+                left="695.47px"
+              />
+              <Icon
+                width="8.23px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.225423812866211,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 2.7167119368697077 0 L 2.7167119368697077 11.004114288333273 L 8.225423812866211 11.004114288333273 L 8.225423812866211 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L2.71671 0 L2.71671 11.0041 L8.22542 11.0041 L8.22542 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.76px"
+                left="685.59px"
+              />
+              <Icon
+                width="9.15px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.154001235961914,"height":13.327277183532715}}
+                paths={[{"d":"M 2.4218276209917944 10.450979745545098 L 2.4280998651391807 7.125668107622153 L 2.8170969491113307 7.125668107622153 L 5.903984644298986 3.331819295883179 L 8.972047182270611 3.331819295883179 L 4.824830084767558 8.35557832542116 L 4.1911396560825 8.35557832542116 L 2.4218276209917944 10.450979745545098 Z M 0 13.327277183532717 L 0 0 L 2.672793209852089 0 L 2.672793209852089 13.327277183532717 L 0 13.327277183532717 Z M 6.0231951945817475 13.327277183532717 L 3.1872730882543863 8.97378726330078 L 4.9691338240268 7.015041199064518 L 9.154001235961914 13.327277183532717 L 6.0231951945817475 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M2.42183 10.451 L2.4281 7.12567 L2.8171 7.12567 L5.90398 3.33182 L8.97205 3.33182 L4.82483 8.35558 L4.19114 8.35558 L2.42183 10.451 Z M0 13.3273 L0 0 L2.67279 0 L2.67279 13.3273 L0 13.3273 Z M6.0232 13.3273 L3.18727 8.97379 L4.96913 7.01504 L9.154 13.3273 L6.0232 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.76px"
+                left="671.17px"
+              />
+              <Icon
+                width="9.05px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":9.047334671020508,"height":10.320830345153809}}
+                paths={[{"d":"M 4.743265372845466 10.320830345153809 C 3.7561311848064087 10.320830345153809 2.907026509649586 10.103914842971667 2.195955099031904 9.670084248203153 C 1.4890665884089254 9.231915317449932 0.9453069651926658 8.624552614479342 0.5646746497381127 7.847995832094552 C 0.1882251355504494 7.0714389131778415 0 6.17774695680699 0 5.166921737896996 C 0 4.1430816134318205 0.19031668427561427 3.2450532666561624 0.5709489997301673 2.4728345130592557 C 0.955764050633068 1.6962777306744672 1.5016152225744923 1.0910833935711821 2.2085037990160132 0.6572526622707461 C 2.915392309638992 0.2190842093792551 3.756130658258071 0 4.730716672861356 0 C 5.571453968383759 0 6.307621857510068 0.15834791518910946 6.939220471877369 0.47504371143434765 C 7.570819086244669 0.7917402586051621 8.07066191244564 1.236416710401936 8.438745889918065 1.8090731009576502 C 8.80682986739049 2.381729491513364 9.00968997382586 3.0541670294566945 9.047334671020508 3.826385783053601 L 6.525126009561867 3.826385783053601 C 6.454018815845265 3.3274802850463883 6.265793581567002 2.926187500293523 5.960451359823754 2.6225062682736597 C 5.659291676073227 2.314486597870146 5.264019572639196 2.160475687479496 4.774635016612388 2.160475687479496 C 4.360540554296885 2.160475687479496 3.9987312888184965 2.277609888675608 3.6892061670805454 2.511878274001342 C 3.383863780790942 2.7418085964062135 3.1454449642192728 3.0780273824443687 2.9739513299198226 3.5205346150493173 C 2.8024576956203724 3.963041847654266 2.7167114050189847 4.4988237305927 2.7167114050189847 5.12787797695491 C 2.7167114050189847 5.765608963552497 2.8003660646220294 6.307896626752466 2.967676979927768 6.754742127076161 C 3.139170614227218 7.201587798064761 3.3796810453425943 7.542145397949354 3.6892061670805454 7.776413783275088 C 3.9987312888184965 8.010682356332216 4.360540554296885 8.127816369796934 4.774635016612388 8.127816369796934 C 5.079977600357618 8.127816369796934 5.353950869428637 8.062741253227104 5.596551697444689 7.932592103809585 C 5.8433350799080985 7.802442954392064 6.046199411071146 7.613726900641127 6.2051446909338335 7.366443370829345 C 6.368272870791224 7.114821590365308 6.47493261238311 6.813309031409577 6.525126009561867 6.461906274222828 L 9.047334671020508 6.461906274222828 C 9.005507073831158 7.225448151052435 8.804736311199788 7.897885893793649 8.445018133716768 8.47921895631878 C 8.089482527135742 9.056213648726223 7.5980061591096 9.507397280236741 6.970590115644292 9.832770226313126 C 6.343174401271694 10.158143172389511 5.600733873435428 10.320830345153809 4.743265372845466 10.320830345153809 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.75613 10.3208 2.90703 10.1039 2.19596 9.67008 C1.48907 9.23192 0.945307 8.62455 0.564675 7.848 C0.188225 7.07144 0 6.17775 0 5.16692 C0 4.14308 0.190317 3.24505 0.570949 2.47283 C0.955764 1.69628 1.50162 1.09108 2.2085 0.657253 C2.91539 0.219084 3.75613 0 4.73072 0 C5.57145 0 6.30762 0.158348 6.93922 0.475044 C7.57082 0.79174 8.07066 1.23642 8.43875 1.80907 C8.80683 2.38173 9.00969 3.05417 9.04733 3.82639 L6.52513 3.82639 C6.45402 3.32748 6.26579 2.92619 5.96045 2.62251 C5.65929 2.31449 5.26402 2.16048 4.77463 2.16048 C4.36054 2.16048 3.99873 2.27761 3.68921 2.51188 C3.38386 2.74181 3.14544 3.07803 2.97395 3.52053 C2.80246 3.96304 2.71671 4.49882 2.71671 5.12788 C2.71671 5.76561 2.80037 6.3079 2.96768 6.75474 C3.13917 7.20159 3.37968 7.54215 3.68921 7.77641 C3.99873 8.01068 4.36054 8.12782 4.77463 8.12782 C5.07998 8.12782 5.35395 8.06274 5.59655 7.93259 C5.84333 7.80244 6.0462 7.61373 6.20514 7.36644 C6.36827 7.11482 6.47493 6.81331 6.52513 6.46191 L9.04733 6.46191 C9.00551 7.22545 8.80474 7.89789 8.44502 8.47922 C8.08948 9.05621 7.59801 9.5074 6.97059 9.83277 C6.34317 10.1581 5.60073 10.3208 4.74327 10.3208 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.96px"
+                left="660.41px"
+              />
+              <Icon
+                width="2.89px"
+                height="14.09px"
+                viewBox={{"minX":0,"minY":0,"width":2.886112928390503,"height":14.08864974975586}}
+                paths={[{"d":"M 0.10038750732021541 14.088649749755858 L 0.10038750732021541 4.093192201062022 L 2.7731788255746928 4.093192201062022 L 2.7731788255746928 14.088649749755858 L 0.10038750732021541 14.088649749755858 Z M 1.4430564641952515 2.804715289825312 C 1.0456930213163318 2.804715289825312 0.7047974196679309 2.668058487920035 0.42036886942743495 2.39474486704299 C 0.14012305520363838 2.117093541532014 0 1.7852132025763043 0 1.3991038160428795 C 0 1.01733286800249 0.14012305520363838 0.6897909675398157 0.42036886942743495 0.4164780805218751 C 0.7047974196679309 0.13882602115179477 1.0456930213163318 0 1.4430564641952515 0 C 1.8404199070741711 0 2.179223959713207 0.13882602115179477 2.4594697081184522 0.4164780805218751 C 2.743898357086775 0.6897909675398157 2.886112928390503 1.01733286800249 2.886112928390503 1.3991038160428795 C 2.886112928390503 1.7852132025763043 2.743898357086775 2.117093541532014 2.4594697081184522 2.39474486704299 C 2.179223959713207 2.668058487920035 1.8404199070741711 2.804715289825312 1.4430564641952515 2.804715289825312 Z","fillRule":"nonzero"},{"d":"M0.100388 14.0886 L0.100388 4.09319 L2.77318 4.09319 L2.77318 14.0886 L0.100388 14.0886 Z M1.44306 2.80472 C1.04569 2.80472 0.704797 2.66806 0.420369 2.39474 C0.140123 2.11709 0 1.78521 0 1.3991 C0 1.01733 0.140123 0.689791 0.420369 0.416478 C0.704797 0.138826 1.04569 0 1.44306 0 C1.84042 0 2.17922 0.138826 2.45947 0.416478 C2.7439 0.689791 2.88611 1.01733 2.88611 1.3991 C2.88611 1.78521 2.7439 2.11709 2.45947 2.39474 C2.17922 2.66806 1.84042 2.80472 1.44306 2.80472 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531px"
+                left="655.89px"
+              />
+              <Icon
+                width="8.85px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":8.852840423583984,"height":10.125605583190918}}
+                paths={[{"d":"M 6.1800470228301005 5.739578939570265 L 6.1800470228301005 0 L 8.852840423583984 0 L 8.852840423583984 9.995456807077927 L 6.286708880049378 9.995456807077927 L 6.286708880049378 8.179876137476136 L 6.186321373619095 8.179876137476136 C 5.968817210395554 8.765547473165459 5.607007915416447 9.236252962090779 5.1008923862210525 9.591994071970197 C 4.598959428458901 9.947735147716635 3.986181844588577 10.125605583190918 3.2625623660799308 10.125605583190918 C 2.6184153648231834 10.125605583190918 2.0516504107428712 9.973765162349874 1.562265957103056 9.670083774540123 C 1.0728814376446898 9.366402352597392 0.6901575248531402 8.93474075923362 0.4140945149118841 8.37509930164562 C 0.1422142738595228 7.815457878190597 0.004182768888894754 7.145189558137402 0 6.3642943756190125 L 0 0 L 2.672792347657074 0 L 2.672792347657074 5.869727715683255 C 2.676975072581234 6.459737284745848 2.8296454898958463 6.926105359489397 3.1308052118982967 7.268831427919216 C 3.431964933900747 7.611557667013931 3.835603579687204 7.78292105962512 4.341719108882598 7.78292105962512 C 4.663792609510972 7.78292105962512 4.964952331513422 7.707000388409381 5.245198241980674 7.555159609172057 C 5.525443790445898 7.398980750159871 5.75131340917404 7.169050251286133 5.922807065255826 6.865368692811486 C 6.0984836218636085 6.561687305001734 6.184229923356097 6.186424418006437 6.1800470228301005 5.739578939570265 Z","fillRule":"nonzero"},{"d":"M6.18005 5.73958 L6.18005 0 L8.85284 0 L8.85284 9.99546 L6.28671 9.99546 L6.28671 8.17988 L6.18632 8.17988 C5.96882 8.76555 5.60701 9.23625 5.10089 9.59199 C4.59896 9.94773 3.98618 10.1256 3.26256 10.1256 C2.61842 10.1256 2.05165 9.97376 1.56227 9.67008 C1.07288 9.3664 0.690157 8.93474 0.414095 8.3751 C0.142214 7.81546 0.00418277 7.14519 0 6.36429 L0 0 L2.67279 0 L2.67279 5.86973 C2.67698 6.45974 2.82965 6.92611 3.13081 7.26883 C3.43196 7.61156 3.8356 7.78292 4.34172 7.78292 C4.66379 7.78292 4.96495 7.707 5.2452 7.55516 C5.52544 7.39898 5.75131 7.16905 5.92281 6.86537 C6.09848 6.56169 6.18423 6.18642 6.18005 5.73958 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9535.09px"
+                left="645px"
+              />
+              <Icon
+                width="12.03px"
+                height="14.6px"
+                viewBox={{"minX":0,"minY":0,"width":12.033838272094727,"height":14.602739334106445}}
+                paths={[{"d":"M 5.0757954828271075 8.876175317694273 L 7.384686003505977 8.876175317694273 L 8.545405614601295 10.424949791401815 L 9.687302699977367 11.804531718404059 L 11.839338664146393 14.602739334106444 L 9.304578887933381 14.602739334106444 L 7.823876866159297 12.715575397966683 L 7.064703592827209 11.596292133234648 L 5.0757954828271075 8.876175317694273 Z M 12.033838272094727 6.8458472811442075 C 12.033838272094727 8.299179931457719 11.76823215286811 9.535596665794252 11.23701994732415 10.555098576409216 C 10.709990642284112 11.574600487024181 9.990553508640449 12.35332670847329 9.078708579302438 12.89127669462884 C 8.171047274472402 13.424888344715699 7.150450815326893 13.691694562288415 6.016919136047363 13.691694562288415 C 4.875022050671292 13.691694562288415 3.850242427747661 13.422718988949956 2.942580728006323 12.884769036927388 C 2.0349190282649854 12.34681908490482 1.31757357523821 11.568093921578136 0.7905441714703462 10.548592010963171 C 0.2635147347932071 9.52908989555032 0 8.294841492990084 0 6.8458472811442075 C 0 5.392514767362622 0.2635147347932071 4.156097691696273 0.7905441714703462 3.136595985879197 C 1.31757357523821 2.1170935291365307 2.0349190282649854 1.3405366975861472 2.942580728006323 0.8069255253610269 C 3.850242427747661 0.2689751637426818 4.875022050671292 0 6.016919136047363 0 C 7.150450815326893 0 8.171047274472402 0.2689751637426818 9.078708579302438 0.8069255253610269 C 9.990553508640449 1.3405366975861472 10.709990642284112 2.1170935291365307 11.23701994732415 3.136595985879197 C 11.76823215286811 4.156097691696273 12.033838272094727 5.392514767362622 12.033838272094727 6.8458472811442075 Z M 9.279482538006656 6.8458472811442075 C 9.279482538006656 5.904434873637959 9.14354213846903 5.110524868477722 8.871661322939142 4.4641171973975355 C 8.60396411546259 3.8177098676471632 8.225423203922526 3.327481441715276 7.736038588318952 2.993431885468893 C 7.246654334717404 2.65938232922251 6.673614506323783 2.492357534032828 6.016919136047363 2.492357534032828 C 5.360223765770944 2.492357534032828 4.787183674103122 2.65938232922251 4.297799420501574 2.993431885468893 C 3.808414804898 3.327481441715276 3.427782360832788 3.8177098676471632 3.155902071851301 4.4641171973975355 C 2.888204683373736 5.110524868477722 2.754355997362272 5.904434873637959 2.754355997362272 6.8458472811442075 C 2.754355997362272 7.787259688650456 2.888204683373736 8.581170239938395 3.155902071851301 9.227577911018582 C 3.427782360832788 9.873985582098769 3.808414804898 10.364213120573138 4.297799420501574 10.698262676819521 C 4.787183674103122 11.032312233065904 5.360223765770944 11.199337028255586 6.016919136047363 11.199337028255586 C 6.673614506323783 11.199337028255586 7.246654334717404 11.032312233065904 7.736038588318952 10.698262676819521 C 8.225423203922526 10.364213120573138 8.60396411546259 9.873985582098769 8.871661322939142 9.227577911018582 C 9.14354213846903 8.581170239938395 9.279482538006656 7.787259688650456 9.279482538006656 6.8458472811442075 Z","fillRule":"nonzero"},{"d":"M5.0758 8.87617 L7.38469 8.87617 L8.54541 10.4249 L9.6873 11.8045 L11.8393 14.6027 L9.30458 14.6027 L7.82388 12.7156 L7.0647 11.5963 L5.0758 8.87617 Z M12.0338 6.84585 C12.0338 8.29918 11.7682 9.5356 11.237 10.5551 C10.71 11.5746 9.99055 12.3533 9.07871 12.8913 C8.17105 13.4249 7.15045 13.6917 6.01692 13.6917 C4.87502 13.6917 3.85024 13.4227 2.94258 12.8848 C2.03492 12.3468 1.31757 11.5681 0.790544 10.5486 C0.263515 9.52909 0 8.29484 0 6.84585 C0 5.39251 0.263515 4.1561 0.790544 3.1366 C1.31757 2.11709 2.03492 1.34054 2.94258 0.806926 C3.85024 0.268975 4.87502 0 6.01692 0 C7.15045 0 8.17105 0.268975 9.07871 0.806926 C9.99055 1.34054 10.71 2.11709 11.237 3.1366 C11.7682 4.1561 12.0338 5.39251 12.0338 6.84585 Z M9.27948 6.84585 C9.27948 5.90443 9.14354 5.11052 8.87166 4.46412 C8.60396 3.81771 8.22542 3.32748 7.73604 2.99343 C7.24665 2.65938 6.67361 2.49236 6.01692 2.49236 C5.36022 2.49236 4.78718 2.65938 4.2978 2.99343 C3.80841 3.32748 3.42778 3.81771 3.1559 4.46412 C2.8882 5.11052 2.75436 5.90443 2.75436 6.84585 C2.75436 7.78726 2.8882 8.58117 3.1559 9.22758 C3.42778 9.87399 3.80841 10.3642 4.2978 10.6983 C4.78718 11.0323 5.36022 11.1993 6.01692 11.1993 C6.67361 11.1993 7.24665 11.0323 7.73604 10.6983 C8.22542 10.3642 8.60396 9.87399 8.87166 9.22758 C9.14354 8.58117 9.27948 7.78726 9.27948 6.84585 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531.58px"
+                left="631px"
+              />
+            </View>
+            <View
+              width="65.43px"
+              height="17.49px"
+              display="block"
+              position="absolute"
+              top="9648.08px"
+              left="464.4px"
+            >
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428607940673828,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252930334208444 2.3687140885316538 L 5.922805902952191 2.759162606028713 C 5.839150699490456 2.529232292149545 5.715762154151614 2.30580910654337 5.552633956582246 2.088894107332552 C 5.3936886594617475 1.867640311502666 5.176181340958256 1.685431367422486 4.900118336107149 1.542267275092012 C 4.62405496925402 1.399103182761538 4.270614295586809 1.3275211365963009 3.8397888776094367 1.3275211365963009 C 3.250017816964182 1.3275211365963009 2.7585412310286093 1.4685161975467704 2.3653606994479044 1.7505063023812197 C 1.976362706314048 2.0281576105966015 1.7818608301855854 2.3817294032000036 1.7818608301855854 2.8112216801914256 C 1.7818608301855854 3.1929926044503496 1.9157132990020436 3.494504947428265 2.1834108485027945 3.7157587432581507 C 2.4511082334571723 3.937012180691752 2.869381774342928 4.121390702279608 3.4382388592922277 4.268893232832865 L 4.868748688934203 4.633311120993225 C 5.730399853981695 4.850226120204043 6.372457170237826 5.182106455552588 6.794917478412227 5.628952109972369 C 7.2173774245846065 6.071459326169367 7.428607940673828 6.641946305714974 7.428607940673828 7.340413560603883 C 7.428607940673828 7.913069929925779 7.269660520905113 8.424989904910662 6.951769926664117 8.87617372448939 C 6.638061870869969 9.32735754406812 6.19887279109771 9.683098402184505 5.634198409141632 9.943396759633773 C 5.069524027185555 10.20369511708304 4.412827612455168 10.333844184875488 3.6641112711440527 10.333844184875488 C 2.6811596789180925 10.333844184875488 1.867609565383379 10.11259110583817 1.2234625760036457 9.670083889641173 C 0.5793154549868137 9.227576673444176 0.17149365291972438 8.581169004712672 0 7.730860985845599 L 1.4054124269487556 7.366443097685239 C 1.539261028925439 7.904393053480212 1.7923187724025287 8.307855247262607 2.1645856902892997 8.576830225160094 C 2.541035146622919 8.845805203057582 3.0325115351028433 8.98029296507016 3.639013868450832 8.98029296507016 C 4.329171380578599 8.98029296507016 4.877114489831944 8.828452644820729 5.282843196210864 8.524771150997381 C 5.692755165040676 8.216751492015085 5.897712712646129 7.847995643493656 5.897712712646129 7.418503264103295 C 5.897712712646129 7.071438753371294 5.780592898721941 6.780771772091278 5.546357499715361 6.546503395452101 C 5.312122100708781 6.307896580590141 4.952404229716004 6.130026253930886 4.467202883004153 6.012891877879911 L 2.861019659283952 5.622444452638194 C 1.9784545185405047 5.405529282762479 1.330124332528429 5.069310338526254 0.9160299239795926 4.613788148990701 C 0.5061181526054288 4.153927521232365 0.3011604075443275 3.5791019669320567 0.3011604075443275 2.8893113836908375 C 0.3011604075443275 2.3253315153517335 0.4538308438977632 1.8264264113064659 0.7591732633405444 1.3925960715550347 C 1.0686985174136463 0.9587653563408294 1.489069744831389 0.6182081445467184 2.020281943384021 0.3709244532391917 C 2.5556768778391494 0.12364147872423398 3.1621797377355323 0 3.8397888776094367 0 C 4.793461022334448 0 5.54217423726447 0.21691498214432847 6.085934808070965 0.650744980565965 C 6.633877917324309 1.0845760712429446 7.022877835650734 1.6572320651020667 7.252930334208444 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25293 2.36871 L5.92281 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62405 1.3991 4.27061 1.32752 3.83979 1.32752 C3.25002 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.91571 3.49451 2.18341 3.71576 C2.45111 3.93701 2.86938 4.12139 3.43824 4.26889 L4.86875 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.42861 6.64195 7.42861 7.34041 C7.42861 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19887 9.6831 5.6342 9.9434 C5.06952 10.2037 4.41283 10.3338 3.66411 10.3338 C2.68116 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.40541 7.36644 C1.53926 7.90439 1.79232 8.30786 2.16459 8.57683 C2.54104 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78059 6.78077 5.54636 6.5465 C5.31212 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.91603 4.61379 C0.506118 4.15393 0.30116 3.5791 0.30116 2.88931 C0.30116 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55568 0.123641 3.16218 0 3.83979 0 C4.79346 0 5.54217 0.216915 6.08593 0.650745 C6.63388 1.08458 7.02288 1.65723 7.25293 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="522.4px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.1699090003967285,"height":12.520350456237793}}
+                paths={[{"d":"M 4.9942313971962795 2.3947447244968454 L 4.9942313971962795 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.9942313971962795 2.3947447244968454 Z M 1.455602992895925 0 L 2.9363076004057205 0 L 2.9363076004057205 9.526919823680572 C 2.9363076004057205 9.960750369430693 2.996957023045204 10.286123662739305 3.1182574479693264 10.503038935614367 C 3.243740600490891 10.715615940919534 3.402687828077272 10.858779948313828 3.5950954531170916 10.932531213794595 C 3.7916857975270357 11.00194404104057 3.9987330473174314 11.036650454663558 4.216237202488278 11.036650454663558 C 4.379365397025939 11.036650454663558 4.5132136509676934 11.027973032066301 4.617783000955674 11.010619825254807 C 4.7223523509436545 10.988928271940903 4.806007199075976 10.971575610190428 4.868748598449411 10.958560750948 L 5.1699090003967285 12.338141511653271 C 5.069522197005183 12.377186265378734 4.929397148993132 12.416231313501147 4.7495380440657 12.45527606722661 C 4.569678939138267 12.498659126921568 4.341720001235147 12.520350456237793 4.065657001514619 12.520350456237793 C 3.647379601562697 12.520350456237793 3.2374683643550526 12.42707708909144 2.8359222038856418 12.240529928136494 C 2.438558779240992 12.053982784248037 2.108119127792524 11.769823954443867 1.8446043026370067 11.388053029128226 C 1.5852724601258061 11.006282103812586 1.455602992895925 10.524729829735103 1.455602992895925 9.943396787156425 L 1.455602992895925 0 Z","fillRule":"nonzero"},{"d":"M4.99423 2.39474 L4.99423 3.69624 L0 3.69624 L0 2.39474 L4.99423 2.39474 Z M1.4556 0 L2.93631 0 L2.93631 9.52692 C2.93631 9.96075 2.99696 10.2861 3.11826 10.503 C3.24374 10.7156 3.40269 10.8588 3.5951 10.9325 C3.79169 11.0019 3.99873 11.0367 4.21624 11.0367 C4.37937 11.0367 4.51321 11.028 4.61778 11.0106 C4.72235 10.9889 4.80601 10.9716 4.86875 10.9586 L5.16991 12.3381 C5.06952 12.3772 4.9294 12.4162 4.74954 12.4553 C4.56968 12.4987 4.34172 12.5204 4.06566 12.5204 C3.64738 12.5204 3.23747 12.4271 2.83592 12.2405 C2.43856 12.054 2.10812 11.7698 1.8446 11.3881 C1.58527 11.0063 1.4556 10.5247 1.4556 9.9434 L1.4556 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9649.43px"
+                left="515.78px"
+              />
+              <Icon
+                width="8.16px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.156407356262207,"height":10.333844184875488}}
+                paths={[{"d":"M 4.366817490940223 10.333844184875488 C 3.463338570648512 10.333844184875488 2.685343307258547 10.11259110583817 2.032830647673537 9.670083889641173 C 1.3803181197256262 9.227576673444176 0.8783857628585974 8.618044637350986 0.5270328201591321 7.841487883760542 C 0.1756798774596669 7.064931130170098 0 6.177747273866834 0 5.179936860978422 C 0 4.164773241326549 0.17986304118879032 3.2689130547053904 0.5395815215239089 2.4923563011149463 C 0.9034827048583047 1.7114614506315138 1.4095982254544568 1.1019294486713034 2.0579280504030906 0.6637602952343147 C 2.7104407099881005 0.22125342036711176 3.471703450098671 0 4.3417200882106695 0 C 5.019329229065541 0 5.63001515484125 0.13014913605840883 6.1737757264349415 0.3904474252417162 C 6.717536298028633 0.6507457144250236 7.163002197314694 1.0151632441890992 7.5101724041056075 1.4836999974674532 C 7.857342248894499 1.9522371262085814 8.072751453357277 2.4988642997789157 8.156407356262207 3.123580494189073 L 6.675706931477356 3.123580494189073 C 6.5627721322594414 2.66805830465352 6.311807920155092 2.26459522341366 5.922810123913735 1.9131922744588752 C 5.537994866125283 1.5574512627440815 5.019329953069584 1.379580756886685 4.366817490940223 1.379580756886685 C 3.7895948017131924 1.379580756886685 3.2834792811170406 1.5357597884227345 2.8484709620610413 1.848117885627813 C 2.4176452143672202 2.1561375446101083 2.0809329498083904 2.592136728010157 1.8383320951002435 3.156116596349261 C 1.5999141408470225 3.715758026465582 1.4807046371720163 4.373012473413634 1.4807046371720163 5.12787778681571 C 1.4807046371720163 5.900096306981248 1.5978204034249663 6.572532932533457 1.8320556382242728 7.145189301855353 C 2.070473773478505 7.717845671177249 2.405096677548817 8.162522311283515 2.835922260696264 8.4792186419135 C 3.2709305797522634 8.795914972543484 3.78122913244044 8.954263427988803 4.366817490940223 8.954263427988803 C 4.751632386726653 8.954263427988803 5.100894405747051 8.884849687877757 5.414602461995351 8.746023854571924 C 5.72831051824365 8.607198106598538 5.993917671001273 8.407636322684427 6.2114218305292725 8.147337948168671 C 6.428925990057272 7.887039488320466 6.583685926984662 7.574682295639344 6.675706931477356 7.210264782941758 L 8.156407356262207 7.210264782941758 C 8.072751453357277 7.800274290761156 7.865704561421229 8.331716282025141 7.535265594447996 8.804591678324154 C 7.209009527929688 9.273128704666345 6.776092692010426 9.646223298607373 6.236515020871661 9.92387487988659 C 5.701119921095073 10.197188159474942 5.077888782337708 10.333844184875488 4.366817490940223 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.36682 10.3338 C3.46334 10.3338 2.68534 10.1126 2.03283 9.67008 C1.38032 9.22758 0.878386 8.61804 0.527033 7.84149 C0.17568 7.06493 0 6.17775 0 5.17994 C0 4.16477 0.179863 3.26891 0.539581 2.49236 C0.903483 1.71146 1.4096 1.10193 2.05793 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C5.01933 0 5.63001 0.130149 6.17378 0.390447 C6.71754 0.650746 7.163 1.01516 7.51017 1.4837 C7.85734 1.95224 8.07275 2.49886 8.15641 3.12358 L6.67571 3.12358 C6.56277 2.66806 6.31181 2.2646 5.92281 1.91319 C5.53799 1.55745 5.01933 1.37958 4.36682 1.37958 C3.78959 1.37958 3.28348 1.53576 2.84847 1.84812 C2.41765 2.15614 2.08093 2.59214 1.83833 3.15612 C1.59991 3.71576 1.4807 4.37301 1.4807 5.12788 C1.4807 5.9001 1.59782 6.57253 1.83206 7.14519 C2.07047 7.71785 2.4051 8.16252 2.83592 8.47922 C3.27093 8.79592 3.78123 8.95426 4.36682 8.95426 C4.75163 8.95426 5.10089 8.88485 5.4146 8.74602 C5.72831 8.6072 5.99392 8.40764 6.21142 8.14734 C6.42893 7.88704 6.58369 7.57468 6.67571 7.21027 L8.15641 7.21027 C8.07275 7.80027 7.8657 8.33172 7.53527 8.80459 C7.20901 9.27313 6.77609 9.64622 6.23651 9.92387 C5.70112 10.1972 5.07789 10.3338 4.36682 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="506.27px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.48266315460205,"height":10.333844184875488}}
+                paths={[{"d":"M 4.4922982356948715 10.333844184875488 C 3.5637224289513734 10.333844184875488 2.762722059840895 10.121267402023086 2.0892956145367836 9.69611342672253 C 1.420052003915313 9.266621149731108 0.9034785024641769 8.667934765466143 0.5395773151048063 7.90005461525743 C 0.17985883079097637 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985883079097637 3.2797588089325536 0.5395773151048063 2.498863958449121 C 0.9034785024641769 1.7136306697429053 1.4095940286582833 1.1019294486713034 2.0579238607778505 0.6637602952343147 C 2.7104365275800584 0.22125342036711176 3.4717013823042766 0 4.341718030039203 0 C 4.84365098482487 0 5.3393106748648265 0.08676584608591967 5.82869492814692 0.26029755532424875 C 6.318079543431039 0.4338299813551467 6.763545447644231 0.715820086189596 7.165091620598968 1.1062678868940865 C 7.5666377935537055 1.4923768739130194 7.88661739028058 2.004296951296842 8.12503569271824 2.642028050779595 C 8.363453304061125 3.2797588089325536 8.48266315460205 4.064992097638769 8.48266315460205 4.997727916898242 L 8.48266315460205 5.648473989719551 L 1.054059333396072 5.648473989719551 L 1.054059333396072 4.320952306995578 L 6.97686531043258 4.320952306995578 C 6.97686531043258 3.7569724386564745 6.868111658047829 3.253728896388423 6.650607496114097 2.8112216801914256 C 6.437285889134168 2.368714463994428 6.131945045517272 2.019480921882422 5.734581773063725 1.7635210709218978 C 5.341401072018619 1.5075608615650893 4.877113135737595 1.379580756886685 4.341718030039203 1.379580756886685 C 3.7519471594725573 1.379580756886685 3.2416483707752337 1.531421554997828 2.810822782862586 1.835103117087135 C 2.3841799309047538 2.1344462409536584 2.0558338091714465 2.5248931200677034 1.8257813077361673 3.0064448466846123 C 1.5957288063008883 3.487996914631316 1.4807025473559299 4.0042565224932645 1.4807025473559299 4.555221417493813 L 1.4807025473559299 5.440235508558014 C 1.4807025473559299 6.195100617162213 1.606184642455037 6.835000423761667 1.8571509553014947 7.359935440351064 C 2.1123001686491434 7.880532086983638 2.4657450755791515 8.277487357290916 2.9174846394493534 8.550800688078738 C 3.3692242033195554 8.819775665976225 3.8941616957629437 8.954263427988803 4.4922982356948715 8.954263427988803 C 4.881296036238787 8.954263427988803 5.2326474031792305 8.89786472948227 5.5463554628973375 8.78506870632163 C 5.86424606111461 8.66793451800204 6.138219741816448 8.494402714898019 6.3682722432517265 8.264472503417789 C 6.598324744687005 8.030203939047224 6.776094157375122 7.739537145498597 6.901577313798351 7.392472634766595 L 8.332082948946383 7.808950689345011 C 8.181502743290714 8.312194129214124 7.92844532574105 8.75470144781006 7.572909676109861 9.136472372068983 C 7.217374026478671 9.513904994637041 6.778184908303623 9.808909475482906 6.255338142106778 10.021486463133185 C 5.732491737911959 10.229725149092598 5.144810705041429 10.333844184875488 4.4922982356948715 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903478 8.66794 0.539577 7.90005 C0.179859 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179859 3.27976 0.539577 2.49886 C0.903478 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.82869 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97686 4.32095 C6.97686 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13194 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92844 8.7547 7.57291 9.13647 C7.21737 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="495.98px"
+              />
+              <Icon
+                width="3.36px"
+                height="17.49px"
+                viewBox={{"minX":0,"minY":0,"width":3.3629508018493652,"height":17.492050170898438}}
+                paths={[{"d":"M 1.5810878981886916 3.7482959970830825 L 3.0617903998349325 3.7482959970830825 L 3.0617903998349325 14.47258886943255 C 3.0617903998349325 15.088628333693105 2.959311627913917 15.622240713047386 2.754355647262404 16.073424539777246 C 2.553582566982955 16.524608298241148 2.2482416505188283 16.87384109496284 1.838329952489995 17.121124619524842 C 1.432600957377581 17.368408144086843 0.9202107671565616 17.492050170898438 0.301160402014433 17.492050170898438 C 0.25096712783091146 17.492050170898438 0.20077347519073804 17.492050170898438 0.1505802010072165 17.492050170898438 C 0.10038692682369496 17.492050170898438 0.0501932782971808 17.492050170898438 0 17.492050170898438 L 0 16.060409224902607 C 0.0501932782971808 16.060409224902607 0.09620376729109777 16.060409224902607 0.13803149989102498 16.060409224902607 C 0.17985922426363365 16.060409224902607 0.22586972559852841 16.060409224902607 0.27606299978204996 16.060409224902607 C 0.7278024838883809 16.060409224902607 1.0582422505929494 15.921583756325958 1.2673809012516077 15.643932255978495 C 1.4765195190009919 15.370618920858737 1.5810878981886916 14.980170687303511 1.5810878981886916 14.47258886943255 L 1.5810878981886916 3.7482959970830825 Z M 2.3088915009923907 2.082387029131277 C 2.020280162096164 2.082387029131277 1.7714056527305144 1.9804366476497322 1.5622669527079451 1.7765358676201526 C 1.3573111036935286 1.5726358214496432 1.2548322001354164 1.327521703764805 1.2548322001354164 1.0411935145656386 C 1.2548322001354164 0.754865325366472 1.3573111036935286 0.5097508492853438 1.5622669527079451 0.30585006925576413 C 1.7714056527305144 0.10195002308525472 2.020280162096164 0 2.3088915009923907 0 C 2.5975028398886173 0 2.8442858990682356 0.10195002308525472 3.049241698718741 0.30585006925576413 C 3.2583803987413105 0.5097508492853438 3.3629508018493657 0.754865325366472 3.3629508018493657 1.0411935145656386 C 3.3629508018493657 1.327521703764805 3.2583803987413105 1.5726358214496432 3.049241698718741 1.7765358676201526 C 2.8442858990682356 1.9804366476497322 2.5975028398886173 2.082387029131277 2.3088915009923907 2.082387029131277 Z","fillRule":"nonzero"},{"d":"M1.58109 3.7483 L3.06179 3.7483 L3.06179 14.4726 C3.06179 15.0886 2.95931 15.6222 2.75436 16.0734 C2.55358 16.5246 2.24824 16.8738 1.83833 17.1211 C1.4326 17.3684 0.920211 17.4921 0.30116 17.4921 C0.250967 17.4921 0.200773 17.4921 0.15058 17.4921 C0.100387 17.4921 0.0501933 17.4921 0 17.4921 L0 16.0604 C0.0501933 16.0604 0.0962038 16.0604 0.138031 16.0604 C0.179859 16.0604 0.22587 16.0604 0.276063 16.0604 C0.727802 16.0604 1.05824 15.9216 1.26738 15.6439 C1.47652 15.3706 1.58109 14.9802 1.58109 14.4726 L1.58109 3.7483 Z M2.30889 2.08239 C2.02028 2.08239 1.77141 1.98044 1.56227 1.77654 C1.35731 1.57264 1.25483 1.32752 1.25483 1.04119 C1.25483 0.754865 1.35731 0.509751 1.56227 0.30585 C1.77141 0.10195 2.02028 0 2.30889 0 C2.5975 0 2.84429 0.10195 3.04924 0.30585 C3.25838 0.509751 3.36295 0.754865 3.36295 1.04119 C3.36295 1.32752 3.25838 1.57264 3.04924 1.77654 C2.84429 1.98044 2.5975 2.08239 2.30889 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.08px"
+                left="490.66px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733628273010254,"height":10.333844184875488}}
+                paths={[{"d":"M 4.366815189601871 10.333844184875488 C 3.4967984587321874 10.333844184875488 2.733442130494983 10.119098080512758 2.0767467972571767 9.689605769388356 C 1.4242341668317309 9.260113458263953 0.9139356369478371 8.659257752488658 0.5458516354260478 7.8870393005890795 C 0.18195046835371165 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18195046835371165 3.2298682029556844 0.5458516354260478 2.4533114493652404 C 0.9139356369478371 1.6767546957747963 1.4242341668317309 1.0737303170157813 2.0767467972571767 0.6442384154871332 C 2.733442130494983 0.21474613849571106 3.4967984587321874 0 4.366815189601871 0 C 5.236831788834461 0 5.998096469482026 0.21474613849571106 6.650609231544565 0.6442384154871332 C 7.307304564782371 1.0737303170157813 7.817601185928416 1.6767546957747963 8.181502287182205 2.4533114493652404 C 8.549586288703994 3.2298682029556844 8.733628273010254 4.138743362915398 8.733628273010254 5.179936860978422 C 8.733628273010254 6.212453687393757 8.549586288703994 7.114820780423542 8.181502287182205 7.8870393005890795 C 7.817601185928416 8.659257752488658 7.307304564782371 9.260113458263953 6.650609231544565 9.689605769388356 C 5.998096469482026 10.119098080512758 5.236831788834461 10.333844184875488 4.366815189601871 10.333844184875488 Z M 4.366815189601871 8.954263427988803 C 5.0276930940149445 8.954263427988803 5.571452917304986 8.77856132205129 5.998095745478015 8.427158475495444 C 6.424738573651044 8.075755731338537 6.7405391355657 7.61372649886244 6.945495275664587 7.041070061274585 C 7.150451070216105 6.468413691952689 7.25292791439512 5.848035935765315 7.25292791439512 5.179936860978422 C 7.25292791439512 4.5118377861915295 7.150451070216105 3.8892908108927644 6.945495275664587 3.312296003348085 C 6.7405391355657 2.7353015371332 6.424738573651044 2.268933661636443 5.998095745478015 1.9131922744588752 C 5.571452917304986 1.5574512627440815 5.0276930940149445 1.379580756886685 4.366815189601871 1.379580756886685 C 3.7059369560960653 1.379580756886685 3.1621751911589007 1.5574512627440815 2.7355325275322384 1.9131922744588752 C 2.30888969935921 2.268933661636443 1.993091079091675 2.7353015371332 1.7881351035391542 3.312296003348085 C 1.5831793089876363 3.8892908108927644 1.4807024648086216 4.5118377861915295 1.4807024648086216 5.179936860978422 C 1.4807024648086216 5.848035935765315 1.5831793089876363 6.468413691952689 1.7881351035391542 7.041070061274585 C 1.993091079091675 7.61372649886244 2.30888969935921 8.075755731338537 2.7355325275322384 8.427158475495444 C 3.1621751911589007 8.77856132205129 3.7059369560960653 8.954263427988803 4.366815189601871 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36682 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07675 9.68961 C1.42423 9.26011 0.913936 8.65926 0.545852 7.88704 C0.18195 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.18195 3.22987 0.545852 2.45331 C0.913936 1.67675 1.42423 1.07373 2.07675 0.644238 C2.73344 0.214746 3.4968 0 4.36682 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54959 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54959 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36682 10.3338 Z M4.36682 8.95426 C5.02769 8.95426 5.57145 8.77856 5.9981 8.42716 C6.42474 8.07576 6.74054 7.61373 6.9455 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.9455 3.3123 C6.74054 2.7353 6.42474 2.26893 5.9981 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36682 1.37958 C3.70594 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78814 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78814 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70594 8.95426 4.36682 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="481.25px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.818554878234863,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4305077061080296 0.15617940377737846 L 1.4305077061080296 1.6659099994409683 L 1.5308941563736749 1.6659099994409683 C 1.7065705266117401 1.1713433438196974 2.0244620220043648 0.7700498312983314 2.484567013542472 0.4620294618768706 C 2.9446722025362244 0.15400980924796392 3.463335890910743 0 4.040558572305141 0 C 4.149310469592419 0 4.285250528373014 0.0021692190666480655 4.448378723964971 0.006507657199944197 C 4.611506919556927 0.010846095333240328 4.734899330239803 0.017353752533184524 4.818554878234864 0.026030628799776787 L 4.818554878234864 1.587820297552279 C 4.768361476214692 1.5748053468819456 4.653335232443824 1.555282922476429 4.473476126353965 1.5292530211357622 C 4.297799575114891 1.49888504645801 4.111666118427783 1.4837010591191335 3.915075772747278 1.4837010591191335 C 3.4466053095055824 1.4837010591191335 3.028327742303967 1.5856512662170141 2.6602435647815454 1.789551663346286 C 2.2963422876572896 1.9891136223422616 2.007730930505453 2.266765112562033 1.794409509780674 2.62250611693911 C 1.5852709894540604 2.973909058645657 1.4807014577892408 3.3752018202414904 1.4807014577892408 3.826385562247887 L 1.4807014577892408 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.53089 1.66591 C1.70657 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14931 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81855 0.0260306 L4.81855 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02833 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.67px"
+                left="475.42px"
+              />
+              <Icon
+                width="8.71px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.70853328704834,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 4.341718468822651 0 C 5.34976660033265 0 6.1737727080872915 0.1887162441067377 6.813736792086578 0.5661487664531959 C 7.457884171413794 0.939243566952136 7.9347202401017904 1.4446563769540433 8.244245031059842 2.082387196458918 C 8.553770546021932 2.7201180159637923 8.70853328704834 3.4316003126383205 8.70853328704834 4.216834018216536 C 8.70853328704834 5.002067382464924 8.553770546021932 5.715718147533909 8.244245031059842 6.35778740567894 C 7.938903140518427 6.999856663823971 7.466249972247067 7.511777848578751 6.826285493336488 7.893548809565365 C 6.186321014425908 8.27098167324165 5.366497477995159 8.459697576018561 4.366814818225689 8.459697576018561 L 1.2548316869584373 8.459697576018561 L 1.2548316869584373 7.028056514984986 L 4.316621592871222 7.028056514984986 C 5.006779099680621 7.028056514984986 5.560996555336459 6.9044146489032014 5.979273959838735 6.6571309338061235 C 6.397551002338992 6.409847577105365 6.700801985675118 6.075798007575192 6.889026893392473 5.654982191082621 C 7.081434339524447 5.229828311412705 7.177638070817752 4.75044558712401 7.177638070817752 4.216834018216536 C 7.177638070817752 3.6832224493090626 7.081434339524447 3.2060085688776354 6.889026893392473 2.7851924110552373 C 6.700801985675118 2.364376970025477 6.395459552130674 2.034665822068968 5.9729996092137805 1.7960589842522028 C 5.550539666296887 1.5531137077952812 4.990048024562466 1.431641061033575 4.291524716919794 1.431641061033575 L 1.5559915656336256 1.431641061033575 L 1.5559915656336256 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L4.34172 0 C5.34977 0 6.17377 0.188716 6.81374 0.566149 C7.45788 0.939244 7.93472 1.44466 8.24424 2.08239 C8.55377 2.72012 8.70853 3.4316 8.70853 4.21683 C8.70853 5.00207 8.55377 5.71572 8.24424 6.35779 C7.9389 6.99986 7.46625 7.51178 6.82629 7.89355 C6.18632 8.27098 5.3665 8.4597 4.36681 8.4597 L1.25483 8.4597 L1.25483 7.02806 L4.31662 7.02806 C5.00678 7.02806 5.561 6.90442 5.97927 6.65713 C6.39755 6.40985 6.7008 6.0758 6.88903 5.65498 C7.08143 5.22983 7.17764 4.75045 7.17764 4.21683 C7.17764 3.68322 7.08143 3.20601 6.88903 2.78519 C6.7008 2.36438 6.39546 2.03467 5.973 1.79606 C5.55054 1.55311 4.99005 1.43164 4.29152 1.43164 L1.55599 1.43164 L1.55599 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="464.4px"
+              />
+            </View>
+            <View
+              width="97.25px"
+              height="13.56px"
+              display="block"
+              position="absolute"
+              top="9609.56px"
+              left="462.19px"
+            >
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482661247253418,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300447194033 10.333844184875488 C 3.5637246186834703 10.333844184875488 2.7627200184091576 10.121267402023086 2.089293557319025 9.69611342672253 C 1.420049931009585 9.266621149731108 0.9034743112556165 8.667934765466143 0.5395731153659132 7.90005461525743 C 0.17985462261979862 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985462261979862 3.2797588089325536 0.5395731153659132 2.498863958449121 C 0.9034743112556165 1.7136306697429053 1.4095898493137509 1.1019294486713034 2.0579196966310405 0.6637602952343147 C 2.7104323787290223 0.22125342036711176 3.471699357491967 0 4.341716025621253 0 C 4.843648992172902 0 5.3393044814444774 0.08676584608591967 5.828688746198395 0.26029755532424875 C 6.318073372954347 0.4338299813551467 6.763539287609858 0.715820086189596 7.165085469977377 1.1062678868940865 C 7.566631652344896 1.4923768739130194 7.886619681347142 2.004296951296842 8.125037989373649 2.642028050779595 C 8.363455606305362 3.2797588089325536 8.482661247253418 4.064992097638769 8.482661247253418 4.997727916898242 L 8.482661247253418 5.648473989719551 L 1.0540572519109837 5.648473989719551 L 1.0540572519109837 4.320952306995578 L 6.976867580173333 4.320952306995578 C 6.976867580173333 3.7569724386564745 6.868113925239249 3.253728896388423 6.650609758206928 2.8112216801914256 C 6.437288146226454 2.368714463994428 6.131947295451958 2.019480921882422 5.7345840136836825 1.7635210709218978 C 5.341403303421893 1.5075608615650893 4.877111143870025 1.379580756886685 4.341716025621253 1.379580756886685 C 3.7519451412295846 1.379580756886685 3.241650552957482 1.531421554997828 2.8108249549457036 1.835103117087135 C 2.38418209298679 2.1344462409536584 2.0558275387819873 2.5248931200677034 1.8257750319539687 3.0064448466846123 C 1.59572252512595 3.487996914631316 1.4806962634846215 4.0042565224932645 1.4806962634846215 4.555221417493813 L 1.4806962634846215 5.440235508558014 C 1.4806962634846215 6.195100617162213 1.606182573912508 6.835000423761667 1.8571488926419533 7.359935440351064 C 2.1122981119706425 7.880532086983638 2.465743027185874 8.277487357290916 2.917482601645458 8.550800688078738 C 3.3692221761050423 8.819775665976225 3.894163893240981 8.954263427988803 4.492300447194033 8.954263427988803 C 4.88129825685658 8.954263427988803 5.232649632033172 8.89786472948227 5.546357699105017 8.78506870632163 C 5.864248304774072 8.66793451800204 6.138217779510911 8.494402714898019 6.368270286338929 8.264472503417789 C 6.598322793166948 8.030203939047224 6.776092210022219 7.739537145498597 6.901575369386942 7.392472634766595 L 8.332085250455258 7.808950689345011 C 8.181505041269787 8.312194129214124 7.928447617788116 8.75470144781006 7.572911959822694 9.136472372068983 C 7.217376301857271 9.513904994637041 6.77818296099973 9.808909475482906 6.255336182546654 10.021486463133185 C 5.732489766095613 10.229725149092598 5.14481293183636 10.333844184875488 4.492300447194033 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.08929 9.69611 C1.42005 9.26662 0.903474 8.66794 0.539573 7.90005 C0.179855 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179855 3.27976 0.539573 2.49886 C0.903474 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71043 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.3393 0.0867658 5.82869 0.260298 C6.31807 0.43383 6.76354 0.71582 7.16509 1.10627 C7.56663 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36346 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81083 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59572 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33209 7.80895 C8.18151 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="550.96px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.8185577392578125,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.43050972375343 0.15617940377737846 L 1.43050972375343 1.6659099994409683 L 1.530899327095318 1.6659099994409683 C 1.7065756864590653 1.1713433438196974 2.0244618966907373 0.7700498312983314 2.484566859748475 0.4620294618768706 C 2.9446720202618466 0.15400980924796392 3.4633409420147876 0 4.040563587679265 0 C 4.149315478234832 0 4.285253422407353 0.0021692190666480655 4.4483816079017195 0.006507657199944197 C 4.6115097933960865 0.010846095333240328 4.7349021964410065 0.017353752533184524 4.8185577392578125 0.026030628799776787 L 4.8185577392578125 1.587820297552279 C 4.768364340344598 1.5748053468819456 4.653338103693823 1.555282922476429 4.473479008737192 1.5292530211357622 C 4.2978024683724465 1.49888504645801 4.111666917013523 1.4837010591191335 3.9150765835019055 1.4837010591191335 C 3.4466061492583995 1.4837010591191335 3.0283243955611994 1.5856512662170141 2.6602402408230845 1.789551663346286 C 2.2963389862242147 1.9891136223422616 2.0077308062274755 2.266765112562033 1.794409398707232 2.62250611693911 C 1.5852708913262337 2.973909058645657 1.480704525424374 3.3752018202414904 1.480704525424374 3.826385562247887 L 1.480704525424374 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70658 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14932 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81856 0.0260306 L4.81856 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.73px"
+                left="545.13px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704666614532471,"height":10.359874725341797}}
+                paths={[{"d":"M 3.287658604909989 10.359874725341797 C 2.6769737754252825 10.359874725341797 2.1227541849274116 10.240571314889168 1.6250041445312933 10.001964459850928 C 1.1272541699537233 9.759019302701645 0.7319859787999128 9.409786426491468 0.4391919032089798 8.954264295236168 C 0.1463978276180467 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875364935027762 6.251499110486931 0.32625780521514935 5.895757893652635 C 0.5437620433532065 5.53567840884028 0.8344639776571425 5.253688993486879 1.1983651548628438 5.0497885724034735 C 1.562266332068545 4.845888151320068 1.9638071296075423 4.694046433978643 2.4029983417217644 4.594265621956588 C 2.84637225676482 4.490146371291558 3.291838346004147 4.40771967650434 3.7393949968853106 4.346983357350659 C 4.324983148067177 4.268893646288024 4.799726907255921 4.210325816863324 5.163628347735815 4.171280961332006 C 5.531712359507447 4.127898029820657 5.799409197337879 4.0563159809891065 5.966719947233159 3.9565348020374853 C 6.138213597512918 3.8567539900154295 6.223962002297957 3.683221171714583 6.223962002297957 3.4359374564568865 L 6.223962002297957 3.383878377252096 C 6.223962002297957 2.74180911869002 6.054558749113664 2.242903966324292 5.715754348938625 1.8871629201549103 C 5.38113248714605 1.531421873985529 4.872931843462117 1.3535513509008383 4.191139813634821 1.3535513509008383 C 3.48425123714178 1.3535513509008383 2.930031515006813 1.5140686655413573 2.528485353256125 1.8351032948223953 C 2.1269390269590667 2.156137924103433 1.8446034364271118 2.4988634836789783 1.6814754059153028 2.863281031671497 L 0.2760630006014051 2.3426847783463476 C 0.5270293887185182 1.735321936672615 0.8616481570393215 1.2624466993720922 1.279925393779537 0.9240590323117965 C 1.702385530904231 0.581332585278699 2.162490520936815 0.34272573024045916 2.6602403967865627 0.20823850133005992 C 3.162173173020789 0.06941283377668664 3.6557433077763783 0 4.140945009021077 0 C 4.4504701596015375 0 4.806000533828607 0.03904448860175248 5.207546695579294 0.11713347433850316 C 5.613275757714461 0.19088474675816383 6.004364997596693 0.3448945911656271 6.380814448135266 0.5791629904944015 C 6.761446799058318 0.8134321236823056 7.077247698859649 1.1670043259930103 7.328214004703577 1.639879563293533 C 7.579180656094883 2.1127548005940557 7.704666614532471 2.7461475573329945 7.704666614532471 3.5400577993773656 L 7.704666614532471 10.125606684409341 L 6.223962002297957 10.125606684409341 L 6.223962002297957 8.772055333508504 L 6.148678220151528 8.772055333508504 C 6.048291416439663 8.988970660925037 5.880973648641666 9.221069397203548 5.646738598788274 9.468352890596856 C 5.412503203387503 9.715636332790691 5.100889745450487 9.926044889700316 4.7118919557604935 10.099577144806947 C 4.3228941660705 10.273109399913578 3.8481502094261115 10.359874725341797 3.287658604909989 10.359874725341797 Z M 3.5135268008976497 8.980293834838564 C 4.099114952079516 8.980293834838564 4.5926849222887345 8.860990407319443 4.994231413132164 8.622383569347695 C 5.3999601132653146 8.383776731375947 5.705301310364523 8.075757230292426 5.910257110623338 7.698324537035899 C 6.119395811266631 7.320891843779372 6.223962002297957 6.923936552092273 6.223962002297957 6.507459173969342 L 6.223962002297957 5.101847651608264 C 6.161220602724323 5.179937362670898 6.023189102423621 5.2515194157690726 5.809867501395849 5.316593810902785 C 5.600728800752556 5.377330130056466 5.358131109420527 5.431559520838192 5.082068108819122 5.4792808909925155 C 4.8101880086021955 5.522664185166807 4.544584710702914 5.561707948442675 4.285252966092044 5.596414365331018 C 4.030103759863638 5.626782524907858 3.823056509412584 5.652812610637978 3.664111214738883 5.674504076393653 C 3.2792959634313523 5.726563701726168 2.9195700516585212 5.811160703823699 2.584948189865946 5.928295091219492 C 2.254509063911478 6.041091039972311 1.9868123906274175 6.212454630418424 1.781856590368603 6.442384778835629 C 1.5810835094932592 6.667976676341266 1.4806961874603257 6.975996177424787 1.4806961874603257 7.366443811147426 C 1.4806961874603257 7.900055482800446 1.6710192080508794 8.303517698592877 2.0516515589739313 8.576831055851917 C 2.4364666457350905 8.84580605980044 2.92375594678695 8.980293834838564 3.5135268008976497 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67697 10.3599 2.12275 10.2406 1.625 10.002 C1.12725 9.75902 0.731986 9.40979 0.439192 8.95426 C0.146398 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834464 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96381 4.69405 2.403 4.59427 C2.84637 4.49015 3.29184 4.40772 3.73939 4.34698 C4.32498 4.26889 4.79973 4.21033 5.16363 4.17128 C5.53171 4.1279 5.79941 4.05632 5.96672 3.95654 C6.13821 3.85675 6.22396 3.68322 6.22396 3.43594 L6.22396 3.38388 C6.22396 2.74181 6.05456 2.2429 5.71575 1.88716 C5.38113 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861648 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16217 0.0694128 3.65574 0 4.14094 0 C4.45047 0 4.806 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00436 0.344895 6.38081 0.579163 C6.76145 0.813432 7.07725 1.167 7.32821 1.63988 C7.57918 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22396 10.1256 L6.22396 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88097 9.22107 5.64674 9.46835 C5.4125 9.71564 5.10089 9.92605 4.71189 10.0996 C4.32289 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09911 8.98029 4.59268 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22396 6.92394 6.22396 6.50746 L6.22396 5.10185 C6.16122 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82306 5.65281 3.66411 5.6745 C3.2793 5.72656 2.91957 5.81116 2.58495 5.9283 C2.25451 6.04109 1.98681 6.21245 1.78186 6.44239 C1.58108 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="534.72px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482665061950684,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300236582974 10.333844184875488 C 3.563724451606529 10.333844184875488 2.7627241012725667 10.121267402023086 2.0892976717544682 9.69611342672253 C 1.4200540768209593 9.266621149731108 0.9034826936725504 8.667934765466143 0.5395815148435084 7.90005461525743 C 0.17986303896195877 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17986303896195877 3.2797588089325536 0.5395815148435084 2.498863958449121 C 0.9034826936725504 1.7136306697429053 1.4095982080026346 1.1019294486713034 2.057928024924487 0.6637602952343147 C 2.710440676430929 0.22125342036711176 3.4717034071165283 0 4.341720034457106 0 C 4.843652977476795 0 5.339312655897829 0.08676584608591967 5.828696897708103 0.26029755532424875 C 6.318081501520395 0.4338299813551467 6.7635473952912735 0.715820086189596 7.165093558833234 1.1062678868940865 C 7.566639722375194 1.4923768739130194 7.886619311601319 2.004296951296842 8.125037608450137 2.642028050779595 C 8.363455214204196 3.2797588089325536 8.482665061950684 4.064992097638769 8.482665061950684 4.997727916898242 L 8.482665061950684 5.648473989719551 L 1.0540614148810736 5.648473989719551 L 1.0540614148810736 4.320952306995578 L 6.976867253079121 4.320952306995578 C 6.976867253079121 3.7569724386564745 6.8681136032437005 3.253728896388423 6.650609446408556 2.8112216801914256 C 6.43728784442917 2.368714463994428 6.1319470079698695 2.019480921882422 5.734583744831047 1.7635210709218978 C 5.341403053002621 1.5075608615650893 4.877115127605124 1.379580756886685 4.341720034457106 1.379580756886685 C 3.7519491777154745 1.379580756886685 3.2416504009802343 1.531421554997828 2.8108248231667123 1.835103117087135 C 2.384181981209957 2.1344462409536584 2.05583586717352 2.5248931200677034 1.825783371130978 3.0064448466846123 C 1.595730875088436 3.487996914631316 1.4807046188398465 4.0042565224932645 1.4807046188398465 4.555221417493813 L 1.4807046188398465 5.440235508558014 C 1.4807046188398465 6.195100617162213 1.6061867109974863 6.835000423761667 1.8571530179609592 7.359935440351064 C 2.1123022253275705 7.880532086983638 2.4657471239723594 8.277487357290916 2.917486677253184 8.550800688078738 C 3.3692262305340086 8.819775665976225 3.8941637106721627 8.954263427988803 4.492300236582974 8.954263427988803 C 4.8812980280082625 8.954263427988803 5.232649386712562 8.89786472948227 5.546357439076934 8.78506870632163 C 5.864248029842427 8.66793451800204 6.138221704121957 8.494402714898019 6.368274200164499 8.264472503417789 C 6.598326696207041 8.030203939047224 6.776096104728007 7.739537145498597 6.901579258209743 7.392472634766595 L 8.332084859824818 7.808950689345011 C 8.18150465769895 8.312194129214124 7.928447246081287 8.75470144781006 7.572911604784327 9.136472372068983 C 7.217375963487367 9.513904994637041 6.778186855607497 9.808909475482906 6.255340101666876 10.021486463133185 C 5.732493709728273 10.229725149092598 5.14481269063377 10.333844184875488 4.492300236582974 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903483 8.66794 0.539581 7.90005 C0.179863 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179863 3.27976 0.539581 2.49886 C0.903483 1.71363 1.4096 1.10193 2.05793 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85715 7.35994 C2.1123 7.88053 2.46575 8.27749 2.91749 8.5508 C3.36923 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59833 8.0302 6.7761 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="519.47px"
+              />
+              <Icon
+                width="13.15px"
+                height="10px"
+                viewBox={{"minX":0,"minY":0,"width":13.150634765625,"height":9.99545669555664}}
+                paths={[{"d":"M 2.9363034746402907 9.99545669555664 L 0 0 L 1.5559884353180327 0 L 3.639009695785004 7.652772198128637 L 3.7393993076536813 7.652772198128637 L 5.797323165153483 0 L 7.378409003438685 0 L 9.411239670358523 7.626741569392204 L 9.511625069839996 7.626741569392204 L 11.594646330306967 0 L 13.150634765625 0 L 10.21433129098471 9.99545669555664 L 8.758724042760944 9.99545669555664 L 6.650609591714008 2.316654960946888 L 6.5000293862981975 2.316654960946888 L 4.391910722864056 9.99545669555664 L 2.9363034746402907 9.99545669555664 Z","fillRule":"nonzero"},{"d":"M2.9363 9.99546 L0 0 L1.55599 0 L3.63901 7.65277 L3.7394 7.65277 L5.79732 0 L7.37841 0 L9.41124 7.62674 L9.51162 7.62674 L11.5946 0 L13.1506 0 L10.2143 9.99546 L8.75872 9.99546 L6.65061 2.31665 L6.50003 2.31665 L4.39191 9.99546 L2.9363 9.99546 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.89px"
+                left="505.14px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733628273010254,"height":10.333844184875488}}
+                paths={[{"d":"M 4.366815189601871 10.333844184875488 C 3.4967984587321874 10.333844184875488 2.733442130494983 10.119098080512758 2.0767467972571767 9.689605769388356 C 1.4242341668317309 9.260113458263953 0.9139356369478371 8.659257752488658 0.5458516354260478 7.8870393005890795 C 0.18195046835371165 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18195046835371165 3.2298682029556844 0.5458516354260478 2.4533114493652404 C 0.9139356369478371 1.6767546957747963 1.4242341668317309 1.0737303170157813 2.0767467972571767 0.6442384154871332 C 2.733442130494983 0.21474613849571106 3.4967984587321874 0 4.366815189601871 0 C 5.236831788834461 0 5.998096469482026 0.21474613849571106 6.650609231544565 0.6442384154871332 C 7.307304564782371 1.0737303170157813 7.817601185928416 1.6767546957747963 8.181502287182205 2.4533114493652404 C 8.549586288703994 3.2298682029556844 8.733628273010254 4.138743362915398 8.733628273010254 5.179936860978422 C 8.733628273010254 6.212453687393757 8.549586288703994 7.114820780423542 8.181502287182205 7.8870393005890795 C 7.817601185928416 8.659257752488658 7.307304564782371 9.260113458263953 6.650609231544565 9.689605769388356 C 5.998096469482026 10.119098080512758 5.236831788834461 10.333844184875488 4.366815189601871 10.333844184875488 Z M 4.366815189601871 8.954263427988803 C 5.0276930940149445 8.954263427988803 5.571452917304986 8.77856132205129 5.998095745478015 8.427158475495444 C 6.424738573651044 8.075755731338537 6.7405391355657 7.61372649886244 6.945495275664587 7.041070061274585 C 7.150451070216105 6.468413691952689 7.25292791439512 5.848035935765315 7.25292791439512 5.179936860978422 C 7.25292791439512 4.5118377861915295 7.150451070216105 3.8892908108927644 6.945495275664587 3.312296003348085 C 6.7405391355657 2.7353015371332 6.424738573651044 2.268933661636443 5.998095745478015 1.9131922744588752 C 5.571452917304986 1.5574512627440815 5.0276930940149445 1.379580756886685 4.366815189601871 1.379580756886685 C 3.7059369560960653 1.379580756886685 3.1621751911589007 1.5574512627440815 2.7355325275322384 1.9131922744588752 C 2.30888969935921 2.268933661636443 1.993091079091675 2.7353015371332 1.7881351035391542 3.312296003348085 C 1.5831793089876363 3.8892908108927644 1.4807024648086216 4.5118377861915295 1.4807024648086216 5.179936860978422 C 1.4807024648086216 5.848035935765315 1.5831793089876363 6.468413691952689 1.7881351035391542 7.041070061274585 C 1.993091079091675 7.61372649886244 2.30888969935921 8.075755731338537 2.7355325275322384 8.427158475495444 C 3.1621751911589007 8.77856132205129 3.7059369560960653 8.954263427988803 4.366815189601871 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36682 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07675 9.68961 C1.42423 9.26011 0.913936 8.65926 0.545852 7.88704 C0.18195 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.18195 3.22987 0.545852 2.45331 C0.913936 1.67675 1.42423 1.07373 2.07675 0.644238 C2.73344 0.214746 3.4968 0 4.36682 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54959 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54959 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36682 10.3338 Z M4.36682 8.95426 C5.02769 8.95426 5.57145 8.77856 5.9981 8.42716 C6.42474 8.07576 6.74054 7.61373 6.9455 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.9455 3.3123 C6.74054 2.7353 6.42474 2.26893 5.9981 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36682 1.37958 C3.70594 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78814 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78814 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70594 8.95426 4.36682 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="489.93px"
+              />
+              <Icon
+                width="7.73px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.729763984680176,"height":13.327277183532715}}
+                paths={[{"d":"M 1.480702499880603 7.314384727191701 L 1.480702499880603 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.480702499880603 0 L 1.480702499880603 4.893609693227368 L 1.606185298505807 4.893609693227368 C 1.832055073198912 4.37735116208788 2.170859109962363 3.967381271530786 2.6225984948022028 3.6637000215560844 C 3.0785207800091188 3.355680332941227 3.6850235951364345 3.2016705057002897 4.442105393448271 3.2016705057002897 C 5.0988007422405905 3.2016705057002897 5.673932002070481 3.338326953843413 6.167499140028668 3.61163985012966 C 6.661066639988869 3.8806150416348797 7.043789386415094 4.294923353765639 7.315669485500881 4.854564837721411 C 7.591732484953744 5.409867883037027 7.729763984680177 6.117012457864037 7.729763984680177 6.975997435814009 L 7.729763984680177 13.327277183532717 L 6.249063590993112 13.327277183532717 L 6.249063590993112 7.080115594155962 C 6.249063590993112 6.286205352627261 6.050382833232371 5.672335570180435 5.653019244426625 5.238505188693017 C 5.2598385559879555 4.800335993102632 4.713985163441318 4.58125139530744 4.015462193167748 4.58125139530744 C 3.530260493941699 4.58125139530744 3.095252381477423 4.6875398652249185 2.7104372963172607 4.900116805059877 C 2.3298049469778044 5.112694103291155 2.0286450718708693 5.422882994159599 1.8069581975448403 5.830683494731701 C 1.58945404258488 6.238484336633632 1.480702499880603 6.733051425497959 1.480702499880603 7.314384727191701 Z","fillRule":"nonzero"},{"d":"M1.4807 7.31438 L1.4807 13.3273 L0 13.3273 L0 0 L1.4807 0 L1.4807 4.89361 L1.60619 4.89361 C1.83206 4.37735 2.17086 3.96738 2.6226 3.6637 C3.07852 3.35568 3.68502 3.20167 4.44211 3.20167 C5.0988 3.20167 5.67393 3.33833 6.1675 3.61164 C6.66107 3.88062 7.04379 4.29492 7.31567 4.85457 C7.59173 5.40987 7.72976 6.11701 7.72976 6.976 L7.72976 13.3273 L6.24906 13.3273 L6.24906 7.08012 C6.24906 6.28621 6.05038 5.67234 5.65302 5.23851 C5.25984 4.80034 4.71398 4.58125 4.01546 4.58125 C3.53026 4.58125 3.09525 4.68754 2.71044 4.90012 C2.3298 5.11269 2.02865 5.42288 1.80696 5.83068 C1.58945 6.23848 1.4807 6.73305 1.4807 7.31438 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.56px"
+                left="479.94px"
+              />
+              <Icon
+                width="16.01px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":16.011655807495117,"height":13.327277183532715}}
+                paths={[{"d":"M 3.5135295915272984 13.327277183532717 L 0 0 L 1.5810882372050226 0 L 4.266428526437514 10.854442524269682 L 4.39191185777202 10.854442524269682 L 7.127445637502837 0 L 8.884210169992281 0 L 11.619743949723098 10.854442524269682 L 11.745226754509194 10.854442524269682 L 14.43056678046748 0 L 16.011655807495117 0 L 12.49812568941941 13.327277183532717 L 10.891941365150737 13.327277183532717 L 8.05602113097168 2.7071027000433245 L 7.955634676523439 2.7071027000433245 L 5.119714442344381 13.327277183532717 L 3.5135295915272984 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M3.51353 13.3273 L0 0 L1.58109 0 L4.26643 10.8544 L4.39191 10.8544 L7.12745 0 L8.88421 0 L11.6197 10.8544 L11.7452 10.8544 L14.4306 0 L16.0117 0 L12.4981 13.3273 L10.8919 13.3273 L8.05602 2.7071 L7.95564 2.7071 L5.11971 13.3273 L3.51353 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.56px"
+                left="462.19px"
+              />
+            </View>
+            <View
+              width="136.11px"
+              height="17.41px"
+              display="block"
+              position="absolute"
+              top="9648.37px"
+              left="631.14px"
+            >
+              <Icon
+                width="12.65px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":12.648702621459961,"height":10.125605583190918}}
+                paths={[{"d":"M 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305097395836193 0.13014877611298983 L 1.4305097395836193 1.6919390046178533 L 1.5559883203758456 1.6919390046178533 C 1.7567613917021263 1.1583274933971328 2.0809286034029317 0.7440192089892081 2.528485232997643 0.449014151394079 C 2.976041862592354 0.14967137242036666 3.5135287399825943 0 4.140944812071641 0 C 4.776726355439029 0 5.305847070456204 0.14967137242036666 5.728306990032437 0.449014151394079 C 6.154949809794204 0.7440192089892081 6.4874833648690755 1.1583274933971328 6.725901303767437 1.6919390046178533 L 6.826282483446461 1.6919390046178533 C 7.07306622271589 1.175680529289147 7.443243773267119 0.7657106830523661 7.936810889803979 0.46202946590751004 C 8.430378368342838 0.15400981059151037 9.022241895048296 0 9.712399363726902 0 C 10.574050145436052 0 11.278847040760029 0.2798205239961262 11.826790115517381 0.8394615719883786 C 12.374733881369458 1.3947648986020478 12.648702621459961 2.2602563828247284 12.648702621459961 3.4359370827787705 L 12.648702621459961 10.125605583190918 L 11.168006504423724 10.125605583190918 L 11.168006504423724 3.4359370827787705 C 11.168006504423724 2.6984251897164873 10.973504443084574 2.1713216770822727 10.584506671895888 1.8546255208867555 C 10.195508900707202 1.5379289892284684 9.737497455934829 1.3795807404658145 9.210468191010422 1.3795807404658145 C 8.532859422888416 1.3795807404658145 8.007917395669882 1.5921578279847695 7.635650501219334 2.017312037155658 C 7.263383606768786 2.4381274326926334 7.077256494578489 2.971739490041019 7.077256494578489 3.6181471169454844 L 7.077256494578489 10.125605583190918 L 5.57145455165526 10.125605583190918 L 5.57145455165526 3.2797587698942485 C 5.57145455165526 2.711440845559709 5.393685144154969 2.2537496471584473 5.03814952135383 1.9066851405574845 C 4.682613898552691 1.5552821957853782 4.224602815782317 1.3795807404658145 3.664111040468364 1.3795807404658145 C 3.2792961694652116 1.3795807404658145 2.919578337573263 1.4858691988928443 2.5849564916957957 1.6984461157469037 C 2.254517381457499 1.9110233909972434 1.9868207209054856 2.206027714733323 1.7818649303946703 2.583460196276961 C 1.5810918590683896 2.956554580979246 1.4807045418100249 3.3882160719440804 1.4807045418100249 3.878444669171464 L 1.4807045418100249 10.125605583190918 L 0 10.125605583190918 Z","fillRule":"nonzero"},{"d":"M0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.75676 1.15833 2.08093 0.744019 2.52849 0.449014 C2.97604 0.149671 3.51353 0 4.14094 0 C4.77673 0 5.30585 0.149671 5.72831 0.449014 C6.15495 0.744019 6.48748 1.15833 6.7259 1.69194 L6.82628 1.69194 C7.07307 1.17568 7.44324 0.765711 7.93681 0.462029 C8.43038 0.15401 9.02224 0 9.7124 0 C10.5741 0 11.2788 0.279821 11.8268 0.839462 C12.3747 1.39476 12.6487 2.26026 12.6487 3.43594 L12.6487 10.1256 L11.168 10.1256 L11.168 3.43594 C11.168 2.69843 10.9735 2.17132 10.5845 1.85463 C10.1955 1.53793 9.7375 1.37958 9.21047 1.37958 C8.53286 1.37958 8.00792 1.59216 7.63565 2.01731 C7.26338 2.43813 7.07726 2.97174 7.07726 3.61815 L7.07726 10.1256 L5.57145 10.1256 L5.57145 3.27976 C5.57145 2.71144 5.39369 2.25375 5.03815 1.90668 C4.68261 1.55528 4.2246 1.37958 3.66411 1.37958 C3.2793 1.37958 2.91958 1.48587 2.58496 1.69845 C2.25452 1.91102 1.98682 2.20603 1.78187 2.58346 C1.58109 2.95655 1.4807 3.38822 1.4807 3.87844 L1.4807 10.1256 L0 10.1256 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="754.6px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704666614532471,"height":10.359874725341797}}
+                paths={[{"d":"M 3.287658604909989 10.359874725341797 C 2.6769737754252825 10.359874725341797 2.1227541849274116 10.240571314889168 1.6250041445312933 10.001964459850928 C 1.1272541699537233 9.759019302701645 0.7319859787999128 9.409786426491468 0.4391919032089798 8.954264295236168 C 0.1463978276180467 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875364935027762 6.251499110486931 0.32625780521514935 5.895757893652635 C 0.5437620433532065 5.53567840884028 0.8344639776571425 5.253688993486879 1.1983651548628438 5.0497885724034735 C 1.562266332068545 4.845888151320068 1.9638071296075423 4.694046433978643 2.4029983417217644 4.594265621956588 C 2.84637225676482 4.490146371291558 3.291838346004147 4.40771967650434 3.7393949968853106 4.346983357350659 C 4.324983148067177 4.268893646288024 4.799726907255921 4.210325816863324 5.163628347735815 4.171280961332006 C 5.531712359507447 4.127898029820657 5.799409197337879 4.0563159809891065 5.966719947233159 3.9565348020374853 C 6.138213597512918 3.8567539900154295 6.223962002297957 3.683221171714583 6.223962002297957 3.4359374564568865 L 6.223962002297957 3.383878377252096 C 6.223962002297957 2.74180911869002 6.054558749113664 2.242903966324292 5.715754348938625 1.8871629201549103 C 5.38113248714605 1.531421873985529 4.872931843462117 1.3535513509008383 4.191139813634821 1.3535513509008383 C 3.48425123714178 1.3535513509008383 2.930031515006813 1.5140686655413573 2.528485353256125 1.8351032948223953 C 2.1269390269590667 2.156137924103433 1.8446034364271118 2.4988634836789783 1.6814754059153028 2.863281031671497 L 0.2760630006014051 2.3426847783463476 C 0.5270293887185182 1.735321936672615 0.8616481570393215 1.2624466993720922 1.279925393779537 0.9240590323117965 C 1.702385530904231 0.581332585278699 2.162490520936815 0.34272573024045916 2.6602403967865627 0.20823850133005992 C 3.162173173020789 0.06941283377668664 3.6557433077763783 0 4.140945009021077 0 C 4.4504701596015375 0 4.806000533828607 0.03904448860175248 5.207546695579294 0.11713347433850316 C 5.613275757714461 0.19088474675816383 6.004364997596693 0.3448945911656271 6.380814448135266 0.5791629904944015 C 6.761446799058318 0.8134321236823056 7.077247698859649 1.1670043259930103 7.328214004703577 1.639879563293533 C 7.579180656094883 2.1127548005940557 7.704666614532471 2.7461475573329945 7.704666614532471 3.5400577993773656 L 7.704666614532471 10.125606684409341 L 6.223962002297957 10.125606684409341 L 6.223962002297957 8.772055333508504 L 6.148678220151528 8.772055333508504 C 6.048291416439663 8.988970660925037 5.880973648641666 9.221069397203548 5.646738598788274 9.468352890596856 C 5.412503203387503 9.715636332790691 5.100889745450487 9.926044889700316 4.7118919557604935 10.099577144806947 C 4.3228941660705 10.273109399913578 3.8481502094261115 10.359874725341797 3.287658604909989 10.359874725341797 Z M 3.5135268008976497 8.980293834838564 C 4.099114952079516 8.980293834838564 4.5926849222887345 8.860990407319443 4.994231413132164 8.622383569347695 C 5.3999601132653146 8.383776731375947 5.705301310364523 8.075757230292426 5.910257110623338 7.698324537035899 C 6.119395811266631 7.320891843779372 6.223962002297957 6.923936552092273 6.223962002297957 6.507459173969342 L 6.223962002297957 5.101847651608264 C 6.161220602724323 5.179937362670898 6.023189102423621 5.2515194157690726 5.809867501395849 5.316593810902785 C 5.600728800752556 5.377330130056466 5.358131109420527 5.431559520838192 5.082068108819122 5.4792808909925155 C 4.8101880086021955 5.522664185166807 4.544584710702914 5.561707948442675 4.285252966092044 5.596414365331018 C 4.030103759863638 5.626782524907858 3.823056509412584 5.652812610637978 3.664111214738883 5.674504076393653 C 3.2792959634313523 5.726563701726168 2.9195700516585212 5.811160703823699 2.584948189865946 5.928295091219492 C 2.254509063911478 6.041091039972311 1.9868123906274175 6.212454630418424 1.781856590368603 6.442384778835629 C 1.5810835094932592 6.667976676341266 1.4806961874603257 6.975996177424787 1.4806961874603257 7.366443811147426 C 1.4806961874603257 7.900055482800446 1.6710192080508794 8.303517698592877 2.0516515589739313 8.576831055851917 C 2.4364666457350905 8.84580605980044 2.92375594678695 8.980293834838564 3.5135268008976497 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67697 10.3599 2.12275 10.2406 1.625 10.002 C1.12725 9.75902 0.731986 9.40979 0.439192 8.95426 C0.146398 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834464 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96381 4.69405 2.403 4.59427 C2.84637 4.49015 3.29184 4.40772 3.73939 4.34698 C4.32498 4.26889 4.79973 4.21033 5.16363 4.17128 C5.53171 4.1279 5.79941 4.05632 5.96672 3.95654 C6.13821 3.85675 6.22396 3.68322 6.22396 3.43594 L6.22396 3.38388 C6.22396 2.74181 6.05456 2.2429 5.71575 1.88716 C5.38113 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861648 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16217 0.0694128 3.65574 0 4.14094 0 C4.45047 0 4.806 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00436 0.344895 6.38081 0.579163 C6.76145 0.813432 7.07725 1.167 7.32821 1.63988 C7.57918 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22396 10.1256 L6.22396 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88097 9.22107 5.64674 9.46835 C5.4125 9.71564 5.10089 9.92605 4.71189 10.0996 C4.32289 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09911 8.98029 4.59268 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22396 6.92394 6.22396 6.50746 L6.22396 5.10185 C6.16122 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82306 5.65281 3.66411 5.6745 C3.2793 5.72656 2.91957 5.81116 2.58495 5.9283 C2.25451 6.04109 1.98681 6.21245 1.78186 6.44239 C1.58108 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="744.2px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.8185577392578125,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.43050972375343 0.15617940377737846 L 1.43050972375343 1.6659099994409683 L 1.530899327095318 1.6659099994409683 C 1.7065756864590653 1.1713433438196974 2.0244618966907373 0.7700498312983314 2.484566859748475 0.4620294618768706 C 2.9446720202618466 0.15400980924796392 3.4633409420147876 0 4.040563587679265 0 C 4.149315478234832 0 4.285253422407353 0.0021692190666480655 4.4483816079017195 0.006507657199944197 C 4.6115097933960865 0.010846095333240328 4.7349021964410065 0.017353752533184524 4.8185577392578125 0.026030628799776787 L 4.8185577392578125 1.587820297552279 C 4.768364340344598 1.5748053468819456 4.653338103693823 1.555282922476429 4.473479008737192 1.5292530211357622 C 4.2978024683724465 1.49888504645801 4.111666917013523 1.4837010591191335 3.9150765835019055 1.4837010591191335 C 3.4466061492583995 1.4837010591191335 3.0283243955611994 1.5856512662170141 2.6602402408230845 1.789551663346286 C 2.2963389862242147 1.9891136223422616 2.0077308062274755 2.266765112562033 1.794409398707232 2.62250611693911 C 1.5852708913262337 2.973909058645657 1.480704525424374 3.3752018202414904 1.480704525424374 3.826385562247887 L 1.480704525424374 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70658 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14932 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81856 0.0260306 L4.81856 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.67px"
+                left="738.07px"
+              />
+              <Icon
+                width="8.51px"
+                height="14.08px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":14.082141876220703}}
+                paths={[{"d":"M 4.34171625189364 14.082141876220703 C 3.626462129724553 14.082141876220703 3.01159292114252 13.986699149206421 2.497111752528911 13.795813678111367 C 1.9826307484616903 13.60926647477796 1.5538972695005018 13.361982225728209 1.2109097689093 13.05396255227871 C 0.8721051691353376 12.75028114659086 0.6023147305520996 12.424909016488431 0.401541628904872 12.077844489455352 L 1.5810859602661707 11.218859895127343 C 1.714934746804012 11.40106876243314 1.8843378447409744 11.60930687791252 2.089293666204415 11.84357536795386 C 2.294249668668882 12.08218219402281 2.574491567262365 12.288250919624009 2.9300272437568444 12.461783183140549 C 3.289745821068563 12.639653697352244 3.7603109409443523 12.728590592841186 4.34171625189364 12.728590592841186 C 5.119712306675996 12.728590592841186 5.761765434178449 12.533366324923277 6.267880998613244 12.142918881342855 C 6.77399656304804 11.752471267097526 7.027054328810799 11.140769914896332 7.027054328810799 10.307815131936096 L 7.027054328810799 8.27748820686682 L 6.901575729068673 8.27748820686682 C 6.792823820885828 8.459697074172617 6.638059641711295 8.685288858025757 6.4372863755176795 8.954263848556579 C 6.240696010141304 9.2189004859933 5.956266833796662 9.45533799045003 5.583999883126001 9.663576686190089 C 5.21591583327258 9.867477062969028 4.718166465383594 9.969426764963519 4.09075062763433 9.969426764963519 C 3.3127547703076394 9.969426764963519 2.6142310666735176 9.778541276801974 1.995180504010291 9.396770368744846 C 1.380312842164304 9.014999426554738 0.8930236223348444 8.45969688644122 0.5333051108416811 7.730861348952071 C 0.177769434347202 7.002025879728883 0 6.117011200969255 0 5.075817858800884 C 0 4.051977724211028 0.17358205786821201 3.1604562752690777 0.5207521960024327 2.4012524879856034 C 0.8679224328644861 1.6377106036053868 1.3510327338992933 1.0477004878134843 1.970083099106854 0.6312231304663473 C 2.5891336617700804 0.21040771015544912 3.3043902192257084 0 4.115848032537767 0 C 4.743264199379807 0 5.241013238176017 0.10845768389763921 5.609097288029439 0.32537305169291764 C 5.9813642387001 0.5379499810616432 6.26579341504474 0.7808948871608447 6.462383780421116 1.054207769990522 C 6.663156701067317 1.3231829482527395 6.817920872014532 1.5444365667431748 6.926673133972111 1.7179686425283185 L 7.077249138617672 1.7179686425283185 L 7.077249138617672 0.1301487837750093 L 8.507759094238281 0.1301487837750093 L 8.507759094238281 10.411934377407182 C 8.507759094238281 11.27091897173519 8.3195383973365 11.969386805557711 7.943088545848599 12.507336786619355 C 7.570821595177938 13.049625035442645 7.068885114084183 13.446579215072408 6.4372863755176795 13.698200998024715 C 5.8098702086756395 13.954161031672179 5.111346505041517 14.082141876220703 4.34171625189364 14.082141876220703 Z M 4.291521442086766 8.589845943280078 C 4.885475455487772 8.589845943280078 5.387411969490805 8.448851251170083 5.797323612417686 8.166861303755905 C 6.207235255344567 7.884871458740669 6.5188487290663195 7.4792397366646695 6.732170352164239 6.9499664617912265 C 6.945491629714744 6.420692982119897 7.052151733714235 5.787300461775368 7.052151733714235 5.049788320496961 C 7.052151733714235 4.3296297281268785 6.947585186317128 3.694067442441376 6.738446809583863 3.143102521562866 C 6.529308087303183 2.592137600684356 6.219780107410808 2.160476084307076 5.809868102481874 1.848117972431025 C 5.399956459554994 1.5357598605549743 4.8938409280294755 1.3795808216834395 4.291521442086766 1.3795808216834395 C 3.6641054727003914 1.3795808216834395 3.1412572518997557 1.5444365667431748 2.722979971884784 1.8741480568626452 C 2.3088854281406634 2.2038591715193236 1.9972719544189108 2.646366988760873 1.7881332321382308 3.201670348065936 C 1.5831774106747905 3.7569733660411884 1.4806963406524227 4.373012678807203 1.4806963406524227 5.049788320496961 C 1.4806963406524227 5.74391737456312 1.5852709672771752 6.357786921988161 1.7944096895578552 6.891398635288157 C 2.007731131654748 7.4206719101616 2.321438342979912 7.837149165109794 2.7355328867240325 8.140830673196588 C 3.1538101667390044 8.44017381112279 3.672471076879205 8.589845943280078 4.291521442086766 8.589845943280078 Z","fillRule":"nonzero"},{"d":"M4.34172 14.0821 C3.62646 14.0821 3.01159 13.9867 2.49711 13.7958 C1.98263 13.6093 1.5539 13.362 1.21091 13.054 C0.872105 12.7503 0.602315 12.4249 0.401542 12.0778 L1.58109 11.2189 C1.71493 11.4011 1.88434 11.6093 2.08929 11.8436 C2.29425 12.0822 2.57449 12.2883 2.93003 12.4618 C3.28975 12.6397 3.76031 12.7286 4.34172 12.7286 C5.11971 12.7286 5.76177 12.5334 6.26788 12.1429 C6.774 11.7525 7.02705 11.1408 7.02705 10.3078 L7.02705 8.27749 L6.90158 8.27749 C6.79282 8.4597 6.63806 8.68529 6.43729 8.95426 C6.2407 9.2189 5.95627 9.45534 5.584 9.66358 C5.21592 9.86748 4.71817 9.96943 4.09075 9.96943 C3.31275 9.96943 2.61423 9.77854 1.99518 9.39677 C1.38031 9.015 0.893024 8.4597 0.533305 7.73086 C0.177769 7.00203 0 6.11701 0 5.07582 C0 4.05198 0.173582 3.16046 0.520752 2.40125 C0.867922 1.63771 1.35103 1.0477 1.97008 0.631223 C2.58913 0.210408 3.30439 0 4.11585 0 C4.74326 0 5.24101 0.108458 5.6091 0.325373 C5.98136 0.53795 6.26579 0.780895 6.46238 1.05421 C6.66316 1.32318 6.81792 1.54444 6.92667 1.71797 L7.07725 1.71797 L7.07725 0.130149 L8.50776 0.130149 L8.50776 10.4119 C8.50776 11.2709 8.31954 11.9694 7.94309 12.5073 C7.57082 13.0496 7.06888 13.4466 6.43729 13.6982 C5.80987 13.9542 5.11135 14.0821 4.34172 14.0821 Z M4.29152 8.58985 C4.88548 8.58985 5.38741 8.44885 5.79732 8.16686 C6.20724 7.88487 6.51885 7.47924 6.73217 6.94997 C6.94549 6.42069 7.05215 5.7873 7.05215 5.04979 C7.05215 4.32963 6.94759 3.69407 6.73845 3.1431 C6.52931 2.59214 6.21978 2.16048 5.80987 1.84812 C5.39996 1.53576 4.89384 1.37958 4.29152 1.37958 C3.66411 1.37958 3.14126 1.54444 2.72298 1.87415 C2.30889 2.20386 1.99727 2.64637 1.78813 3.20167 C1.58318 3.75697 1.4807 4.37301 1.4807 5.04979 C1.4807 5.74392 1.58527 6.35779 1.79441 6.8914 C2.00773 7.42067 2.32144 7.83715 2.73553 8.14083 C3.15381 8.44017 3.67247 8.58985 4.29152 8.58985 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="726.85px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733626365661621,"height":10.333844184875488}}
+                paths={[{"d":"M 4.3668131828308105 10.333844184875488 C 3.496796432152819 10.333844184875488 2.7334358741486504 10.119098080512758 2.0767405259593814 9.689605769388356 C 1.424227880677703 9.260113458263953 0.913933551562542 8.659257752488658 0.545849541660315 7.8870393005890795 C 0.18194836630277472 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18194836630277472 3.2298682029556844 0.545849541660315 2.4533114493652404 C 0.913933551562542 1.6767546957747963 1.424227880677703 1.0737303170157813 2.0767405259593814 0.6442384154871332 C 2.7334358741486504 0.21474613849571106 3.496796432152819 0 4.3668131828308105 0 C 5.236829801871706 0 5.9980966060450776 0.21474613849571106 6.650609382963852 0.6442384154871332 C 7.307304731153121 1.0737303170157813 7.817599257723926 1.6767546957747963 8.181500367262919 2.4533114493652404 C 8.549584377165145 3.2298682029556844 8.733626365661621 4.138743362915398 8.733626365661621 5.179936860978422 C 8.733626365661621 6.212453687393757 8.549584377165145 7.114820780423542 8.181500367262919 7.8870393005890795 C 7.817599257723926 8.659257752488658 7.307304731153121 9.260113458263953 6.650609382963852 9.689605769388356 C 5.9980966060450776 10.119098080512758 5.236829801871706 10.333844184875488 4.3668131828308105 10.333844184875488 Z M 4.3668131828308105 8.954263427988803 C 5.027691102290574 8.954263427988803 5.571450937960795 8.77856132205129 5.998093775847513 8.427158475495444 C 6.424736613734232 8.075755731338537 6.74053718283895 7.61372649886244 6.945493327604224 7.041070061274585 C 7.15044912682212 6.468413691952689 7.252930185721373 5.848035935765315 7.252930185721373 5.179936860978422 C 7.252930185721373 4.5118377861915295 7.15044912682212 3.8892908108927644 6.945493327604224 3.312296003348085 C 6.74053718283895 2.7353015371332 6.424736613734232 2.268933661636443 5.998093775847513 1.9131922744588752 C 5.571450937960795 1.5574512627440815 5.027691102290574 1.379580756886685 4.3668131828308105 1.379580756886685 C 3.7059349342783063 1.379580756886685 3.1621752631544573 1.5574512627440815 2.735532589814109 1.9131922744588752 C 2.308889751927391 2.268933661636443 1.9930890182763015 2.7353015371332 1.788133038057398 3.312296003348085 C 1.5831772388395016 3.8892908108927644 1.480696179940249 4.5118377861915295 1.480696179940249 5.179936860978422 C 1.480696179940249 5.848035935765315 1.5831772388395016 6.468413691952689 1.788133038057398 7.041070061274585 C 1.9930890182763015 7.61372649886244 2.308889751927391 8.075755731338537 2.735532589814109 8.427158475495444 C 3.1621752631544573 8.77856132205129 3.7059349342783063 8.954263427988803 4.3668131828308105 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36681 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07674 9.68961 C1.42423 9.26011 0.913934 8.65926 0.54585 7.88704 C0.181948 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.181948 3.22987 0.54585 2.45331 C0.913934 1.67675 1.42423 1.07373 2.07674 0.644238 C2.73344 0.214746 3.4968 0 4.36681 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54958 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54958 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36681 10.3338 Z M4.36681 8.95426 C5.02769 8.95426 5.57145 8.77856 5.99809 8.42716 C6.42474 8.07576 6.74054 7.61373 6.94549 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.94549 3.3123 C6.74054 2.7353 6.42474 2.26893 5.99809 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36681 1.37958 C3.70593 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78813 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78813 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70593 8.95426 4.36681 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="716.31px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.8185577392578125,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.43050972375343 0.15617940377737846 L 1.43050972375343 1.6659099994409683 L 1.530899327095318 1.6659099994409683 C 1.7065756864590653 1.1713433438196974 2.0244618966907373 0.7700498312983314 2.484566859748475 0.4620294618768706 C 2.9446720202618466 0.15400980924796392 3.4633409420147876 0 4.040563587679265 0 C 4.149315478234832 0 4.285253422407353 0.0021692190666480655 4.4483816079017195 0.006507657199944197 C 4.6115097933960865 0.010846095333240328 4.7349021964410065 0.017353752533184524 4.8185577392578125 0.026030628799776787 L 4.8185577392578125 1.587820297552279 C 4.768364340344598 1.5748053468819456 4.653338103693823 1.555282922476429 4.473479008737192 1.5292530211357622 C 4.2978024683724465 1.49888504645801 4.111666917013523 1.4837010591191335 3.9150765835019055 1.4837010591191335 C 3.4466061492583995 1.4837010591191335 3.0283243955611994 1.5856512662170141 2.6602402408230845 1.789551663346286 C 2.2963389862242147 1.9891136223422616 2.0077308062274755 2.266765112562033 1.794409398707232 2.62250611693911 C 1.5852708913262337 2.973909058645657 1.480704525424374 3.3752018202414904 1.480704525424374 3.826385562247887 L 1.480704525424374 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70658 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14932 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81856 0.0260306 L4.81856 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.67px"
+                left="710.49px"
+              />
+              <Icon
+                width="8.71px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.70853328704834,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 4.341720048467823 0 C 5.349768179977822 0 6.173770075345337 0.1887162441067377 6.813734159344624 0.5661487664531959 C 7.45788153867184 0.939243566952136 7.934719187005009 1.4446563769540433 8.24424397796306 2.082387196458918 C 8.55376949292515 2.7201180159637923 8.70853328704834 3.4316003126383205 8.70853328704834 4.216834018216536 C 8.70853328704834 5.002067382464924 8.55376949292515 5.715718147533909 8.24424397796306 6.35778740567894 C 7.938902087421646 6.999856663823971 7.46625155189224 7.511777848578751 6.8262870729816605 7.893548809565365 C 6.186322594071081 8.27098167324165 5.366500110737112 8.459697576018561 4.366817450967642 8.459697576018561 L 1.2548322135068282 8.459697576018561 L 1.2548322135068282 7.028056514984986 L 4.316622645968004 7.028056514984986 C 5.006780152777403 7.028056514984986 5.560999714626804 6.9044146489032014 5.97927711912908 6.6571309338061235 C 6.397554161629337 6.409847577105365 6.700801459126726 6.075798007575192 6.889026366844082 5.654982191082621 C 7.081433812976055 5.229828311412705 7.1776338584306245 4.75044558712401 7.1776338584306245 4.216834018216536 C 7.1776338584306245 3.6832224493090626 7.081433812976055 3.2060085688776354 6.889026366844082 2.7851924110552373 C 6.700801459126726 2.364376970025477 6.395460605227456 2.034665822068968 5.973000662310562 1.7960589842522028 C 5.550540719393668 1.5531137077952812 4.990048551110856 1.431641061033575 4.291525243468184 1.431641061033575 L 1.5559926187304072 1.431641061033575 L 1.5559926187304072 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L4.34172 0 C5.34977 0 6.17377 0.188716 6.81373 0.566149 C7.45788 0.939244 7.93472 1.44466 8.24424 2.08239 C8.55377 2.72012 8.70853 3.4316 8.70853 4.21683 C8.70853 5.00207 8.55377 5.71572 8.24424 6.35779 C7.9389 6.99986 7.46625 7.51178 6.82629 7.89355 C6.18632 8.27098 5.3665 8.4597 4.36682 8.4597 L1.25483 8.4597 L1.25483 7.02806 L4.31662 7.02806 C5.00678 7.02806 5.561 6.90442 5.97928 6.65713 C6.39755 6.40985 6.7008 6.0758 6.88903 5.65498 C7.08143 5.22983 7.17763 4.75045 7.17763 4.21683 C7.17763 3.68322 7.08143 3.20601 6.88903 2.78519 C6.7008 2.36438 6.39546 2.03467 5.973 1.79606 C5.55054 1.55311 4.99005 1.43164 4.29153 1.43164 L1.55599 1.43164 L1.55599 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="699.47px"
+              />
+              <Icon
+                width="10.11px"
+                height="13.64px"
+                viewBox={{"minX":0,"minY":0,"width":10.113945960998535,"height":13.639634132385254}}
+                paths={[{"d":"M 4.090754552528176 13.639634132385254 C 3.2458342502438127 13.639634132385254 2.518032727324637 13.479116315303639 1.907347877577032 13.158081670996847 C 1.2966630936479775 12.837047026690055 0.8260980068429795 12.396709081430238 0.495658968652164 11.837067596286527 C 0.16521993046134853 11.277426145275797 0 10.637526519583343 0 9.917367592820804 C 0 9.36206440952993 0.11293681675626263 8.869666398307317 0.33880651761039376 8.440174105280649 C 0.568859020259969 8.006343373869221 0.884659864721218 7.605050554880707 1.2862061056140048 7.236294590192705 C 1.6919350824836852 6.863200528449751 2.1583127931039776 6.4901057499142 2.6853421005818294 6.117011346841438 L 4.542495171879622 4.68537037008588 C 4.906396295341238 4.43808666954593 5.1970983873825825 4.173449932259534 5.414602550464376 3.891460175293183 C 5.636289614069439 3.609470418326832 5.747132611096247 3.2407144536388297 5.747132611096247 2.7851922470961963 C 5.747132611096247 2.4468042588461327 5.602828499622259 2.119261991095182 5.314217150293132 1.8025654438433438 C 5.029788701487274 1.485869647517082 4.655427858521839 1.3275217322874608 4.191139952699419 1.3275217322874608 C 3.864883551757671 1.3275217322874608 3.576271132877098 1.4142875816128138 3.3253048187059537 1.5878192973300103 C 3.0785212405117033 1.757013291455042 2.8840233758552847 1.973928657160756 2.741809151452356 2.2385653944471517 C 2.6037776465716833 2.4988636933487873 2.534761894131347 2.767838851953453 2.534761894131347 3.04549090439413 C 2.534761894131347 3.3578490132612075 2.616327055690911 3.6745451850502575 2.779455256161785 3.9955794197612797 C 2.946766011608539 4.312275967013118 3.1579965150002076 4.6376490155716885 3.4131457296946217 4.971698565436991 C 3.6724778449123057 5.301409676917534 3.9401743460776935 5.639796948375003 4.216237355839039 5.9868614720647795 L 10.113945960998533 13.45742518150224 L 8.332085099119599 13.45742518150224 L 3.4633363235866264 7.36644337271398 C 3.0115969218783643 6.80246348331849 2.6016855052152676 6.290543420954933 2.233601481230382 5.830683151490327 C 1.8655174572454964 5.3708225065629325 1.5727261856825112 4.91746955334566 1.3552218580543414 4.470624223572547 C 1.1377176949725478 4.0237788937994345 1.0289640420137571 3.5400575886814343 1.0289640420137571 3.0194602740855676 C 1.0289640420137571 2.420774004000359 1.1565396942304538 1.8958389678123277 1.4116889089248679 1.4446551996544545 C 1.6710208431415379 0.9891329931118209 2.0328280481458734 0.6355612043741823 2.4971157894219176 0.38393978224206754 C 2.9655864312212317 0.1279799217251924 3.513533433515134 0 4.140949358807414 0 C 4.78509635964437 0 5.339311756144354 0.13014914091757257 5.803599661966774 0.39044743981920804 C 6.267887238696442 0.6464073003360832 6.625515393562714 0.986964149382229 6.876482053281248 1.412118004024136 C 7.127448367452392 1.832934137073878 7.252930463213837 2.290625562808892 7.252930463213837 2.7851922470961963 C 7.252930463213837 3.4229230290590564 7.100260221600556 3.97605699315755 6.794917599271102 4.444594139391676 C 6.489575338943676 4.913131285625803 6.073386905844378 5.349131065564707 5.5463575983665265 5.752593445075408 L 2.986502513482794 7.73086127448001 C 2.4092798148245396 8.17336850719817 2.018190710057464 8.602860800224837 1.8132347219970761 9.019338153560012 C 1.6082789149377021 9.435815506895187 1.5058020645048236 9.735158829669183 1.5058020645048236 9.917367592820804 C 1.5058020645048236 10.333845116820882 1.6103682590057202 10.722122961984923 1.819506966588364 11.082202254701288 C 2.028645493169994 11.442281718082558 2.3235306831902593 11.732948539549824 2.7041630467429267 11.954202155908904 C 3.084795410295594 12.175455772267984 3.5302613168601082 12.286082862044616 4.040559746248936 12.286082862044616 C 4.525761463592926 12.286082862044616 4.998415894465942 12.17979448371659 5.458520899765093 11.967217471063185 C 5.918625905064244 11.750302105357472 6.334810125776307 11.437943928224433 6.707076688282434 11.030143178594933 C 7.08352651331386 10.622342360699472 7.380505062333725 10.13211373933414 7.5980092254155185 9.559457348631916 C 7.819695927018554 8.986801128594598 7.930539286047391 8.342562518389691 7.930539286047391 7.626742030011913 L 9.361049141133357 7.626742030011913 C 9.361049141133357 8.51175635891631 9.262751686385933 9.234083924610557 9.06616097282368 9.793725375621287 C 8.869570966810844 10.353366826632017 8.647884265207809 10.791536542555898 8.401100851559935 11.108232885009851 C 8.15431674681728 11.424929227463805 7.955635981637592 11.66136666137695 7.805056482736528 11.817545715810489 C 7.754863079215147 11.882620290535899 7.708852580330697 11.947694225267918 7.6670249778558555 12.012768889592401 C 7.625197025719965 12.07784346431781 7.579186522721854 12.142918580904288 7.528993472975182 12.207993155629698 C 7.114898958333164 12.689545139156374 6.592050807186993 13.049624722003077 5.960452113008544 13.288231545773506 C 5.3288530897373425 13.522500067691098 4.705621973706298 13.639634132385254 4.090754552528176 13.639634132385254 Z","fillRule":"nonzero"},{"d":"M4.09075 13.6396 C3.24583 13.6396 2.51803 13.4791 1.90735 13.1581 C1.29666 12.837 0.826098 12.3967 0.495659 11.8371 C0.16522 11.2774 0 10.6375 0 9.91737 C0 9.36206 0.112937 8.86967 0.338807 8.44017 C0.568859 8.00634 0.88466 7.60505 1.28621 7.23629 C1.69193 6.8632 2.15831 6.49011 2.68534 6.11701 L4.54249 4.68537 C4.9064 4.43809 5.1971 4.17345 5.4146 3.89146 C5.63629 3.60947 5.74713 3.24071 5.74713 2.78519 C5.74713 2.4468 5.60283 2.11926 5.31422 1.80257 C5.02979 1.48587 4.65543 1.32752 4.19114 1.32752 C3.86488 1.32752 3.57627 1.41429 3.3253 1.58782 C3.07852 1.75701 2.88402 1.97393 2.74181 2.23857 C2.60378 2.49886 2.53476 2.76784 2.53476 3.04549 C2.53476 3.35785 2.61633 3.67455 2.77946 3.99558 C2.94677 4.31228 3.158 4.63765 3.41315 4.9717 C3.67248 5.30141 3.94017 5.6398 4.21624 5.98686 L10.1139 13.4574 L8.33208 13.4574 L3.46334 7.36644 C3.0116 6.80246 2.60169 6.29054 2.2336 5.83068 C1.86552 5.37082 1.57273 4.91747 1.35522 4.47062 C1.13772 4.02378 1.02896 3.54006 1.02896 3.01946 C1.02896 2.42077 1.15654 1.89584 1.41169 1.44466 C1.67102 0.989133 2.03283 0.635561 2.49712 0.38394 C2.96559 0.12798 3.51353 0 4.14095 0 C4.7851 0 5.33931 0.130149 5.8036 0.390447 C6.26789 0.646407 6.62551 0.986964 6.87648 1.41212 C7.12745 1.83293 7.25293 2.29063 7.25293 2.78519 C7.25293 3.42292 7.10026 3.97606 6.79492 4.44459 C6.48957 4.91313 6.07339 5.34913 5.54636 5.75259 L2.9865 7.73086 C2.40928 8.17337 2.01819 8.60286 1.81323 9.01934 C1.60828 9.43582 1.5058 9.73516 1.5058 9.91737 C1.5058 10.3338 1.61037 10.7221 1.81951 11.0822 C2.02865 11.4423 2.32353 11.7329 2.70416 11.9542 C3.0848 12.1755 3.53026 12.2861 4.04056 12.2861 C4.52576 12.2861 4.99842 12.1798 5.45852 11.9672 C5.91863 11.7503 6.33481 11.4379 6.70708 11.0301 C7.08353 10.6223 7.3805 10.1321 7.59801 9.55946 C7.8197 8.9868 7.93054 8.34256 7.93054 7.62674 L9.36105 7.62674 C9.36105 8.51176 9.26275 9.23408 9.06616 9.79373 C8.86957 10.3534 8.64788 10.7915 8.4011 11.1082 C8.15432 11.4249 7.95564 11.6614 7.80506 11.8175 C7.75486 11.8826 7.70885 11.9477 7.66702 12.0128 C7.6252 12.0778 7.57919 12.1429 7.52899 12.208 C7.1149 12.6895 6.59205 13.0496 5.96045 13.2882 C5.32885 13.5225 4.70562 13.6396 4.09075 13.6396 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.37px"
+                left="682.55px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.1699090003967285,"height":12.520350456237793}}
+                paths={[{"d":"M 4.9942313971962795 2.3947447244968454 L 4.9942313971962795 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.9942313971962795 2.3947447244968454 Z M 1.455602992895925 0 L 2.9363076004057205 0 L 2.9363076004057205 9.526919823680572 C 2.9363076004057205 9.960750369430693 2.996957023045204 10.286123662739305 3.1182574479693264 10.503038935614367 C 3.243740600490891 10.715615940919534 3.402687828077272 10.858779948313828 3.5950954531170916 10.932531213794595 C 3.7916857975270357 11.00194404104057 3.9987330473174314 11.036650454663558 4.216237202488278 11.036650454663558 C 4.379365397025939 11.036650454663558 4.5132136509676934 11.027973032066301 4.617783000955674 11.010619825254807 C 4.7223523509436545 10.988928271940903 4.806007199075976 10.971575610190428 4.868748598449411 10.958560750948 L 5.1699090003967285 12.338141511653271 C 5.069522197005183 12.377186265378734 4.929397148993132 12.416231313501147 4.7495380440657 12.45527606722661 C 4.569678939138267 12.498659126921568 4.341720001235147 12.520350456237793 4.065657001514619 12.520350456237793 C 3.647379601562697 12.520350456237793 3.2374683643550526 12.42707708909144 2.8359222038856418 12.240529928136494 C 2.438558779240992 12.053982784248037 2.108119127792524 11.769823954443867 1.8446043026370067 11.388053029128226 C 1.5852724601258061 11.006282103812586 1.455602992895925 10.524729829735103 1.455602992895925 9.943396787156425 L 1.455602992895925 0 Z","fillRule":"nonzero"},{"d":"M4.99423 2.39474 L4.99423 3.69624 L0 3.69624 L0 2.39474 L4.99423 2.39474 Z M1.4556 0 L2.93631 0 L2.93631 9.52692 C2.93631 9.96075 2.99696 10.2861 3.11826 10.503 C3.24374 10.7156 3.40269 10.8588 3.5951 10.9325 C3.79169 11.0019 3.99873 11.0367 4.21624 11.0367 C4.37937 11.0367 4.51321 11.028 4.61778 11.0106 C4.72235 10.9889 4.80601 10.9716 4.86875 10.9586 L5.16991 12.3381 C5.06952 12.3772 4.9294 12.4162 4.74954 12.4553 C4.56968 12.4987 4.34172 12.5204 4.06566 12.5204 C3.64738 12.5204 3.23747 12.4271 2.83592 12.2405 C2.43856 12.054 2.10812 11.7698 1.8446 11.3881 C1.58527 11.0063 1.4556 10.5247 1.4556 9.9434 L1.4556 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9649.43px"
+                left="670.81px"
+              />
+              <Icon
+                width="7.63px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.629378795623779,"height":10.125605583190918}}
+                paths={[{"d":"M 1.4807025401260663 4.112713776881241 L 1.4807025401260663 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 1.430509840550456 0.13014877611298983 L 1.430509840550456 1.6919390046178533 L 1.5559926425862796 1.6919390046178533 C 1.7818624234185203 1.1843574056314345 2.1248495673270744 0.7765567784802252 2.5849545679510664 0.4685371231642255 C 3.0450595685750583 0.15617902967708214 3.6390149492972546 0 4.366817517917986 0 C 5.019329984078505 0 5.590277997057658 0.13882565245527717 6.079662609952247 0.4164769573658315 C 6.569046860844811 0.6897905579642921 6.949676423241478 1.106267873726404 7.221556529716961 1.6659089217186562 C 7.49343698173983 2.2212122483323253 7.62937879562378 2.9240185133393077 7.62937879562378 3.774326522085336 L 7.62937879562378 10.125605583190918 L 6.148678361691309 10.125605583190918 L 6.148678361691309 3.878444669171464 C 6.148678361691309 3.0932113898117213 5.952086942577218 2.48151072214874 5.558906243451905 2.04334157392719 C 5.165725544326593 1.6008343629972663 4.626149252043916 1.3795807404658145 3.940174306041309 1.3795807404658145 C 3.467520933067765 1.3795807404658145 3.0450599305770827 1.4858691988928443 2.6727933718535812 1.6984461157469037 C 2.304709187062448 1.9110233909972434 2.0140051563277273 2.2212122483323253 1.800683895936776 2.6290127048186394 C 1.5873624709994498 3.036813502634744 1.4807025401260663 3.531380538033271 1.4807025401260663 4.112713776881241 Z","fillRule":"nonzero"},{"d":"M1.4807 4.11271 L1.4807 10.1256 L0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.78186 1.18436 2.12485 0.776557 2.58495 0.468537 C3.04506 0.156179 3.63901 0 4.36682 0 C5.01933 0 5.59028 0.138826 6.07966 0.416477 C6.56905 0.689791 6.94968 1.10627 7.22156 1.66591 C7.49344 2.22121 7.62938 2.92402 7.62938 3.77433 L7.62938 10.1256 L6.14868 10.1256 L6.14868 3.87844 C6.14868 3.09321 5.95209 2.48151 5.55891 2.04334 C5.16573 1.60083 4.62615 1.37958 3.94017 1.37958 C3.46752 1.37958 3.04506 1.48587 2.67279 1.69845 C2.30471 1.91102 2.01401 2.22121 1.80068 2.62901 C1.58736 3.03681 1.4807 3.53138 1.4807 4.11271 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="661.28px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.48266315460205,"height":10.333844184875488}}
+                paths={[{"d":"M 4.4922982356948715 10.333844184875488 C 3.5637224289513734 10.333844184875488 2.762722059840895 10.121267402023086 2.0892956145367836 9.69611342672253 C 1.420052003915313 9.266621149731108 0.9034785024641769 8.667934765466143 0.5395773151048063 7.90005461525743 C 0.17985883079097637 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985883079097637 3.2797588089325536 0.5395773151048063 2.498863958449121 C 0.9034785024641769 1.7136306697429053 1.4095940286582833 1.1019294486713034 2.0579238607778505 0.6637602952343147 C 2.7104365275800584 0.22125342036711176 3.4717013823042766 0 4.341718030039203 0 C 4.84365098482487 0 5.3393106748648265 0.08676584608591967 5.82869492814692 0.26029755532424875 C 6.318079543431039 0.4338299813551467 6.763543341450625 0.715820086189596 7.165089514405363 1.1062678868940865 C 7.5666356873601 1.4923768739130194 7.88661739028058 2.004296951296842 8.12503569271824 2.642028050779595 C 8.363453304061125 3.2797588089325536 8.48266315460205 4.064992097638769 8.48266315460205 4.997727916898242 L 8.48266315460205 5.648473989719551 L 1.054059333396072 5.648473989719551 L 1.054059333396072 4.320952306995578 L 6.97686531043258 4.320952306995578 C 6.97686531043258 3.7569724386564745 6.868113764241435 3.253728896388423 6.650609602307703 2.8112216801914256 C 6.4372879953277735 2.368714463994428 6.131945045517272 2.019480921882422 5.734581773063725 1.7635210709218978 C 5.341401072018619 1.5075608615650893 4.877113135737595 1.379580756886685 4.341718030039203 1.379580756886685 C 3.7519471594725573 1.379580756886685 3.2416483707752337 1.531421554997828 2.810822782862586 1.835103117087135 C 2.3841799309047538 2.1344462409536584 2.0558338091714465 2.5248931200677034 1.8257813077361673 3.0064448466846123 C 1.5957288063008883 3.487996914631316 1.4807025473559299 4.0042565224932645 1.4807025473559299 4.555221417493813 L 1.4807025473559299 5.440235508558014 C 1.4807025473559299 6.195100617162213 1.606184642455037 6.835000423761667 1.8571509553014947 7.359935440351064 C 2.1123001686491434 7.880532086983638 2.4657450755791515 8.277487357290916 2.9174846394493534 8.550800688078738 C 3.3692242033195554 8.819775665976225 3.8941616957629437 8.954263427988803 4.4922982356948715 8.954263427988803 C 4.881296036238787 8.954263427988803 5.232649509372837 8.89786472948227 5.546357569090944 8.78506870632163 C 5.864248167308216 8.66793451800204 6.138219741816448 8.494402714898019 6.3682722432517265 8.264472503417789 C 6.598324744687005 8.030203939047224 6.776092051181517 7.739537145498597 6.901575207604746 7.392472634766595 L 8.332082948946383 7.808950689345011 C 8.181502743290714 8.312194129214124 7.92844532574105 8.75470144781006 7.572909676109861 9.136472372068983 C 7.217374026478671 9.513904994637041 6.778182802110017 9.808909475482906 6.255336035913172 10.021486463133185 C 5.732489631718353 10.229725149092598 5.144810705041429 10.333844184875488 4.4922982356948715 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903478 8.66794 0.539577 7.90005 C0.179859 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179859 3.27976 0.539577 2.49886 C0.903478 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.82869 0.260298 C6.31808 0.43383 6.76354 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97686 4.32095 C6.97686 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13194 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92844 8.7547 7.57291 9.13647 C7.21737 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="650.54px"
+              />
+              <Icon
+                width="8.63px"
+                height="10px"
+                viewBox={{"minX":0,"minY":0,"width":8.6332426071167,"height":9.99545669555664}}
+                paths={[{"d":"M 8.6332426071167 0 L 5.0695207783504355 9.99545669555664 L 3.5637228818631033 9.99545669555664 L 0 0 L 1.6061843527133646 0 L 4.266428075445333 7.965129912667974 L 4.366814531671366 7.965129912667974 L 7.027059307500173 0 L 8.6332426071167 0 Z","fillRule":"nonzero"},{"d":"M8.63324 0 L5.06952 9.99546 L3.56372 9.99546 L0 0 L1.60618 0 L4.26643 7.96513 L4.36681 7.96513 L7.02706 0 L8.63324 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.83px"
+                left="640.75px"
+              />
+              <Icon
+                width="7.86px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.855247974395752,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 7.754860470015954 0 L 7.754860470015954 1.431641061033575 L 1.5559915745318595 1.431641061033575 L 1.5559915745318595 5.934802745329102 L 7.353314664883908 5.934802745329102 L 7.353314664883908 7.366443806362677 L 1.5559915745318595 7.366443806362677 L 1.5559915745318595 11.895636122499141 L 7.855247974395753 11.895636122499141 L 7.855247974395753 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L7.75486 0 L7.75486 1.43164 L1.55599 1.43164 L1.55599 5.9348 L7.35331 5.9348 L7.35331 7.36644 L1.55599 7.36644 L1.55599 11.8956 L7.85525 11.8956 L7.85525 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="631.14px"
+              />
+            </View>
+            <View
+              width="44.74px"
+              height="13.54px"
+              display="block"
+              position="absolute"
+              top="9573.64px"
+              left="633.35px"
+            >
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428607940673828,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252930334208444 2.3687140885316538 L 5.922805902952191 2.759162606028713 C 5.839150699490456 2.529232292149545 5.715762154151614 2.30580910654337 5.552633956582246 2.088894107332552 C 5.3936886594617475 1.867640311502666 5.176181340958256 1.685431367422486 4.900118336107149 1.542267275092012 C 4.62405496925402 1.399103182761538 4.270614295586809 1.3275211365963009 3.8397888776094367 1.3275211365963009 C 3.250017816964182 1.3275211365963009 2.7585412310286093 1.4685161975467704 2.3653606994479044 1.7505063023812197 C 1.976362706314048 2.0281576105966015 1.7818608301855854 2.3817294032000036 1.7818608301855854 2.8112216801914256 C 1.7818608301855854 3.1929926044503496 1.9157132990020436 3.494504947428265 2.1834108485027945 3.7157587432581507 C 2.4511082334571723 3.937012180691752 2.869381774342928 4.121390702279608 3.4382388592922277 4.268893232832865 L 4.868748688934203 4.633311120993225 C 5.730399853981695 4.850226120204043 6.372457170237826 5.182106455552588 6.794917478412227 5.628952109972369 C 7.2173774245846065 6.071459326169367 7.428607940673828 6.641946305714974 7.428607940673828 7.340413560603883 C 7.428607940673828 7.913069929925779 7.269660520905113 8.424989904910662 6.951769926664117 8.87617372448939 C 6.638061870869969 9.32735754406812 6.19887279109771 9.683098402184505 5.634198409141632 9.943396759633773 C 5.069524027185555 10.20369511708304 4.412827612455168 10.333844184875488 3.6641112711440527 10.333844184875488 C 2.6811596789180925 10.333844184875488 1.867609565383379 10.11259110583817 1.2234625760036457 9.670083889641173 C 0.5793154549868137 9.227576673444176 0.17149365291972438 8.581169004712672 0 7.730860985845599 L 1.4054124269487556 7.366443097685239 C 1.539261028925439 7.904393053480212 1.7923187724025287 8.307855247262607 2.1645856902892997 8.576830225160094 C 2.541035146622919 8.845805203057582 3.0325115351028433 8.98029296507016 3.639013868450832 8.98029296507016 C 4.329171380578599 8.98029296507016 4.877114489831944 8.828452644820729 5.282843196210864 8.524771150997381 C 5.692755165040676 8.216751492015085 5.897712712646129 7.847995643493656 5.897712712646129 7.418503264103295 C 5.897712712646129 7.071438753371294 5.780592898721941 6.780771772091278 5.546357499715361 6.546503395452101 C 5.312122100708781 6.307896580590141 4.952404229716004 6.130026253930886 4.467202883004153 6.012891877879911 L 2.861019659283952 5.622444452638194 C 1.9784545185405047 5.405529282762479 1.330124332528429 5.069310338526254 0.9160299239795926 4.613788148990701 C 0.5061181526054288 4.153927521232365 0.3011604075443275 3.5791019669320567 0.3011604075443275 2.8893113836908375 C 0.3011604075443275 2.3253315153517335 0.4538308438977632 1.8264264113064659 0.7591732633405444 1.3925960715550347 C 1.0686985174136463 0.9587653563408294 1.489069744831389 0.6182081445467184 2.020281943384021 0.3709244532391917 C 2.5556768778391494 0.12364147872423398 3.1621797377355323 0 3.8397888776094367 0 C 4.793461022334448 0 5.54217423726447 0.21691498214432847 6.085934808070965 0.650744980565965 C 6.633877917324309 1.0845760712429446 7.022877835650734 1.6572320651020667 7.252930334208444 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25293 2.36871 L5.92281 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62405 1.3991 4.27061 1.32752 3.83979 1.32752 C3.25002 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.91571 3.49451 2.18341 3.71576 C2.45111 3.93701 2.86938 4.12139 3.43824 4.26889 L4.86875 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.42861 6.64195 7.42861 7.34041 C7.42861 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19887 9.6831 5.6342 9.9434 C5.06952 10.2037 4.41283 10.3338 3.66411 10.3338 C2.68116 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.40541 7.36644 C1.53926 7.90439 1.79232 8.30786 2.16459 8.57683 C2.54104 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78059 6.78077 5.54636 6.5465 C5.31212 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.91603 4.61379 C0.506118 4.15393 0.30116 3.5791 0.30116 2.88931 C0.30116 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55568 0.123641 3.16218 0 3.83979 0 C4.79346 0 5.54217 0.216915 6.08593 0.650745 C6.63388 1.08458 7.02288 1.65723 7.25293 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.84px"
+                left="670.67px"
+              />
+              <Icon
+                width="13.15px"
+                height="10px"
+                viewBox={{"minX":0,"minY":0,"width":13.150636672973633,"height":9.99545669555664}}
+                paths={[{"d":"M 2.9363076426288846 9.99545669555664 L 0 0 L 1.5559926241777604 0 L 3.639013853148288 7.652772198128637 L 3.7393992511118768 7.652772198128637 L 5.797323077494722 0 L 7.378410998066594 0 L 9.411239528055328 7.626741569392204 L 9.511627032212488 7.626741569392204 L 11.594648261183014 0 L 13.150636672973633 0 L 10.21433324273189 9.99545669555664 L 8.758726016517718 9.99545669555664 L 6.650609491153079 2.316654960946888 L 6.500029288014125 2.316654960946888 L 4.391912762649485 9.99545669555664 L 2.9363076426288846 9.99545669555664 Z","fillRule":"nonzero"},{"d":"M2.93631 9.99546 L0 0 L1.55599 0 L3.63901 7.65277 L3.7394 7.65277 L5.79732 0 L7.37841 0 L9.41124 7.62674 L9.51163 7.62674 L11.5946 0 L13.1506 0 L10.2143 9.99546 L8.75873 9.99546 L6.65061 2.31665 L6.50003 2.31665 L4.39191 9.99546 L2.93631 9.99546 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.97px"
+                left="655.99px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.48266315460205,"height":10.333844184875488}}
+                paths={[{"d":"M 4.4922982356948715 10.333844184875488 C 3.5637224289513734 10.333844184875488 2.7627210067440924 10.121267402023086 2.089294561439981 9.69611342672253 C 1.4200509508185104 9.266621149731108 0.9034785024641769 8.667934765466143 0.5395773151048063 7.90005461525743 C 0.17985883079097637 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985883079097637 3.2797588089325536 0.5395773151048063 2.498863958449121 C 0.9034785024641769 1.7136306697429053 1.4095940286582833 1.1019294486713034 2.0579238607778505 0.6637602952343147 C 2.7104365275800584 0.22125342036711176 3.4717013823042766 0 4.341718030039203 0 C 4.84365098482487 0 5.3393106748648265 0.08676584608591967 5.82869492814692 0.26029755532424875 C 6.318079543431039 0.4338299813551467 6.763543341450625 0.715820086189596 7.165089514405363 1.1062678868940865 C 7.5666356873601 1.4923768739130194 7.88661739028058 2.004296951296842 8.12503569271824 2.642028050779595 C 8.363453304061125 3.2797588089325536 8.48266315460205 4.064992097638769 8.48266315460205 4.997727916898242 L 8.48266315460205 5.648473989719551 L 1.054058280299269 5.648473989719551 L 1.054058280299269 4.320952306995578 L 6.97686531043258 4.320952306995578 C 6.97686531043258 3.7569724386564745 6.868113764241435 3.253728896388423 6.650609602307703 2.8112216801914256 C 6.4372879953277735 2.368714463994428 6.131945045517272 2.019480921882422 5.734581773063725 1.7635210709218978 C 5.341401072018619 1.5075608615650893 4.877113135737595 1.379580756886685 4.341718030039203 1.379580756886685 C 3.7519471594725573 1.379580756886685 3.2416483707752337 1.531421554997828 2.810822782862586 1.835103117087135 C 2.3841799309047538 2.1344462409536584 2.0558327560746434 2.5248931200677034 1.8257802546393644 3.0064448466846123 C 1.5957277532040854 3.487996914631316 1.480701494259127 4.0042565224932645 1.480701494259127 4.555221417493813 L 1.480701494259127 5.440235508558014 C 1.480701494259127 6.195100617162213 1.606184642455037 6.835000423761667 1.8571509553014947 7.359935440351064 C 2.1123001686491434 7.880532086983638 2.4657450755791515 8.277487357290916 2.9174846394493534 8.550800688078738 C 3.3692242033195554 8.819775665976225 3.8941616957629437 8.954263427988803 4.4922982356948715 8.954263427988803 C 4.881296036238787 8.954263427988803 5.232649509372837 8.89786472948227 5.546357569090944 8.78506870632163 C 5.864248167308216 8.66793451800204 6.138219741816448 8.494402714898019 6.3682722432517265 8.264472503417789 C 6.598324744687005 8.030203939047224 6.776092051181517 7.739537145498597 6.901575207604746 7.392472634766595 L 8.332082948946383 7.808950689345011 C 8.181502743290714 8.312194129214124 7.92844532574105 8.75470144781006 7.572909676109861 9.136472372068983 C 7.217374026478671 9.513904994637041 6.778182802110017 9.808909475482906 6.255336035913172 10.021486463133185 C 5.732489631718353 10.229725149092598 5.144810705041429 10.333844184875488 4.4922982356948715 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.08929 9.69611 C1.42005 9.26662 0.903478 8.66794 0.539577 7.90005 C0.179859 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179859 3.27976 0.539577 2.49886 C0.903478 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.82869 0.260298 C6.31808 0.43383 6.76354 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97686 4.32095 C6.97686 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13194 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92844 8.7547 7.57291 9.13647 C7.21737 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.84px"
+                left="646px"
+              />
+              <Icon
+                width="10.19px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":10.189234733581543,"height":13.327277183532715}}
+                paths={[{"d":"M 10.189234733581543 0 L 10.189234733581543 13.327277183532717 L 8.683436922480507 13.327277183532717 L 1.6814746260832558 2.86328212206715 L 1.5559915629162344 2.86328212206715 L 1.5559915629162344 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.505798074375231 0 L 8.53285672013169 10.490024601051054 L 8.658339520024517 10.490024601051054 L 8.658339520024517 0 L 10.189234733581543 0 Z","fillRule":"nonzero"},{"d":"M10.1892 0 L10.1892 13.3273 L8.68344 13.3273 L1.68147 2.86328 L1.55599 2.86328 L1.55599 13.3273 L0 13.3273 L0 0 L1.5058 0 L8.53286 10.49 L8.65834 10.49 L8.65834 0 L10.1892 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9573.64px"
+                left="633.35px"
+              />
+            </View>
+            <View
+              width="173.32px"
+              height="17.49px"
+              display="block"
+              position="absolute"
+              top="9609.14px"
+              left="631.82px"
+            >
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428595542907715,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252922143168205 2.3687140885316538 L 5.922801881434396 2.759162606028713 C 5.839146675276773 2.529232292149545 5.715762338348882 2.30580910654337 5.552634135522513 2.088894107332552 C 5.393688833279812 1.867640311502666 5.176181507766888 1.685431367422486 4.9001184940193205 1.542267275092012 C 4.62405511826972 1.399103182761538 4.270601796050576 1.3275211365963009 3.839776364189339 1.3275211365963009 C 3.2500052845380067 1.3275211365963009 2.758537107538604 1.4685161975467704 2.365356563287186 1.7505063023812197 C 1.9763585576174043 2.0281576105966015 1.781856675220886 2.3817294032000036 1.781856675220886 2.8112216801914256 C 1.781856675220886 3.1929926044503496 1.9157007235763106 3.494504947428265 2.1833982817039352 3.7157587432581507 C 2.451095675285181 3.937012180691752 2.8693776544248912 4.121390702279608 3.43823475770629 4.268893232832865 L 4.868744633448156 4.633311120993225 C 5.730395826263386 4.850226120204043 6.372457375597876 5.182106455552588 6.794917697386565 5.628952109972369 C 7.2173776571732216 6.071459326169367 7.428595542907715 6.641946305714974 7.428595542907715 7.340413560603883 C 7.428595542907715 7.913069929925779 7.269660755178613 8.424989904910662 6.951770150693212 8.87617372448939 C 6.638062084789447 9.32735754406812 6.198860353701912 9.683098402184505 5.634185953548528 9.943396759633773 C 5.069511553395143 10.20369511708304 4.412819329889224 10.333844184875488 3.664102964449829 10.333844184875488 C 2.681151340547079 10.333844184875488 1.86760962556933 10.11259110583817 1.2234626154311898 9.670083889641173 C 0.5793154736559468 9.227576673444176 0.17149365844631234 8.581169004712672 0 7.730860985845599 L 1.4054040474652616 7.366443097685239 C 1.5392526537553763 7.904393053480212 1.7923104053875543 8.307855247262607 2.1645773352710718 8.576830225160094 C 2.541026803736225 8.845805203057582 3.032511632829153 8.98029296507016 3.6390139857224044 8.98029296507016 C 4.3291715200913226 8.98029296507016 4.877110434615494 8.828452644820729 5.2828391540695065 8.524771150997381 C 5.692751136109222 8.216751492015085 5.897712902706972 7.847995643493656 5.897712902706972 7.418503264103295 C 5.897712902706972 7.071438753371294 5.780584660233869 6.780771772091278 5.546349253678772 6.546503395452101 C 5.312113847123676 6.307896580590141 4.95240438931315 6.130026253930886 4.467203026965106 6.012891877879911 L 2.8610197514837306 5.622444452638194 C 1.9784545822985664 5.405529282762479 1.3301201630059811 5.069310338526254 0.9160257411124573 4.613788148990701 C 0.5061139565283965 4.153927521232365 0.30115199247499214 3.5791019669320567 0.30115199247499214 2.8893113836908375 C 0.30115199247499214 2.3253315153517335 0.4538308585230046 1.8264264113064659 0.7591732878058103 1.3925960715550347 C 1.0686985518537335 0.9587653563408294 1.4890655804311463 0.6182081445467184 2.0202777961027265 0.3709244532391917 C 2.555672747811597 0.12364147872423398 3.1621672024786704 0 3.839776364189339 0 C 4.793448539647575 0 5.542178628254954 0.21691498214432847 6.085939216584784 0.650744980565965 C 6.633882343496249 1.0845760712429446 7.022869637196778 1.6572320651020667 7.252922143168205 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25292 2.36871 L5.9228 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62406 1.3991 4.2706 1.32752 3.83978 1.32752 C3.25001 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.9157 3.49451 2.1834 3.71576 C2.4511 3.93701 2.86938 4.12139 3.43823 4.26889 L4.86874 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.4286 6.64195 7.4286 7.34041 C7.4286 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19886 9.6831 5.63419 9.9434 C5.06951 10.2037 4.41282 10.3338 3.6641 10.3338 C2.68115 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.4054 7.36644 C1.53925 7.90439 1.79231 8.30786 2.16458 8.57683 C2.54103 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78058 6.78077 5.54635 6.5465 C5.31211 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.916026 4.61379 C0.506114 4.15393 0.301152 3.5791 0.301152 2.88931 C0.301152 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55567 0.123641 3.16217 0 3.83978 0 C4.79345 0 5.54218 0.216915 6.08594 0.650745 C6.63388 1.08458 7.02287 1.65723 7.25292 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="797.72px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482669830322266,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492308955799168 10.333844184875488 C 3.5637331099605474 10.333844184875488 2.7627200699639918 10.121267402023086 2.0892935963071175 9.69611342672253 C 1.4200499575089909 9.266621149731108 0.9034911776648139 8.667934765466143 0.5395899749843878 7.90005461525743 C 0.17987147552560334 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17987147552560334 3.2797588089325536 0.5395899749843878 2.498863958449121 C 0.9034911776648139 1.7136306697429053 1.4096067251675186 1.1019294486713034 2.0579365845832247 0.6637602952343147 C 2.7104492788576784 0.22125342036711176 3.471707847051769 0 4.341724531416347 0 C 4.843657507334515 0 5.339313005855468 0.08676584608591967 5.828697279741735 0.26029755532424875 C 6.318081915630042 0.4338299813551467 6.763556263373125 0.715820086189596 7.165102453233857 1.1062678868940865 C 7.566648643094588 1.4923768739130194 7.886619828518541 2.004296951296842 8.125038140994148 2.642028050779595 C 8.363455762374947 3.2797588089325536 8.482669830322266 4.064992097638769 8.482669830322266 4.997727916898242 L 8.482669830322266 5.648473989719551 L 1.0540572715806378 5.648473989719551 L 1.0540572715806378 4.320952306995578 L 6.976876135142719 4.320952306995578 C 6.976876135142719 3.7569724386564745 6.868122478179195 3.253728896388423 6.650618307088051 2.8112216801914256 C 6.437296691126804 2.368714463994428 6.1319558346543745 2.019480921882422 5.734592545470944 1.7635210709218978 C 5.341411827872049 1.5075608615650893 4.877119659656072 1.379580756886685 4.341724531416347 1.379580756886685 C 3.751953636019025 1.379580756886685 3.2416506134495897 1.531421554997828 2.8108250073982193 1.835103117087135 C 2.384182137477767 2.1344462409536584 2.0558360019203517 2.5248931200677034 1.8257834907993469 3.0064448466846123 C 1.5957309796783419 3.487996914631316 1.4807047158905204 4.0042565224932645 1.4807047158905204 4.555221417493813 L 1.4807047158905204 5.440235508558014 C 1.4807047158905204 6.195100617162213 1.606191028660094 6.835000423761667 1.857157352072796 7.359935440351064 C 2.1123065761627986 7.880532086983638 2.465743073198851 8.277487357290916 2.917482656088301 8.550800688078738 C 3.369222238977751 8.819775665976225 3.8941723906843513 8.954263427988803 4.492308955799168 8.954263427988803 C 4.881306772720762 8.954263427988803 5.232658154453887 8.89786472948227 5.5463662273798064 8.78506870632163 C 5.864256838980985 8.66793451800204 6.138217894055561 8.494402714898019 6.368270405176566 8.264472503417789 C 6.598322916297571 8.030203939047224 6.77609233647018 7.739537145498597 6.9015754981765305 7.392472634766595 L 8.332085405939443 7.808950689345011 C 8.18150519394401 8.312194129214124 7.928447765740063 8.75470144781006 7.572912101140026 9.136472372068983 C 7.217376436539989 9.513904994637041 6.7781915122614835 9.808909475482906 6.255344724051618 10.021486463133185 C 5.732498297843794 10.229725149092598 5.144821452617963 10.333844184875488 4.492308955799168 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.49231 10.3338 C3.56373 10.3338 2.76272 10.1213 2.08929 9.69611 C1.42005 9.26662 0.903491 8.66794 0.53959 7.90005 C0.179871 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179871 3.27976 0.53959 2.49886 C0.903491 1.71363 1.40961 1.10193 2.05794 0.66376 C2.71045 0.221253 3.47171 0 4.34172 0 C4.84366 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76356 0.71582 7.1651 1.10627 C7.56665 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36346 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97688 4.32095 C6.97688 3.75697 6.86812 3.25373 6.65062 2.81122 C6.4373 2.36871 6.13196 2.01948 5.73459 1.76352 C5.34141 1.50756 4.87712 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81083 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85716 7.35994 C2.11231 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89417 8.95426 4.49231 8.95426 C4.88131 8.95426 5.23266 8.89787 5.54637 8.78507 C5.86426 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33209 7.80895 C8.18151 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.7325 10.2297 5.14482 10.3338 4.49231 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="787.41px"
+              />
+              <Icon
+                width="2.11px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":2.10811448097229,"height":13.743752479553223}}
+                paths={[{"d":"M 0.301168839881218 13.743752479553223 L 0.301168839881218 3.7482958328994305 L 1.7818566625421666 3.7482958328994305 L 1.7818566625421666 13.743752479553223 L 0.301168839881218 13.743752479553223 Z M 1.054057240486145 2.082386937918121 C 0.7654458890432045 2.082386937918121 0.516575498972384 1.9804365609022283 0.3074368721311796 1.7765357898039535 C 0.10248098129750349 1.572635752564717 0 1.3275216456164194 0 1.0411934689590605 C 0 0.7548652923017016 0.10248098129750349 0.5097508269571296 0.3074368721311796 0.30585005585885483 C 0.516575498972384 0.10195001861961828 0.7654458890432045 0 1.054057240486145 0 C 1.3426685919290855 0 1.5894537680306615 0.10195001861961828 1.7944095765911487 0.30585005585885483 C 2.0035482857055418 0.5097508269571296 2.10811448097229 0.7548652923017016 2.10811448097229 1.0411934689590605 C 2.10811448097229 1.3275216456164194 2.0035482857055418 1.572635752564717 1.7944095765911487 1.7765357898039535 C 1.5894537680306615 1.9804365609022283 1.3426685919290855 2.082386937918121 1.054057240486145 2.082386937918121 Z","fillRule":"nonzero"},{"d":"M0.301169 13.7438 L0.301169 3.7483 L1.78186 3.7483 L1.78186 13.7438 L0.301169 13.7438 Z M1.05406 2.08239 C0.765446 2.08239 0.516576 1.98044 0.307437 1.77654 C0.102481 1.57264 0 1.32752 0 1.04119 C0 0.754865 0.102481 0.509751 0.307437 0.30585 C0.516576 0.10195 0.765446 0 1.05406 0 C1.34267 0 1.58945 0.10195 1.79441 0.30585 C2.00355 0.509751 2.10811 0.754865 2.10811 1.04119 C2.10811 1.32752 2.00355 1.57264 1.79441 1.77654 C1.58945 1.98044 1.34267 2.08239 1.05406 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="783.36px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.169913291931152,"height":12.520350456237793}}
+                paths={[{"d":"M 4.994223048879781 2.3947447244968454 L 4.994223048879781 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.994223048879781 2.3947447244968454 Z M 1.4555988027929274 0 L 2.936303432971157 0 L 2.936303432971157 9.526919823680572 C 2.936303432971157 9.960750369430693 2.9969612813134257 10.286123662739305 3.118261708094563 10.503038935614367 C 3.243744862537177 10.715615940919534 3.402679455395481 10.858779948313828 3.5950870833809114 10.932531213794595 C 3.7916774308005006 11.00194404104057 3.998724683760628 11.036650454663558 4.216228842261294 11.036650454663558 C 4.379357039296321 11.036650454663558 4.513217932448623 11.027973032066301 4.617787284037479 11.010619825254807 C 4.722356635626334 10.988928271940903 4.806003060265057 10.971575610190428 4.868744460599014 10.958560750948 L 5.1699132919311515 12.338141511653271 C 5.069526487002762 12.377186265378734 4.929393012071216 12.416231313501147 4.749533904390281 12.45527606722661 C 4.5696747967093465 12.498659126921568 4.3417242800906415 12.520350456237793 4.065661276143805 12.520350456237793 C 3.6473838697883814 12.520350456237793 3.23745998914388 12.42707708909144 2.8359138225271106 12.240529928136494 C 2.438550391799137 12.053982784248037 2.1081191600661855 11.769823954443867 1.8446043308764613 11.388053029128226 C 1.5852724843950923 11.006282103812586 1.4555988027929274 10.524729829735103 1.4555988027929274 9.943396787156425 L 1.4555988027929274 0 Z","fillRule":"nonzero"},{"d":"M4.99422 2.39474 L4.99422 3.69624 L0 3.69624 L0 2.39474 L4.99422 2.39474 Z M1.4556 0 L2.9363 0 L2.9363 9.52692 C2.9363 9.96075 2.99696 10.2861 3.11826 10.503 C3.24374 10.7156 3.40268 10.8588 3.59509 10.9325 C3.79168 11.0019 3.99872 11.0367 4.21623 11.0367 C4.37936 11.0367 4.51322 11.028 4.61779 11.0106 C4.72236 10.9889 4.806 10.9716 4.86874 10.9586 L5.16991 12.3381 C5.06953 12.3772 4.92939 12.4162 4.74953 12.4553 C4.56967 12.4987 4.34172 12.5204 4.06566 12.5204 C3.64738 12.5204 3.23746 12.4271 2.83591 12.2405 C2.43855 12.054 2.10812 11.7698 1.8446 11.3881 C1.58527 11.0063 1.4556 10.5247 1.4556 9.9434 L1.4556 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9610.49px"
+                left="776.44px"
+              />
+              <Icon
+                width="2.11px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":2.10811448097229,"height":13.743752479553223}}
+                paths={[{"d":"M 0.301168839881218 13.743752479553223 L 0.301168839881218 3.7482958328994305 L 1.7818566625421666 3.7482958328994305 L 1.7818566625421666 13.743752479553223 L 0.301168839881218 13.743752479553223 Z M 1.054057240486145 2.082386937918121 C 0.7654458890432045 2.082386937918121 0.516575498972384 1.9804365609022283 0.3074368721311796 1.7765357898039535 C 0.10248098129750349 1.572635752564717 0 1.3275216456164194 0 1.0411934689590605 C 0 0.7548652923017016 0.10248098129750349 0.5097508269571296 0.3074368721311796 0.30585005585885483 C 0.516575498972384 0.10195001861961828 0.7654458890432045 0 1.054057240486145 0 C 1.3426685919290855 0 1.5894537680306615 0.10195001861961828 1.7944095765911487 0.30585005585885483 C 2.0035482857055418 0.5097508269571296 2.10811448097229 0.7548652923017016 2.10811448097229 1.0411934689590605 C 2.10811448097229 1.3275216456164194 2.0035482857055418 1.572635752564717 1.7944095765911487 1.7765357898039535 C 1.5894537680306615 1.9804365609022283 1.3426685919290855 2.082386937918121 1.054057240486145 2.082386937918121 Z","fillRule":"nonzero"},{"d":"M0.301169 13.7438 L0.301169 3.7483 L1.78186 3.7483 L1.78186 13.7438 L0.301169 13.7438 Z M1.05406 2.08239 C0.765446 2.08239 0.516576 1.98044 0.307437 1.77654 C0.102481 1.57264 0 1.32752 0 1.04119 C0 0.754865 0.102481 0.509751 0.307437 0.30585 C0.516576 0.10195 0.765446 0 1.05406 0 C1.34267 0 1.58945 0.10195 1.79441 0.30585 C2.00355 0.509751 2.10811 0.754865 2.10811 1.04119 C2.10811 1.32752 2.00355 1.57264 1.79441 1.77654 C1.58945 1.98044 1.34267 2.08239 1.05406 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="772.75px"
+              />
+              <Icon
+                width="7.63px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.629382610321045,"height":10.125605583190918}}
+                paths={[{"d":"M 1.480704569136314 4.112713776881241 L 1.480704569136314 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305097659835673 0.13014877611298983 L 1.4305097659835673 1.6919390046178533 L 1.5559883490914912 1.6919390046178533 C 1.7818581181500228 1.1843574056314345 2.1248515627604547 0.7765567784802252 2.5849565394009706 0.4685371231642255 C 3.0450615160414864 0.15617902967708214 3.639010547222652 0 4.36681307790588 0 C 5.019325510053473 0 5.590277705658309 0.13882565245527717 6.07966229304319 0.4164769573658315 C 6.569046518426065 0.6897905579642921 6.949676060981999 1.106267873726404 7.221556153285435 1.6659089217186562 C 7.493436591136239 2.2212122483323253 7.629382610321045 2.9240185133393077 7.629382610321045 3.774326522085336 L 7.629382610321045 10.125605583190918 L 6.148678041184731 10.125605583190918 L 6.148678041184731 3.878444669171464 C 6.148678041184731 3.0932113898117213 5.952090844705154 2.48151072214874 5.558910166074814 2.04334157392719 C 5.165729487444475 1.6008343629972663 4.626149010900832 1.3795807404658145 3.940174100655418 1.3795807404658145 C 3.4675207523194476 1.3795807404658145 3.045059771850006 1.4858691988928443 2.6727932325313057 1.6984461157469037 C 2.304709066926963 1.9110233909972434 2.0140071575389937 2.2212122483323253 1.8006859082676459 2.6290127048186394 C 1.587364494449932 3.036813502634744 1.480704569136314 3.531380538033271 1.480704569136314 4.112713776881241 Z","fillRule":"nonzero"},{"d":"M1.4807 4.11271 L1.4807 10.1256 L0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.78186 1.18436 2.12485 0.776557 2.58496 0.468537 C3.04506 0.156179 3.63901 0 4.36681 0 C5.01933 0 5.59028 0.138826 6.07966 0.416477 C6.56905 0.689791 6.94968 1.10627 7.22156 1.66591 C7.49344 2.22121 7.62938 2.92402 7.62938 3.77433 L7.62938 10.1256 L6.14868 10.1256 L6.14868 3.87844 C6.14868 3.09321 5.95209 2.48151 5.55891 2.04334 C5.16573 1.60083 4.62615 1.37958 3.94017 1.37958 C3.46752 1.37958 3.04506 1.48587 2.67279 1.69845 C2.30471 1.91102 2.01401 2.22121 1.80069 2.62901 C1.58736 3.03681 1.4807 3.53138 1.4807 4.11271 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="762.72px"
+              />
+              <Icon
+                width="7.55px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.554090976715088,"height":10.125605583190918}}
+                paths={[{"d":"M 6.073386295630859 5.908772566968218 L 6.073386295630859 0 L 7.554090976715089 0 L 7.554090976715089 9.995456807077927 L 6.073386295630859 9.995456807077927 L 6.073386295630859 8.303517256332409 L 5.97300510651004 8.303517256332409 C 5.7471351393737224 8.811099060116701 5.395775357579723 9.242760653480474 4.918939434932094 9.598501729226912 C 4.442103150282432 9.949904503334123 3.8397879439453457 10.125605583190918 3.111985358236978 10.125605583190918 C 2.50966610405898 10.125605583190918 1.9742725680497912 9.98894955941696 1.5058020845580797 9.715636283081801 C 1.0373314365199897 9.437984705107414 0.6692475063610366 9.02150750881073 0.4015500308070146 8.466204318728977 C 0.1338525552529926 7.906562827007996 0 7.201588025575024 0 6.351280153360912 L 0 0 L 1.4807046810842301 0 L 1.4807046810842301 6.247159821764123 C 1.4807046810842301 6.975995248079868 1.6772920569730614 7.55732882825763 2.0704726007832472 7.991159538308036 C 2.467836045172408 8.424990077693547 2.973951416231693 8.641905603383645 3.5888191746909617 8.641905603383645 C 3.956903203577742 8.641905603383645 4.331259806232097 8.544293475171237 4.711892174853769 8.349069764874088 C 5.096707082052384 8.15384596924449 5.418780603214658 7.854502831874498 5.6781127218859515 7.4510403698306 C 5.941627379134188 7.047578010185639 6.073386295630859 6.533488753942505 6.073386295630859 5.908772566968218 Z","fillRule":"nonzero"},{"d":"M6.07339 5.90877 L6.07339 0 L7.55409 0 L7.55409 9.99546 L6.07339 9.99546 L6.07339 8.30352 L5.97301 8.30352 C5.74714 8.8111 5.39578 9.24276 4.91894 9.5985 C4.4421 9.9499 3.83979 10.1256 3.11199 10.1256 C2.50967 10.1256 1.97427 9.98895 1.5058 9.71564 C1.03733 9.43798 0.669248 9.02151 0.40155 8.4662 C0.133853 7.90656 0 7.20159 0 6.35128 L0 0 L1.4807 0 L1.4807 6.24716 C1.4807 6.976 1.67729 7.55733 2.07047 7.99116 C2.46784 8.42499 2.97395 8.6419 3.58882 8.6419 C3.9569 8.6419 4.33126 8.54429 4.71189 8.34907 C5.09671 8.15385 5.41878 7.8545 5.67811 7.45104 C5.94163 7.04758 6.07339 6.53349 6.07339 5.90877 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.89px"
+                left="752.45px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.169905185699463,"height":12.520350456237793}}
+                paths={[{"d":"M 4.9942317813725925 2.3947447244968454 L 4.9942317813725925 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.9942317813725925 2.3947447244968454 Z M 1.455607317254151 0 L 2.936303613890875 0 L 2.936303613890875 9.526919823680572 C 2.936303613890875 9.960750369430693 2.9969530411957557 10.286123662739305 3.118253475450793 10.503038935614367 C 3.2437366376250254 10.715615940919534 3.4026880898256695 10.858779948313828 3.5950957296662556 10.932531213794595 C 3.7916860891987176 11.00194404104057 3.9987333549160176 11.036650454663558 4.216237526818157 11.036650454663558 C 4.379365733904293 11.036650454663558 4.513209785754787 11.027973032066301 4.617779143786661 11.010619825254807 C 4.722348501818535 10.988928271940903 4.806003356385925 10.971575610190428 4.868744760585679 10.958560750948 L 5.169905185699463 12.338141511653271 C 5.069518374585762 12.377186265378734 4.929401740569539 12.416231313501147 4.749542621806623 12.45527606722661 C 4.569683503043707 12.498659126921568 4.341716122830261 12.520350456237793 4.065653101873861 12.520350456237793 C 3.6473756697463626 12.520350456237793 3.2374686133941055 12.42707708909144 2.8359224220361536 12.240529928136494 C 2.438558966824716 12.053982784248037 2.108119289957504 11.769823954443867 1.8446044445313692 11.388053029128226 C 1.585272582071323 11.006282103812586 1.455607317254151 10.524729829735103 1.455607317254151 9.943396787156425 L 1.455607317254151 0 Z","fillRule":"nonzero"},{"d":"M4.99423 2.39474 L4.99423 3.69624 L0 3.69624 L0 2.39474 L4.99423 2.39474 Z M1.45561 0 L2.9363 0 L2.9363 9.52692 C2.9363 9.96075 2.99695 10.2861 3.11825 10.503 C3.24374 10.7156 3.40269 10.8588 3.5951 10.9325 C3.79169 11.0019 3.99873 11.0367 4.21624 11.0367 C4.37937 11.0367 4.51321 11.028 4.61778 11.0106 C4.72235 10.9889 4.806 10.9716 4.86874 10.9586 L5.16991 12.3381 C5.06952 12.3772 4.9294 12.4162 4.74954 12.4553 C4.56968 12.4987 4.34172 12.5204 4.06565 12.5204 C3.64738 12.5204 3.23747 12.4271 2.83592 12.2405 C2.43856 12.054 2.10812 11.7698 1.8446 11.3881 C1.58527 11.0063 1.45561 10.5247 1.45561 9.9434 L1.45561 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9610.49px"
+                left="745.23px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.8185577392578125,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.43050972375343 0.15617940377737846 L 1.43050972375343 1.6659099994409683 L 1.530899327095318 1.6659099994409683 C 1.7065756864590653 1.1713433438196974 2.0244618966907373 0.7700498312983314 2.484566859748475 0.4620294618768706 C 2.9446720202618466 0.15400980924796392 3.4633409420147876 0 4.040563587679265 0 C 4.149315478234832 0 4.285253422407353 0.0021692190666480655 4.4483816079017195 0.006507657199944197 C 4.6115097933960865 0.010846095333240328 4.7349021964410065 0.017353752533184524 4.8185577392578125 0.026030628799776787 L 4.8185577392578125 1.587820297552279 C 4.768364340344598 1.5748053468819456 4.653338103693823 1.555282922476429 4.473479008737192 1.5292530211357622 C 4.2978024683724465 1.49888504645801 4.111666917013523 1.4837010591191335 3.9150765835019055 1.4837010591191335 C 3.4466061492583995 1.4837010591191335 3.0283243955611994 1.5856512662170141 2.6602402408230845 1.789551663346286 C 2.2963389862242147 1.9891136223422616 2.0077308062274755 2.266765112562033 1.794409398707232 2.62250611693911 C 1.5852708913262337 2.973909058645657 1.480704525424374 3.3752018202414904 1.480704525424374 3.826385562247887 L 1.480704525424374 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70658 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14932 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81856 0.0260306 L4.81856 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.73px"
+                left="738.86px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733626365661621,"height":10.333844184875488}}
+                paths={[{"d":"M 4.3668131828308105 10.333844184875488 C 3.496796432152819 10.333844184875488 2.7334358741486504 10.119098080512758 2.0767405259593814 9.689605769388356 C 1.424227880677703 9.260113458263953 0.913933551562542 8.659257752488658 0.545849541660315 7.8870393005890795 C 0.18194836630277472 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18194836630277472 3.2298682029556844 0.545849541660315 2.4533114493652404 C 0.913933551562542 1.6767546957747963 1.424227880677703 1.0737303170157813 2.0767405259593814 0.6442384154871332 C 2.7334358741486504 0.21474613849571106 3.496796432152819 0 4.3668131828308105 0 C 5.236829801871706 0 5.9980966060450776 0.21474613849571106 6.650609382963852 0.6442384154871332 C 7.307304731153121 1.0737303170157813 7.817599257723926 1.6767546957747963 8.181500367262919 2.4533114493652404 C 8.549584377165145 3.2298682029556844 8.733626365661621 4.138743362915398 8.733626365661621 5.179936860978422 C 8.733626365661621 6.212453687393757 8.549584377165145 7.114820780423542 8.181500367262919 7.8870393005890795 C 7.817599257723926 8.659257752488658 7.307304731153121 9.260113458263953 6.650609382963852 9.689605769388356 C 5.9980966060450776 10.119098080512758 5.236829801871706 10.333844184875488 4.3668131828308105 10.333844184875488 Z M 4.3668131828308105 8.954263427988803 C 5.027691102290574 8.954263427988803 5.571450937960795 8.77856132205129 5.998093775847513 8.427158475495444 C 6.424736613734232 8.075755731338537 6.74053718283895 7.61372649886244 6.945493327604224 7.041070061274585 C 7.15044912682212 6.468413691952689 7.252930185721373 5.848035935765315 7.252930185721373 5.179936860978422 C 7.252930185721373 4.5118377861915295 7.15044912682212 3.8892908108927644 6.945493327604224 3.312296003348085 C 6.74053718283895 2.7353015371332 6.424736613734232 2.268933661636443 5.998093775847513 1.9131922744588752 C 5.571450937960795 1.5574512627440815 5.027691102290574 1.379580756886685 4.3668131828308105 1.379580756886685 C 3.7059349342783063 1.379580756886685 3.1621752631544573 1.5574512627440815 2.735532589814109 1.9131922744588752 C 2.308889751927391 2.268933661636443 1.9930890182763015 2.7353015371332 1.788133038057398 3.312296003348085 C 1.5831772388395016 3.8892908108927644 1.480696179940249 4.5118377861915295 1.480696179940249 5.179936860978422 C 1.480696179940249 5.848035935765315 1.5831772388395016 6.468413691952689 1.788133038057398 7.041070061274585 C 1.9930890182763015 7.61372649886244 2.308889751927391 8.075755731338537 2.735532589814109 8.427158475495444 C 3.1621752631544573 8.77856132205129 3.7059349342783063 8.954263427988803 4.3668131828308105 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36681 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07674 9.68961 C1.42423 9.26011 0.913934 8.65926 0.54585 7.88704 C0.181948 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.181948 3.22987 0.54585 2.45331 C0.913934 1.67675 1.42423 1.07373 2.07674 0.644238 C2.73344 0.214746 3.4968 0 4.36681 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54958 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54958 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36681 10.3338 Z M4.36681 8.95426 C5.02769 8.95426 5.57145 8.77856 5.99809 8.42716 C6.42474 8.07576 6.74054 7.61373 6.94549 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.94549 3.3123 C6.74054 2.7353 6.42474 2.26893 5.99809 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36681 1.37958 C3.70593 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78813 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78813 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70593 8.95426 4.36681 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="727.86px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.87px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":13.873903274536133}}
+                paths={[{"d":"M 0 13.873903274536133 L 0 0.13014878273615327 L 1.4305099556206087 0.13014878273615327 L 1.4305099556206087 1.7179686288153815 L 1.6061833651696076 1.7179686288153815 C 1.7149354543534798 1.544436554415382 1.86552058309625 1.3231829376910071 2.0579282286564133 1.054207761575767 C 2.254518594032789 0.7808948809276909 2.5347606571726606 0.5379499767676915 2.898661806208843 0.32537304909576886 C 3.2667460206086525 0.10845768303192296 3.76449522395125 0 4.391911061700514 0 C 5.203369269923904 0 5.918625629923866 0.21040770847596107 6.537675995131427 0.6312231254278833 C 7.156726360338988 1.0520389178425944 7.6398362993717415 1.6485560038532667 7.987006898235848 2.420774349326919 C 8.334176444003072 3.1929926948005716 8.507759094238281 4.104037109389994 8.507759094238281 5.153907524829223 C 8.507759094238281 6.212454066126721 8.334176444003072 7.1300057969742205 7.987006898235848 7.906562580839796 C 7.6398362993717415 8.678781062845372 7.158819916941373 9.277467470450947 6.543952452551052 9.702621462326716 C 5.9290846590679545 10.123437152342484 5.2201008731928615 10.3338445877546 4.417008466603951 10.3338445877546 C 3.7979581013963903 10.3338445877546 3.3023026192025657 10.227556192184599 2.9300356685319042 10.014979196246715 C 2.5577687178612427 9.79806388138234 2.27124582036783 9.552950099356188 2.0704727187206022 9.279636826178832 C 1.8696996170733746 9.001985234074986 1.7149354543534798 8.772054740566766 1.6061833651696076 8.589845874715373 L 1.4807047654274827 8.589845874715373 L 1.4807047654274827 13.873903274536133 L 0 13.873903274536133 Z M 1.4556073605240456 5.127877986733069 C 1.4556073605240456 5.882743329564606 1.5622672999771496 6.548673074670376 1.7755887420740424 7.125667699912105 C 1.9889101841709351 7.698324091559797 2.3005236743473265 8.147338368202776 2.7104354818205953 8.472711314899602 C 3.120347289293864 8.79374602800239 3.622283967843285 8.954263777083064 4.2162376521515155 8.954263777083064 C 4.835288346451852 8.954263777083064 5.351863631125564 8.785069697346236 5.765958174869684 8.446681776803448 C 6.184235257428991 8.103955622666621 6.497942649755182 7.644094703916142 6.707081372035862 7.067099873876527 C 6.920402995133782 6.485766946774797 7.0270627535858585 5.839360242698645 7.0270627535858585 5.127877986733069 C 7.0270627535858585 4.4250724710194165 6.922488126961106 3.7916786586773976 6.713349404680426 3.2276987683507636 C 6.508393583216986 2.6593808150949956 6.196780109495233 2.2103666408509577 5.778502664933873 1.8806551533632658 C 5.3644081211897525 1.5466056029464395 4.843653818993555 1.379580810671536 4.2162376521515155 1.379580810671536 C 3.613918561120137 1.379580810671536 3.1078027992296757 1.537929067492401 2.697890991756407 1.8546256152671123 C 2.287979184283138 2.1669837246499 1.978451006935098 2.6051525197067265 1.769312284654418 3.1691320345705716 C 1.560173562373738 3.728773486505282 1.4556073605240456 4.38168917935557 1.4556073605240456 5.127877986733069 Z","fillRule":"nonzero"},{"d":"M0 13.8739 L0 0.130149 L1.43051 0.130149 L1.43051 1.71797 L1.60618 1.71797 C1.71494 1.54444 1.86552 1.32318 2.05793 1.05421 C2.25452 0.780895 2.53476 0.53795 2.89866 0.325373 C3.26675 0.108458 3.7645 0 4.39191 0 C5.20337 0 5.91863 0.210408 6.53768 0.631223 C7.15673 1.05204 7.63984 1.64856 7.98701 2.42077 C8.33418 3.19299 8.50776 4.10404 8.50776 5.15391 C8.50776 6.21245 8.33418 7.13001 7.98701 7.90656 C7.63984 8.67878 7.15882 9.27747 6.54395 9.70262 C5.92908 10.1234 5.2201 10.3338 4.41701 10.3338 C3.79796 10.3338 3.3023 10.2276 2.93004 10.015 C2.55777 9.79806 2.27125 9.55295 2.07047 9.27964 C1.8697 9.00199 1.71494 8.77205 1.60618 8.58985 L1.4807 8.58985 L1.4807 13.8739 L0 13.8739 Z M1.45561 5.12788 C1.45561 5.88274 1.56227 6.54867 1.77559 7.12567 C1.98891 7.69832 2.30052 8.14734 2.71044 8.47271 C3.12035 8.79375 3.62228 8.95426 4.21624 8.95426 C4.83529 8.95426 5.35186 8.78507 5.76596 8.44668 C6.18424 8.10396 6.49794 7.64409 6.70708 7.0671 C6.9204 6.48577 7.02706 5.83936 7.02706 5.12788 C7.02706 4.42507 6.92249 3.79168 6.71335 3.2277 C6.50839 2.65938 6.19678 2.21037 5.7785 1.88066 C5.36441 1.54661 4.84365 1.37958 4.21624 1.37958 C3.61392 1.37958 3.1078 1.53793 2.69789 1.85463 C2.28798 2.16698 1.97845 2.60515 1.76931 3.16913 C1.56017 3.72877 1.45561 4.38169 1.45561 5.12788 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="717.55px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.87px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":13.873903274536133}}
+                paths={[{"d":"M 0 13.873903274536133 L 0 0.13014878273615327 L 1.4305099556206087 0.13014878273615327 L 1.4305099556206087 1.7179686288153815 L 1.6061833651696076 1.7179686288153815 C 1.7149354543534798 1.544436554415382 1.86552058309625 1.3231829376910071 2.0579282286564133 1.054207761575767 C 2.254518594032789 0.7808948809276909 2.5347606571726606 0.5379499767676915 2.898661806208843 0.32537304909576886 C 3.2667460206086525 0.10845768303192296 3.76449522395125 0 4.391911061700514 0 C 5.203369269923904 0 5.918625629923866 0.21040770847596107 6.537675995131427 0.6312231254278833 C 7.156726360338988 1.0520389178425944 7.6398362993717415 1.6485560038532667 7.987006898235848 2.420774349326919 C 8.334176444003072 3.1929926948005716 8.507759094238281 4.104037109389994 8.507759094238281 5.153907524829223 C 8.507759094238281 6.212454066126721 8.334176444003072 7.1300057969742205 7.987006898235848 7.906562580839796 C 7.6398362993717415 8.678781062845372 7.158819916941373 9.277467470450947 6.543952452551052 9.702621462326716 C 5.9290846590679545 10.123437152342484 5.2201008731928615 10.3338445877546 4.417008466603951 10.3338445877546 C 3.7979581013963903 10.3338445877546 3.3023026192025657 10.227556192184599 2.9300356685319042 10.014979196246715 C 2.5577687178612427 9.79806388138234 2.27124582036783 9.552950099356188 2.0704727187206022 9.279636826178832 C 1.8696996170733746 9.001985234074986 1.7149354543534798 8.772054740566766 1.6061833651696076 8.589845874715373 L 1.4807047654274827 8.589845874715373 L 1.4807047654274827 13.873903274536133 L 0 13.873903274536133 Z M 1.4556073605240456 5.127877986733069 C 1.4556073605240456 5.882743329564606 1.5622672999771496 6.548673074670376 1.7755887420740424 7.125667699912105 C 1.9889101841709351 7.698324091559797 2.3005236743473265 8.147338368202776 2.7104354818205953 8.472711314899602 C 3.120347289293864 8.79374602800239 3.622283967843285 8.954263777083064 4.2162376521515155 8.954263777083064 C 4.835288346451852 8.954263777083064 5.351863631125564 8.785069697346236 5.765958174869684 8.446681776803448 C 6.184235257428991 8.103955622666621 6.497942649755182 7.644094703916142 6.707081372035862 7.067099873876527 C 6.920402995133782 6.485766946774797 7.0270627535858585 5.839360242698645 7.0270627535858585 5.127877986733069 C 7.0270627535858585 4.4250724710194165 6.922488126961106 3.7916786586773976 6.713349404680426 3.2276987683507636 C 6.508393583216986 2.6593808150949956 6.196780109495233 2.2103666408509577 5.778502664933873 1.8806551533632658 C 5.3644081211897525 1.5466056029464395 4.843653818993555 1.379580810671536 4.2162376521515155 1.379580810671536 C 3.613918561120137 1.379580810671536 3.1078027992296757 1.537929067492401 2.697890991756407 1.8546256152671123 C 2.287979184283138 2.1669837246499 1.978451006935098 2.6051525197067265 1.769312284654418 3.1691320345705716 C 1.560173562373738 3.728773486505282 1.4556073605240456 4.38168917935557 1.4556073605240456 5.127877986733069 Z","fillRule":"nonzero"},{"d":"M0 13.8739 L0 0.130149 L1.43051 0.130149 L1.43051 1.71797 L1.60618 1.71797 C1.71494 1.54444 1.86552 1.32318 2.05793 1.05421 C2.25452 0.780895 2.53476 0.53795 2.89866 0.325373 C3.26675 0.108458 3.7645 0 4.39191 0 C5.20337 0 5.91863 0.210408 6.53768 0.631223 C7.15673 1.05204 7.63984 1.64856 7.98701 2.42077 C8.33418 3.19299 8.50776 4.10404 8.50776 5.15391 C8.50776 6.21245 8.33418 7.13001 7.98701 7.90656 C7.63984 8.67878 7.15882 9.27747 6.54395 9.70262 C5.92908 10.1234 5.2201 10.3338 4.41701 10.3338 C3.79796 10.3338 3.3023 10.2276 2.93004 10.015 C2.55777 9.79806 2.27125 9.55295 2.07047 9.27964 C1.8697 9.00199 1.71494 8.77205 1.60618 8.58985 L1.4807 8.58985 L1.4807 13.8739 L0 13.8739 Z M1.45561 5.12788 C1.45561 5.88274 1.56227 6.54867 1.77559 7.12567 C1.98891 7.69832 2.30052 8.14734 2.71044 8.47271 C3.12035 8.79375 3.62228 8.95426 4.21624 8.95426 C4.83529 8.95426 5.35186 8.78507 5.76596 8.44668 C6.18424 8.10396 6.49794 7.64409 6.70708 7.0671 C6.9204 6.48577 7.02706 5.83936 7.02706 5.12788 C7.02706 4.42507 6.92249 3.79168 6.71335 3.2277 C6.50839 2.65938 6.19678 2.21037 5.7785 1.88066 C5.36441 1.54661 4.84365 1.37958 4.21624 1.37958 C3.61392 1.37958 3.1078 1.53793 2.69789 1.85463 C2.28798 2.16698 1.97845 2.60515 1.76931 3.16913 C1.56017 3.72877 1.45561 4.38169 1.45561 5.12788 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="706.78px"
+              />
+              <Icon
+                width="11.34px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":11.343680381774902,"height":13.691694259643555}}
+                paths={[{"d":"M 11.343680381774902 6.8458471298217765 C 11.343680381774902 8.251458427772487 11.098989135031859 9.466183830377755 10.609604535352233 10.49002395203123 C 10.120220626767361 11.513864210216626 9.448888976956678 12.303435998387194 8.595603300248838 12.858739214143988 C 7.74231722862971 13.41404236163482 6.767726388158456 13.691694259643553 5.671840190887451 13.691694259643553 C 4.575953664523706 13.691694259643553 3.601371183008059 13.41404236163482 2.748085506300219 12.858739214143988 C 1.8947998295923796 12.303435998387194 1.2234644939430026 11.513864210216626 0.7340800588097469 10.49002395203123 C 0.24469562367649117 9.466183830377755 0 8.251458427772487 0 6.8458471298217765 C 0 5.440236104934911 0.24469562367649117 4.225510429265799 0.7340800588097469 3.201670307612324 C 1.2234644939430026 2.1778301859588494 1.8947998295923796 1.388258397788283 2.748085506300219 0.8329550454995659 C 3.601371183008059 0.2776516932108488 4.575953664523706 0 5.671840190887451 0 C 6.767726388158456 0 7.74231722862971 0.2776516932108488 8.595603300248838 0.8329550454995659 C 9.448888976956678 1.388258397788283 10.120220626767361 2.1778301859588494 10.609604535352233 3.201670307612324 C 11.098989135031859 4.225510429265799 11.343680381774902 5.440236104934911 11.343680381774902 6.8458471298217765 Z M 9.837886798006304 6.8458471298217765 C 9.837886798006304 5.691857884707937 9.651751252930843 4.717908302478278 9.279484342257724 3.923998451398763 C 8.911400331952422 3.1300882589894408 8.4115577902585 2.5292327373826824 7.77995879046023 2.1214319207114682 C 7.152543020122516 1.713631104040254 6.449835767168153 1.5097306786381568 5.671840190887451 1.5097306786381568 C 4.893844219695461 1.5097306786381568 4.189048017662018 1.713631104040254 3.557449346956488 2.1214319207114682 C 2.930033444981677 2.5292327373826824 2.4301947207635464 3.1300882589894408 2.057928007546072 3.923998451398763 C 1.689843997240769 4.717908302478278 1.5058020085427546 5.691857884707937 1.5058020085427546 6.8458471298217765 C 1.5058020085427546 7.999836374935616 1.689843997240769 8.973785615835467 2.057928007546072 9.76769580824479 C 2.4301947207635464 10.561605795856229 2.930033444981677 11.162461590526833 3.557449346956488 11.570262338932086 C 4.189048017662018 11.978063087337338 4.893844219695461 12.181963581005396 5.671840190887451 12.181963581005396 C 6.449835767168153 12.181963581005396 7.152543020122516 11.978063087337338 7.77995879046023 11.570262338932086 C 8.4115577902585 11.162461590526833 8.911400331952422 10.561605795856229 9.279484342257724 9.76769580824479 C 9.651751252930843 8.973785615835467 9.837886798006304 7.999836374935616 9.837886798006304 6.8458471298217765 Z","fillRule":"nonzero"},{"d":"M11.3437 6.84585 C11.3437 8.25146 11.099 9.46618 10.6096 10.49 C10.1202 11.5139 9.44889 12.3034 8.5956 12.8587 C7.74232 13.414 6.76773 13.6917 5.67184 13.6917 C4.57595 13.6917 3.60137 13.414 2.74809 12.8587 C1.8948 12.3034 1.22346 11.5139 0.73408 10.49 C0.244696 9.46618 0 8.25146 0 6.84585 C0 5.44024 0.244696 4.22551 0.73408 3.20167 C1.22346 2.17783 1.8948 1.38826 2.74809 0.832955 C3.60137 0.277652 4.57595 0 5.67184 0 C6.76773 0 7.74232 0.277652 8.5956 0.832955 C9.44889 1.38826 10.1202 2.17783 10.6096 3.20167 C11.099 4.22551 11.3437 5.44024 11.3437 6.84585 Z M9.83789 6.84585 C9.83789 5.69186 9.65175 4.71791 9.27948 3.924 C8.9114 3.13009 8.41156 2.52923 7.77996 2.12143 C7.15254 1.71363 6.44984 1.50973 5.67184 1.50973 C4.89384 1.50973 4.18905 1.71363 3.55745 2.12143 C2.93003 2.52923 2.43019 3.13009 2.05793 3.924 C1.68984 4.71791 1.5058 5.69186 1.5058 6.84585 C1.5058 7.99984 1.68984 8.97379 2.05793 9.7677 C2.43019 10.5616 2.93003 11.1625 3.55745 11.5703 C4.18905 11.9781 4.89384 12.182 5.67184 12.182 C6.44984 12.182 7.15254 11.9781 7.77996 11.5703 C8.41156 11.1625 8.9114 10.5616 9.27948 9.7677 C9.65175 8.97379 9.83789 7.99984 9.83789 6.84585 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.38px"
+                left="693.02px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.818553924560547,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4305098418176603 0.15617940377737846 L 1.4305098418176603 1.6659099994409683 L 1.5308952410578065 1.6659099994409683 C 1.7065716149206474 1.1713433438196974 2.02446206377561 0.7700498312983314 2.4845670648071816 0.4620294618768706 C 2.944672263294403 0.15400980924796392 3.4633370154674417 0 4.0405597087718235 0 C 4.149311608303008 0 4.285253776082087 0.0021692190666480655 4.448381975039909 0.006507657199944197 C 4.611510173997731 0.010846095333240328 4.734898374839399 0.017353752533184524 4.818553924560547 0.026030628799776787 L 4.818553924560547 1.587820297552279 C 4.768360521504722 1.5748053468819456 4.653334275360487 1.555282922476429 4.473475165559549 1.5292530211357622 C 4.297798610695696 1.49888504645801 4.111667256361646 1.4837010591191335 3.915076906624842 1.4837010591191335 C 3.4466064337170748 1.4837010591191335 3.0283288578850307 1.5856512662170141 2.6602446727678335 1.789551663346286 C 2.296343388135109 1.9891136223422616 2.007730971931482 2.266765112562033 1.7944095468051868 2.62250611693911 C 1.5852710221633644 2.973909058645657 1.4807046476313308 3.3752018202414904 1.4807046476313308 3.826385562247887 L 1.4807046476313308 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70657 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14931 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81855 0.0260306 L4.81855 1.58782 C4.76836 1.57481 4.65333 1.55528 4.47347 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02833 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.73px"
+                left="681.78px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482665061950684,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300236582974 10.333844184875488 C 3.563724451606529 10.333844184875488 2.7627241012725667 10.121267402023086 2.0892976717544682 9.69611342672253 C 1.4200540768209593 9.266621149731108 0.9034826936725504 8.667934765466143 0.5395815148435084 7.90005461525743 C 0.17986303896195877 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17986303896195877 3.2797588089325536 0.5395815148435084 2.498863958449121 C 0.9034826936725504 1.7136306697429053 1.4095982080026346 1.1019294486713034 2.057928024924487 0.6637602952343147 C 2.710440676430929 0.22125342036711176 3.4717034071165283 0 4.341720034457106 0 C 4.843652977476795 0 5.339312655897829 0.08676584608591967 5.828696897708103 0.26029755532424875 C 6.318081501520395 0.4338299813551467 6.7635473952912735 0.715820086189596 7.165093558833234 1.1062678868940865 C 7.566639722375194 1.4923768739130194 7.886619311601319 2.004296951296842 8.125037608450137 2.642028050779595 C 8.363455214204196 3.2797588089325536 8.482665061950684 4.064992097638769 8.482665061950684 4.997727916898242 L 8.482665061950684 5.648473989719551 L 1.0540614148810736 5.648473989719551 L 1.0540614148810736 4.320952306995578 L 6.976867253079121 4.320952306995578 C 6.976867253079121 3.7569724386564745 6.8681136032437005 3.253728896388423 6.650609446408556 2.8112216801914256 C 6.43728784442917 2.368714463994428 6.1319470079698695 2.019480921882422 5.734583744831047 1.7635210709218978 C 5.341403053002621 1.5075608615650893 4.877115127605124 1.379580756886685 4.341720034457106 1.379580756886685 C 3.7519491777154745 1.379580756886685 3.2416504009802343 1.531421554997828 2.8108248231667123 1.835103117087135 C 2.384181981209957 2.1344462409536584 2.05583586717352 2.5248931200677034 1.825783371130978 3.0064448466846123 C 1.595730875088436 3.487996914631316 1.4807046188398465 4.0042565224932645 1.4807046188398465 4.555221417493813 L 1.4807046188398465 5.440235508558014 C 1.4807046188398465 6.195100617162213 1.6061867109974863 6.835000423761667 1.8571530179609592 7.359935440351064 C 2.1123022253275705 7.880532086983638 2.4657471239723594 8.277487357290916 2.917486677253184 8.550800688078738 C 3.3692262305340086 8.819775665976225 3.8941637106721627 8.954263427988803 4.492300236582974 8.954263427988803 C 4.8812980280082625 8.954263427988803 5.232649386712562 8.89786472948227 5.546357439076934 8.78506870632163 C 5.864248029842427 8.66793451800204 6.138221704121957 8.494402714898019 6.368274200164499 8.264472503417789 C 6.598326696207041 8.030203939047224 6.776096104728007 7.739537145498597 6.901579258209743 7.392472634766595 L 8.332084859824818 7.808950689345011 C 8.18150465769895 8.312194129214124 7.928447246081287 8.75470144781006 7.572911604784327 9.136472372068983 C 7.217375963487367 9.513904994637041 6.778186855607497 9.808909475482906 6.255340101666876 10.021486463133185 C 5.732493709728273 10.229725149092598 5.14481269063377 10.333844184875488 4.492300236582974 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903483 8.66794 0.539581 7.90005 C0.179863 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179863 3.27976 0.539581 2.49886 C0.903483 1.71363 1.4096 1.10193 2.05793 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85715 7.35994 C2.1123 7.88053 2.46575 8.27749 2.91749 8.5508 C3.36923 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59833 8.0302 6.7761 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="671.04px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.48266315460205,"height":10.333844184875488}}
+                paths={[{"d":"M 4.4922982356948715 10.333844184875488 C 3.5637224289513734 10.333844184875488 2.762722059840895 10.121267402023086 2.0892956145367836 9.69611342672253 C 1.420052003915313 9.266621149731108 0.9034785024641769 8.667934765466143 0.5395773151048063 7.90005461525743 C 0.17985883079097637 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985883079097637 3.2797588089325536 0.5395773151048063 2.498863958449121 C 0.9034785024641769 1.7136306697429053 1.4095940286582833 1.1019294486713034 2.0579238607778505 0.6637602952343147 C 2.7104365275800584 0.22125342036711176 3.4717013823042766 0 4.341718030039203 0 C 4.84365098482487 0 5.3393106748648265 0.08676584608591967 5.82869492814692 0.26029755532424875 C 6.318079543431039 0.4338299813551467 6.763545447644231 0.715820086189596 7.165091620598968 1.1062678868940865 C 7.5666377935537055 1.4923768739130194 7.88661739028058 2.004296951296842 8.12503569271824 2.642028050779595 C 8.363453304061125 3.2797588089325536 8.48266315460205 4.064992097638769 8.48266315460205 4.997727916898242 L 8.48266315460205 5.648473989719551 L 1.054059333396072 5.648473989719551 L 1.054059333396072 4.320952306995578 L 6.97686531043258 4.320952306995578 C 6.97686531043258 3.7569724386564745 6.868111658047829 3.253728896388423 6.650607496114097 2.8112216801914256 C 6.437285889134168 2.368714463994428 6.131945045517272 2.019480921882422 5.734581773063725 1.7635210709218978 C 5.341401072018619 1.5075608615650893 4.877113135737595 1.379580756886685 4.341718030039203 1.379580756886685 C 3.7519471594725573 1.379580756886685 3.2416483707752337 1.531421554997828 2.810822782862586 1.835103117087135 C 2.3841799309047538 2.1344462409536584 2.0558338091714465 2.5248931200677034 1.8257813077361673 3.0064448466846123 C 1.5957288063008883 3.487996914631316 1.4807025473559299 4.0042565224932645 1.4807025473559299 4.555221417493813 L 1.4807025473559299 5.440235508558014 C 1.4807025473559299 6.195100617162213 1.606184642455037 6.835000423761667 1.8571509553014947 7.359935440351064 C 2.1123001686491434 7.880532086983638 2.4657450755791515 8.277487357290916 2.9174846394493534 8.550800688078738 C 3.3692242033195554 8.819775665976225 3.8941616957629437 8.954263427988803 4.4922982356948715 8.954263427988803 C 4.881296036238787 8.954263427988803 5.2326474031792305 8.89786472948227 5.5463554628973375 8.78506870632163 C 5.86424606111461 8.66793451800204 6.138219741816448 8.494402714898019 6.3682722432517265 8.264472503417789 C 6.598324744687005 8.030203939047224 6.776094157375122 7.739537145498597 6.901577313798351 7.392472634766595 L 8.332082948946383 7.808950689345011 C 8.181502743290714 8.312194129214124 7.92844532574105 8.75470144781006 7.572909676109861 9.136472372068983 C 7.217374026478671 9.513904994637041 6.778184908303623 9.808909475482906 6.255338142106778 10.021486463133185 C 5.732491737911959 10.229725149092598 5.144810705041429 10.333844184875488 4.4922982356948715 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903478 8.66794 0.539577 7.90005 C0.179859 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179859 3.27976 0.539577 2.49886 C0.903478 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.82869 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97686 4.32095 C6.97686 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13194 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92844 8.7547 7.57291 9.13647 C7.21737 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="660.76px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.81855583190918,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4305097827855195 0.15617940377737846 L 1.4305097827855195 1.6659099994409683 L 1.530895177883111 1.6659099994409683 C 1.706571544496402 1.1713433438196974 2.0244619802331374 0.7700498312983314 2.4845669622777837 0.4620294618768706 C 2.9446721417780717 0.15400980924796392 3.463336872547629 0 4.040559542032048 0 C 4.149311437075421 0 4.285251493051131 0.0021692190666480655 4.4483796852772235 0.006507657199944197 C 4.611507877503316 0.010846095333240328 4.7349002856402045 0.017353752533184524 4.81855583190918 0.026030628799776787 L 4.81855583190918 1.587820297552279 C 4.768362430924661 1.5748053468819456 4.653336189527158 1.555282922476429 4.473477087148376 1.5292530211357622 C 4.297800539534081 1.49888504645801 4.111667086687511 1.4837010591191335 3.915076745063303 1.4837010591191335 C 3.446606291487675 1.4837010591191335 3.028328732916484 1.5856512662170141 2.6602445629888347 1.789551663346286 C 2.2963432933730443 1.9891136223422616 2.0077308890794425 2.266765112562033 1.794409472756177 2.62250611693911 C 1.5852709567447705 2.973909058645657 1.4807024803343152 3.3752018202414904 1.4807024803343152 3.826385562247887 L 1.4807024803343152 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70657 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14931 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81856 0.0260306 L4.81856 1.58782 C4.76836 1.57481 4.65334 1.55528 4.47348 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02833 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.73px"
+                left="654.93px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704668998718262,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876597766288502 10.359874725341797 C 2.676974925110017 10.359874725341797 2.1227574208089655 10.240571314889168 1.625007362453522 10.001964459850928 C 1.127257369916629 9.759019302701645 0.7319849521138961 9.409786426491468 0.43919086595865653 8.954264295236168 C 0.14639677980341692 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875154708059628 6.251499110486931 0.32625571079323806 5.895757893652635 C 0.5437599567790683 5.53567840884028 0.8344629546686357 5.253688993486879 1.1983641450042597 5.0497885724034735 C 1.5622653353398837 4.845888151320068 1.9638114128509367 4.694046433978643 2.4030026408116223 4.594265621956588 C 2.8463765718520575 4.490146371291558 3.2918426771642517 4.40771967650434 3.7393993441937123 4.346983357350659 C 4.3249875165041916 4.268893646288024 4.799731292822171 4.210325816863324 5.163632746431998 4.171280961332006 C 5.531716771484473 4.127898029820657 5.799415725167301 4.0563159809891065 5.966726481099322 3.9565348020374853 C 6.138220137566744 3.8567539900154295 6.223966439252051 3.683221171714583 6.223966439252051 3.4359374564568865 L 6.223966439252051 3.383878377252096 C 6.223966439252051 2.74180911869002 6.054563179955517 2.242903966324292 5.715758767556073 1.8871629201549103 C 5.381136893690002 1.531421873985529 4.872929913088807 1.3535513509008383 4.191137858661763 1.3535513509008383 C 3.4842492566634675 1.3535513509008383 2.9300326738221263 1.5140686655413573 2.528486497583247 1.8351032948223953 C 2.126940156797991 2.156137924103433 1.844602449885459 2.4988634836789783 1.6814744134878254 2.863281031671497 L 0.2760630105620375 2.3426847783463476 C 0.5270294077342719 1.735321936672615 0.8616513474188936 1.2624466993720922 1.279928599250975 0.9240590323117965 C 1.7023887516184584 0.581332585278699 2.1624937582520958 0.34272573024045916 2.6602436520611628 0.20823850133005992 C 3.1621764464056317 0.06941283377668664 3.6557434396792967 0 4.140945158430563 0 C 4.450470320179005 0 4.806007025814839 0.03904448860175248 5.2075532020537185 0.11713347433850316 C 5.613282278828 0.19088474675816383 6.004371532821128 0.3448945911656271 6.3808209969423775 0.5791629904944015 C 6.761453361599029 0.8134321236823056 7.077252166601154 1.1670043259930103 7.3282184815002 1.639879563293533 C 7.579185141946637 2.1127548005940557 7.704668998718262 2.7461475573329945 7.704668998718262 3.5400577993773656 L 7.704668998718262 10.125606684409341 L 6.223966439252051 10.125606684409341 L 6.223966439252051 8.772055333508504 L 6.148676335808438 8.772055333508504 C 6.048289528474515 8.988970660925037 5.880978073220393 9.221069397203548 5.646743014915564 9.468352890596856 C 5.412507611063343 9.715636332790691 5.100892035689374 9.926044889700316 4.711894231963947 10.099577144806947 C 4.322896428238519 10.273109399913578 3.848151401368077 10.359874725341797 3.2876597766288502 10.359874725341797 Z M 3.5135290338628753 8.980293834838564 C 4.0991172061733545 8.980293834838564 4.592685087997454 8.860990407319443 4.994231593329087 8.622383569347695 C 5.39996030810134 8.383776731375947 5.705301516217568 8.075757230292426 5.910257323871395 7.698324537035899 C 6.119396032060624 7.320891843779372 6.223966439252051 6.923936552092273 6.223966439252051 6.507459173969342 L 6.223966439252051 5.101847651608264 C 6.161225037414644 5.179937362670898 6.023193532133625 5.2515194157690726 5.809871923408994 5.316593810902785 C 5.600733215219765 5.377330130056466 5.35813130274732 5.431559520838192 5.082068292185283 5.4792808909925155 C 4.810188182158647 5.522664185166807 4.544582768482505 5.561707948442675 4.285251014514684 5.596414365331018 C 4.030101799080236 5.626782524907858 3.8230545411587085 5.652812610637978 3.6641092407501 5.674504076393653 C 3.279293975558046 5.726563701726168 2.919575422483621 5.811160703823699 2.58495354861755 5.928295091219492 C 2.254514410740504 6.041091039972311 1.986816674700865 6.212454630418424 1.781860867047038 6.442384778835629 C 1.5810877789275983 6.667976676341266 1.4807015063694002 6.975996177424787 1.4807015063694002 7.366443811147426 C 1.4807015063694002 7.900055482800446 1.6710171621493204 8.303517698592877 2.0516495268059725 8.576831055851917 C 2.4364646274516497 8.84580605980044 2.923758158472646 8.980293834838564 3.5135290338628753 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67698 10.3599 2.12276 10.2406 1.62501 10.002 C1.12726 9.75902 0.731985 9.40979 0.439191 8.95426 C0.146397 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108752 6.2515 0.326256 5.89576 C0.54376 5.53568 0.834463 5.25369 1.19836 5.04979 C1.56227 4.84589 1.96381 4.69405 2.403 4.59427 C2.84638 4.49015 3.29184 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79973 4.21033 5.16363 4.17128 C5.53172 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05456 2.2429 5.71576 1.88716 C5.38114 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68147 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861651 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16218 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76145 0.813432 7.07725 1.167 7.32822 1.63988 C7.57919 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88098 9.22107 5.64674 9.46835 C5.41251 9.71564 5.10089 9.92605 4.71189 10.0996 C4.3229 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82305 5.65281 3.66411 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58495 5.9283 C2.25451 6.04109 1.98682 6.21245 1.78186 6.44239 C1.58109 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43646 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.76px"
+                left="644.53px"
+              />
+              <Icon
+                width="10.84px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":10.841747283935547,"height":13.691694259643555}}
+                paths={[{"d":"M 10.841747283935547 4.34698308557846 L 9.285756760433461 4.34698308557846 C 9.19373575613462 3.882784003659864 9.032698474120082 3.4749831869886503 8.802645975713954 3.123580601431837 C 8.576775670204537 2.7721780158750233 8.300712665535329 2.4771733030363143 7.974456961706333 2.2385664799821994 C 7.6523831052266615 1.9956212185563487 7.294755812598185 1.813412259687093 6.901575116730176 1.6919396289741675 C 6.508394749954914 1.570466998261242 6.0984831433972175 1.5097306786381568 5.671840297057086 1.5097306786381568 C 4.893844311302001 1.5097306786381568 4.1890470429788795 1.713631104040254 3.5574483604506257 2.1214319207114682 C 2.9300324467313867 2.5292327373826824 2.430191080414939 3.1300882589894408 2.0579243602291055 3.923998451398763 C 1.6898403430337379 4.717908302478278 1.5057983508906914 5.691857884707937 1.5057983508906914 6.8458471298217765 C 1.5057983508906914 7.999836374935616 1.6898403430337379 8.973785615835467 2.0579243602291055 9.76769580824479 C 2.430191080414939 10.561605795856229 2.9300324467313867 11.162461590526833 3.5574483604506257 11.570262338932086 C 4.1890470429788795 11.978063087337338 4.893844311302001 12.181963581005396 5.671840297057086 12.181963581005396 C 6.0984831433972175 12.181963581005396 6.508394749954914 12.12122717604986 6.901575116730176 11.999754630669386 C 7.294755812598185 11.878282085288912 7.6523831052266615 11.698242260273073 7.974456961706333 11.459635437218958 C 8.300712665535329 11.21669034645801 8.576775670204537 10.919516619231317 8.802645975713954 10.568113658211717 C 9.032698474120082 10.212372634283167 9.19373575613462 9.804571612814069 9.285756760433461 9.344711174065093 L 10.841747283935547 9.344711174065093 C 10.724629584509426 10.02582524557542 10.511307988565669 10.635357268462863 10.201782471422318 11.173307242727423 C 9.89225767828301 11.71125711459304 9.507442750397955 12.168948812017879 9.047337753585701 12.546381481677418 C 8.587232756773448 12.919475815364164 8.070660710132234 13.203634620004927 7.497620527655997 13.398858407594416 C 6.928763245625873 13.594082178117414 6.320169857365753 13.691694259643553 5.671840297057086 13.691694259643553 C 4.575953750179739 13.691694259643553 3.601367564582385 13.41404236163482 2.748081871902123 12.858739214143988 C 1.8947961792218608 12.303435998387194 1.2234610942801374 11.513864210216626 0.7340766499862276 10.49002395203123 C 0.24469220569231764 9.466183830377755 0 8.251458427772487 0 6.8458471298217765 C 0 5.440236104934911 0.24469220569231764 4.225510429265799 0.7340766499862276 3.201670307612324 C 1.2234610942801374 2.1778301859588494 1.8947961792218608 1.388258397788283 2.748081871902123 0.8329550454995659 C 3.601367564582385 0.2776516932108488 4.575953750179739 0 5.671840297057086 0 C 6.320169857365753 0 6.928763245625873 0.09761194499421588 7.497620527655997 0.2928358520491379 C 8.070660710132234 0.48805975910405996 8.587232756773448 0.7743879365291033 9.047337753585701 1.1518204355237394 C 9.507442750397955 1.5249144961466392 9.89225767828301 1.980436667188782 10.201782471422318 2.518387016916129 C 10.511307988565669 3.051998177346166 10.724629584509426 3.66153023436659 10.841747283935547 4.34698308557846 Z","fillRule":"nonzero"},{"d":"M10.8417 4.34698 L9.28576 4.34698 C9.19374 3.88278 9.0327 3.47498 8.80265 3.12358 C8.57678 2.77218 8.30071 2.47717 7.97446 2.23857 C7.65238 1.99562 7.29476 1.81341 6.90158 1.69194 C6.50839 1.57047 6.09848 1.50973 5.67184 1.50973 C4.89384 1.50973 4.18905 1.71363 3.55745 2.12143 C2.93003 2.52923 2.43019 3.13009 2.05792 3.924 C1.68984 4.71791 1.5058 5.69186 1.5058 6.84585 C1.5058 7.99984 1.68984 8.97379 2.05792 9.7677 C2.43019 10.5616 2.93003 11.1625 3.55745 11.5703 C4.18905 11.9781 4.89384 12.182 5.67184 12.182 C6.09848 12.182 6.50839 12.1212 6.90158 11.9998 C7.29476 11.8783 7.65238 11.6982 7.97446 11.4596 C8.30071 11.2167 8.57678 10.9195 8.80265 10.5681 C9.0327 10.2124 9.19374 9.80457 9.28576 9.34471 L10.8417 9.34471 C10.7246 10.0258 10.5113 10.6354 10.2018 11.1733 C9.89226 11.7113 9.50744 12.1689 9.04734 12.5464 C8.58723 12.9195 8.07066 13.2036 7.49762 13.3989 C6.92876 13.5941 6.32017 13.6917 5.67184 13.6917 C4.57595 13.6917 3.60137 13.414 2.74808 12.8587 C1.8948 12.3034 1.22346 11.5139 0.734077 10.49 C0.244692 9.46618 0 8.25146 0 6.84585 C0 5.44024 0.244692 4.22551 0.734077 3.20167 C1.22346 2.17783 1.8948 1.38826 2.74808 0.832955 C3.60137 0.277652 4.57595 0 5.67184 0 C6.32017 0 6.92876 0.0976119 7.49762 0.292836 C8.07066 0.48806 8.58723 0.774388 9.04734 1.15182 C9.50744 1.52491 9.89226 1.98044 10.2018 2.51839 C10.5113 3.052 10.7246 3.66153 10.8417 4.34698 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.38px"
+                left="631.82px"
+              />
+            </View>
+            <View
+              width="46.81px"
+              height="13.54px"
+              display="block"
+              position="absolute"
+              top="9573.64px"
+              left="464.4px"
+            >
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482665061950684,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300236582974 10.333844184875488 C 3.563724451606529 10.333844184875488 2.7627241012725667 10.121267402023086 2.0892976717544682 9.69611342672253 C 1.4200540768209593 9.266621149731108 0.9034826936725504 8.667934765466143 0.5395815148435084 7.90005461525743 C 0.17986303896195877 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17986303896195877 3.2797588089325536 0.5395815148435084 2.498863958449121 C 0.9034826936725504 1.7136306697429053 1.4095982080026346 1.1019294486713034 2.057928024924487 0.6637602952343147 C 2.710440676430929 0.22125342036711176 3.4717034071165283 0 4.341720034457106 0 C 4.843652977476795 0 5.339312655897829 0.08676584608591967 5.828696897708103 0.26029755532424875 C 6.318081501520395 0.4338299813551467 6.7635473952912735 0.715820086189596 7.165093558833234 1.1062678868940865 C 7.566639722375194 1.4923768739130194 7.886619311601319 2.004296951296842 8.125037608450137 2.642028050779595 C 8.363455214204196 3.2797588089325536 8.482665061950684 4.064992097638769 8.482665061950684 4.997727916898242 L 8.482665061950684 5.648473989719551 L 1.0540614148810736 5.648473989719551 L 1.0540614148810736 4.320952306995578 L 6.976867253079121 4.320952306995578 C 6.976867253079121 3.7569724386564745 6.8681136032437005 3.253728896388423 6.650609446408556 2.8112216801914256 C 6.43728784442917 2.368714463994428 6.1319470079698695 2.019480921882422 5.734583744831047 1.7635210709218978 C 5.341403053002621 1.5075608615650893 4.877115127605124 1.379580756886685 4.341720034457106 1.379580756886685 C 3.7519491777154745 1.379580756886685 3.2416504009802343 1.531421554997828 2.8108248231667123 1.835103117087135 C 2.384181981209957 2.1344462409536584 2.05583586717352 2.5248931200677034 1.825783371130978 3.0064448466846123 C 1.595730875088436 3.487996914631316 1.4807046188398465 4.0042565224932645 1.4807046188398465 4.555221417493813 L 1.4807046188398465 5.440235508558014 C 1.4807046188398465 6.195100617162213 1.6061867109974863 6.835000423761667 1.8571530179609592 7.359935440351064 C 2.1123022253275705 7.880532086983638 2.4657471239723594 8.277487357290916 2.917486677253184 8.550800688078738 C 3.3692262305340086 8.819775665976225 3.8941637106721627 8.954263427988803 4.492300236582974 8.954263427988803 C 4.8812980280082625 8.954263427988803 5.232649386712562 8.89786472948227 5.546357439076934 8.78506870632163 C 5.864248029842427 8.66793451800204 6.138221704121957 8.494402714898019 6.368274200164499 8.264472503417789 C 6.598326696207041 8.030203939047224 6.776096104728007 7.739537145498597 6.901579258209743 7.392472634766595 L 8.332084859824818 7.808950689345011 C 8.18150465769895 8.312194129214124 7.928447246081287 8.75470144781006 7.572911604784327 9.136472372068983 C 7.217375963487367 9.513904994637041 6.778186855607497 9.808909475482906 6.255340101666876 10.021486463133185 C 5.732493709728273 10.229725149092598 5.14481269063377 10.333844184875488 4.492300236582974 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903483 8.66794 0.539581 7.90005 C0.179863 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179863 3.27976 0.539581 2.49886 C0.903483 1.71363 1.4096 1.10193 2.05793 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85715 7.35994 C2.1123 7.88053 2.46575 8.27749 2.91749 8.5508 C3.36923 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59833 8.0302 6.7761 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.84px"
+                left="502.73px"
+              />
+              <Icon
+                width="12.65px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":12.64870834350586,"height":10.125605583190918}}
+                paths={[{"d":"M 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305099103190104 0.13014877611298983 L 1.4305099103190104 1.6919390046178533 L 1.5559927184748572 1.6919390046178533 C 1.756765813763973 1.1583274933971328 2.0809309579613555 0.7440192089892081 2.5284876409732187 0.449014151394079 C 2.976044323985082 0.14967137242036666 3.5135291593322058 0 4.140945306305139 0 C 4.776726925554856 0 5.305847703724087 0.14967137242036666 5.728307673722108 0.449014151394079 C 6.154950544404905 0.7440192089892081 6.487482032974899 1.1583274933971328 6.725900000329118 1.6919390046178533 L 6.826287510570015 1.6919390046178533 C 7.073071279293783 1.175680529289147 7.443244661639355 0.7657106830523661 7.936811837084849 0.46202946590751004 C 8.430379374532386 0.15400981059151037 9.022242971878432 0 9.712400522929288 0 C 10.5740514074789 0 11.278848386922384 0.2798205239961262 11.826791527078294 0.8394615719883786 C 12.374735358329012 1.3947648986020478 12.648708343505858 2.2602563828247284 12.648708343505858 3.4359370827787705 L 12.648708343505858 10.125605583190918 L 11.16800362496955 10.125605583190918 L 11.16800362496955 3.4359370827787705 C 11.16800362496955 2.6984251897164873 10.973505752803426 2.1713216770822727 10.584507935186753 1.8546255208867555 C 10.19551011757008 1.5379289892284684 9.737496511939046 1.3795807404658145 9.210467184112202 1.3795807404658145 C 8.53285833511567 1.3795807404658145 8.007920457631213 1.5921578279847695 7.635653518749557 2.017312037155658 C 7.2633865798679 2.4381274326926334 7.077253126881709 2.971739490041019 7.077253126881709 3.6181471169454844 L 7.077253126881709 10.125605583190918 L 5.571455216624149 10.125605583190918 L 5.571455216624149 3.2797587698942485 C 5.571455216624149 2.711440845559709 5.393685787906576 2.2537496471584473 5.038150122671253 1.9066851405574845 C 4.682614457435929 1.5552821957853782 4.224601213806936 1.3795807404658145 3.6641093715967012 1.3795807404658145 C 3.2792944546648037 1.3795807404658145 2.919576579839513 1.4858691988928443 2.58495469402398 1.6984461157469037 C 2.2545155443468388 1.9110233909972434 1.9868188518444703 2.206027714733323 1.7818630368716006 2.583460196276961 C 1.5810899415824848 2.956554580979246 1.4807026123426095 3.3882160719440804 1.4807026123426095 3.878444669171464 L 1.4807026123426095 10.125605583190918 L 0 10.125605583190918 Z","fillRule":"nonzero"},{"d":"M0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.75677 1.15833 2.08093 0.744019 2.52849 0.449014 C2.97604 0.149671 3.51353 0 4.14095 0 C4.77673 0 5.30585 0.149671 5.72831 0.449014 C6.15495 0.744019 6.48748 1.15833 6.7259 1.69194 L6.82629 1.69194 C7.07307 1.17568 7.44324 0.765711 7.93681 0.462029 C8.43038 0.15401 9.02224 0 9.7124 0 C10.5741 0 11.2788 0.279821 11.8268 0.839462 C12.3747 1.39476 12.6487 2.26026 12.6487 3.43594 L12.6487 10.1256 L11.168 10.1256 L11.168 3.43594 C11.168 2.69843 10.9735 2.17132 10.5845 1.85463 C10.1955 1.53793 9.7375 1.37958 9.21047 1.37958 C8.53286 1.37958 8.00792 1.59216 7.63565 2.01731 C7.26339 2.43813 7.07725 2.97174 7.07725 3.61815 L7.07725 10.1256 L5.57146 10.1256 L5.57146 3.27976 C5.57146 2.71144 5.39369 2.25375 5.03815 1.90668 C4.68261 1.55528 4.2246 1.37958 3.66411 1.37958 C3.27929 1.37958 2.91958 1.48587 2.58495 1.69845 C2.25452 1.91102 1.98682 2.20603 1.78186 2.58346 C1.58109 2.95655 1.4807 3.38822 1.4807 3.87844 L1.4807 10.1256 L0 10.1256 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.84px"
+                left="487.82px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733628273010254,"height":10.333844184875488}}
+                paths={[{"d":"M 4.366815189601871 10.333844184875488 C 3.4967984587321874 10.333844184875488 2.733442130494983 10.119098080512758 2.0767467972571767 9.689605769388356 C 1.4242341668317309 9.260113458263953 0.9139356369478371 8.659257752488658 0.5458516354260478 7.8870393005890795 C 0.18195046835371165 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18195046835371165 3.2298682029556844 0.5458516354260478 2.4533114493652404 C 0.9139356369478371 1.6767546957747963 1.4242341668317309 1.0737303170157813 2.0767467972571767 0.6442384154871332 C 2.733442130494983 0.21474613849571106 3.4967984587321874 0 4.366815189601871 0 C 5.236831788834461 0 5.998096469482026 0.21474613849571106 6.650609231544565 0.6442384154871332 C 7.307304564782371 1.0737303170157813 7.817601185928416 1.6767546957747963 8.181502287182205 2.4533114493652404 C 8.549586288703994 3.2298682029556844 8.733628273010254 4.138743362915398 8.733628273010254 5.179936860978422 C 8.733628273010254 6.212453687393757 8.549586288703994 7.114820780423542 8.181502287182205 7.8870393005890795 C 7.817601185928416 8.659257752488658 7.307304564782371 9.260113458263953 6.650609231544565 9.689605769388356 C 5.998096469482026 10.119098080512758 5.236831788834461 10.333844184875488 4.366815189601871 10.333844184875488 Z M 4.366815189601871 8.954263427988803 C 5.0276930940149445 8.954263427988803 5.571452917304986 8.77856132205129 5.998095745478015 8.427158475495444 C 6.424738573651044 8.075755731338537 6.7405391355657 7.61372649886244 6.945495275664587 7.041070061274585 C 7.150451070216105 6.468413691952689 7.25292791439512 5.848035935765315 7.25292791439512 5.179936860978422 C 7.25292791439512 4.5118377861915295 7.150451070216105 3.8892908108927644 6.945495275664587 3.312296003348085 C 6.7405391355657 2.7353015371332 6.424738573651044 2.268933661636443 5.998095745478015 1.9131922744588752 C 5.571452917304986 1.5574512627440815 5.0276930940149445 1.379580756886685 4.366815189601871 1.379580756886685 C 3.7059369560960653 1.379580756886685 3.162176244255645 1.5574512627440815 2.735533580628983 1.9131922744588752 C 2.3088907524559543 2.268933661636443 1.993091079091675 2.7353015371332 1.7881351035391542 3.312296003348085 C 1.5831793089876363 3.8892908108927644 1.4807014117118773 4.5118377861915295 1.4807014117118773 5.179936860978422 C 1.4807014117118773 5.848035935765315 1.5831793089876363 6.468413691952689 1.7881351035391542 7.041070061274585 C 1.993091079091675 7.61372649886244 2.3088907524559543 8.075755731338537 2.735533580628983 8.427158475495444 C 3.162176244255645 8.77856132205129 3.7059369560960653 8.954263427988803 4.366815189601871 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36682 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07675 9.68961 C1.42423 9.26011 0.913936 8.65926 0.545852 7.88704 C0.18195 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.18195 3.22987 0.545852 2.45331 C0.913936 1.67675 1.42423 1.07373 2.07675 0.644238 C2.73344 0.214746 3.4968 0 4.36682 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54959 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54959 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36682 10.3338 Z M4.36682 8.95426 C5.02769 8.95426 5.57145 8.77856 5.9981 8.42716 C6.42474 8.07576 6.74054 7.61373 6.9455 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.9455 3.3123 C6.74054 2.7353 6.42474 2.26893 5.9981 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36682 1.37958 C3.70594 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78814 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78814 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70594 8.95426 4.36682 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.84px"
+                left="476.83px"
+              />
+              <Icon
+                width="9.96px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.963366508483887,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 1.5559917230431461 0 L 1.5559917230431461 5.934802745329102 L 8.40737478544074 5.934802745329102 L 8.40737478544074 0 L 9.963366508483887 0 L 9.963366508483887 13.327277183532717 L 8.40737478544074 13.327277183532717 L 8.40737478544074 7.366443806362677 L 1.5559917230431461 7.366443806362677 L 1.5559917230431461 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L1.55599 0 L1.55599 5.9348 L8.40737 5.9348 L8.40737 0 L9.96337 0 L9.96337 13.3273 L8.40737 13.3273 L8.40737 7.36644 L1.55599 7.36644 L1.55599 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9573.64px"
+                left="464.4px"
+              />
+            </View>
+            <View
+              width="179.58px"
+              height="13.75px"
+              display="block"
+              position="absolute"
+              top="9609.14px"
+              left="916.04px"
+            >
+              <Icon
+                width="8.71px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.708520889282227,"height":13.691694259643555}}
+                paths={[{"d":"M 4.366813358623226 13.691694259643553 C 3.538624327685218 13.691694259643553 2.8003542970113324 13.544191450962206 2.1520243943563306 13.249186652791044 C 1.5078773922329525 12.954181854619883 0.9954893544786169 12.544212637954336 0.6148568914379647 12.019277603342198 C 0.23840732892893612 11.490004232757265 0.033462151156177775 10.87613349843424 0 10.17766621956466 L 1.5810774275323072 10.17766621956466 C 1.6145395786884849 10.60715851130196 1.7567585423110765 10.9780836940688 2.0077248569834243 11.290441801998156 C 2.2586913362021486 11.598461471555776 2.587037460324318 11.83706829460989 2.9927663392764514 12.00626228822699 C 3.398495415684237 12.175456196511638 3.8481403732847985 12.260053287185885 4.341707530659 12.260053287185885 C 4.893833551284338 12.260053287185885 5.383216425937353 12.160271849941955 5.8098592809991985 11.960709777579142 C 6.236502136061044 11.76114770521633 6.571137699883389 11.483495858407068 6.81373855903988 11.127754732079577 C 7.056339418196371 10.772013708151027 7.177638268129401 10.35987516990067 7.177638268129401 9.891338025073125 C 7.177638268129401 9.401109405179493 7.060510027113659 8.969447894256325 6.826274623473023 8.596353492303619 C 6.592039565379778 8.218920993308982 6.249062783722859 7.923916297536764 5.797323216566054 7.711339370853982 C 5.3455836494092495 7.498762085774903 4.79345762878391 7.392472888574428 4.140945154690039 7.392472888574428 L 3.111976898234101 7.392472888574428 L 3.111976898234101 5.960831916116759 L 4.140945154690039 5.960831916116759 C 4.651243223095952 5.960831916116759 5.098786199462596 5.865389190308411 5.483601464307046 5.674503721625225 C 5.872599267681091 5.483618252942039 6.175854998289164 5.21464382900394 6.393359161805335 4.867579306356076 C 6.615046225853128 4.520515159170999 6.725885010714059 4.112714342499784 6.725885010714059 3.6441768222094524 C 6.725885010714059 3.192993055406065 6.629693387389456 2.8003763975731397 6.437285935968245 2.4663268487106773 C 6.244878122545006 2.132277299848215 5.972985721149625 1.8719790017280133 5.6216329694633815 1.6854319714165633 C 5.2744627563067334 1.4988849411051133 4.864555715758623 1.4056114344826336 4.391902337038482 1.4056114344826336 C 3.9485285709449243 1.4056114344826336 3.530246580555026 1.4902084398244284 3.1370658766493578 1.6594024334415278 C 2.748067875819661 1.824257988686891 2.430181833224229 2.0650340309268738 2.183398254537128 2.3817305772279664 C 1.9366146758500276 2.694088685157323 1.8027704543294245 3.0715211500189783 1.7818566530502373 3.5140280400788937 L 0.2760630103126693 3.5140280400788937 C 0.3011596236798026 2.815560556411429 0.504019505221236 2.203859348471098 0.8846518695340622 1.6789243138589593 C 1.2652841351190622 1.1496508408750845 1.7630248467906933 0.7375119612949212 2.377892598289517 0.4425076068525089 C 2.996942921227211 0.14750253561750298 3.6766572150311165 0 4.417008165002708 0 C 5.211735044784539 0 5.893518015635727 0.16702479149772165 6.462374914383502 0.5010743403601843 C 7.0312322080425815 0.8307854508509108 7.468331952431458 1.2667854001458156 7.773674213368682 1.8090741882448986 C 8.079016836307934 2.3513622254184074 8.231695503000596 2.9370335540538965 8.231695503000596 3.5660882082843455 C 8.231695503000596 4.316614767901881 8.041381262491427 4.956514733003116 7.660748536176572 5.485788205986991 C 7.284299434397399 6.015061678970866 6.771910935913208 6.381649157225052 6.123581033258207 6.585549565560659 L 6.123581033258207 6.689667717460802 C 6.935038791162474 6.8284933763348326 7.568725777577666 7.1864036194492495 8.024648245266095 7.763398446804054 C 8.480570350952494 8.336054835787122 8.708520889282227 9.045368415383924 8.708520889282227 9.891338025073125 C 8.708520889282227 10.615835183247547 8.518205924769 11.26658059575149 8.137573922458202 11.84357521830841 C 7.761124096674971 12.41623160729148 7.246650861417137 12.867416295685343 6.594138387323265 13.197127576840973 C 5.94162558413664 13.526838823863622 5.199184961000104 13.691694259643553 4.366813358623226 13.691694259643553 Z","fillRule":"nonzero"},{"d":"M4.36681 13.6917 C3.53862 13.6917 2.80035 13.5442 2.15202 13.2492 C1.50788 12.9542 0.995489 12.5442 0.614857 12.0193 C0.238407 11.49 0.0334622 10.8761 0 10.1777 L1.58108 10.1777 C1.61454 10.6072 1.75676 10.9781 2.00773 11.2904 C2.25869 11.5985 2.58704 11.8371 2.99277 12.0063 C3.3985 12.1755 3.84814 12.2601 4.34171 12.2601 C4.89383 12.2601 5.38322 12.1603 5.80986 11.9607 C6.2365 11.7611 6.57114 11.4835 6.81374 11.1278 C7.05634 10.772 7.17764 10.3599 7.17764 9.89134 C7.17764 9.40111 7.06051 8.96945 6.82627 8.59635 C6.59204 8.21892 6.24906 7.92392 5.79732 7.71134 C5.34558 7.49876 4.79346 7.39247 4.14095 7.39247 L3.11198 7.39247 L3.11198 5.96083 L4.14095 5.96083 C4.65124 5.96083 5.09879 5.86539 5.4836 5.6745 C5.8726 5.48362 6.17586 5.21464 6.39336 4.86758 C6.61505 4.52051 6.72589 4.11271 6.72589 3.64418 C6.72589 3.19299 6.62969 2.80038 6.43729 2.46633 C6.24488 2.13228 5.97299 1.87198 5.62163 1.68543 C5.27446 1.49888 4.86456 1.40561 4.3919 1.40561 C3.94853 1.40561 3.53025 1.49021 3.13707 1.6594 C2.74807 1.82426 2.43018 2.06503 2.1834 2.38173 C1.93661 2.69409 1.80277 3.07152 1.78186 3.51403 L0.276063 3.51403 C0.30116 2.81556 0.50402 2.20386 0.884652 1.67892 C1.26528 1.14965 1.76302 0.737512 2.37789 0.442508 C2.99694 0.147503 3.67666 0 4.41701 0 C5.21174 0 5.89352 0.167025 6.46238 0.501074 C7.03123 0.830785 7.46833 1.26679 7.77367 1.80907 C8.07902 2.35136 8.2317 2.93703 8.2317 3.56609 C8.2317 4.31661 8.04138 4.95651 7.66075 5.48579 C7.2843 6.01506 6.77191 6.38165 6.12358 6.58555 L6.12358 6.68967 C6.93504 6.82849 7.56873 7.1864 8.02465 7.7634 C8.48057 8.33605 8.70852 9.04537 8.70852 9.89134 C8.70852 10.6158 8.51821 11.2666 8.13757 11.8436 C7.76112 12.4162 7.24665 12.8674 6.59414 13.1971 C5.94163 13.5268 5.19919 13.6917 4.36681 13.6917 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1086.92px"
+              />
+              <Icon
+                width="8.71px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.708520889282227,"height":13.691694259643555}}
+                paths={[{"d":"M 4.366813358623226 13.691694259643553 C 3.538624327685218 13.691694259643553 2.8003542970113324 13.544191450962206 2.1520243943563306 13.249186652791044 C 1.5078773922329525 12.954181854619883 0.9954893544786169 12.544212637954336 0.6148568914379647 12.019277603342198 C 0.23840732892893612 11.490004232757265 0.033462151156177775 10.87613349843424 0 10.17766621956466 L 1.5810774275323072 10.17766621956466 C 1.6145395786884849 10.60715851130196 1.7567585423110765 10.9780836940688 2.0077248569834243 11.290441801998156 C 2.2586913362021486 11.598461471555776 2.587037460324318 11.83706829460989 2.9927663392764514 12.00626228822699 C 3.398495415684237 12.175456196511638 3.8481403732847985 12.260053287185885 4.341707530659 12.260053287185885 C 4.893833551284338 12.260053287185885 5.383216425937353 12.160271849941955 5.8098592809991985 11.960709777579142 C 6.236502136061044 11.76114770521633 6.571137699883389 11.483495858407068 6.81373855903988 11.127754732079577 C 7.056339418196371 10.772013708151027 7.177638268129401 10.35987516990067 7.177638268129401 9.891338025073125 C 7.177638268129401 9.401109405179493 7.060510027113659 8.969447894256325 6.826274623473023 8.596353492303619 C 6.592039565379778 8.218920993308982 6.249062783722859 7.923916297536764 5.797323216566054 7.711339370853982 C 5.3455836494092495 7.498762085774903 4.79345762878391 7.392472888574428 4.140945154690039 7.392472888574428 L 3.111976898234101 7.392472888574428 L 3.111976898234101 5.960831916116759 L 4.140945154690039 5.960831916116759 C 4.651243223095952 5.960831916116759 5.098786199462596 5.865389190308411 5.483601464307046 5.674503721625225 C 5.872599267681091 5.483618252942039 6.175854998289164 5.21464382900394 6.393359161805335 4.867579306356076 C 6.615046225853128 4.520515159170999 6.725885010714059 4.112714342499784 6.725885010714059 3.6441768222094524 C 6.725885010714059 3.192993055406065 6.629693387389456 2.8003763975731397 6.437285935968245 2.4663268487106773 C 6.244878122545006 2.132277299848215 5.972985721149625 1.8719790017280133 5.6216329694633815 1.6854319714165633 C 5.2744627563067334 1.4988849411051133 4.864555715758623 1.4056114344826336 4.391902337038482 1.4056114344826336 C 3.9485285709449243 1.4056114344826336 3.530246580555026 1.4902084398244284 3.1370658766493578 1.6594024334415278 C 2.748067875819661 1.824257988686891 2.430181833224229 2.0650340309268738 2.183398254537128 2.3817305772279664 C 1.9366146758500276 2.694088685157323 1.8027704543294245 3.0715211500189783 1.7818566530502373 3.5140280400788937 L 0.2760630103126693 3.5140280400788937 C 0.3011596236798026 2.815560556411429 0.504019505221236 2.203859348471098 0.8846518695340622 1.6789243138589593 C 1.2652841351190622 1.1496508408750845 1.7630248467906933 0.7375119612949212 2.377892598289517 0.4425076068525089 C 2.996942921227211 0.14750253561750298 3.6766572150311165 0 4.417008165002708 0 C 5.211735044784539 0 5.893518015635727 0.16702479149772165 6.462374914383502 0.5010743403601843 C 7.0312322080425815 0.8307854508509108 7.468331952431458 1.2667854001458156 7.773674213368682 1.8090741882448986 C 8.079016836307934 2.3513622254184074 8.231695503000596 2.9370335540538965 8.231695503000596 3.5660882082843455 C 8.231695503000596 4.316614767901881 8.041381262491427 4.956514733003116 7.660748536176572 5.485788205986991 C 7.284299434397399 6.015061678970866 6.771910935913208 6.381649157225052 6.123581033258207 6.585549565560659 L 6.123581033258207 6.689667717460802 C 6.935038791162474 6.8284933763348326 7.568725777577666 7.1864036194492495 8.024648245266095 7.763398446804054 C 8.480570350952494 8.336054835787122 8.708520889282227 9.045368415383924 8.708520889282227 9.891338025073125 C 8.708520889282227 10.615835183247547 8.518205924769 11.26658059575149 8.137573922458202 11.84357521830841 C 7.761124096674971 12.41623160729148 7.246650861417137 12.867416295685343 6.594138387323265 13.197127576840973 C 5.94162558413664 13.526838823863622 5.199184961000104 13.691694259643553 4.366813358623226 13.691694259643553 Z","fillRule":"nonzero"},{"d":"M4.36681 13.6917 C3.53862 13.6917 2.80035 13.5442 2.15202 13.2492 C1.50788 12.9542 0.995489 12.5442 0.614857 12.0193 C0.238407 11.49 0.0334622 10.8761 0 10.1777 L1.58108 10.1777 C1.61454 10.6072 1.75676 10.9781 2.00773 11.2904 C2.25869 11.5985 2.58704 11.8371 2.99277 12.0063 C3.3985 12.1755 3.84814 12.2601 4.34171 12.2601 C4.89383 12.2601 5.38322 12.1603 5.80986 11.9607 C6.2365 11.7611 6.57114 11.4835 6.81374 11.1278 C7.05634 10.772 7.17764 10.3599 7.17764 9.89134 C7.17764 9.40111 7.06051 8.96945 6.82627 8.59635 C6.59204 8.21892 6.24906 7.92392 5.79732 7.71134 C5.34558 7.49876 4.79346 7.39247 4.14095 7.39247 L3.11198 7.39247 L3.11198 5.96083 L4.14095 5.96083 C4.65124 5.96083 5.09879 5.86539 5.4836 5.6745 C5.8726 5.48362 6.17586 5.21464 6.39336 4.86758 C6.61505 4.52051 6.72589 4.11271 6.72589 3.64418 C6.72589 3.19299 6.62969 2.80038 6.43729 2.46633 C6.24488 2.13228 5.97299 1.87198 5.62163 1.68543 C5.27446 1.49888 4.86456 1.40561 4.3919 1.40561 C3.94853 1.40561 3.53025 1.49021 3.13707 1.6594 C2.74807 1.82426 2.43018 2.06503 2.1834 2.38173 C1.93661 2.69409 1.80277 3.07152 1.78186 3.51403 L0.276063 3.51403 C0.30116 2.81556 0.50402 2.20386 0.884652 1.67892 C1.26528 1.14965 1.76302 0.737512 2.37789 0.442508 C2.99694 0.147503 3.67666 0 4.41701 0 C5.21174 0 5.89352 0.167025 6.46238 0.501074 C7.03123 0.830785 7.46833 1.26679 7.77367 1.80907 C8.07902 2.35136 8.2317 2.93703 8.2317 3.56609 C8.2317 4.31661 8.04138 4.95651 7.66075 5.48579 C7.2843 6.01506 6.77191 6.38165 6.12358 6.58555 L6.12358 6.68967 C6.93504 6.82849 7.56873 7.1864 8.02465 7.7634 C8.48057 8.33605 8.70852 9.04537 8.70852 9.89134 C8.70852 10.6158 8.51821 11.2666 8.13757 11.8436 C7.76112 12.4162 7.24665 12.8674 6.59414 13.1971 C5.94163 13.5268 5.19919 13.6917 4.36681 13.6917 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1075.67px"
+              />
+              <Icon
+                width="8.23px"
+                height="13.51px"
+                viewBox={{"minX":0,"minY":0,"width":8.231695175170898,"height":13.509485244750977}}
+                paths={[{"d":"M 3.9903605766342998 13.509485244750978 C 3.254192753968085 13.509485244750978 2.5912277938835775 13.357644851747995 2.0014567450582446 13.053963417215403 C 1.4116858936885555 12.75028201681579 0.9390187448061602 12.33380367686466 0.5834830080197835 11.804530308808918 C 0.2279472712334067 11.275257043152116 0.03346214982353775 10.672233056166682 0 9.995457221464255 L 1.5057935827688926 9.995457221464255 C 1.564352431346928 10.598481788710359 1.8278702302942154 11.097386702702718 2.296340689825758 11.492172577834983 C 2.7689940497223393 11.882620117015186 3.3336654256175353 12.077844279134563 3.9903605766342998 12.077844279134563 C 4.517390226177596 12.077844279134563 4.985852952029744 11.949864529070044 5.395764550642274 11.693904499879809 C 5.809859049619842 11.437944368290632 6.134034535459701 11.086541152952895 6.368269929771842 10.639695655991641 C 6.606687878901645 10.188511891344286 6.725884742853707 9.67876122280422 6.725884742853707 9.110443104243755 C 6.725884742853707 8.529110046093063 6.602500420602155 8.010682125388202 6.355717016289653 7.5551599223898425 C 6.1131161667948115 7.095299656503263 5.7784974658477255 6.733051710607235 5.351854627777057 6.468414975379893 C 4.925211789706389 6.203778240152552 4.437914428147114 6.069289569641248 3.889970967873381 6.064951131290244 C 3.49679027962625 6.060613056935477 3.0931556643031994 6.123519682099262 2.6790613298720016 6.253668830537431 C 2.2649668308944335 6.379479540624596 1.9240755400459508 6.542165508977137 1.6563779959102716 6.741727853450164 L 0.20076236797354008 6.559518903984858 L 0.9787565615482162 0 L 7.654463349569761 0 L 7.654463349569761 1.431640965616415 L 2.2837877763435688 1.431640965616415 L 1.8320513864677308 5.36214596353505 L 1.9073351682642712 5.36214596353505 C 2.1708498120349122 5.1452305995170855 2.501298068777176 4.965191415354971 2.898661492842975 4.822027318793329 C 3.296024916908774 4.678863222231687 3.7101192513399717 4.607281173950867 4.1409449897756785 4.607281173950867 C 4.9273060371772 4.607281173950867 5.627906767035009 4.802504892341497 6.242774494046544 5.1929523291227575 C 6.861824792330377 5.5790617030158 7.347037022287745 6.108334422544912 7.698390121983276 6.780771614098452 C 8.053925430949091 7.453209146981796 8.231695175170898 8.221089456416875 8.231695175170898 9.084412474137729 C 8.231695175170898 9.934720381603452 8.04765318659507 10.693924565262092 7.679569176534141 11.362023796326355 C 7.31566806683825 12.025784589039613 6.813722820321946 12.550719621143292 6.17375874421695 12.936828858504413 C 5.533794668111954 13.31859979404645 4.806001597498349 13.509485244750978 3.9903605766342998 13.509485244750978 Z","fillRule":"nonzero"},{"d":"M3.99036 13.5095 C3.25419 13.5095 2.59123 13.3576 2.00146 13.054 C1.41169 12.7503 0.939019 12.3338 0.583483 11.8045 C0.227947 11.2753 0.0334621 10.6722 0 9.99546 L1.50579 9.99546 C1.56435 10.5985 1.82787 11.0974 2.29634 11.4922 C2.76899 11.8826 3.33367 12.0778 3.99036 12.0778 C4.51739 12.0778 4.98585 11.9499 5.39576 11.6939 C5.80986 11.4379 6.13403 11.0865 6.36827 10.6397 C6.60669 10.1885 6.72588 9.67876 6.72588 9.11044 C6.72588 8.52911 6.6025 8.01068 6.35572 7.55516 C6.11312 7.0953 5.7785 6.73305 5.35185 6.46842 C4.92521 6.20378 4.43791 6.06929 3.88997 6.06495 C3.49679 6.06061 3.09316 6.12352 2.67906 6.25367 C2.26497 6.37948 1.92408 6.54217 1.65638 6.74173 L0.200762 6.55952 L0.978757 0 L7.65446 0 L7.65446 1.43164 L2.28379 1.43164 L1.83205 5.36215 L1.90734 5.36215 C2.17085 5.14523 2.5013 4.96519 2.89866 4.82203 C3.29602 4.67886 3.71012 4.60728 4.14094 4.60728 C4.92731 4.60728 5.62791 4.80251 6.24277 5.19295 C6.86182 5.57906 7.34704 6.10833 7.69839 6.78077 C8.05393 7.45321 8.2317 8.22109 8.2317 9.08441 C8.2317 9.93472 8.04765 10.6939 7.67957 11.362 C7.31567 12.0258 6.81372 12.5507 6.17376 12.9368 C5.53379 13.3186 4.806 13.5095 3.99036 13.5095 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.32px"
+                left="1064.97px"
+              />
+              <Icon
+                width="8.73px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.733753204345703,"height":13.691694259643555}}
+                paths={[{"d":"M 4.366940051252703 13.691694259643553 C 3.505288712257702 13.691694259643553 2.74402178163143 13.533345798761614 2.083143735035121 13.216649457258406 C 1.426448391317919 12.895614813915383 0.9140519199964866 12.455276904110471 0.5459679126008958 11.895635386513863 C 0.1778838722960313 11.331655703609364 -0.004064387740820842 10.689586655854184 0.00011838095683346642 9.969427731253614 C -0.004064387740820842 9.405448048349115 0.10259553311021083 8.884850530518234 0.32009971929851444 8.407636884410005 C 0.5376038725775443 7.926084799930039 0.834578360372115 7.524791982146236 1.211027970981562 7.203757372936194 C 1.5916603173793893 6.878384325354417 2.0162234178947793 6.67231542315878 2.4846938740340736 6.585549565560659 L 2.4846938740340736 6.507459859380171 C 1.869826283111962 6.342604304134808 1.3804348750812598 5.9846934978262105 1.016533702201871 5.43372858390923 C 0.6526324305946608 4.878425231620513 0.47276935060866493 4.247201528869098 0.47695216327105217 3.540057578053929 C 0.47276935060866493 2.863282286245145 0.6379934970661676 2.258088735862418 0.9726153548805239 1.7244768245068072 C 1.3072371139670587 1.1908649131511961 1.7673420656203183 0.770049156827561 2.3529304072959447 0.4620294872699405 C 2.9427012543950353 0.15400981771231992 3.614040830033809 0 4.366940051252703 0 C 5.111473471802098 0 5.776523756128451 0.15400981771231992 6.3621119003484345 0.4620294872699405 C 6.9477000445684185 0.770049156827561 7.407805029130952 1.1908649131511961 7.7424268869453075 1.7244768245068072 C 8.081231645094412 2.258088735862418 8.252728090623608 2.863282286245145 8.256910990958357 3.540057578053929 C 8.252728090623608 4.247201528869098 8.066600971793639 4.878425231620513 7.698516964398048 5.43372858390923 C 7.334615528244469 5.9846934978262105 6.85150525002629 6.342604304134808 6.2491862284713315 6.507459859380171 L 6.2491862284713315 6.585549565560659 C 6.713473784275877 6.67231542315878 7.131738872521294 6.878384325354417 7.504005780251634 7.203757372936194 C 7.876272325979963 7.524791982146236 8.17325509045689 7.926084799930039 8.394942489618042 8.407636884410005 C 8.61662918122981 8.884850530518234 8.729570304010954 9.405448048349115 8.733753204345703 9.969427731253614 C 8.729570304010954 10.689586655854184 8.541341204046002 11.331655703609364 8.169074296315662 11.895635386513863 C 7.8009902889200715 12.455276904110471 7.288601880370716 12.895614813915383 6.631906865746251 13.216649457258406 C 5.979394093271061 13.533345798761614 5.224408292457312 13.691694259643553 4.366940051252703 13.691694259643553 Z M 4.366940051252703 12.260053287185885 C 4.948345295137937 12.260053287185885 5.450273688471421 12.162441239792726 5.872733623117971 11.967217435136746 C 6.295193919766532 11.771993715813217 6.6214545348458085 11.496511241788237 6.851507027127075 11.140770047194785 C 7.081559519408341 10.785029023266235 7.1986712563096535 10.368551671181354 7.202853805697851 9.891338025073125 C 7.1986712563096535 9.388094465527073 7.07318494841738 8.943418014951485 6.82640120034449 8.557308639213376 C 6.579617797818975 8.171199638938056 6.242913622160718 7.867518783214957 5.81627078717942 7.646264979788703 C 5.393810490530859 7.425011534758745 4.910700245221953 7.3143842746493215 4.366940051252703 7.3143842746493215 C 3.8189965949466917 7.3143842746493215 3.329613940782815 7.425011534758745 2.898788370013136 7.646264979788703 C 2.4721455350318373 7.867518783214957 2.135424542734678 8.171199638938056 1.8886409756627942 8.557308639213376 C 1.6460401279246542 8.943418014951485 1.5268348400616225 9.388094465527073 1.5310177403963718 9.891338025073125 C 1.5268348400616225 10.368551671181354 1.6376738007067746 10.785029023266235 1.8635435736542976 11.140770047194785 C 2.093596065935564 11.496511241788237 2.421950731014844 11.771993715813217 2.8485935659961426 11.967217435136746 C 3.275236598433084 12.162441239792726 3.781351907032719 12.260053287185885 4.366940051252703 12.260053287185885 Z M 4.366940051252703 5.934803470397104 C 4.827045035815236 5.934803470397104 5.234866958392958 5.839360744588756 5.590402593877038 5.64847527590557 C 5.950121129695868 5.457589807222384 6.232456733325857 5.190783510214772 6.437412531148013 4.848057425938644 C 6.642368328970169 4.50533100033271 6.746934518758339 4.104037465756312 6.751117419093088 3.6441768222094524 C 6.746934518758339 3.192993055406065 6.644453806104352 2.8003763975731397 6.44368056306957 2.4663268487106773 C 6.242907665582163 2.1279388614764785 5.9647591746739685 1.8676405633562772 5.609223539189888 1.6854319714165633 C 5.253687903705808 1.4988849411051133 4.839593407726746 1.4056114344826336 4.366940051252703 1.4056114344826336 C 3.8859208941091605 1.4056114344826336 3.4655539892751275 1.4988849411051133 3.1058356180026667 1.6854319714165633 C 2.746117246730206 1.8676405633562772 2.4679520872748406 2.1279388614764785 2.2713617445748087 2.4663268487106773 C 2.0747714018747767 2.8003763975731397 1.9785714022682133 3.192993055406065 1.9827541270011346 3.6441768222094524 C 1.9785714022682133 4.104037465756312 2.076865122782042 4.50533100033271 2.2776382012704546 4.848057425938644 C 2.4825941800936167 5.190783510214772 2.7649381920430565 5.457589807222384 3.124656563315517 5.64847527590557 C 3.484374934587978 5.839360744588756 3.8984692660206712 5.934803470397104 4.366940051252703 5.934803470397104 Z","fillRule":"nonzero"},{"d":"M4.36694 13.6917 C3.50529 13.6917 2.74402 13.5333 2.08314 13.2167 C1.42645 12.8956 0.914052 12.4553 0.545968 11.8956 C0.177884 11.3317 -0.00406439 10.6896 0.000118381 9.96943 C-0.00406439 9.40545 0.102596 8.88485 0.3201 8.40764 C0.537604 7.92608 0.834578 7.52479 1.21103 7.20376 C1.59166 6.87838 2.01622 6.67232 2.48469 6.58555 L2.48469 6.50746 C1.86983 6.3426 1.38043 5.98469 1.01653 5.43373 C0.652632 4.87843 0.472769 4.2472 0.476952 3.54006 C0.472769 2.86328 0.637994 2.25809 0.972615 1.72448 C1.30724 1.19086 1.76734 0.770049 2.35293 0.462029 C2.9427 0.15401 3.61404 0 4.36694 0 C5.11147 0 5.77652 0.15401 6.36211 0.462029 C6.9477 0.770049 7.4078 1.19086 7.74243 1.72448 C8.08123 2.25809 8.25273 2.86328 8.25691 3.54006 C8.25273 4.2472 8.0666 4.87843 7.69852 5.43373 C7.33462 5.98469 6.85151 6.3426 6.24919 6.50746 L6.24919 6.58555 C6.71347 6.67232 7.13174 6.87838 7.50401 7.20376 C7.87627 7.52479 8.17325 7.92608 8.39494 8.40764 C8.61663 8.88485 8.72957 9.40545 8.73375 9.96943 C8.72957 10.6896 8.54134 11.3317 8.16907 11.8956 C7.80099 12.4553 7.2886 12.8956 6.63191 13.2167 C5.97939 13.5333 5.22441 13.6917 4.36694 13.6917 Z M4.36694 12.2601 C4.94835 12.2601 5.45027 12.1624 5.87273 11.9672 C6.29519 11.772 6.62145 11.4965 6.85151 11.1408 C7.08156 10.785 7.19867 10.3686 7.20285 9.89134 C7.19867 9.38809 7.07318 8.94342 6.8264 8.55731 C6.57962 8.1712 6.24291 7.86752 5.81627 7.64627 C5.39381 7.42501 4.9107 7.31438 4.36694 7.31438 C3.819 7.31438 3.32961 7.42501 2.89879 7.64627 C2.47215 7.86752 2.13542 8.1712 1.88864 8.55731 C1.64604 8.94342 1.52683 9.38809 1.53102 9.89134 C1.52683 10.3686 1.63767 10.785 1.86354 11.1408 C2.0936 11.4965 2.42195 11.772 2.84859 11.9672 C3.27524 12.1624 3.78135 12.2601 4.36694 12.2601 Z M4.36694 5.9348 C4.82704 5.9348 5.23487 5.83936 5.5904 5.64848 C5.95012 5.45759 6.23246 5.19078 6.43741 4.84806 C6.64237 4.50533 6.74693 4.10404 6.75112 3.64418 C6.74693 3.19299 6.64445 2.80038 6.44368 2.46633 C6.24291 2.12794 5.96476 1.86764 5.60922 1.68543 C5.25369 1.49888 4.83959 1.40561 4.36694 1.40561 C3.88592 1.40561 3.46555 1.49888 3.10584 1.68543 C2.74612 1.86764 2.46795 2.12794 2.27136 2.46633 C2.07477 2.80038 1.97857 3.19299 1.98275 3.64418 C1.97857 4.10404 2.07687 4.50533 2.27764 4.84806 C2.48259 5.19078 2.76494 5.45759 3.12466 5.64848 C3.48438 5.83936 3.89847 5.9348 4.36694 5.9348 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1053.8px"
+              />
+              <Icon
+                width="8.23px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.231695175170898,"height":13.327277183532715}}
+                paths={[{"d":"M 0.8783838023355953 13.327277183532717 L 6.625511983641086 1.5357603116309761 L 6.625511983641086 1.431641061033575 L 0 1.431641061033575 L 0 0 L 8.231695175170898 0 L 8.231695175170898 1.5097307720454878 L 2.509664396055637 13.327277183532717 L 0.8783838023355953 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0.878384 13.3273 L6.62551 1.53576 L6.62551 1.43164 L0 1.43164 L0 0 L8.2317 0 L8.2317 1.50973 L2.50966 13.3273 L0.878384 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.32px"
+                left="1043.74px"
+              />
+              <Icon
+                width="8.76px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.758724212646484,"height":13.692304611206055}}
+                paths={[{"d":"M 4.291521194234375 0.0006100437534337531 C 4.8185505083132245 0.004948482055717271 5.345585811880248 0.10906773954427712 5.872615487961131 0.3129677862194238 C 6.3996448020399805 0.5168685667536426 6.8806615186917774 0.8552565315042179 7.315669850303808 1.3281317316706198 C 7.750678511008594 1.7966684935347383 8.099936327722764 2.436568516658001 8.363450639214795 3.2478316986414684 C 8.626965658256253 4.0590952902206965 8.758724212646484 5.076428830285816 8.758724212646484 6.299831294847422 C 8.758724212646484 7.484188497348079 8.649970903872958 8.536227427586699 8.432466392519549 9.455948495159046 C 8.2191447817418 10.371330919631228 7.909624882498434 11.143549112617587 7.503896163821238 11.772603551979842 C 7.1023499837176685 12.401657923076137 6.612967103912519 12.878872653800185 6.035744398024598 13.20424559377424 C 5.462704592712338 13.529618533748296 4.81437007593324 13.692304611206053 4.09075039137725 13.692304611206053 C 3.3713132783041626 13.692304611206053 2.729259957517896 13.544801804886026 2.164585755901302 13.249797011437492 C 1.6040941257676122 12.950453916218596 1.1439891805242361 12.536145994749978 0.7842706898062441 12.006872666770974 C 0.42873493511753413 11.473260968755648 0.20077615884174127 10.85505259101612 0.10038961381584907 10.152247089823652 L 1.6312806758601075 10.152247089823652 C 1.7693121824696134 10.763948117306574 2.043281474660773 11.269360102888978 2.4531932584600082 11.668484309491127 C 2.8672877782885258 12.063270180189933 3.413141033508291 12.260663661667017 4.09075039137725 12.260663661667017 C 5.082067617093688 12.260663661667017 5.864246198426589 11.81164833617907 6.437286003738849 10.91361898225642 C 7.014508709626769 10.01558956006781 7.303125360964113 8.74663444905567 7.303125360964113 7.106754604943442 L 7.202735747148264 7.106754604943442 C 6.96850034104164 7.471172499781626 6.690343754886517 7.785699804795203 6.368270250434096 8.050336537050665 C 6.046196745981674 8.314973269306126 5.68857276611415 8.518874766632928 5.295392058069145 8.662038861586831 C 4.90221135002414 8.805202956540734 4.483929355230643 8.876785004017687 4.040555584469325 8.876785004017687 C 3.3043873956420073 8.876785004017687 2.6288689615124685 8.688068023682389 2.0140013351775288 8.310635189400134 C 1.4033164777811469 7.928864258145397 0.9139335979759967 7.4060984510878995 0.5458495693808894 6.74233780236062 C 0.18194827681506398 6.074238715331056 0 5.310696852821583 0 4.4517122830981615 C 0 3.6361106628124107 0.17567567014318425 2.8899218025865103 0.527028622984061 2.2131458389523795 C 0.882564377672771 1.5320321196755673 1.380313552268377 0.9897440911833554 2.0202777922346624 0.5862817193427635 C 2.6644248011395057 0.18281934750217166 3.421504399373212 -0.01240454262762285 4.291521194234375 0.0006100437534337531 Z M 4.291521194234375 1.4322509741593348 C 3.7644918801555245 1.4322509741593348 3.2897479347219853 1.5689077700561043 2.8672877782885258 1.842221378916133 C 2.4490105224307266 2.1111958156148063 2.1164853775706565 2.47561333499021 1.8697017962854623 2.9354739711753233 C 1.6271009345749121 3.390996169058153 1.505793658590296 3.896408939699099 1.505793658590296 4.4517122830981615 C 1.505793658590296 5.007015285167423 1.6229136406109488 5.512427304882808 1.8571488821711946 5.967949502765638 C 2.0955670243071007 6.419133262346184 2.4197341016956337 6.779212701815595 2.829645885494869 7.04818787237334 C 3.2437404053233867 7.312824604628802 3.714305498022173 7.445144054478651 4.241334812101023 7.445144054478651 C 4.638698420721688 7.445144054478651 5.008867581023696 7.364884772000841 5.3518548972596305 7.204367282234094 C 5.694842213495565 7.039511729627845 5.993910472331281 6.816088335129642 6.249059690221418 6.534098225127827 C 6.508391446685183 6.24777003522002 6.711259672863672 5.924566928790747 6.857656980624499 5.564487847717627 C 7.004053942837931 5.200069952879443 7.077248729878453 4.820468070110948 7.077248729878453 4.425682199412142 C 7.077248729878453 3.9050852701759844 6.95594987866841 3.417025706616491 6.71334901695786 2.961503508733661 C 6.47493105582297 2.5059820617763933 6.144491388217196 2.1372260870322166 5.722031067237357 1.8552356015676206 C 5.303754008835212 1.5732458499620967 4.826916309464545 1.4322509741593348 4.291521194234375 1.4322509741593348 Z","fillRule":"nonzero"},{"d":"M4.29152 0.000610044 C4.81855 0.00494848 5.34559 0.109068 5.87262 0.312968 C6.39964 0.516869 6.88066 0.855257 7.31567 1.32813 C7.75068 1.79667 8.09994 2.43657 8.36345 3.24783 C8.62697 4.0591 8.75872 5.07643 8.75872 6.29983 C8.75872 7.48419 8.64997 8.53623 8.43247 9.45595 C8.21914 10.3713 7.90963 11.1435 7.5039 11.7726 C7.10235 12.4017 6.61297 12.8789 6.03574 13.2042 C5.4627 13.5296 4.81437 13.6923 4.09075 13.6923 C3.37131 13.6923 2.72926 13.5448 2.16459 13.2498 C1.60409 12.9505 1.14399 12.5361 0.784271 12.0069 C0.428735 11.4733 0.200776 10.8551 0.10039 10.1522 L1.63128 10.1522 C1.76931 10.7639 2.04328 11.2694 2.45319 11.6685 C2.86729 12.0633 3.41314 12.2607 4.09075 12.2607 C5.08207 12.2607 5.86425 11.8116 6.43729 10.9136 C7.01451 10.0156 7.30313 8.74663 7.30313 7.10675 L7.20274 7.10675 C6.9685 7.47117 6.69034 7.7857 6.36827 8.05034 C6.0462 8.31497 5.68857 8.51888 5.29539 8.66204 C4.90221 8.8052 4.48393 8.87679 4.04056 8.87679 C3.30439 8.87679 2.62887 8.68807 2.014 8.31064 C1.40332 7.92886 0.913934 7.4061 0.54585 6.74234 C0.181948 6.07424 0 5.3107 0 4.45171 C0 3.63611 0.175676 2.88992 0.527029 2.21315 C0.882564 1.53203 1.38031 0.989744 2.02028 0.586282 C2.66442 0.182819 3.4215 -0.0124045 4.29152 0.000610044 Z M4.29152 1.43225 C3.76449 1.43225 3.28975 1.56891 2.86729 1.84222 C2.44901 2.1112 2.11649 2.47561 1.8697 2.93547 C1.6271 3.391 1.50579 3.89641 1.50579 4.45171 C1.50579 5.00702 1.62291 5.51243 1.85715 5.96795 C2.09557 6.41913 2.41973 6.77921 2.82965 7.04819 C3.24374 7.31282 3.71431 7.44514 4.24133 7.44514 C4.6387 7.44514 5.00887 7.36488 5.35186 7.20437 C5.69484 7.03951 5.99391 6.81609 6.24906 6.5341 C6.50839 6.24777 6.71126 5.92457 6.85766 5.56449 C7.00405 5.20007 7.07725 4.82047 7.07725 4.42568 C7.07725 3.90509 6.95595 3.41703 6.71335 2.9615 C6.47493 2.50598 6.14449 2.13723 5.72203 1.85524 C5.30375 1.57325 4.82692 1.43225 4.29152 1.43225 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1033.34px"
+              />
+              <Icon
+                width="8.93px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.934405326843262,"height":13.691694259643555}}
+                paths={[{"d":"M 4.467202663421631 13.691694259643553 C 3.521896168604655 13.691694259643553 2.716712422094374 13.424888047968395 2.051651489709335 12.891276409676628 C 1.3865906889613882 12.353326435412068 0.8783815060235215 11.574600231176131 0.5270285811032369 10.555098343096509 C 0.17567565618295233 9.53125801664515 0 8.294841309638699 0 6.8458471298217765 C 0 5.405529690216403 0.17567565618295233 4.1756198898419825 0.5270285811032369 3.1561177969644763 C 0.8825642088111454 2.132277675311002 1.392867013882665 1.3513824225541007 2.057927946267704 0.8134320728267538 C 2.727171449803275 0.27114403565324485 3.5302616399984488 0 4.467202663421631 0 C 5.404143884300451 0 6.2051485480431445 0.27114403565324485 6.870209348791091 0.8134320728267538 C 7.539453378875031 1.3513824225541007 8.049747890809739 2.132277675311002 8.401100289181654 3.1561177969644763 C 8.756636278891566 4.1756198898419825 8.934405326843262 5.405529690216403 8.934405326843262 6.8458471298217765 C 8.934405326843262 8.294841309638699 8.758729835206674 9.53125801664515 8.407376745740024 10.555098343096509 C 8.056023656273373 11.574600231176131 7.5478146378818725 12.353326435412068 6.882753837133926 12.891276409676628 C 6.217693036385979 13.424888047968395 5.412509355694246 13.691694259643553 4.467202663421631 13.691694259643553 Z M 4.467202663421631 12.260053287185885 C 5.404143884300451 12.260053287185885 6.1319453584998485 11.791516074092378 6.650609192213299 10.85444185270325 C 7.169273025926749 9.917367767846045 7.428603363138367 8.581169504130234 7.428603363138367 6.8458471298217765 C 7.428603363138367 5.691857884707937 7.309398077882559 4.7092314257348065 7.070980135693776 3.8979678211683466 C 6.836744748200888 3.0867046261976547 6.49793896081992 2.4684960678965453 6.054564863289711 2.0433422145309805 C 5.6153740280047675 1.6181883611654158 5.086253272775892 1.4056114344826336 4.467202663421631 1.4056114344826336 C 3.538627243029335 1.4056114344826336 2.8129191605986787 1.8806558955379757 2.2900725911883315 2.8307447493826987 C 1.7672260217779843 3.7764951648556857 1.5058019637048938 5.1148626477573655 1.5058019637048938 6.8458471298217765 C 1.5058019637048938 7.999836374935616 1.6229135116445934 8.980293614722878 1.8571487345911157 9.787218780917602 C 2.091383957537638 10.594143537516558 2.4281047779237688 11.208013281983146 2.8672959752107157 11.62882907243976 C 3.3106697107389214 12.049644760497435 3.843969482916838 12.260053287185885 4.467202663421631 12.260053287185885 Z","fillRule":"nonzero"},{"d":"M4.4672 13.6917 C3.5219 13.6917 2.71671 13.4249 2.05165 12.8913 C1.38659 12.3533 0.878381 11.5746 0.527029 10.5551 C0.175676 9.53126 0 8.29484 0 6.84585 C0 5.40553 0.175676 4.17562 0.527029 3.15612 C0.882564 2.13228 1.39287 1.35138 2.05793 0.813432 C2.72717 0.271144 3.53026 0 4.4672 0 C5.40414 0 6.20515 0.271144 6.87021 0.813432 C7.53945 1.35138 8.04975 2.13228 8.4011 3.15612 C8.75664 4.17562 8.93441 5.40553 8.93441 6.84585 C8.93441 8.29484 8.75873 9.53126 8.40738 10.5551 C8.05602 11.5746 7.54781 12.3533 6.88275 12.8913 C6.21769 13.4249 5.41251 13.6917 4.4672 13.6917 Z M4.4672 12.2601 C5.40414 12.2601 6.13195 11.7915 6.65061 10.8544 C7.16927 9.91737 7.4286 8.58117 7.4286 6.84585 C7.4286 5.69186 7.3094 4.70923 7.07098 3.89797 C6.83674 3.0867 6.49794 2.4685 6.05456 2.04334 C5.61537 1.61819 5.08625 1.40561 4.4672 1.40561 C3.53863 1.40561 2.81292 1.88066 2.29007 2.83074 C1.76723 3.7765 1.5058 5.11486 1.5058 6.84585 C1.5058 7.99984 1.62291 8.98029 1.85715 9.78722 C2.09138 10.5941 2.4281 11.208 2.8673 11.6288 C3.31067 12.0496 3.84397 12.2601 4.4672 12.2601 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1022.22px"
+              />
+              <Icon
+                width="8.73px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.733753204345703,"height":13.691694259643555}}
+                paths={[{"d":"M 4.366931626478615 13.691694259643553 C 3.5052802874836138 13.691694259643553 2.74402178163143 13.533345798761614 2.083143735035121 13.216649457258406 C 1.426448391317919 12.895614813915383 0.9140519199964866 12.455276904110471 0.5459679126008958 11.895635386513863 C 0.1778838722960313 11.331655703609364 -0.004064387740820842 10.689586655854184 0.00011838095683346642 9.969427731253614 C -0.004064387740820842 9.405448048349115 0.10259553311021083 8.884850530518234 0.32009971929851444 8.407636884410005 C 0.5376038725775443 7.926084799930039 0.834578360372115 7.524791982146236 1.211027970981562 7.203757372936194 C 1.5916603173793893 6.878384325354417 2.016214993120691 6.67231542315878 2.4846854492599855 6.585549565560659 L 2.4846854492599855 6.507459859380171 C 1.869817858337874 6.342604304134808 1.3804348750812598 5.9846934978262105 1.016533702201871 5.43372858390923 C 0.6526324305946608 4.878425231620513 0.47276935060866493 4.247201528869098 0.47695216327105217 3.540057578053929 C 0.47276935060866493 2.863282286245145 0.6379934970661676 2.258088735862418 0.9726153548805239 1.7244768245068072 C 1.3072371139670587 1.1908649131511961 1.7673420656203183 0.770049156827561 2.3529304072959447 0.4620294872699405 C 2.9427012543950353 0.15400981771231992 3.614032405259721 0 4.366931626478615 0 C 5.11146504702801 0 5.776532180902539 0.15400981771231992 6.362120325122523 0.4620294872699405 C 6.947708469342507 0.770049156827561 7.407813453905039 1.1908649131511961 7.742435311719396 1.7244768245068072 C 8.081240069868501 2.258088735862418 8.252728090623608 2.863282286245145 8.256910990958357 3.540057578053929 C 8.252728090623608 4.247201528869098 8.066600971793639 4.878425231620513 7.698516964398048 5.43372858390923 C 7.334615528244469 5.9846934978262105 6.85150525002629 6.342604304134808 6.2491862284713315 6.507459859380171 L 6.2491862284713315 6.585549565560659 C 6.713473784275877 6.67231542315878 7.131747297295382 6.878384325354417 7.504014205025722 7.203757372936194 C 7.876280750754051 7.524791982146236 8.17325509045689 7.926084799930039 8.394942489618042 8.407636884410005 C 8.61662918122981 8.884850530518234 8.729570304010954 9.405448048349115 8.733753204345703 9.969427731253614 C 8.729570304010954 10.689586655854184 8.541341204046002 11.331655703609364 8.169074296315662 11.895635386513863 C 7.8009902889200715 12.455276904110471 7.288601880370716 12.895614813915383 6.631906865746251 13.216649457258406 C 5.979394093271061 13.533345798761614 5.224399867683224 13.691694259643553 4.366931626478615 13.691694259643553 Z M 4.366931626478615 12.260053287185885 C 4.948336870363849 12.260053287185885 5.450273688471421 12.162441239792726 5.872733623117971 11.967217435136746 C 6.295193919766532 11.771993715813217 6.62144611007172 11.496511241788237 6.8514986023529865 11.140770047194785 C 7.081551094634253 10.785029023266235 7.1986712563096535 10.368551671181354 7.202853805697851 9.891338025073125 C 7.1986712563096535 9.388094465527073 7.07318494841738 8.943418014951485 6.82640120034449 8.557308639213376 C 6.579617797818975 8.171199638938056 6.24290519738663 7.867518783214957 5.816262362405332 7.646264979788703 C 5.393802065756771 7.425011534758745 4.910691820447865 7.3143842746493215 4.366931626478615 7.3143842746493215 C 3.8189881701726036 7.3143842746493215 3.329605516008727 7.425011534758745 2.8987799452390477 7.646264979788703 C 2.472137110257749 7.867518783214957 2.135424542734678 8.171199638938056 1.8886409756627942 8.557308639213376 C 1.6460401279246542 8.943418014951485 1.5268348400616225 9.388094465527073 1.5310177403963718 9.891338025073125 C 1.5268348400616225 10.368551671181354 1.6376738007067746 10.785029023266235 1.8635435736542976 11.140770047194785 C 2.093596065935564 11.496511241788237 2.421942306240756 11.771993715813217 2.8485851412220544 11.967217435136746 C 3.275228173658996 12.162441239792726 3.781343482258631 12.260053287185885 4.366931626478615 12.260053287185885 Z M 4.366931626478615 5.934803470397104 C 4.827036611041148 5.934803470397104 5.23485853361887 5.839360744588756 5.59039416910295 5.64847527590557 C 5.9501127049217795 5.457589807222384 6.232448308551769 5.190783510214772 6.437404106373925 4.848057425938644 C 6.642359904196081 4.50533100033271 6.746934518758339 4.104037465756312 6.751117419093088 3.6441768222094524 C 6.746934518758339 3.192993055406065 6.644453806104352 2.8003763975731397 6.44368056306957 2.4663268487106773 C 6.242907665582163 2.1279388614764785 5.96475074989988 1.8676405633562772 5.6092151144158 1.6854319714165633 C 5.25367947893172 1.4988849411051133 4.839584982952658 1.4056114344826336 4.366931626478615 1.4056114344826336 C 3.8859124693350724 1.4056114344826336 3.4655455645010393 1.4988849411051133 3.1058271932285786 1.6854319714165633 C 2.746108821956118 1.8676405633562772 2.4679520872748406 2.1279388614764785 2.2713617445748087 2.4663268487106773 C 2.0747714018747767 2.8003763975731397 1.9785714022682133 3.192993055406065 1.9827541270011346 3.6441768222094524 C 1.9785714022682133 4.104037465756312 2.076865122782042 4.50533100033271 2.2776382012704546 4.848057425938644 C 2.4825941800936167 5.190783510214772 2.7649297672689683 5.457589807222384 3.124648138541429 5.64847527590557 C 3.48436650981389 5.839360744588756 3.898460841246583 5.934803470397104 4.366931626478615 5.934803470397104 Z","fillRule":"nonzero"},{"d":"M4.36693 13.6917 C3.50528 13.6917 2.74402 13.5333 2.08314 13.2167 C1.42645 12.8956 0.914052 12.4553 0.545968 11.8956 C0.177884 11.3317 -0.00406439 10.6896 0.000118381 9.96943 C-0.00406439 9.40545 0.102596 8.88485 0.3201 8.40764 C0.537604 7.92608 0.834578 7.52479 1.21103 7.20376 C1.59166 6.87838 2.01622 6.67232 2.48469 6.58555 L2.48469 6.50746 C1.86982 6.3426 1.38043 5.98469 1.01653 5.43373 C0.652632 4.87843 0.472769 4.2472 0.476952 3.54006 C0.472769 2.86328 0.637994 2.25809 0.972615 1.72448 C1.30724 1.19086 1.76734 0.770049 2.35293 0.462029 C2.9427 0.15401 3.61403 0 4.36693 0 C5.11146 0 5.77653 0.15401 6.36212 0.462029 C6.94771 0.770049 7.40781 1.19086 7.74244 1.72448 C8.08124 2.25809 8.25273 2.86328 8.25691 3.54006 C8.25273 4.2472 8.0666 4.87843 7.69852 5.43373 C7.33462 5.98469 6.85151 6.3426 6.24919 6.50746 L6.24919 6.58555 C6.71347 6.67232 7.13175 6.87838 7.50401 7.20376 C7.87628 7.52479 8.17325 7.92608 8.39494 8.40764 C8.61663 8.88485 8.72957 9.40545 8.73375 9.96943 C8.72957 10.6896 8.54134 11.3317 8.16907 11.8956 C7.80099 12.4553 7.2886 12.8956 6.63191 13.2167 C5.97939 13.5333 5.2244 13.6917 4.36693 13.6917 Z M4.36693 12.2601 C4.94834 12.2601 5.45027 12.1624 5.87273 11.9672 C6.29519 11.772 6.62145 11.4965 6.8515 11.1408 C7.08155 10.785 7.19867 10.3686 7.20285 9.89134 C7.19867 9.38809 7.07318 8.94342 6.8264 8.55731 C6.57962 8.1712 6.24291 7.86752 5.81626 7.64627 C5.3938 7.42501 4.91069 7.31438 4.36693 7.31438 C3.81899 7.31438 3.32961 7.42501 2.89878 7.64627 C2.47214 7.86752 2.13542 8.1712 1.88864 8.55731 C1.64604 8.94342 1.52683 9.38809 1.53102 9.89134 C1.52683 10.3686 1.63767 10.785 1.86354 11.1408 C2.0936 11.4965 2.42194 11.772 2.84859 11.9672 C3.27523 12.1624 3.78134 12.2601 4.36693 12.2601 Z M4.36693 5.9348 C4.82704 5.9348 5.23486 5.83936 5.59039 5.64848 C5.95011 5.45759 6.23245 5.19078 6.4374 4.84806 C6.64236 4.50533 6.74693 4.10404 6.75112 3.64418 C6.74693 3.19299 6.64445 2.80038 6.44368 2.46633 C6.24291 2.12794 5.96475 1.86764 5.60922 1.68543 C5.25368 1.49888 4.83958 1.40561 4.36693 1.40561 C3.88591 1.40561 3.46555 1.49888 3.10583 1.68543 C2.74611 1.86764 2.46795 2.12794 2.27136 2.46633 C2.07477 2.80038 1.97857 3.19299 1.98275 3.64418 C1.97857 4.10404 2.07687 4.50533 2.27764 4.84806 C2.48259 5.19078 2.76493 5.45759 3.12465 5.64848 C3.48437 5.83936 3.89846 5.9348 4.36693 5.9348 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="1011.36px"
+              />
+              <Icon
+                width="9.29px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.285761833190918,"height":13.327277183532715}}
+                paths={[{"d":"M 0 10.594143851648456 L 0 9.266622041212282 L 5.646747629965768 0 L 6.575326340717387 0 L 6.575326340717387 2.0563576568734296 L 5.947908065215615 2.0563576568734296 L 1.681475586488691 9.058383540017479 L 1.681475586488691 9.16250279061488 L 9.285761833190918 9.16250279061488 L 9.285761833190918 10.594143851648456 L 0 10.594143851648456 Z M 6.048289260448835 13.327277183532717 L 6.048289260448835 10.19068216517932 L 6.048289260448835 9.572473227299698 L 6.048289260448835 0 L 7.5289940316959925 0 L 7.5289940316959925 13.327277183532717 L 6.048289260448835 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 10.5941 L0 9.26662 L5.64675 0 L6.57533 0 L6.57533 2.05636 L5.94791 2.05636 L1.68148 9.05838 L1.68148 9.1625 L9.28576 9.1625 L9.28576 10.5941 L0 10.5941 Z M6.04829 13.3273 L6.04829 10.1907 L6.04829 9.57247 L6.04829 0 L7.52899 0 L7.52899 13.3273 L6.04829 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.32px"
+                left="995.01px"
+              />
+              <Icon
+                width="8.71px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":8.70853328704834,"height":13.691694259643555}}
+                paths={[{"d":"M 4.366817450967642 13.691694259643553 C 3.5386284427963632 13.691694259643553 2.8003668571916065 13.544191450962206 2.152036972359047 13.249186652791044 C 1.507889987943124 12.954181854619883 0.9954977518870931 12.544212637954336 0.6148652993099412 12.019277603342198 C 0.23841574714942576 11.490004232757265 0.03346215023631082 10.87613349843424 0 10.17766621956466 L 1.5810900212302266 10.17766621956466 C 1.6145521714665374 10.60715851130196 1.7567627064053086 10.9780836940688 2.0077290141786492 11.290441801998156 C 2.258695486498362 11.598461471555776 2.587041601594371 11.83706829460989 2.9927704693931094 12.00626228822699 C 3.3984995346474944 12.175456196511638 3.848152904661671 12.260053287185885 4.341720048467823 12.260053287185885 C 4.893846053915342 12.260053287185885 5.383228915115333 12.160271849941955 5.809871758448863 11.960709777579142 C 6.236514601782393 11.76114770521633 6.571133306857175 11.483495858407068 6.813734159344624 11.127754732079577 C 7.056335011832073 10.772013708151027 7.1776338584306245 10.35987516990067 7.1776338584306245 9.891338025073125 C 7.1776338584306245 9.401109405179493 7.060522470183217 8.969447894256325 6.8262870729816605 8.596353492303619 C 6.5920520213274845 8.218920993308982 6.249058399550413 7.923916297536764 5.7973188448118265 7.711339370853982 C 5.34557929007324 7.498762085774903 4.793453284625721 7.392472888574428 4.140940828469269 7.392472888574428 L 3.1119810250736877 7.392472888574428 L 3.1119810250736877 5.960831916116759 L 4.140940828469269 5.960831916116759 C 4.651238882847204 5.960831916116759 5.098798696459499 5.865389190308411 5.483613950725465 5.674503721625225 C 5.872611743406048 5.483618252942039 6.175859040903437 5.21464382900394 6.393363198440467 4.867579306356076 C 6.615050256394133 4.520515159170999 6.725897462982383 4.112714342499784 6.725897462982383 3.6441768222094524 C 6.725897462982383 3.192993055406065 6.629697417527813 2.8003763975731397 6.43728997139584 2.4663268487106773 C 6.244882163261848 2.132277299848215 5.972998194114981 1.8719790017280133 5.6216454520873445 1.6854319714165633 C 5.274475248474326 1.4988849411051133 4.864559794420216 1.4056114344826336 4.391906428693209 1.4056114344826336 C 3.948532674787895 1.4056114344826336 3.530259120670727 1.4902084398244284 3.137078427573507 1.6594024334415278 C 2.7480804374372774 1.824257988686891 2.4301859788062075 2.0650340309268738 2.1834024069031313 2.3817305772279664 C 1.9366188350000553 2.694088685157323 1.8027746171587997 3.0715211500189783 1.7818608164545282 3.5140280400788937 L 0.27606300272375967 3.5140280400788937 C 0.3011596154009928 2.815560556411429 0.5040237037529806 2.203859348471098 0.8846560576023093 1.6789243138589593 C 1.2652883127238146 1.1496508408750845 1.7630374354869196 0.7375119612949212 2.377905170083168 0.4425076068525089 C 2.996955476003309 0.14750253561750298 3.6766529015735165 0 4.417003831193028 0 C 5.211730689127997 0 5.8935220660113785 0.16702479149772165 6.4623789491214065 0.5010743403601843 C 7.031236227142728 0.8307854508509108 7.468335959515831 1.2667854001458156 7.773678212059265 1.8090741882448986 C 8.079020826604717 2.3513622254184074 8.231699489100277 2.9370335540538965 8.231699489100277 3.5660882082843455 C 8.231699489100277 4.316614767901881 8.04137682904855 4.956514733003116 7.660744113197204 5.485788205986991 C 7.28429502176653 6.015061678970866 6.7719065373677845 6.381649157225052 6.123576652535225 6.585549565560659 L 6.123576652535225 6.689667717460802 C 6.935034388132702 6.8284933763348326 7.568729781902235 7.1864036194492495 8.024652237057458 7.763398446804054 C 8.480574330210663 8.336054835787122 8.70853328704834 9.045368415383924 8.70853328704834 9.891338025073125 C 8.70853328704834 10.615835183247547 8.518218327766828 11.26658059575149 8.137586335919519 11.84357521830841 C 7.761136520484808 12.41623160729148 7.246654874595473 12.867416295685343 6.594142418439021 13.197127576840973 C 5.941629633189825 13.526838823863622 5.199189030462813 13.691694259643553 4.366817450967642 13.691694259643553 Z","fillRule":"nonzero"},{"d":"M4.36682 13.6917 C3.53863 13.6917 2.80037 13.5442 2.15204 13.2492 C1.50789 12.9542 0.995498 12.5442 0.614865 12.0193 C0.238416 11.49 0.0334621 10.8761 0 10.1777 L1.58109 10.1777 C1.61455 10.6072 1.75676 10.9781 2.00773 11.2904 C2.2587 11.5985 2.58704 11.8371 2.99277 12.0063 C3.3985 12.1755 3.84815 12.2601 4.34172 12.2601 C4.89385 12.2601 5.38323 12.1603 5.80987 11.9607 C6.23651 11.7611 6.57113 11.4835 6.81373 11.1278 C7.05633 10.772 7.17763 10.3599 7.17763 9.89134 C7.17763 9.40111 7.06052 8.96945 6.82629 8.59635 C6.59205 8.21892 6.24906 7.92392 5.79732 7.71134 C5.34558 7.49876 4.79345 7.39247 4.14094 7.39247 L3.11198 7.39247 L3.11198 5.96083 L4.14094 5.96083 C4.65124 5.96083 5.0988 5.86539 5.48361 5.6745 C5.87261 5.48362 6.17586 5.21464 6.39336 4.86758 C6.61505 4.52051 6.7259 4.11271 6.7259 3.64418 C6.7259 3.19299 6.6297 2.80038 6.43729 2.46633 C6.24488 2.13228 5.973 1.87198 5.62165 1.68543 C5.27448 1.49888 4.86456 1.40561 4.39191 1.40561 C3.94853 1.40561 3.53026 1.49021 3.13708 1.6594 C2.74808 1.82426 2.43019 2.06503 2.1834 2.38173 C1.93662 2.69409 1.80277 3.07152 1.78186 3.51403 L0.276063 3.51403 C0.30116 2.81556 0.504024 2.20386 0.884656 1.67892 C1.26529 1.14965 1.76304 0.737512 2.37791 0.442508 C2.99696 0.147503 3.67665 0 4.417 0 C5.21173 0 5.89352 0.167025 6.46238 0.501074 C7.03124 0.830785 7.46834 1.26679 7.77368 1.80907 C8.07902 2.35136 8.2317 2.93703 8.2317 3.56609 C8.2317 4.31661 8.04138 4.95651 7.66074 5.48579 C7.28429 6.01506 6.77191 6.38165 6.12358 6.58555 L6.12358 6.68967 C6.93503 6.82849 7.56873 7.1864 8.02465 7.7634 C8.48057 8.33605 8.70853 9.04537 8.70853 9.89134 C8.70853 10.6158 8.51822 11.2666 8.13759 11.8436 C7.76114 12.4162 7.24665 12.8674 6.59414 13.1971 C5.94163 13.5268 5.19919 13.6917 4.36682 13.6917 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="984.03px"
+              />
+              <Icon
+                width="8.11px"
+                height="13.51px"
+                viewBox={{"minX":0,"minY":0,"width":8.106216430664062,"height":13.509485244750977}}
+                paths={[{"d":"M 0 13.509485244750978 L 0 12.338142934407195 L 4.241334515695262 7.522622727012686 C 4.7390845440560385 6.958642842005343 5.1489958055694816 6.468414258587304 5.4710692875137905 6.051936908492607 C 5.7931427694580995 5.631121495509691 6.031561421480522 5.236335620377425 6.186324174029677 4.867579283095811 C 6.345269464860162 4.494485224255782 6.424741065405975 4.104037787474521 6.424741065405975 3.6962369727520286 C 6.424741065405975 3.227700205626226 6.315987418685305 2.8220685759462545 6.098483268079573 2.479342151978076 C 5.885161672209808 2.136615728009897 5.592370236440357 1.8719789927825554 5.220103695287477 1.685431963362541 C 4.847836792132591 1.4988849339425265 4.429559400959738 1.4056114277657643 3.965271521768919 1.4056114277657643 C 3.4717043936914807 1.4056114277657643 3.0408772485718654 1.5118998905992445 2.672793245700317 1.7244768162662045 C 2.3088921431121068 1.9327153035821603 2.026556394860515 2.225550778769165 1.825783318839762 2.602983275960198 C 1.6291929785559802 2.980416489943821 1.5308951674449007 3.422923719218973 1.5308951674449007 3.930504997918635 L 0.05019480340005954 3.930504997918635 C 0.05019480340005954 3.149610124356113 0.22378095277160642 2.4641579590793654 0.5709511453212042 1.8741485703543526 C 0.918121337870802 1.284138430703769 1.3907757087230381 0.8242777893544044 1.9889122175029632 0.49456668043923874 C 2.5912314291105862 0.16485557152407304 3.2667459327372494 0 4.015462112781987 0 C 4.768361324747156 0 5.435513252915933 0.16485557152407304 6.016918818747972 0.49456668043923874 C 6.598324055487278 0.8242777893544044 7.05424613411142 1.2689542719380393 7.384685087529672 1.8285960599241824 C 7.715124040947924 2.3882378479103252 7.880344027750787 3.0107848074752805 7.880344027750787 3.6962369727520286 C 7.880344027750787 4.186465590303048 7.794599491878721 4.665848453306362 7.623106191292962 5.13438559589495 C 7.4557950998958 5.598584300132534 7.162999797286727 6.117011299246921 6.744722406113874 6.689667685493487 C 6.33062791522436 7.2579856333890485 5.755496699817328 7.9521150166976105 5.019328694074231 8.772054743163796 L 2.133215958697646 11.973725035476585 L 2.133215958697646 12.077844279134563 L 8.106216430664062 12.077844279134563 L 8.106216430664062 13.509485244750978 L 0 13.509485244750978 Z","fillRule":"nonzero"},{"d":"M0 13.5095 L0 12.3381 L4.24133 7.52262 C4.73908 6.95864 5.149 6.46841 5.47107 6.05194 C5.79314 5.63112 6.03156 5.23634 6.18632 4.86758 C6.34527 4.49449 6.42474 4.10404 6.42474 3.69624 C6.42474 3.2277 6.31599 2.82207 6.09848 2.47934 C5.88516 2.13662 5.59237 1.87198 5.2201 1.68543 C4.84784 1.49888 4.42956 1.40561 3.96527 1.40561 C3.4717 1.40561 3.04088 1.5119 2.67279 1.72448 C2.30889 1.93272 2.02656 2.22555 1.82578 2.60298 C1.62919 2.98042 1.5309 3.42292 1.5309 3.93051 L0.0501948 3.93051 C0.0501948 3.14961 0.223781 2.46416 0.570951 1.87415 C0.918121 1.28414 1.39078 0.824278 1.98891 0.494567 C2.59123 0.164856 3.26675 0 4.01546 0 C4.76836 0 5.43551 0.164856 6.01692 0.494567 C6.59832 0.824278 7.05425 1.26895 7.38469 1.8286 C7.71512 2.38824 7.88034 3.01078 7.88034 3.69624 C7.88034 4.18647 7.7946 4.66585 7.62311 5.13439 C7.4558 5.59858 7.163 6.11701 6.74472 6.68967 C6.33063 7.25799 5.7555 7.95212 5.01933 8.77205 L2.13322 11.9737 L2.13322 12.0778 L8.10622 12.0778 L8.10622 13.5095 L0 13.5095 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="973.36px"
+              />
+              <Icon
+                width="8.28px"
+                height="8.59px"
+                viewBox={{"minX":0,"minY":0,"width":8.281889915466309,"height":8.58984661102295}}
+                paths={[{"d":"M 3.4382387637796152 8.58984661102295 L 3.4382387637796152 0 L 4.843651151686693 0 L 4.843651151686693 8.58984661102295 L 3.4382387637796152 8.58984661102295 Z M 0 5.023758533917543 L 0 3.5660880771054058 L 8.281889915466309 3.5660880771054058 L 8.281889915466309 5.023758533917543 L 0 5.023758533917543 Z","fillRule":"nonzero"},{"d":"M3.43824 8.58985 L3.43824 0 L4.84365 0 L4.84365 8.58985 L3.43824 8.58985 Z M0 5.02376 L0 3.56609 L8.28189 3.56609 L8.28189 5.02376 L0 5.02376 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9611.72px"
+                left="962.67px"
+              />
+              <Icon
+                width="2.26px"
+                height="9.76px"
+                viewBox={{"minX":0,"minY":0,"width":2.2586944103240967,"height":9.761188507080078}}
+                paths={[{"d":"M 1.1293450989686755 9.761188507080078 C 0.8198199739749472 9.761188507080078 0.5542169613057926 9.646223794257853 0.3325300221098997 9.416293566488333 C 0.11084308291400685 9.186363355785303 0 8.910880803436159 0 8.58984614837177 C 0 8.26881149330738 0.11084308291400685 7.993328958024725 0.3325300221098997 7.763398730255204 C 0.5542169613057926 7.533468502485683 0.8198199739749472 7.41850269740804 1.1293450989686755 7.41850269740804 C 1.4388702239624038 7.41850269740804 1.70447735029049 7.533468502485683 1.9261643882141972 7.763398730255204 C 2.1478512451369114 7.993328958024725 2.2586944103240967 8.26881149330738 2.2586944103240967 8.58984614837177 C 2.2586944103240967 8.802423134015468 2.2064113191303885 8.997646211940197 2.101841977452912 9.175516781598214 C 2.0014555358141366 9.35338735125623 1.8655133907497128 9.496551436662601 1.6940197546463862 9.605009089016802 C 1.526708837580768 9.709128439372792 1.3384837823236286 9.761188507080078 1.1293450989686755 9.761188507080078 Z M 1.1293450989686755 2.342684717416617 C 0.8198199739749472 2.342684717416617 0.5542169613057926 2.2277197315305384 0.3325300221098997 1.997789776824873 C 0.11084308291400685 1.7678594466564066 0 1.4923769796397153 0 1.1713423587083085 C 0 0.8503077377769016 0.11084308291400685 0.5748252707602103 0.3325300221098997 0.3448949405917439 C 0.5542169613057926 0.11496498588607831 0.8198199739749472 0 1.1293450989686755 0 C 1.4388702239624038 0 1.70447735029049 0.11496498588607831 1.9261643882141972 0.3448949405917439 C 2.1478512451369114 0.5748252707602103 2.2586944103240967 0.8503077377769016 2.2586944103240967 1.1713423587083085 C 2.2586944103240967 1.383919293152534 2.2064113191303885 1.5791424734762083 2.101841977452912 1.7570129919347524 C 2.0014555358141366 1.9348835103932964 1.8655133907497128 2.0780476128661594 1.6940197546463862 2.1865052993533407 C 1.526708837580768 2.2906245473103843 1.3384837823236286 2.342684717416617 1.1293450989686755 2.342684717416617 Z","fillRule":"nonzero"},{"d":"M1.12935 9.76119 C0.81982 9.76119 0.554217 9.64622 0.33253 9.41629 C0.110843 9.18636 0 8.91088 0 8.58985 C0 8.26881 0.110843 7.99333 0.33253 7.7634 C0.554217 7.53347 0.81982 7.4185 1.12935 7.4185 C1.43887 7.4185 1.70448 7.53347 1.92616 7.7634 C2.14785 7.99333 2.25869 8.26881 2.25869 8.58985 C2.25869 8.80242 2.20641 8.99765 2.10184 9.17552 C2.00146 9.35339 1.86551 9.49655 1.69402 9.60501 C1.52671 9.70913 1.33848 9.76119 1.12935 9.76119 Z M1.12935 2.34268 C0.81982 2.34268 0.554217 2.22772 0.33253 1.99779 C0.110843 1.76786 0 1.49238 0 1.17134 C0 0.850308 0.110843 0.574825 0.33253 0.344895 C0.554217 0.114965 0.81982 0 1.12935 0 C1.43887 0 1.70448 0.114965 1.92616 0.344895 C2.14785 0.574825 2.25869 0.850308 2.25869 1.17134 C2.25869 1.38392 2.20641 1.57914 2.10184 1.75701 C2.00146 1.93488 1.86551 2.07805 1.69402 2.18651 C1.52671 2.29062 1.33848 2.34268 1.12935 2.34268 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.99px"
+                left="952.46px"
+              />
+              <Icon
+                width="1.48px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":1.480702519416809,"height":13.327277183532715}}
+                paths={[{"d":"M 1.4807025194168089 0 L 1.4807025194168089 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.4807025194168089 0 Z","fillRule":"nonzero"},{"d":"M1.4807 0 L1.4807 13.3273 L0 13.3273 L0 0 L1.4807 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.32px"
+                left="943.35px"
+              />
+              <Icon
+                width="1.48px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":1.480702519416809,"height":13.327277183532715}}
+                paths={[{"d":"M 1.4807025194168089 0 L 1.4807025194168089 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.4807025194168089 0 Z","fillRule":"nonzero"},{"d":"M1.4807 0 L1.4807 13.3273 L0 13.3273 L0 0 L1.4807 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.32px"
+                left="939.15px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704668998718262,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876597766288502 10.359874725341797 C 2.676974925110017 10.359874725341797 2.1227574208089655 10.240571314889168 1.625007362453522 10.001964459850928 C 1.127257369916629 9.759019302701645 0.7319849521138961 9.409786426491468 0.43919086595865653 8.954264295236168 C 0.14639677980341692 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875154708059628 6.251499110486931 0.32625571079323806 5.895757893652635 C 0.5437599567790683 5.53567840884028 0.8344629546686357 5.253688993486879 1.1983641450042597 5.0497885724034735 C 1.5622653353398837 4.845888151320068 1.9638114128509367 4.694046433978643 2.4030026408116223 4.594265621956588 C 2.8463765718520575 4.490146371291558 3.2918426771642517 4.40771967650434 3.7393993441937123 4.346983357350659 C 4.3249875165041916 4.268893646288024 4.799731292822171 4.210325816863324 5.163632746431998 4.171280961332006 C 5.531716771484473 4.127898029820657 5.799415725167301 4.0563159809891065 5.966726481099322 3.9565348020374853 C 6.138220137566744 3.8567539900154295 6.223966439252051 3.683221171714583 6.223966439252051 3.4359374564568865 L 6.223966439252051 3.383878377252096 C 6.223966439252051 2.74180911869002 6.054563179955517 2.242903966324292 5.715758767556073 1.8871629201549103 C 5.381136893690002 1.531421873985529 4.872929913088807 1.3535513509008383 4.191137858661763 1.3535513509008383 C 3.4842492566634675 1.3535513509008383 2.9300326738221263 1.5140686655413573 2.528486497583247 1.8351032948223953 C 2.126940156797991 2.156137924103433 1.844602449885459 2.4988634836789783 1.6814744134878254 2.863281031671497 L 0.2760630105620375 2.3426847783463476 C 0.5270294077342719 1.735321936672615 0.8616513474188936 1.2624466993720922 1.279928599250975 0.9240590323117965 C 1.7023887516184584 0.581332585278699 2.1624937582520958 0.34272573024045916 2.6602436520611628 0.20823850133005992 C 3.1621764464056317 0.06941283377668664 3.6557434396792967 0 4.140945158430563 0 C 4.450470320179005 0 4.806007025814839 0.03904448860175248 5.2075532020537185 0.11713347433850316 C 5.613282278828 0.19088474675816383 6.004371532821128 0.3448945911656271 6.3808209969423775 0.5791629904944015 C 6.761453361599029 0.8134321236823056 7.077252166601154 1.1670043259930103 7.3282184815002 1.639879563293533 C 7.579185141946637 2.1127548005940557 7.704668998718262 2.7461475573329945 7.704668998718262 3.5400577993773656 L 7.704668998718262 10.125606684409341 L 6.223966439252051 10.125606684409341 L 6.223966439252051 8.772055333508504 L 6.148676335808438 8.772055333508504 C 6.048289528474515 8.988970660925037 5.880978073220393 9.221069397203548 5.646743014915564 9.468352890596856 C 5.412507611063343 9.715636332790691 5.100892035689374 9.926044889700316 4.711894231963947 10.099577144806947 C 4.322896428238519 10.273109399913578 3.848151401368077 10.359874725341797 3.2876597766288502 10.359874725341797 Z M 3.5135290338628753 8.980293834838564 C 4.0991172061733545 8.980293834838564 4.592685087997454 8.860990407319443 4.994231593329087 8.622383569347695 C 5.39996030810134 8.383776731375947 5.705301516217568 8.075757230292426 5.910257323871395 7.698324537035899 C 6.119396032060624 7.320891843779372 6.223966439252051 6.923936552092273 6.223966439252051 6.507459173969342 L 6.223966439252051 5.101847651608264 C 6.161225037414644 5.179937362670898 6.023193532133625 5.2515194157690726 5.809871923408994 5.316593810902785 C 5.600733215219765 5.377330130056466 5.35813130274732 5.431559520838192 5.082068292185283 5.4792808909925155 C 4.810188182158647 5.522664185166807 4.544582768482505 5.561707948442675 4.285251014514684 5.596414365331018 C 4.030101799080236 5.626782524907858 3.8230545411587085 5.652812610637978 3.6641092407501 5.674504076393653 C 3.279293975558046 5.726563701726168 2.919575422483621 5.811160703823699 2.58495354861755 5.928295091219492 C 2.254514410740504 6.041091039972311 1.986816674700865 6.212454630418424 1.781860867047038 6.442384778835629 C 1.5810877789275983 6.667976676341266 1.4807015063694002 6.975996177424787 1.4807015063694002 7.366443811147426 C 1.4807015063694002 7.900055482800446 1.6710171621493204 8.303517698592877 2.0516495268059725 8.576831055851917 C 2.4364646274516497 8.84580605980044 2.923758158472646 8.980293834838564 3.5135290338628753 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67698 10.3599 2.12276 10.2406 1.62501 10.002 C1.12726 9.75902 0.731985 9.40979 0.439191 8.95426 C0.146397 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108752 6.2515 0.326256 5.89576 C0.54376 5.53568 0.834463 5.25369 1.19836 5.04979 C1.56227 4.84589 1.96381 4.69405 2.403 4.59427 C2.84638 4.49015 3.29184 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79973 4.21033 5.16363 4.17128 C5.53172 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05456 2.2429 5.71576 1.88716 C5.38114 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68147 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861651 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16218 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76145 0.813432 7.07725 1.167 7.32822 1.63988 C7.57919 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88098 9.22107 5.64674 9.46835 C5.41251 9.71564 5.10089 9.92605 4.71189 10.0996 C4.3229 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82305 5.65281 3.66411 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58495 5.9283 C2.25451 6.04109 1.98682 6.21245 1.78186 6.44239 C1.58109 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43646 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9612.53px"
+                left="928.74px"
+              />
+              <Icon
+                width="10.84px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":10.841747283935547,"height":13.691694259643555}}
+                paths={[{"d":"M 10.841747283935547 4.34698308557846 L 9.285756760433461 4.34698308557846 C 9.19373575613462 3.882784003659864 9.032698474120082 3.4749831869886503 8.802645975713954 3.123580601431837 C 8.576775670204537 2.7721780158750233 8.300712665535329 2.4771733030363143 7.974456961706333 2.2385664799821994 C 7.6523831052266615 1.9956212185563487 7.294755812598185 1.813412259687093 6.901575116730176 1.6919396289741675 C 6.508394749954914 1.570466998261242 6.0984831433972175 1.5097306786381568 5.671840297057086 1.5097306786381568 C 4.893844311302001 1.5097306786381568 4.1890470429788795 1.713631104040254 3.5574483604506257 2.1214319207114682 C 2.9300324467313867 2.5292327373826824 2.430191080414939 3.1300882589894408 2.0579243602291055 3.923998451398763 C 1.6898403430337379 4.717908302478278 1.5057983508906914 5.691857884707937 1.5057983508906914 6.8458471298217765 C 1.5057983508906914 7.999836374935616 1.6898403430337379 8.973785615835467 2.0579243602291055 9.76769580824479 C 2.430191080414939 10.561605795856229 2.9300324467313867 11.162461590526833 3.5574483604506257 11.570262338932086 C 4.1890470429788795 11.978063087337338 4.893844311302001 12.181963581005396 5.671840297057086 12.181963581005396 C 6.0984831433972175 12.181963581005396 6.508394749954914 12.12122717604986 6.901575116730176 11.999754630669386 C 7.294755812598185 11.878282085288912 7.6523831052266615 11.698242260273073 7.974456961706333 11.459635437218958 C 8.300712665535329 11.21669034645801 8.576775670204537 10.919516619231317 8.802645975713954 10.568113658211717 C 9.032698474120082 10.212372634283167 9.19373575613462 9.804571612814069 9.285756760433461 9.344711174065093 L 10.841747283935547 9.344711174065093 C 10.724629584509426 10.02582524557542 10.511307988565669 10.635357268462863 10.201782471422318 11.173307242727423 C 9.89225767828301 11.71125711459304 9.507442750397955 12.168948812017879 9.047337753585701 12.546381481677418 C 8.587232756773448 12.919475815364164 8.070660710132234 13.203634620004927 7.497620527655997 13.398858407594416 C 6.928763245625873 13.594082178117414 6.320169857365753 13.691694259643553 5.671840297057086 13.691694259643553 C 4.575953750179739 13.691694259643553 3.601367564582385 13.41404236163482 2.748081871902123 12.858739214143988 C 1.8947961792218608 12.303435998387194 1.2234610942801374 11.513864210216626 0.7340766499862276 10.49002395203123 C 0.24469220569231764 9.466183830377755 0 8.251458427772487 0 6.8458471298217765 C 0 5.440236104934911 0.24469220569231764 4.225510429265799 0.7340766499862276 3.201670307612324 C 1.2234610942801374 2.1778301859588494 1.8947961792218608 1.388258397788283 2.748081871902123 0.8329550454995659 C 3.601367564582385 0.2776516932108488 4.575953750179739 0 5.671840297057086 0 C 6.320169857365753 0 6.928763245625873 0.09761194499421588 7.497620527655997 0.2928358520491379 C 8.070660710132234 0.48805975910405996 8.587232756773448 0.7743879365291033 9.047337753585701 1.1518204355237394 C 9.507442750397955 1.5249144961466392 9.89225767828301 1.980436667188782 10.201782471422318 2.518387016916129 C 10.511307988565669 3.051998177346166 10.724629584509426 3.66153023436659 10.841747283935547 4.34698308557846 Z","fillRule":"nonzero"},{"d":"M10.8417 4.34698 L9.28576 4.34698 C9.19374 3.88278 9.0327 3.47498 8.80265 3.12358 C8.57678 2.77218 8.30071 2.47717 7.97446 2.23857 C7.65238 1.99562 7.29476 1.81341 6.90158 1.69194 C6.50839 1.57047 6.09848 1.50973 5.67184 1.50973 C4.89384 1.50973 4.18905 1.71363 3.55745 2.12143 C2.93003 2.52923 2.43019 3.13009 2.05792 3.924 C1.68984 4.71791 1.5058 5.69186 1.5058 6.84585 C1.5058 7.99984 1.68984 8.97379 2.05792 9.7677 C2.43019 10.5616 2.93003 11.1625 3.55745 11.5703 C4.18905 11.9781 4.89384 12.182 5.67184 12.182 C6.09848 12.182 6.50839 12.1212 6.90158 11.9998 C7.29476 11.8783 7.65238 11.6982 7.97446 11.4596 C8.30071 11.2167 8.57678 10.9195 8.80265 10.5681 C9.0327 10.2124 9.19374 9.80457 9.28576 9.34471 L10.8417 9.34471 C10.7246 10.0258 10.5113 10.6354 10.2018 11.1733 C9.89226 11.7113 9.50744 12.1689 9.04734 12.5464 C8.58723 12.9195 8.07066 13.2036 7.49762 13.3989 C6.92876 13.5941 6.32017 13.6917 5.67184 13.6917 C4.57595 13.6917 3.60137 13.414 2.74808 12.8587 C1.8948 12.3034 1.22346 11.5139 0.734077 10.49 C0.244692 9.46618 0 8.25146 0 6.84585 C0 5.44024 0.244692 4.22551 0.734077 3.20167 C1.22346 2.17783 1.8948 1.38826 2.74808 0.832955 C3.60137 0.277652 4.57595 0 5.67184 0 C6.32017 0 6.92876 0.0976119 7.49762 0.292836 C8.07066 0.48806 8.58723 0.774388 9.04734 1.15182 C9.50744 1.52491 9.89226 1.98044 10.2018 2.51839 C10.5113 3.052 10.7246 3.66153 10.8417 4.34698 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9609.14px"
+                left="916.04px"
+              />
+            </View>
+            <View
+              width="236.65px"
+              height="17.7px"
+              display="block"
+              position="absolute"
+              top="9648.08px"
+              left="916.04px"
+            >
+              <Icon
+                width="12.65px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":12.648702621459961,"height":10.125605583190918}}
+                paths={[{"d":"M 0 10.125605583190918 L 0 0.13014877611298983 L 1.430492890036044 0.13014877611298983 L 1.430492890036044 1.6919390046178533 L 1.5559883203758456 1.6919390046178533 C 1.7567613917021263 1.1583274933971328 2.0809201786291442 0.7440192089892081 2.5284768082238553 0.449014151394079 C 2.9760334378185664 0.14967137242036666 3.5135287399825943 0 4.140944812071641 0 C 4.776726355439029 0 5.305847070456204 0.14967137242036666 5.728306990032437 0.449014151394079 C 6.154949809794204 0.7440192089892081 6.4874665153215005 1.1583274933971328 6.725884454219862 1.6919390046178533 L 6.826274058672673 1.6919390046178533 C 7.073057797942102 1.175680529289147 7.443243773267119 0.7657106830523661 7.936810889803979 0.46202946590751004 C 8.430378368342838 0.15400981059151037 9.022241895048296 0 9.712399363726902 0 C 10.574050145436052 0 11.27883861598624 0.2798205239961262 11.826781690743593 0.8394615719883786 C 12.37472545659567 1.3947648986020478 12.648702621459961 2.2602563828247284 12.648702621459961 3.4359370827787705 L 12.648702621459961 10.125605583190918 L 11.167998079649937 10.125605583190918 L 11.167998079649937 3.4359370827787705 C 11.167998079649937 2.6984251897164873 10.973496018310787 2.1713216770822727 10.5844982471221 1.8546255208867555 C 10.195500475933414 1.5379289892284684 9.737480606387255 1.3795807404658145 9.210451341462846 1.3795807404658145 C 8.53284257334084 1.3795807404658145 8.007908970896095 1.5921578279847695 7.635642076445546 2.017312037155658 C 7.263375181994998 2.4381274326926334 7.077248069804701 2.971739490041019 7.077248069804701 3.6181471169454844 L 7.077248069804701 10.125605583190918 L 5.571437702107685 10.125605583190918 L 5.571437702107685 3.2797587698942485 C 5.571437702107685 2.711440845559709 5.393685144154969 2.2537496471584473 5.03814952135383 1.9066851405574845 C 4.682613898552691 1.5552821957853782 4.224594391008529 1.3795807404658145 3.6641026156945764 1.3795807404658145 C 3.279287744691424 1.3795807404658145 2.919561488025688 1.4858691988928443 2.5849396421482207 1.6984461157469037 C 2.254500531909924 1.9110233909972434 1.986812296131698 2.206027714733323 1.7818565056208828 2.583460196276961 C 1.581083434294602 2.956554580979246 1.4806876922624497 3.3882160719440804 1.4806876922624497 3.878444669171464 L 1.4806876922624497 10.125605583190918 L 0 10.125605583190918 Z","fillRule":"nonzero"},{"d":"M0 10.1256 L0 0.130149 L1.43049 0.130149 L1.43049 1.69194 L1.55599 1.69194 C1.75676 1.15833 2.08092 0.744019 2.52848 0.449014 C2.97603 0.149671 3.51353 0 4.14094 0 C4.77673 0 5.30585 0.149671 5.72831 0.449014 C6.15495 0.744019 6.48747 1.15833 6.72588 1.69194 L6.82627 1.69194 C7.07306 1.17568 7.44324 0.765711 7.93681 0.462029 C8.43038 0.15401 9.02224 0 9.7124 0 C10.5741 0 11.2788 0.279821 11.8268 0.839462 C12.3747 1.39476 12.6487 2.26026 12.6487 3.43594 L12.6487 10.1256 L11.168 10.1256 L11.168 3.43594 C11.168 2.69843 10.9735 2.17132 10.5845 1.85463 C10.1955 1.53793 9.73748 1.37958 9.21045 1.37958 C8.53284 1.37958 8.00791 1.59216 7.63564 2.01731 C7.26338 2.43813 7.07725 2.97174 7.07725 3.61815 L7.07725 10.1256 L5.57144 10.1256 L5.57144 3.27976 C5.57144 2.71144 5.39369 2.25375 5.03815 1.90668 C4.68261 1.55528 4.22459 1.37958 3.6641 1.37958 C3.27929 1.37958 2.91956 1.48587 2.58494 1.69845 C2.2545 1.91102 1.98681 2.20603 1.78186 2.58346 C1.58108 2.95655 1.48069 3.38822 1.48069 3.87844 L1.48069 10.1256 L0 10.1256 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1140.04px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733643531799316,"height":10.333844184875488}}
+                paths={[{"d":"M 4.366813341125208 10.333844184875488 C 3.4967965589096237 10.333844184875488 2.7334528227829873 10.119098080512758 2.0767574507888997 9.689605769388356 C 1.4242447818540236 9.260113458263953 0.9139420094665438 8.659257752488658 0.5458579862214891 7.8870393005890795 C 0.1819567976727463 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.1819567976727463 3.2298682029556844 0.5458579862214891 2.4533114493652404 C 0.9139420094665438 1.6767546957747963 1.4242447818540236 1.0737303170157813 2.0767574507888997 0.6442384154871332 C 2.7334528227829873 0.21474613849571106 3.4967965589096237 0 4.366813341125208 0 C 5.236829991703691 0 5.9981052482469845 0.21474613849571106 6.650618048818961 0.6442384154871332 C 7.307313420813048 1.0737303170157813 7.817616390656179 1.6767546957747963 8.181517513386371 2.4533114493652404 C 8.549601536631426 3.2298682029556844 8.733643531799316 4.138743362915398 8.733643531799316 5.179936860978422 C 8.733643531799316 6.212453687393757 8.549601536631426 7.114820780423542 8.181517513386371 7.8870393005890795 C 7.817616390656179 8.659257752488658 7.307313420813048 9.260113458263953 6.650618048818961 9.689605769388356 C 5.9981052482469845 10.119098080512758 5.236829991703691 10.333844184875488 4.366813341125208 10.333844184875488 Z M 4.366813341125208 8.954263427988803 C 5.0276912845414055 8.954263427988803 5.571459564697048 8.77856132205129 5.998102418049317 8.427158475495444 C 6.424745271401586 8.075755731338537 6.74054585195389 7.61372649886244 6.945502004148702 7.041070061274585 C 7.150457810796125 6.468413691952689 7.252938873410256 5.848035935765315 7.252938873410256 5.179936860978422 C 7.252938873410256 4.5118377861915295 7.150457810796125 3.8892908108927644 6.945502004148702 3.312296003348085 C 6.74054585195389 2.7353015371332 6.424745271401586 2.268933661636443 5.998102418049317 1.9131922744588752 C 5.571459564697048 1.5574512627440815 5.0276912845414055 1.379580756886685 4.366813341125208 1.379580756886685 C 3.7059350686162578 1.379580756886685 3.1621838025558917 1.5574512627440815 2.735541113749999 1.9131922744588752 C 2.3088982603977306 2.268933661636443 1.993097515299051 2.7353015371332 1.7881415276506145 3.312296003348085 C 1.5831857210031914 3.8892908108927644 1.4807046583890608 4.5118377861915295 1.4807046583890608 5.179936860978422 C 1.4807046583890608 5.848035935765315 1.5831857210031914 6.468413691952689 1.7881415276506145 7.041070061274585 C 1.993097515299051 7.61372649886244 2.3088982603977306 8.075755731338537 2.735541113749999 8.427158475495444 C 3.1621838025558917 8.77856132205129 3.7059350686162578 8.954263427988803 4.366813341125208 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36681 10.3338 C3.4968 10.3338 2.73345 10.1191 2.07676 9.68961 C1.42424 9.26011 0.913942 8.65926 0.545858 7.88704 C0.181957 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.181957 3.22987 0.545858 2.45331 C0.913942 1.67675 1.42424 1.07373 2.07676 0.644238 C2.73345 0.214746 3.4968 0 4.36681 0 C5.23683 0 5.99811 0.214746 6.65062 0.644238 C7.30731 1.07373 7.81762 1.67675 8.18152 2.45331 C8.5496 3.22987 8.73364 4.13874 8.73364 5.17994 C8.73364 6.21245 8.5496 7.11482 8.18152 7.88704 C7.81762 8.65926 7.30731 9.26011 6.65062 9.68961 C5.99811 10.1191 5.23683 10.3338 4.36681 10.3338 Z M4.36681 8.95426 C5.02769 8.95426 5.57146 8.77856 5.9981 8.42716 C6.42475 8.07576 6.74055 7.61373 6.9455 7.04107 C7.15046 6.46841 7.25294 5.84804 7.25294 5.17994 C7.25294 4.51184 7.15046 3.88929 6.9455 3.3123 C6.74055 2.7353 6.42475 2.26893 5.9981 1.91319 C5.57146 1.55745 5.02769 1.37958 4.36681 1.37958 C3.70593 1.37958 3.16218 1.55745 2.73554 1.91319 C2.3089 2.26893 1.9931 2.7353 1.78814 3.3123 C1.58319 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58319 6.46841 1.78814 7.04107 C1.9931 7.61373 2.3089 8.07576 2.73554 8.42716 C3.16218 8.77856 3.70593 8.95426 4.36681 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1129.05px"
+              />
+              <Icon
+                width="8.16px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.156412124633789,"height":10.333844184875488}}
+                paths={[{"d":"M 4.36681357621829 10.333844184875488 C 3.4633345943406475 10.333844184875488 2.6853434903058373 10.11259110583817 2.032830786242092 9.670083889641173 C 1.3803182138154546 9.227576673444176 0.8783900351214975 8.618044637350986 0.527037068471946 7.841487883760542 C 0.1756841018223944 7.064931130170098 0 6.177747273866834 0 5.179936860978422 C 0 4.164773241326549 0.17987147822411675 3.2689130547053904 0.5395899830795613 2.4923563011149463 C 0.9034911912193984 1.7114614506315138 1.4096067463150779 1.1019294486713034 2.0579366154573226 0.6637602952343147 C 2.710449319521068 0.22125342036711176 3.471707899135905 0 4.341724596552868 0 C 5.019333783597184 0 5.630015538613044 0.13014913605840883 6.17377614727235 0.3904474252417162 C 6.717536755931656 0.6507457144250236 7.163011110357947 1.0151632441890992 7.510181340813829 1.4836999974674532 C 7.857351209267664 1.9522371262085814 8.072756216026427 2.4988642997789157 8.156412124633789 3.123580494189073 L 6.675707386529066 3.123580494189073 C 6.562772579612914 2.66805830465352 6.311816775176413 2.26459522341366 5.922818952418897 1.9131922744588752 C 5.538003668399389 1.5574512627440815 5.019326082826373 1.379580756886685 4.36681357621829 1.379580756886685 C 3.789590847644689 1.379580756886685 3.283475292549009 1.5357597884227345 2.848466943840528 1.848117885627813 C 2.4176411667793314 2.1561375446101083 2.0809373040433066 2.592136728010157 1.8383364327981944 3.156116596349261 C 1.5999184622931368 3.715758026465582 1.4807047381047242 4.373012473413634 1.4807047381047242 5.12787778681571 C 1.4807047381047242 5.900096306981248 1.5978331495032647 6.572532932533457 1.8320684002692913 7.145189301855353 C 2.0704865517753723 7.717845671177249 2.40510526626791 8.162522311283515 2.835930878782722 8.4792186419135 C 3.270939227491203 8.795914972543484 3.781225177801688 8.954263427988803 4.36681357621829 8.954263427988803 C 4.7516284982357515 8.954263427988803 5.1008947534511595 8.884849687877757 5.41460283108347 8.746023854571924 C 5.72831090871578 8.607198106598538 5.993913867191147 8.407636322684427 6.211418041545388 8.147337948168671 C 6.428922215899628 7.887039488320466 6.583686375763731 7.574682295639344 6.675707386529066 7.210264782941758 L 8.156412124633789 7.210264782941758 C 8.072756216026427 7.800274290761156 7.865709309976962 8.331716282025141 7.535270320479251 8.804591678324154 C 7.209014231721594 9.273128704666345 6.77610157867987 9.646223298607373 6.236523870760618 9.92387487988659 C 5.701128734488652 10.197188159474942 5.077884916086178 10.333844184875488 4.36681357621829 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.36681 10.3338 C3.46333 10.3338 2.68534 10.1126 2.03283 9.67008 C1.38032 9.22758 0.87839 8.61804 0.527037 7.84149 C0.175684 7.06493 0 6.17775 0 5.17994 C0 4.16477 0.179871 3.26891 0.53959 2.49236 C0.903491 1.71146 1.40961 1.10193 2.05794 0.66376 C2.71045 0.221253 3.47171 0 4.34172 0 C5.01933 0 5.63002 0.130149 6.17378 0.390447 C6.71754 0.650746 7.16301 1.01516 7.51018 1.4837 C7.85735 1.95224 8.07276 2.49886 8.15641 3.12358 L6.67571 3.12358 C6.56277 2.66806 6.31182 2.2646 5.92282 1.91319 C5.538 1.55745 5.01933 1.37958 4.36681 1.37958 C3.78959 1.37958 3.28348 1.53576 2.84847 1.84812 C2.41764 2.15614 2.08094 2.59214 1.83834 3.15612 C1.59992 3.71576 1.4807 4.37301 1.4807 5.12788 C1.4807 5.9001 1.59783 6.57253 1.83207 7.14519 C2.07049 7.71785 2.40511 8.16252 2.83593 8.47922 C3.27094 8.79592 3.78123 8.95426 4.36681 8.95426 C4.75163 8.95426 5.10089 8.88485 5.4146 8.74602 C5.72831 8.6072 5.99391 8.40764 6.21142 8.14734 C6.42892 7.88704 6.58369 7.57468 6.67571 7.21027 L8.15641 7.21027 C8.07276 7.80027 7.86571 8.33172 7.53527 8.80459 C7.20901 9.27313 6.7761 9.64622 6.23652 9.92387 C5.70113 10.1972 5.07789 10.3338 4.36681 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1119.18px"
+              />
+              <Icon
+                width="2.26px"
+                height="2.34px"
+                viewBox={{"minX":0,"minY":0,"width":2.2586987018585205,"height":2.3426856994628906}}
+                paths={[{"d":"M 1.1293409261554732 2.3426856994628906 C 0.8198157903155903 2.3426856994628906 0.5542127683393674 2.2277209920490595 0.3325258213752818 1.9977907750963602 C 0.11083887441119619 1.767860575210151 0 1.492378035820787 0 1.17134339585913 C 0 0.8503087558974729 0.11083887441119619 0.5748262335745989 0.3325258213752818 0.34489601662189967 C 0.5542127683393674 0.1149657996692004 0.8198157903155903 0 1.1293409261554732 0 C 1.4388660619953562 0 1.7044689852437611 0.1149657996692004 1.9261560309356645 0.34489601662189967 C 2.1478428956265687 0.5748262335745989 2.2586987018585205 0.8503087558974729 2.2586987018585205 1.17134339585913 C 2.2586987018585205 1.3839203715023713 2.2063987592851713 1.5791434402430393 2.101829413943452 1.7570140015333258 C 2.001442968787008 1.9348845628236122 1.865513456119679 2.078048641494983 1.6940198140069966 2.186506288746908 C 1.5267088910785906 2.2906256342047144 1.3384796168389124 2.3426856994628906 1.1293409261554732 2.3426856994628906 Z","fillRule":"nonzero"},{"d":"M1.12934 2.34269 C0.819816 2.34269 0.554213 2.22772 0.332526 1.99779 C0.110839 1.76786 0 1.49238 0 1.17134 C0 0.850309 0.110839 0.574826 0.332526 0.344896 C0.554213 0.114966 0.819816 0 1.12934 0 C1.43887 0 1.70447 0.114966 1.92616 0.344896 C2.14784 0.574826 2.2587 0.850309 2.2587 1.17134 C2.2587 1.38392 2.2064 1.57914 2.10183 1.75701 C2.00144 1.93488 1.86551 2.07805 1.69402 2.18651 C1.52671 2.29063 1.33848 2.34269 1.12934 2.34269 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9659.59px"
+                left="1114.71px"
+              />
+              <Icon
+                width="1.48px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":1.4806878566741943,"height":13.327277183532715}}
+                paths={[{"d":"M 1.4806878566741943 0 L 1.4806878566741943 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.4806878566741943 0 Z","fillRule":"nonzero"},{"d":"M1.48069 0 L1.48069 13.3273 L0 13.3273 L0 0 L1.48069 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="1110.57px"
+              />
+              <Icon
+                width="2.11px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":2.10811448097229,"height":13.743752479553223}}
+                paths={[{"d":"M 0.301168839881218 13.743752479553223 L 0.301168839881218 3.7482958328994305 L 1.7818566625421666 3.7482958328994305 L 1.7818566625421666 13.743752479553223 L 0.301168839881218 13.743752479553223 Z M 1.054057240486145 2.082386937918121 C 0.7654458890432045 2.082386937918121 0.516575498972384 1.9804365609022283 0.3074368721311796 1.7765357898039535 C 0.10248098129750349 1.572635752564717 0 1.3275216456164194 0 1.0411934689590605 C 0 0.7548652923017016 0.10248098129750349 0.5097508269571296 0.3074368721311796 0.30585005585885483 C 0.516575498972384 0.10195001861961828 0.7654458890432045 0 1.054057240486145 0 C 1.3426685919290855 0 1.5894537680306615 0.10195001861961828 1.7944095765911487 0.30585005585885483 C 2.0035482857055418 0.5097508269571296 2.10811448097229 0.7548652923017016 2.10811448097229 1.0411934689590605 C 2.10811448097229 1.3275216456164194 2.0035482857055418 1.572635752564717 1.7944095765911487 1.7765357898039535 C 1.5894537680306615 1.9804365609022283 1.3426685919290855 2.082386937918121 1.054057240486145 2.082386937918121 Z","fillRule":"nonzero"},{"d":"M0.301169 13.7438 L0.301169 3.7483 L1.78186 3.7483 L1.78186 13.7438 L0.301169 13.7438 Z M1.05406 2.08239 C0.765446 2.08239 0.516576 1.98044 0.307437 1.77654 C0.102481 1.57264 0 1.32752 0 1.04119 C0 0.754865 0.102481 0.509751 0.307437 0.30585 C0.516576 0.10195 0.765446 0 1.05406 0 C1.34267 0 1.58945 0.10195 1.79441 0.30585 C2.00355 0.509751 2.10811 0.754865 2.10811 1.04119 C2.10811 1.32752 2.00355 1.57264 1.79441 1.77654 C1.58945 1.98044 1.34267 2.08239 1.05406 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.08px"
+                left="1106.08px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704675674438477,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876673007016994 10.359874725341797 C 2.676982420875432 10.359874725341797 2.122771209465573 10.240571314889168 1.6250211280376283 10.001964459850928 C 1.1272711124282373 9.759019302701645 0.7319944639157683 9.409786426491468 0.43920036418847214 8.954264295236168 C 0.14640626446117605 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087536583153414 6.251499110486931 0.3262578321100816 5.895757893652635 C 0.543762088178014 5.53567840884028 0.834472471220731 5.253688993486879 1.1983736784244807 5.0497885724034735 C 1.5622748856282305 4.845888151320068 1.9638241410429662 4.694046433978643 2.403015389361741 4.594265621956588 C 2.8463893409541488 4.490146371291558 3.2918470421404127 4.40771967650434 3.739403729915731 4.346983357350659 C 4.324991929370323 4.268893646288024 4.799744152469262 4.210325816863324 5.163645622947227 4.171280961332006 C 5.531729665061717 4.127898029820657 5.799418100184749 4.0563159809891065 5.966728863872223 3.9565348020374853 C 6.138222528288993 3.8567539900154295 6.223970940142668 3.683221171714583 6.223970940142668 3.4359374564568865 L 6.223970940142668 3.383878377252096 C 6.223970940142668 2.74180911869002 6.054576097768568 2.242903966324292 5.715771669664324 1.8871629201549103 C 5.381149780287329 1.531421873985529 4.872932245160313 1.3535513509008383 4.191140159129762 1.3535513509008383 C 3.484251524364643 1.3535513509008383 2.9300401813176764 1.5140686655413573 2.528493986465691 1.8351032948223953 C 2.126947627067321 2.156137924103433 1.844612013261144 2.4988634836789783 1.6814839693019408 2.863281031671497 L 0.2760630233585486 2.3426847783463476 C 0.5270294321639759 1.735321936672615 0.8616650776187097 1.2624466993720922 1.2799423488394426 0.9240590323117965 C 1.70240252078947 0.581332585278699 2.162507548750625 0.34272573024045916 2.6602574656321853 0.20823850133005992 C 3.16219028324304 0.06941283377668664 3.6557436091361217 0 4.140945350378229 0 C 4.450470526474272 0 4.80600935478423 0.03904448860175248 5.207555549636215 0.11713347433850316 C 5.613284645217495 0.19088474675816383 6.004373917339013 0.3448945911656271 6.380823398910047 0.5791629904944015 C 6.761455781210374 0.8134321236823056 7.0772567070446275 1.1670043259930103 7.3282230335768626 1.639879563293533 C 7.579189705656505 2.1127548005940557 7.7046756744384775 2.7461475573329945 7.7046756744384775 3.5400577993773656 L 7.7046756744384775 10.125606684409341 L 6.223970940142668 10.125606684409341 L 6.223970940142668 8.772055333508504 L 6.148687151790251 8.772055333508504 C 6.04830033980304 8.988970660925037 5.880990982987152 9.221069397203548 5.646755913824687 9.468352890596856 C 5.412520499114815 9.715636332790691 5.100890165940301 9.926044889700316 4.71189234418343 10.099577144806947 C 4.322894522426559 10.273109399913578 3.8481589514217243 10.359874725341797 3.2876673007016994 10.359874725341797 Z M 3.513535515308715 8.980293834838564 C 4.099123714763307 8.980293834838564 4.59269372565977 8.860990407319443 4.994240249604524 8.622383569347695 C 5.399968983183758 8.383776731375947 5.705310205453647 8.075757230292426 5.910266022607911 7.698324537035899 C 6.11940474049147 7.320891843779372 6.223970940142668 6.923936552092273 6.223970940142668 6.507459173969342 L 6.223970940142668 5.101847651608264 C 6.161229535396973 5.179937362670898 6.023198023717698 5.2515194157690726 5.809876405104845 5.316593810902785 C 5.600737687221287 5.377330130056466 5.358139975890814 5.431559520838192 5.082076952532265 5.4792808909925155 C 4.810196829903012 5.522664185166807 4.544593510108827 5.561707948442675 4.2852617441200485 5.596414365331018 C 4.030112516858519 5.626782524907858 3.8230652493396073 5.652812610637978 3.664119941563314 5.674504076393653 C 3.2793046585336914 5.726563701726168 2.9195787171069987 5.811160703823699 2.5849568277300032 5.928295091219492 C 2.2545176745359177 6.041091039972311 1.986829403959271 6.212454630418424 1.7818735868050068 6.442384778835629 C 1.5811004893790142 6.667976676341266 1.4807047342958088 6.975996177424787 1.4807047342958088 7.366443811147426 C 1.4807047342958088 7.900055482800446 1.6710193458006823 8.303517698592877 2.0516517281010103 8.576831055851917 C 2.4364668465842483 8.84580605980044 2.9237646125804897 8.980293834838564 3.513535515308715 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28767 10.3599 C2.67698 10.3599 2.12277 10.2406 1.62502 10.002 C1.12727 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29185 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93004 1.51407 2.52849 1.8351 C2.12695 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861665 1.26245 1.27994 0.924059 C1.7024 0.581333 2.16251 0.342726 2.66026 0.208239 C3.16219 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20756 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07726 1.167 7.32822 1.63988 C7.57919 2.11275 7.70468 2.74615 7.70468 3.54006 L7.70468 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14869 8.77206 C6.0483 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10089 9.92605 4.71189 10.0996 C4.32289 10.2731 3.84816 10.3599 3.28767 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70531 8.07576 5.91027 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.0232 5.25152 5.80988 5.31659 C5.60074 5.37733 5.35814 5.43156 5.08208 5.47928 C4.8102 5.52266 4.54459 5.56171 4.28526 5.59641 C4.03011 5.62678 3.82307 5.65281 3.66412 5.6745 C3.2793 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1095.97px"
+              />
+              <Icon
+                width="12.65px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":12.648702621459961,"height":10.125605583190918}}
+                paths={[{"d":"M 0 10.125605583190918 L 0 0.13014877611298983 L 1.430492890036044 0.13014877611298983 L 1.430492890036044 1.6919390046178533 L 1.5559883203758456 1.6919390046178533 C 1.7567613917021263 1.1583274933971328 2.0809201786291442 0.7440192089892081 2.5284768082238553 0.449014151394079 C 2.9760334378185664 0.14967137242036666 3.5135287399825943 0 4.140944812071641 0 C 4.776726355439029 0 5.305847070456204 0.14967137242036666 5.728306990032437 0.449014151394079 C 6.154949809794204 0.7440192089892081 6.4874665153215005 1.1583274933971328 6.725884454219862 1.6919390046178533 L 6.826274058672673 1.6919390046178533 C 7.073057797942102 1.175680529289147 7.443243773267119 0.7657106830523661 7.936810889803979 0.46202946590751004 C 8.430378368342838 0.15400981059151037 9.022241895048296 0 9.712399363726902 0 C 10.574050145436052 0 11.27883861598624 0.2798205239961262 11.826781690743593 0.8394615719883786 C 12.37472545659567 1.3947648986020478 12.648702621459961 2.2602563828247284 12.648702621459961 3.4359370827787705 L 12.648702621459961 10.125605583190918 L 11.167998079649937 10.125605583190918 L 11.167998079649937 3.4359370827787705 C 11.167998079649937 2.6984251897164873 10.973496018310787 2.1713216770822727 10.5844982471221 1.8546255208867555 C 10.195500475933414 1.5379289892284684 9.737480606387255 1.3795807404658145 9.210451341462846 1.3795807404658145 C 8.53284257334084 1.3795807404658145 8.007908970896095 1.5921578279847695 7.635642076445546 2.017312037155658 C 7.263375181994998 2.4381274326926334 7.077248069804701 2.971739490041019 7.077248069804701 3.6181471169454844 L 7.077248069804701 10.125605583190918 L 5.571437702107685 10.125605583190918 L 5.571437702107685 3.2797587698942485 C 5.571437702107685 2.711440845559709 5.393685144154969 2.2537496471584473 5.03814952135383 1.9066851405574845 C 4.682613898552691 1.5552821957853782 4.224594391008529 1.3795807404658145 3.6641026156945764 1.3795807404658145 C 3.279287744691424 1.3795807404658145 2.919561488025688 1.4858691988928443 2.5849396421482207 1.6984461157469037 C 2.254500531909924 1.9110233909972434 1.986812296131698 2.206027714733323 1.7818565056208828 2.583460196276961 C 1.581083434294602 2.956554580979246 1.4806876922624497 3.3882160719440804 1.4806876922624497 3.878444669171464 L 1.4806876922624497 10.125605583190918 L 0 10.125605583190918 Z","fillRule":"nonzero"},{"d":"M0 10.1256 L0 0.130149 L1.43049 0.130149 L1.43049 1.69194 L1.55599 1.69194 C1.75676 1.15833 2.08092 0.744019 2.52848 0.449014 C2.97603 0.149671 3.51353 0 4.14094 0 C4.77673 0 5.30585 0.149671 5.72831 0.449014 C6.15495 0.744019 6.48747 1.15833 6.72588 1.69194 L6.82627 1.69194 C7.07306 1.17568 7.44324 0.765711 7.93681 0.462029 C8.43038 0.15401 9.02224 0 9.7124 0 C10.5741 0 11.2788 0.279821 11.8268 0.839462 C12.3747 1.39476 12.6487 2.26026 12.6487 3.43594 L12.6487 10.1256 L11.168 10.1256 L11.168 3.43594 C11.168 2.69843 10.9735 2.17132 10.5845 1.85463 C10.1955 1.53793 9.73748 1.37958 9.21045 1.37958 C8.53284 1.37958 8.00791 1.59216 7.63564 2.01731 C7.26338 2.43813 7.07725 2.97174 7.07725 3.61815 L7.07725 10.1256 L5.57144 10.1256 L5.57144 3.27976 C5.57144 2.71144 5.39369 2.25375 5.03815 1.90668 C4.68261 1.55528 4.22459 1.37958 3.6641 1.37958 C3.27929 1.37958 2.91956 1.48587 2.58494 1.69845 C2.2545 1.91102 1.98681 2.20603 1.78186 2.58346 C1.58108 2.95655 1.48069 3.38822 1.48069 3.87844 L1.48069 10.1256 L0 10.1256 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1081.06px"
+              />
+              <Icon
+                width="8.51px"
+                height="14.08px"
+                viewBox={{"minX":0,"minY":0,"width":8.50777530670166,"height":14.082141876220703}}
+                paths={[{"d":"M 4.341724351547864 14.082141876220703 C 3.626470282939063 14.082141876220703 3.011601120400206 13.986699149206421 2.4971199903124273 13.795813678111367 C 1.9826390247710242 13.60926647477796 1.5539140026890614 13.361982225728209 1.2109265277817505 13.05396255227871 C 0.8721219533784514 12.75028114659086 0.6023315349978977 12.424909016488431 0.40155844838513755 12.077844489455352 L 1.581094266644334 11.218859895127343 C 1.714943043159193 11.40106876243314 1.8843377036363351 11.60930687791252 2.089293509752094 11.84357536795386 C 2.294249496868866 12.08218219402281 2.574499799251458 12.288250919624009 2.930035449122403 12.461783183140549 C 3.2897539994973597 12.639653697352244 3.7603190841358787 12.728590592841186 4.341724351547864 12.728590592841186 C 5.1197203480716365 12.728590592841186 5.761781852269734 12.533366324923277 6.26789737880514 12.142918881342855 C 6.774012905340546 11.752471267097526 7.02707065215361 11.140769914896332 7.02707065215361 10.307815131936096 L 7.02707065215361 8.27748820686682 L 6.901575212258826 8.27748820686682 C 6.792823312219636 8.459697074172617 6.6380591446342905 8.685288858025757 6.4372858934751545 8.954263848556579 C 6.24069554282003 9.2189004859933 5.956274812548694 9.45533799045003 5.584007889754453 9.663576686190089 C 5.215923867464224 9.867477062969028 4.718166112073714 9.969426764963519 4.090750321307153 9.969426764963519 C 3.3127545222390307 9.969426764963519 2.6142392956868026 9.778541276801974 1.9951887793798635 9.396770368744846 C 1.3803211635769363 9.014999426554738 0.8930235554626663 8.45969688644122 0.53330507090626 7.730861348952071 C 0.17776942103531534 7.002025879728883 0 6.117011200969255 0 5.075817858800884 C 0 4.051977724211028 0.1735988944187461 3.1604562752690777 0.520769006555868 2.4012524879856034 C 0.8679392174208151 1.6377106036053868 1.351049482278933 1.0477004878134843 1.9700998011302213 0.6312231304663473 C 2.58915031743716 0.21040771015544912 3.3043983965578905 0 4.115856149105653 0 C 4.743272268964965 0 5.2410128457138665 0.10845768389763921 5.609096868004095 0.32537305169291764 C 5.981363790798336 0.5379499810616432 6.26580137061853 0.7808948871608447 6.462391721273654 1.054207769990522 C 6.6631646268854015 1.3231829482527395 6.817928786243429 1.5444365667431748 6.926681040057326 1.7179686425283185 L 7.077265458201753 1.7179686425283185 L 7.077265458201753 0.1301487837750093 L 8.50777530670166 0.1301487837750093 L 8.50777530670166 10.411934377407182 C 8.50777530670166 11.27091897173519 8.319546199119957 11.969386805557711 7.943096375821704 12.507336786619355 C 7.570829453027463 13.049625035442645 7.068884584745727 13.446579215072408 6.4372858934751545 13.698200998024715 C 5.8098697736158424 13.954161031672179 5.1113545470636135 14.082141876220703 4.341724351547864 14.082141876220703 Z M 4.291529545499722 8.589845943280078 C 4.885483514423743 8.589845943280078 5.387411566065896 8.448851251170083 5.797323178297414 8.166861303755905 C 6.207234790528932 7.884871458740669 6.518865090465028 7.4792397366646695 6.732186697588811 6.9499664617912265 C 6.945507959165205 6.420692982119897 7.052159630403253 5.787300461775368 7.052159630403253 5.049788320496961 C 7.052159630403253 4.3296297281268785 6.947593090836389 3.694067442441376 6.738454729764007 3.143102521562866 C 6.529316023144236 2.592137600684356 6.219788066430207 2.160476084307076 5.809876092196664 1.848117972431025 C 5.399964479965146 1.5357598605549743 4.893848986339016 1.3795808216834395 4.291529545499722 1.3795808216834395 C 3.664113623096061 1.3795808216834395 3.141265441447804 1.5444365667431748 2.722988192754638 1.8741480568626452 C 2.3088936800191084 2.2038591715193236 1.9972802296318695 2.646366988760873 1.7881415230120987 3.201670348065936 C 1.58318571689634 3.7569733660411884 1.4807046545480496 4.373012678807203 1.4807046545480496 5.049788320496961 C 1.4807046545480496 5.74391737456312 1.585270848567524 6.357786921988161 1.7944095551872947 6.891398635288157 C 2.0077309813100643 7.4206719101616 2.321446593918359 7.837149165109794 2.7355411066538884 8.140830673196588 C 3.1538183553470542 8.44017381112279 3.6724792266484343 8.589845943280078 4.291529545499722 8.589845943280078 Z","fillRule":"nonzero"},{"d":"M4.34172 14.0821 C3.62647 14.0821 3.0116 13.9867 2.49712 13.7958 C1.98264 13.6093 1.55391 13.362 1.21093 13.054 C0.872122 12.7503 0.602332 12.4249 0.401558 12.0778 L1.58109 11.2189 C1.71494 11.4011 1.88434 11.6093 2.08929 11.8436 C2.29425 12.0822 2.5745 12.2883 2.93004 12.4618 C3.28975 12.6397 3.76032 12.7286 4.34172 12.7286 C5.11972 12.7286 5.76178 12.5334 6.2679 12.1429 C6.77401 11.7525 7.02707 11.1408 7.02707 10.3078 L7.02707 8.27749 L6.90158 8.27749 C6.79282 8.4597 6.63806 8.68529 6.43729 8.95426 C6.2407 9.2189 5.95627 9.45534 5.58401 9.66358 C5.21592 9.86748 4.71817 9.96943 4.09075 9.96943 C3.31275 9.96943 2.61424 9.77854 1.99519 9.39677 C1.38032 9.015 0.893023 8.4597 0.533305 7.73086 C0.177769 7.00203 0 6.11701 0 5.07582 C0 4.05198 0.173599 3.16046 0.520769 2.40125 C0.867939 1.63771 1.35105 1.0477 1.9701 0.631223 C2.58915 0.210408 3.3044 0 4.11586 0 C4.74327 0 5.24101 0.108458 5.6091 0.325373 C5.98136 0.53795 6.2658 0.780895 6.46239 1.05421 C6.66316 1.32318 6.81793 1.54444 6.92668 1.71797 L7.07727 1.71797 L7.07727 0.130149 L8.50778 0.130149 L8.50778 10.4119 C8.50778 11.2709 8.31955 11.9694 7.9431 12.5073 C7.57083 13.0496 7.06888 13.4466 6.43729 13.6982 C5.80987 13.9542 5.11135 14.0821 4.34172 14.0821 Z M4.29153 8.58985 C4.88548 8.58985 5.38741 8.44885 5.79732 8.16686 C6.20723 7.88487 6.51886 7.47924 6.73219 6.94997 C6.94551 6.42069 7.05216 5.7873 7.05216 5.04979 C7.05216 4.32963 6.94759 3.69407 6.73845 3.1431 C6.52932 2.59214 6.21979 2.16048 5.80988 1.84812 C5.39996 1.53576 4.89385 1.37958 4.29153 1.37958 C3.66411 1.37958 3.14127 1.54444 2.72299 1.87415 C2.30889 2.20386 1.99728 2.64637 1.78814 3.20167 C1.58319 3.75697 1.4807 4.37301 1.4807 5.04979 C1.4807 5.74392 1.58527 6.35779 1.79441 6.8914 C2.00773 7.42067 2.32145 7.83715 2.73554 8.14083 C3.15382 8.44017 3.67248 8.58985 4.29153 8.58985 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1069.85px"
+              />
+              <Icon
+                width="14.83px"
+                height="16.35px"
+                viewBox={{"minX":0,"minY":0,"width":14.832110404968262,"height":16.346738815307617}}
+                paths={[{"d":"M 7.905446141811893 16.346738815307617 C 6.625517538741917 16.346738815307617 5.494073151254508 16.164530774311473 4.511121338305629 15.800113019803023 C 3.5281699202680556 15.440033533293084 2.702074442578396 14.908590566461339 2.0328306928493904 14.20578487023341 C 1.3635869431203853 13.502979242271447 0.8574715429138655 12.641825313446027 0.514484130227801 11.62232328855505 C 0.17149678336028756 10.602821331930038 0 9.435817239366104 0 8.121310328203588 C 0 6.85018643835603 0.1735819808718918 5.713549504989043 0.5207521624687371 4.711400756890013 C 0.8721051129763633 3.709252350120813 1.3803143329246574 2.8589444496879963 2.0453751821057797 2.1604769190596316 C 2.714618931834785 1.4576709497678397 3.52607531070367 0.9218901927993421 4.479747478002879 0.5531345457551903 C 5.43760254584997 0.18437818191839678 6.520934494076703 0 7.729755894026301 0 C 8.905114747778347 0 9.934078466753936 0.19956200044775113 10.816643825844073 0.5986859672102705 C 11.703392085482093 0.993472246234987 12.443747184900182 1.5292534127992798 13.037700830960928 2.206029432770166 C 13.635837377569555 2.8784663314179655 14.083397172315587 3.635500531225727 14.380373995345959 4.477132168725381 C 14.681533718924214 5.318763806225036 14.83211040496826 6.186424573854006 14.83211040496826 7.080115632133711 C 14.83211040496826 7.709169919062349 14.802832910762472 8.346901288115738 14.74427370584998 8.993309193166155 C 14.685715204373253 9.639716688620776 14.56233087672828 10.234064524364467 14.374105963105023 10.776352871062139 C 14.185881049481766 11.314302881495333 13.895170860048122 11.748133879703511 13.501990154614136 12.077845148894031 C 13.112992349728032 12.407556452217534 12.585956720568168 12.572411864948403 11.920895871387046 12.572411864948403 C 11.628101948904556 12.572411864948403 11.306028446590947 12.524690507368968 10.954675331536944 12.429247758077114 C 10.60332221648294 12.333805017318506 10.291708762827453 12.17545655432338 10.019828651989592 11.95420292375271 C 9.74794854115173 11.73294929318204 9.586911785881266 11.435775443576162 9.53671838206454 11.06268108480472 L 9.461434596977169 11.06268108480472 C 9.361048496893138 11.314302881495333 9.20628398213721 11.552909686459003 8.99714527332396 11.778501619161169 C 8.792189465058595 12.004093551863335 8.522399389395831 12.184133371917515 8.187777185438573 12.318620848926075 C 7.857338211121954 12.453108351534373 7.453703413608704 12.511675384443372 6.976867494505477 12.494322153517619 C 6.433106910827726 12.472630619393714 5.954184115839846 12.346820222376593 5.540089598761231 12.116890004609424 C 5.125995081682616 11.882621467644267 4.778814336208348 11.565924541654017 4.498568424274722 11.166800335960616 C 4.222505412888978 10.76333782813572 4.0133730226566176 10.296970963393624 3.8711586164158627 9.767697557223421 C 3.733127110722991 9.234085985453655 3.664111357876555 8.659260338636782 3.664111357876555 8.043220616772802 C 3.664111357876555 7.457549214627189 3.7477574392218562 6.921767365403237 3.9150685412004846 6.435877151212906 C 4.082379297631721 5.949986937022575 4.314533799331687 5.524833430534945 4.6115109514548145 5.160415505361579 C 4.91267031303104 4.795997955651025 5.264021683893445 4.505331473909933 5.665568190423196 4.288416094271284 C 6.071296906406046 4.067162634365529 6.5083966854032305 3.9305060105578424 6.976867494505477 3.8784462015151107 C 7.395144550129945 3.835063269799234 7.775774118633899 3.8545857019235537 8.118761432592137 3.9370134850882006 C 8.461748746550375 4.01510282958942 8.744084002564312 4.134406249137746 8.96577141302121 4.294923752266425 C 9.187458115928685 4.451102816731677 9.327591606977306 4.62463507265642 9.386150811889797 4.815520554173637 L 9.461434596977169 4.815520554173637 L 9.461434596977169 4.086684703826904 L 10.791554847331293 4.086684703826904 L 10.791554847331293 9.969428401540075 C 10.791554847331293 10.333846156048526 10.88984879781928 10.654880769776579 11.08643880498888 10.93253229392371 C 11.283029519707904 11.2101839034033 11.569552596206405 11.349009298547298 11.94600169944886 11.349009298547298 C 12.372644918171124 11.349009298547298 12.698905549874512 11.19716886047688 12.92477515332987 10.893487438208318 C 13.15482765733311 10.589805913540806 13.311677303782092 10.121268634812594 13.395332509224014 9.487875909220529 C 13.483171314535921 8.854483320160394 13.52709598267595 8.043220958102632 13.52709598267595 7.054087184664055 C 13.52709598267595 6.47275387985204 13.44970600395923 5.900096735574238 13.294942896074827 5.336116809953121 C 13.14436339628773 4.767798821131389 12.91431089228449 4.2363564686933355 12.60478536761047 3.741789752638962 C 12.299443467488391 3.2472223197919465 11.912541292354213 2.811222341182936 11.444070483251966 2.433789816811929 C 10.97559967414972 2.0563572924409224 10.425558750162011 1.7613525768343 9.793960447178442 1.5487756358590787 C 9.166544320738694 1.33186025622043 8.453381892357795 1.2234025664011057 7.654472108938929 1.2234025664011057 C 6.671520690901356 1.2234025664011057 5.791048559186035 1.3817508331315793 5.013052554502523 1.6984474007255097 C 4.239239845278199 2.010805529656013 3.580445284146413 2.4684965751937242 3.0366847004686615 3.0715206397375927 C 2.4971068527924154 3.6702073578734877 2.0851144815022655 4.399043549550049 1.8006860310227863 5.258028190777789 C 1.52044011908916 6.1126743933421 1.3803150569287177 7.084454412126967 1.3803150569287177 8.173369407653809 C 1.3803150569287177 9.279637611706633 1.52044011908916 10.262264273277797 1.8006860310227863 11.121248914505536 C 2.0851144815022655 11.980233623999242 2.503396473518052 12.704730421288852 3.055522496289539 13.294740057299995 C 3.6118312221532562 13.884749693311138 4.299886637738425 14.331595768578717 5.119710199892644 14.63527719084728 C 5.939533762046864 14.94329694938032 6.88485105412976 15.097305616925947 7.9556409483864865 15.097305616925947 C 8.415745956392968 15.097305616925947 8.869578028676468 15.051753555477436 9.31713505904336 14.960649168049798 C 9.764691365406193 14.869544686756457 10.159951607956405 14.769765418781466 10.502938921914643 14.661307822827844 C 10.84592623587288 14.55285013300852 11.092711049617076 14.472590745717374 11.243291256953595 14.420531030540346 L 11.594654902975746 15.617902964960885 C 11.33532278623211 15.730698914245476 10.996516974177549 15.843494308869097 10.57823955655105 15.956290258153688 C 10.164145039472436 16.06908620743828 9.72077232475227 16.162361725644672 9.248119306196925 16.236112998412032 C 8.779648497094678 16.309864271179393 8.332088998532127 16.346738815307617 7.905446141811893 16.346738815307617 Z M 7.177629871254814 11.166800335960616 C 7.738121366029311 11.166800335960616 8.191953767405566 11.049666314942163 8.539123981911688 10.815397726777531 C 8.88629419641781 10.5811291386129 9.13935196233962 10.227557480763018 9.298297263222484 9.754682241233139 C 9.457242564105346 9.281806796905363 9.53671838206454 8.685289673563995 9.53671838206454 7.965130905342015 C 9.53671838206454 7.236295396325112 9.448884496689315 6.667977782966193 9.273208284709705 6.2601769388768185 C 9.097531381635312 5.852376094787444 8.838201371085304 5.566047863978373 8.495214057127066 5.401192297649079 C 8.152226743168828 5.236336731319785 7.729757309125146 5.153907847366438 7.227824677829407 5.153907847366438 C 6.75098875872618 5.153907847366438 6.343166848277789 5.28405808889922 6.004362072865404 5.544356404520369 C 5.669740198000901 5.800316281478089 5.412511839600229 6.143041279475185 5.232652727072737 6.572533600089055 C 5.056976169545735 6.997687857502309 4.9691257801688655 7.461887311960787 4.9691257801688655 7.965130905342015 C 4.9691257801688655 8.520433953636278 5.04024351425739 9.043199770077305 5.182457920498145 9.533428422931063 C 5.324671981191507 10.01931880778631 5.55680997888983 10.414104711348214 5.878883481203439 10.717786133616777 C 6.200956983517048 11.017129287886826 6.633869287577062 11.166800335960616 7.177629871254814 11.166800335960616 Z","fillRule":"nonzero"},{"d":"M7.90545 16.3467 C6.62552 16.3467 5.49407 16.1645 4.51112 15.8001 C3.52817 15.44 2.70207 14.9086 2.03283 14.2058 C1.36359 13.503 0.857472 12.6418 0.514484 11.6223 C0.171497 10.6028 0 9.43582 0 8.12131 C0 6.85019 0.173582 5.71355 0.520752 4.7114 C0.872105 3.70925 1.38031 2.85894 2.04538 2.16048 C2.71462 1.45767 3.52608 0.92189 4.47975 0.553135 C5.4376 0.184378 6.52093 0 7.72976 0 C8.90512 0 9.93408 0.199562 10.8166 0.598686 C11.7034 0.993472 12.4437 1.52925 13.0377 2.20603 C13.6358 2.87847 14.0834 3.6355 14.3804 4.47713 C14.6815 5.31876 14.8321 6.18642 14.8321 7.08012 C14.8321 7.70917 14.8028 8.3469 14.7443 8.99331 C14.6857 9.63972 14.5623 10.2341 14.3741 10.7764 C14.1859 11.3143 13.8952 11.7481 13.502 12.0778 C13.113 12.4076 12.586 12.5724 11.9209 12.5724 C11.6281 12.5724 11.306 12.5247 10.9547 12.4292 C10.6033 12.3338 10.2917 12.1755 10.0198 11.9542 C9.74795 11.733 9.58691 11.4358 9.53672 11.0627 L9.46144 11.0627 C9.36105 11.3143 9.20628 11.5529 8.99715 11.7785 C8.79219 12.0041 8.5224 12.1841 8.18778 12.3186 C7.85734 12.4531 7.4537 12.5117 6.97687 12.4943 C6.43311 12.4726 5.95418 12.3468 5.54009 12.1169 C5.126 11.8826 4.77881 11.5659 4.49857 11.1668 C4.22251 10.7633 4.01337 10.297 3.87116 9.7677 C3.73313 9.23409 3.66411 8.65926 3.66411 8.04322 C3.66411 7.45755 3.74776 6.92177 3.91507 6.43588 C4.08238 5.94999 4.31453 5.52483 4.61151 5.16042 C4.91267 4.796 5.26402 4.50533 5.66557 4.28842 C6.0713 4.06716 6.5084 3.93051 6.97687 3.87845 C7.39514 3.83506 7.77577 3.85459 8.11876 3.93701 C8.46175 4.0151 8.74408 4.13441 8.96577 4.29492 C9.18746 4.4511 9.32759 4.62464 9.38615 4.81552 L9.46144 4.81552 L9.46144 4.08668 L10.7916 4.08668 L10.7916 9.96943 C10.7916 10.3338 10.8898 10.6549 11.0864 10.9325 C11.283 11.2102 11.5696 11.349 11.946 11.349 C12.3726 11.349 12.6989 11.1972 12.9248 10.8935 C13.1548 10.5898 13.3117 10.1213 13.3953 9.48788 C13.4832 8.85448 13.5271 8.04322 13.5271 7.05409 C13.5271 6.47275 13.4497 5.9001 13.2949 5.33612 C13.1444 4.7678 12.9143 4.23636 12.6048 3.74179 C12.2994 3.24722 11.9125 2.81122 11.4441 2.43379 C10.9756 2.05636 10.4256 1.76135 9.79396 1.54878 C9.16654 1.33186 8.45338 1.2234 7.65447 1.2234 C6.67152 1.2234 5.79105 1.38175 5.01305 1.69845 C4.23924 2.01081 3.58045 2.4685 3.03668 3.07152 C2.49711 3.67021 2.08511 4.39904 1.80069 5.25803 C1.52044 6.11267 1.38032 7.08445 1.38032 8.17337 C1.38032 9.27964 1.52044 10.2623 1.80069 11.1212 C2.08511 11.9802 2.5034 12.7047 3.05552 13.2947 C3.61183 13.8848 4.29989 14.3316 5.11971 14.6353 C5.93953 14.9433 6.88485 15.0973 7.95564 15.0973 C8.41575 15.0973 8.86958 15.0518 9.31714 14.9606 C9.76469 14.8695 10.16 14.7698 10.5029 14.6613 C10.8459 14.5529 11.0927 14.4726 11.2433 14.4205 L11.5947 15.6179 C11.3353 15.7307 10.9965 15.8435 10.5782 15.9563 C10.1641 16.0691 9.72077 16.1624 9.24812 16.2361 C8.77965 16.3099 8.33209 16.3467 7.90545 16.3467 Z M7.17763 11.1668 C7.73812 11.1668 8.19195 11.0497 8.53912 10.8154 C8.88629 10.5811 9.13935 10.2276 9.2983 9.75468 C9.45724 9.28181 9.53672 8.68529 9.53672 7.96513 C9.53672 7.2363 9.44888 6.66798 9.27321 6.26018 C9.09753 5.85238 8.8382 5.56605 8.49521 5.40119 C8.15223 5.23634 7.72976 5.15391 7.22783 5.15391 C6.75099 5.15391 6.34317 5.28406 6.00436 5.54436 C5.66974 5.80032 5.41251 6.14304 5.23265 6.57253 C5.05698 6.99769 4.96913 7.46189 4.96913 7.96513 C4.96913 8.52043 5.04024 9.0432 5.18246 9.53343 C5.32467 10.0193 5.55681 10.4141 5.87888 10.7178 C6.20096 11.0171 6.63387 11.1668 7.17763 11.1668 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.99px"
+                left="1053.25px"
+              />
+              <Icon
+                width="8.51px"
+                height="14.08px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":14.082141876220703}}
+                paths={[{"d":"M 4.34171625189364 14.082141876220703 C 3.626462129724553 14.082141876220703 3.01159292114252 13.986699149206421 2.497111752528911 13.795813678111367 C 1.9826307484616903 13.60926647477796 1.5538972695005018 13.361982225728209 1.2109097689093 13.05396255227871 C 0.8721051691353376 12.75028114659086 0.6023147305520996 12.424909016488431 0.401541628904872 12.077844489455352 L 1.5810859602661707 11.218859895127343 C 1.714934746804012 11.40106876243314 1.8843378447409744 11.60930687791252 2.089293666204415 11.84357536795386 C 2.294249668668882 12.08218219402281 2.574491567262365 12.288250919624009 2.9300272437568444 12.461783183140549 C 3.289745821068563 12.639653697352244 3.7603109409443523 12.728590592841186 4.34171625189364 12.728590592841186 C 5.119712306675996 12.728590592841186 5.761765434178449 12.533366324923277 6.267880998613244 12.142918881342855 C 6.77399656304804 11.752471267097526 7.027054328810799 11.140769914896332 7.027054328810799 10.307815131936096 L 7.027054328810799 8.27748820686682 L 6.901575729068673 8.27748820686682 C 6.792823820885828 8.459697074172617 6.638059641711295 8.685288858025757 6.4372863755176795 8.954263848556579 C 6.240696010141304 9.2189004859933 5.956266833796662 9.45533799045003 5.583999883126001 9.663576686190089 C 5.21591583327258 9.867477062969028 4.718166465383594 9.969426764963519 4.09075062763433 9.969426764963519 C 3.3127547703076394 9.969426764963519 2.6142310666735176 9.778541276801974 1.995180504010291 9.396770368744846 C 1.380312842164304 9.014999426554738 0.8930236223348444 8.45969688644122 0.5333051108416811 7.730861348952071 C 0.177769434347202 7.002025879728883 0 6.117011200969255 0 5.075817858800884 C 0 4.051977724211028 0.17358205786821201 3.1604562752690777 0.5207521960024327 2.4012524879856034 C 0.8679224328644861 1.6377106036053868 1.3510327338992933 1.0477004878134843 1.970083099106854 0.6312231304663473 C 2.5891336617700804 0.21040771015544912 3.3043902192257084 0 4.115848032537767 0 C 4.743264199379807 0 5.241013238176017 0.10845768389763921 5.609097288029439 0.32537305169291764 C 5.9813642387001 0.5379499810616432 6.26579341504474 0.7808948871608447 6.462383780421116 1.054207769990522 C 6.663156701067317 1.3231829482527395 6.817920872014532 1.5444365667431748 6.926673133972111 1.7179686425283185 L 7.077249138617672 1.7179686425283185 L 7.077249138617672 0.1301487837750093 L 8.507759094238281 0.1301487837750093 L 8.507759094238281 10.411934377407182 C 8.507759094238281 11.27091897173519 8.3195383973365 11.969386805557711 7.943088545848599 12.507336786619355 C 7.570821595177938 13.049625035442645 7.068885114084183 13.446579215072408 6.4372863755176795 13.698200998024715 C 5.8098702086756395 13.954161031672179 5.111346505041517 14.082141876220703 4.34171625189364 14.082141876220703 Z M 4.291521442086766 8.589845943280078 C 4.885475455487772 8.589845943280078 5.387411969490805 8.448851251170083 5.797323612417686 8.166861303755905 C 6.207235255344567 7.884871458740669 6.5188487290663195 7.4792397366646695 6.732170352164239 6.9499664617912265 C 6.945491629714744 6.420692982119897 7.052151733714235 5.787300461775368 7.052151733714235 5.049788320496961 C 7.052151733714235 4.3296297281268785 6.947585186317128 3.694067442441376 6.738446809583863 3.143102521562866 C 6.529308087303183 2.592137600684356 6.219780107410808 2.160476084307076 5.809868102481874 1.848117972431025 C 5.399956459554994 1.5357598605549743 4.8938409280294755 1.3795808216834395 4.291521442086766 1.3795808216834395 C 3.6641054727003914 1.3795808216834395 3.1412572518997557 1.5444365667431748 2.722979971884784 1.8741480568626452 C 2.3088854281406634 2.2038591715193236 1.9972719544189108 2.646366988760873 1.7881332321382308 3.201670348065936 C 1.5831774106747905 3.7569733660411884 1.4806963406524227 4.373012678807203 1.4806963406524227 5.049788320496961 C 1.4806963406524227 5.74391737456312 1.5852709672771752 6.357786921988161 1.7944096895578552 6.891398635288157 C 2.007731131654748 7.4206719101616 2.321438342979912 7.837149165109794 2.7355328867240325 8.140830673196588 C 3.1538101667390044 8.44017381112279 3.672471076879205 8.589845943280078 4.291521442086766 8.589845943280078 Z","fillRule":"nonzero"},{"d":"M4.34172 14.0821 C3.62646 14.0821 3.01159 13.9867 2.49711 13.7958 C1.98263 13.6093 1.5539 13.362 1.21091 13.054 C0.872105 12.7503 0.602315 12.4249 0.401542 12.0778 L1.58109 11.2189 C1.71493 11.4011 1.88434 11.6093 2.08929 11.8436 C2.29425 12.0822 2.57449 12.2883 2.93003 12.4618 C3.28975 12.6397 3.76031 12.7286 4.34172 12.7286 C5.11971 12.7286 5.76177 12.5334 6.26788 12.1429 C6.774 11.7525 7.02705 11.1408 7.02705 10.3078 L7.02705 8.27749 L6.90158 8.27749 C6.79282 8.4597 6.63806 8.68529 6.43729 8.95426 C6.2407 9.2189 5.95627 9.45534 5.584 9.66358 C5.21592 9.86748 4.71817 9.96943 4.09075 9.96943 C3.31275 9.96943 2.61423 9.77854 1.99518 9.39677 C1.38031 9.015 0.893024 8.4597 0.533305 7.73086 C0.177769 7.00203 0 6.11701 0 5.07582 C0 4.05198 0.173582 3.16046 0.520752 2.40125 C0.867922 1.63771 1.35103 1.0477 1.97008 0.631223 C2.58913 0.210408 3.30439 0 4.11585 0 C4.74326 0 5.24101 0.108458 5.6091 0.325373 C5.98136 0.53795 6.26579 0.780895 6.46238 1.05421 C6.66316 1.32318 6.81792 1.54444 6.92667 1.71797 L7.07725 1.71797 L7.07725 0.130149 L8.50776 0.130149 L8.50776 10.4119 C8.50776 11.2709 8.31954 11.9694 7.94309 12.5073 C7.57082 13.0496 7.06888 13.4466 6.43729 13.6982 C5.80987 13.9542 5.11135 14.0821 4.34172 14.0821 Z M4.29152 8.58985 C4.88548 8.58985 5.38741 8.44885 5.79732 8.16686 C6.20724 7.88487 6.51885 7.47924 6.73217 6.94997 C6.94549 6.42069 7.05215 5.7873 7.05215 5.04979 C7.05215 4.32963 6.94759 3.69407 6.73845 3.1431 C6.52931 2.59214 6.21978 2.16048 5.80987 1.84812 C5.39996 1.53576 4.89384 1.37958 4.29152 1.37958 C3.66411 1.37958 3.14126 1.54444 2.72298 1.87415 C2.30889 2.20386 1.99727 2.64637 1.78813 3.20167 C1.58318 3.75697 1.4807 4.37301 1.4807 5.04979 C1.4807 5.74392 1.58527 6.35779 1.79441 6.8914 C2.00773 7.42067 2.32144 7.83715 2.73553 8.14083 C3.15381 8.44017 3.67247 8.58985 4.29152 8.58985 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1042.53px"
+              />
+              <Icon
+                width="7.63px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.629382610321045,"height":10.125605583190918}}
+                paths={[{"d":"M 1.480704569136314 4.112713776881241 L 1.480704569136314 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305097659835673 0.13014877611298983 L 1.4305097659835673 1.6919390046178533 L 1.5559883490914912 1.6919390046178533 C 1.7818581181500228 1.1843574056314345 2.1248515627604547 0.7765567784802252 2.5849565394009706 0.4685371231642255 C 3.0450615160414864 0.15617902967708214 3.639010547222652 0 4.36681307790588 0 C 5.019325510053473 0 5.590277705658309 0.13882565245527717 6.07966229304319 0.4164769573658315 C 6.569046518426065 0.6897905579642921 6.949676060981999 1.106267873726404 7.221556153285435 1.6659089217186562 C 7.493436591136239 2.2212122483323253 7.629382610321045 2.9240185133393077 7.629382610321045 3.774326522085336 L 7.629382610321045 10.125605583190918 L 6.148678041184731 10.125605583190918 L 6.148678041184731 3.878444669171464 C 6.148678041184731 3.0932113898117213 5.952090844705154 2.48151072214874 5.558910166074814 2.04334157392719 C 5.165729487444475 1.6008343629972663 4.626149010900832 1.3795807404658145 3.940174100655418 1.3795807404658145 C 3.4675207523194476 1.3795807404658145 3.045059771850006 1.4858691988928443 2.6727932325313057 1.6984461157469037 C 2.304709066926963 1.9110233909972434 2.0140071575389937 2.2212122483323253 1.8006859082676459 2.6290127048186394 C 1.587364494449932 3.036813502634744 1.480704569136314 3.531380538033271 1.480704569136314 4.112713776881241 Z","fillRule":"nonzero"},{"d":"M1.4807 4.11271 L1.4807 10.1256 L0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.78186 1.18436 2.12485 0.776557 2.58496 0.468537 C3.04506 0.156179 3.63901 0 4.36681 0 C5.01933 0 5.59028 0.138826 6.07966 0.416477 C6.56905 0.689791 6.94968 1.10627 7.22156 1.66591 C7.49344 2.22121 7.62938 2.92402 7.62938 3.77433 L7.62938 10.1256 L6.14868 10.1256 L6.14868 3.87844 C6.14868 3.09321 5.95209 2.48151 5.55891 2.04334 C5.16573 1.60083 4.62615 1.37958 3.94017 1.37958 C3.46752 1.37958 3.04506 1.48587 2.67279 1.69845 C2.30471 1.91102 2.01401 2.22121 1.80069 2.62901 C1.58736 3.03681 1.4807 3.53138 1.4807 4.11271 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1032.65px"
+              />
+              <Icon
+                width="7.55px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.554090976715088,"height":10.125605583190918}}
+                paths={[{"d":"M 6.073386295630859 5.908772566968218 L 6.073386295630859 0 L 7.554090976715089 0 L 7.554090976715089 9.995456807077927 L 6.073386295630859 9.995456807077927 L 6.073386295630859 8.303517256332409 L 5.97300510651004 8.303517256332409 C 5.7471351393737224 8.811099060116701 5.395775357579723 9.242760653480474 4.918939434932094 9.598501729226912 C 4.442103150282432 9.949904503334123 3.8397879439453457 10.125605583190918 3.111985358236978 10.125605583190918 C 2.50966610405898 10.125605583190918 1.9742725680497912 9.98894955941696 1.5058020845580797 9.715636283081801 C 1.0373314365199897 9.437984705107414 0.6692475063610366 9.02150750881073 0.4015500308070146 8.466204318728977 C 0.1338525552529926 7.906562827007996 0 7.201588025575024 0 6.351280153360912 L 0 0 L 1.4807046810842301 0 L 1.4807046810842301 6.247159821764123 C 1.4807046810842301 6.975995248079868 1.6772920569730614 7.55732882825763 2.0704726007832472 7.991159538308036 C 2.467836045172408 8.424990077693547 2.973951416231693 8.641905603383645 3.5888191746909617 8.641905603383645 C 3.956903203577742 8.641905603383645 4.331259806232097 8.544293475171237 4.711892174853769 8.349069764874088 C 5.096707082052384 8.15384596924449 5.418780603214658 7.854502831874498 5.6781127218859515 7.4510403698306 C 5.941627379134188 7.047578010185639 6.073386295630859 6.533488753942505 6.073386295630859 5.908772566968218 Z","fillRule":"nonzero"},{"d":"M6.07339 5.90877 L6.07339 0 L7.55409 0 L7.55409 9.99546 L6.07339 9.99546 L6.07339 8.30352 L5.97301 8.30352 C5.74714 8.8111 5.39578 9.24276 4.91894 9.5985 C4.4421 9.9499 3.83979 10.1256 3.11199 10.1256 C2.50967 10.1256 1.97427 9.98895 1.5058 9.71564 C1.03733 9.43798 0.669248 9.02151 0.40155 8.4662 C0.133853 7.90656 0 7.20159 0 6.35128 L0 0 L1.4807 0 L1.4807 6.24716 C1.4807 6.976 1.67729 7.55733 2.07047 7.99116 C2.46784 8.42499 2.97395 8.6419 3.58882 8.6419 C3.9569 8.6419 4.33126 8.54429 4.71189 8.34907 C5.09671 8.15385 5.41878 7.8545 5.67811 7.45104 C5.94163 7.04758 6.07339 6.53349 6.07339 5.90877 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.83px"
+                left="1022.38px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.54px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":13.535514831542969}}
+                paths={[{"d":"M 4.09075062763433 13.535514831542969 C 3.287658089408309 13.535514831542969 2.5786743035332167 13.32510739735457 1.96380664168723 12.904291709786236 C 1.3489389798412432 12.479137720383134 0.8679224328644861 11.880451316259476 0.5207521960024327 11.10823283874507 C 0.17358205786821201 10.331676059395896 0 9.414124333884814 0 8.35557779874375 C 0 7.305707389410495 0.17358205786821201 6.394662980119646 0.5207521960024327 5.6224446391371625 C 0.8679224328644861 4.850226298154679 1.3510327338992933 4.253709215613308 1.970083099106854 3.8328934256460334 C 2.5891336617700804 3.4120780111415447 3.3043902192257084 3.201670303889301 4.115848032537767 3.201670303889301 C 4.743264199379807 3.201670303889301 5.238919681573632 3.310127986290441 5.602820830609814 3.527043351092722 C 5.970904880463236 3.739620277528312 6.251155006376114 3.9825651802753606 6.443562832937303 4.255878059333868 C 6.640153198313679 4.524853233884767 6.792823820885828 4.746106849322345 6.901575729068673 4.919638922713094 L 7.027054328810799 4.919638922713094 L 7.027054328810799 0 L 8.507759094238281 0 L 8.507759094238281 13.32727634347407 L 7.077249138617672 13.32727634347407 L 7.077249138617672 11.791516128646718 L 6.901575729068673 11.791516128646718 C 6.792823820885828 11.973724993438397 6.638059641711295 12.203655485609358 6.4372863755176795 12.481307076098402 C 6.236513109324064 12.754620347686185 5.949990014374985 12.999734128286775 5.5777234257063775 13.216649441889585 C 5.205456475035716 13.429226436591136 4.709800992841891 13.535514831542969 4.09075062763433 13.535514831542969 Z M 4.291521442086766 12.15593402889498 C 4.885475455487772 12.15593402889498 5.387411969490805 11.995416280747866 5.797323612417686 11.674381569512194 C 6.207235255344567 11.349008624707714 6.5188487290663195 10.899994350676172 6.732170352164239 10.32733796235901 C 6.945491629714744 9.75034334047304 7.052151733714235 9.084413599240275 7.052151733714235 8.329548260798983 C 7.052151733714235 7.583359457761267 6.947585186317128 6.930443768708292 6.738446809583863 6.370802320028417 C 6.529308087303183 5.806822808444639 6.219780107410808 5.368654015936172 5.809868102481874 5.056295908370037 C 5.399956459554994 4.739599362437212 4.8938409280294755 4.581251106537289 4.291521442086766 4.581251106537289 C 3.6641054727003914 4.581251106537289 3.1412572518997557 4.748275897840788 2.722979971884784 5.0823254463148055 C 2.3088854281406634 5.412036931884918 1.9972719544189108 5.86105110351752 1.7881332321382308 6.4293690534679895 C 1.5831774106747905 6.993348940514555 1.4806963406524227 7.6267427491727995 1.4806963406524227 8.329548260798983 C 1.4806963406524227 9.041030512626627 1.5852709672771752 9.687437212943323 1.7944096895578552 10.26877013666406 C 2.007731131654748 10.845764963347913 2.321438342979912 11.305625879423872 2.7355328867240325 11.648352031567427 C 3.1538101667390044 11.986739950142175 3.672471076879205 12.15593402889498 4.291521442086766 12.15593402889498 Z","fillRule":"nonzero"},{"d":"M4.09075 13.5355 C3.28766 13.5355 2.57867 13.3251 1.96381 12.9043 C1.34894 12.4791 0.867922 11.8805 0.520752 11.1082 C0.173582 10.3317 0 9.41412 0 8.35558 C0 7.30571 0.173582 6.39466 0.520752 5.62244 C0.867922 4.85023 1.35103 4.25371 1.97008 3.83289 C2.58913 3.41208 3.30439 3.20167 4.11585 3.20167 C4.74326 3.20167 5.23892 3.31013 5.60282 3.52704 C5.9709 3.73962 6.25115 3.98257 6.44356 4.25588 C6.64015 4.52485 6.79282 4.74611 6.90158 4.91964 L7.02705 4.91964 L7.02705 0 L8.50776 0 L8.50776 13.3273 L7.07725 13.3273 L7.07725 11.7915 L6.90158 11.7915 C6.79282 11.9737 6.63806 12.2037 6.43729 12.4813 C6.23651 12.7546 5.94999 12.9997 5.57772 13.2167 C5.20546 13.4292 4.7098 13.5355 4.09075 13.5355 Z M4.29152 12.1559 C4.88548 12.1559 5.38741 11.9954 5.79732 11.6744 C6.20724 11.349 6.51885 10.9 6.73217 10.3273 C6.94549 9.75034 7.05215 9.08441 7.05215 8.32955 C7.05215 7.58336 6.94759 6.93044 6.73845 6.3708 C6.52931 5.80682 6.21978 5.36865 5.80987 5.0563 C5.39996 4.7396 4.89384 4.58125 4.29152 4.58125 C3.66411 4.58125 3.14126 4.74828 2.72298 5.08233 C2.30889 5.41204 1.99727 5.86105 1.78813 6.42937 C1.58318 6.99335 1.4807 7.62674 1.4807 8.32955 C1.4807 9.04103 1.58527 9.68744 1.79441 10.2688 C2.00773 10.8458 2.32144 11.3056 2.73553 11.6484 C3.15381 11.9867 3.67247 12.1559 4.29152 12.1559 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="1010.96px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482661247253418,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300447194033 10.333844184875488 C 3.5637246186834703 10.333844184875488 2.7627200184091576 10.121267402023086 2.089293557319025 9.69611342672253 C 1.420049931009585 9.266621149731108 0.9034743112556165 8.667934765466143 0.5395731153659132 7.90005461525743 C 0.17985462261979862 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17985462261979862 3.2797588089325536 0.5395731153659132 2.498863958449121 C 0.9034743112556165 1.7136306697429053 1.4095898493137509 1.1019294486713034 2.0579196966310405 0.6637602952343147 C 2.7104323787290223 0.22125342036711176 3.471699357491967 0 4.341716025621253 0 C 4.843648992172902 0 5.3393044814444774 0.08676584608591967 5.828688746198395 0.26029755532424875 C 6.318073372954347 0.4338299813551467 6.763539287609858 0.715820086189596 7.165085469977377 1.1062678868940865 C 7.566631652344896 1.4923768739130194 7.886619681347142 2.004296951296842 8.125037989373649 2.642028050779595 C 8.363455606305362 3.2797588089325536 8.482661247253418 4.064992097638769 8.482661247253418 4.997727916898242 L 8.482661247253418 5.648473989719551 L 1.0540572519109837 5.648473989719551 L 1.0540572519109837 4.320952306995578 L 6.976867580173333 4.320952306995578 C 6.976867580173333 3.7569724386564745 6.868113925239249 3.253728896388423 6.650609758206928 2.8112216801914256 C 6.437288146226454 2.368714463994428 6.131947295451958 2.019480921882422 5.7345840136836825 1.7635210709218978 C 5.341403303421893 1.5075608615650893 4.877111143870025 1.379580756886685 4.341716025621253 1.379580756886685 C 3.7519451412295846 1.379580756886685 3.241650552957482 1.531421554997828 2.8108249549457036 1.835103117087135 C 2.38418209298679 2.1344462409536584 2.0558275387819873 2.5248931200677034 1.8257750319539687 3.0064448466846123 C 1.59572252512595 3.487996914631316 1.4806962634846215 4.0042565224932645 1.4806962634846215 4.555221417493813 L 1.4806962634846215 5.440235508558014 C 1.4806962634846215 6.195100617162213 1.606182573912508 6.835000423761667 1.8571488926419533 7.359935440351064 C 2.1122981119706425 7.880532086983638 2.465743027185874 8.277487357290916 2.917482601645458 8.550800688078738 C 3.3692221761050423 8.819775665976225 3.894163893240981 8.954263427988803 4.492300447194033 8.954263427988803 C 4.88129825685658 8.954263427988803 5.232649632033172 8.89786472948227 5.546357699105017 8.78506870632163 C 5.864248304774072 8.66793451800204 6.138217779510911 8.494402714898019 6.368270286338929 8.264472503417789 C 6.598322793166948 8.030203939047224 6.776092210022219 7.739537145498597 6.901575369386942 7.392472634766595 L 8.332085250455258 7.808950689345011 C 8.181505041269787 8.312194129214124 7.928447617788116 8.75470144781006 7.572911959822694 9.136472372068983 C 7.217376301857271 9.513904994637041 6.77818296099973 9.808909475482906 6.255336182546654 10.021486463133185 C 5.732489766095613 10.229725149092598 5.14481293183636 10.333844184875488 4.492300447194033 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.08929 9.69611 C1.42005 9.26662 0.903474 8.66794 0.539573 7.90005 C0.179855 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179855 3.27976 0.539573 2.49886 C0.903474 1.71363 1.40959 1.10193 2.05792 0.66376 C2.71043 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.3393 0.0867658 5.82869 0.260298 C6.31807 0.43383 6.76354 0.71582 7.16509 1.10627 C7.56663 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36346 3.27976 8.48266 4.06499 8.48266 4.99773 L8.48266 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81083 1.8351 C2.38418 2.13445 2.05583 2.52489 1.82578 3.00644 C1.59572 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60618 6.835 1.85715 7.35994 C2.1123 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33209 7.80895 C8.18151 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77818 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="1000.68px"
+              />
+              <Icon
+                width="7.55px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.554090976715088,"height":10.125605583190918}}
+                paths={[{"d":"M 6.073386295630859 5.908772566968218 L 6.073386295630859 0 L 7.554090976715089 0 L 7.554090976715089 9.995456807077927 L 6.073386295630859 9.995456807077927 L 6.073386295630859 8.303517256332409 L 5.97300510651004 8.303517256332409 C 5.7471351393737224 8.811099060116701 5.395775357579723 9.242760653480474 4.918939434932094 9.598501729226912 C 4.442103150282432 9.949904503334123 3.8397879439453457 10.125605583190918 3.111985358236978 10.125605583190918 C 2.50966610405898 10.125605583190918 1.9742725680497912 9.98894955941696 1.5058020845580797 9.715636283081801 C 1.0373314365199897 9.437984705107414 0.6692475063610366 9.02150750881073 0.4015500308070146 8.466204318728977 C 0.1338525552529926 7.906562827007996 0 7.201588025575024 0 6.351280153360912 L 0 0 L 1.4807046810842301 0 L 1.4807046810842301 6.247159821764123 C 1.4807046810842301 6.975995248079868 1.6772920569730614 7.55732882825763 2.0704726007832472 7.991159538308036 C 2.467836045172408 8.424990077693547 2.973951416231693 8.641905603383645 3.5888191746909617 8.641905603383645 C 3.956903203577742 8.641905603383645 4.331259806232097 8.544293475171237 4.711892174853769 8.349069764874088 C 5.096707082052384 8.15384596924449 5.418780603214658 7.854502831874498 5.6781127218859515 7.4510403698306 C 5.941627379134188 7.047578010185639 6.073386295630859 6.533488753942505 6.073386295630859 5.908772566968218 Z","fillRule":"nonzero"},{"d":"M6.07339 5.90877 L6.07339 0 L7.55409 0 L7.55409 9.99546 L6.07339 9.99546 L6.07339 8.30352 L5.97301 8.30352 C5.74714 8.8111 5.39578 9.24276 4.91894 9.5985 C4.4421 9.9499 3.83979 10.1256 3.11199 10.1256 C2.50967 10.1256 1.97427 9.98895 1.5058 9.71564 C1.03733 9.43798 0.669248 9.02151 0.40155 8.4662 C0.133853 7.90656 0 7.20159 0 6.35128 L0 0 L1.4807 0 L1.4807 6.24716 C1.4807 6.976 1.67729 7.55733 2.07047 7.99116 C2.46784 8.42499 2.97395 8.6419 3.58882 8.6419 C3.9569 8.6419 4.33126 8.54429 4.71189 8.34907 C5.09671 8.15385 5.41878 7.8545 5.67811 7.45104 C5.94163 7.04758 6.07339 6.53349 6.07339 5.90877 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.83px"
+                left="990.86px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.54px"
+                viewBox={{"minX":0,"minY":0,"width":8.507762908935547,"height":13.535514831542969}}
+                paths={[{"d":"M 0 13.32727634347407 L 0 0 L 1.4807004838254985 0 L 1.4807004838254985 4.919638922713094 L 1.6061832900895352 4.919638922713094 C 1.7149353741898565 4.746106849322345 1.8655162835062828 4.524853233884767 2.057923920072467 4.255878059333868 C 2.2545141117129646 3.9825651802753606 2.534760374140422 3.739620277528312 2.898661670712645 3.527043351092722 C 3.2667457033602 3.310127986290441 3.7644947188894315 3.201670303889301 4.391910856403281 3.201670303889301 C 5.203368631784233 3.201670303889301 5.918621140873949 3.4120780111415447 6.537671477144373 3.8328934256460334 C 7.156722142507559 4.253709215613308 7.639832091866905 4.850226298154679 7.987002312500696 5.6224446391371625 C 8.334172533134486 6.394662980119646 8.507762908935547 7.305707389410495 8.507762908935547 8.35557779874375 C 8.507762908935547 9.414124333884814 8.334172533134486 10.331676059395896 7.987002312500696 11.10823283874507 C 7.639832091866905 11.880451316259476 7.158815699012082 12.479137720383134 6.543947934270609 12.904291709786236 C 5.9290801695291355 13.32510739735457 5.2201006291823955 13.535514831542969 4.417008260133555 13.535514831542969 C 3.79795792386313 13.535514831542969 3.3022982524510884 13.429226436591136 2.930031319181821 13.216649441889585 C 2.55776458336821 12.999734128286775 2.271245714199814 12.754620347686185 2.0704726219376037 12.481307076098402 C 1.8696995296753935 12.203655485609358 1.7149353741898565 11.973724993438397 1.6061832900895352 11.791516128646718 L 1.4305056763649506 11.791516128646718 L 1.4305056763649506 13.32727634347407 L 0 13.32727634347407 Z M 1.4556030800952247 8.329548260798983 C 1.4556030800952247 9.084413599240275 1.562263014562574 9.75034334047304 1.7755844466878847 10.32733796235901 C 1.9889058788131955 10.899994350676172 2.3005235668107353 11.349008624707714 2.710435355122924 11.674381569512194 C 3.1203469788887324 11.995416280747866 3.622279257041712 12.15593402889498 4.216233242678697 12.15593402889498 C 4.835283578949122 12.15593402889498 5.351859168568594 11.986739950142175 5.765953692956114 11.648352031567427 C 6.184231117965347 11.305625879423872 6.497938133625439 10.845764963347913 6.707076846130056 10.26877013666406 C 6.920398113708986 9.687437212943323 7.027058212722716 9.041030512626627 7.027058212722716 8.329548260798983 C 7.027058212722716 7.6267427491727995 6.922492015760907 6.993348940514555 6.713353303256291 6.4293690534679895 C 6.508397491373387 5.86105110351752 6.1967756074431515 5.412036931884918 5.7784981824339186 5.0823254463148055 C 5.364403658046398 4.748275897840788 4.843649051099786 4.581251106537289 4.216233242678697 4.581251106537289 C 3.6139137848910483 4.581251106537289 3.1077984415699755 4.739599362437212 2.697886653257787 5.056295908370037 C 2.2879750294919785 5.368654015936172 1.978450914453599 5.806822808444639 1.7693122019489826 6.370802320028417 C 1.5601734894443662 6.930443768708292 1.4556030800952247 7.583359457761267 1.4556030800952247 8.329548260798983 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L1.4807 0 L1.4807 4.91964 L1.60618 4.91964 C1.71494 4.74611 1.86552 4.52485 2.05792 4.25588 C2.25451 3.98257 2.53476 3.73962 2.89866 3.52704 C3.26675 3.31013 3.76449 3.20167 4.39191 3.20167 C5.20337 3.20167 5.91862 3.41208 6.53767 3.83289 C7.15672 4.25371 7.63983 4.85023 7.987 5.62244 C8.33417 6.39466 8.50776 7.30571 8.50776 8.35558 C8.50776 9.41412 8.33417 10.3317 7.987 11.1082 C7.63983 11.8805 7.15882 12.4791 6.54395 12.9043 C5.92908 13.3251 5.2201 13.5355 4.41701 13.5355 C3.79796 13.5355 3.3023 13.4292 2.93003 13.2167 C2.55776 12.9997 2.27125 12.7546 2.07047 12.4813 C1.8697 12.2037 1.71494 11.9737 1.60618 11.7915 L1.43051 11.7915 L1.43051 13.3273 L0 13.3273 Z M1.4556 8.32955 C1.4556 9.08441 1.56226 9.75034 1.77558 10.3273 C1.98891 10.9 2.30052 11.349 2.71044 11.6744 C3.12035 11.9954 3.62228 12.1559 4.21623 12.1559 C4.83528 12.1559 5.35186 11.9867 5.76595 11.6484 C6.18423 11.3056 6.49794 10.8458 6.70708 10.2688 C6.9204 9.68744 7.02706 9.04103 7.02706 8.32955 C7.02706 7.62674 6.92249 6.99335 6.71335 6.42937 C6.5084 5.86105 6.19678 5.41204 5.7785 5.08233 C5.3644 4.74828 4.84365 4.58125 4.21623 4.58125 C3.61391 4.58125 3.1078 4.7396 2.69789 5.0563 C2.28798 5.36865 1.97845 5.80682 1.76931 6.3708 C1.56017 6.93044 1.4556 7.58336 1.4556 8.32955 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="980.09px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.7046709060668945,"height":10.359874725341797}}
+                paths={[{"d":"M 3.287662851070068 10.359874725341797 C 2.6769780153120144 10.359874725341797 2.122758419120844 10.240571314889168 1.6250083736115175 10.001964459850928 C 1.12725839392074 9.759019302701645 0.7319859863193432 9.409786426491468 0.4391919077206412 8.954264295236168 C 0.14639782912193927 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875365046746496 6.251499110486931 0.32625780856667913 5.895757893652635 C 0.5437620489390795 5.53567840884028 0.8344639862292929 5.253688993486879 1.1983651671732207 5.0497885724034735 C 1.5622663481171486 4.845888151320068 1.9638155745553059 4.694046433978643 2.4030067911811823 4.594265621956588 C 2.8463807107788597 4.490146371291558 3.2918425922071632 4.40771967650434 3.7393992476859164 4.346983357350659 C 4.32498740488332 4.268893646288024 4.799735381336075 4.210325816863324 5.163636825554199 4.171280961332006 C 5.531720841107026 4.127898029820657 5.799417681687411 4.0563159809891065 5.966728433301414 3.9565348020374853 C 6.138222085342866 3.8567539900154295 6.2239662786216305 3.683221171714583 6.2239662786216305 3.4359374564568865 L 6.2239662786216305 3.383878377252096 C 6.2239662786216305 2.74180911869002 6.054567236084256 2.242903966324292 5.715762832428801 1.8871629201549103 C 5.381140967198775 1.531421873985529 4.872931893520005 1.3535513509008383 4.191139856688902 1.3535513509008383 C 3.484251272934247 1.3535513509008383 2.9300357574931164 1.5140686655413573 2.5284895916174888 1.8351032948223953 C 2.1269432611954886 2.156137924103433 1.8446034553760635 2.4988634836789783 1.6814754231884985 2.863281031671497 L 0.2760630034373016 2.3426847783463476 C 0.5270293941325027 1.735321936672615 0.8616523782778623 1.2624466993720922 1.2799296193148904 0.9240590323117965 C 1.7023897607793665 0.581332585278699 2.1624947555384444 0.34272573024045916 2.6602446365013983 0.20823850133005992 C 3.1621774178918005 0.06941283377668664 3.65574755771766 0 4.140949263946662 0 C 4.450474417706764 0 4.806009007973207 0.03904448860175248 5.207555173848835 0.11713347433850316 C 5.613284240151911 0.19088474675816383 6.004373484051664 0.3448945911656271 6.380822938457367 0.5791629904944015 C 6.761455293290519 0.8134321236823056 7.077251983948822 1.1670043259930103 7.328218292370837 1.639879563293533 C 7.579184946340234 2.1127548005940557 7.704670906066894 2.7461475573329945 7.704670906066894 3.5400577993773656 L 7.704670906066894 10.125606684409341 L 6.2239662786216305 10.125606684409341 L 6.2239662786216305 8.772055333508504 L 6.148678283314702 8.772055333508504 C 6.048291478571599 8.988970660925037 5.880982133829081 9.221069397203548 5.646747081569476 9.468352890596856 C 5.412511683762489 9.715636332790691 5.1008940102372415 9.926044889700316 4.711896216551213 10.099577144806947 C 4.322898422865184 10.273109399913578 3.8481544613439205 10.359874725341797 3.287662851070068 10.359874725341797 Z M 3.513531049377992 8.980293834838564 C 4.099119206575396 8.980293834838564 4.592684969467745 8.860990407319443 4.994231464436118 8.622383569347695 C 5.3999601687371745 8.383776731375947 5.7053055813601805 8.075757230292426 5.910261383724433 7.698324537035899 C 6.1194000865161335 7.320891843779372 6.2239662786216305 6.923936552092273 6.2239662786216305 6.507459173969342 L 6.2239662786216305 5.101847651608264 C 6.161224878403478 5.179937362670898 6.0231933766848265 5.2515194157690726 5.809871773465678 5.316593810902785 C 5.600733070673978 5.377330130056466 5.35813537684983 5.431559520838192 5.082072373412529 5.4792808909925155 C 4.810192270402675 5.522664185166807 4.544584757387807 5.561707948442675 4.285253010112916 5.596414365331018 C 4.0301038012634525 5.626782524907858 3.823056548685477 5.652812610637978 3.664111252378987 5.674504076393653 C 3.2792959971183873 5.726563701726168 2.9195785064244957 5.811160703823699 2.5849566411944696 5.928295091219492 C 2.2545175118455187 6.041091039972311 1.9868208358115056 6.212454630418424 1.7818650334472534 6.442384778835629 C 1.5810919505094396 6.667976676341266 1.480704627445263 6.975996177424787 1.480704627445263 7.366443811147426 C 1.480704627445263 7.900055482800446 1.6710192252166622 8.303517698592877 2.051651580049814 8.576831055851917 C 2.4364666707640414 8.84580605980044 2.923760189208787 8.980293834838564 3.513531049377992 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67698 10.3599 2.12276 10.2406 1.62501 10.002 C1.12726 9.75902 0.731986 9.40979 0.439192 8.95426 C0.146398 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834464 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40301 4.59427 C2.84638 4.49015 3.29184 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79974 4.21033 5.16364 4.17128 C5.53172 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05457 2.2429 5.71576 1.88716 C5.38114 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93004 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861652 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16218 0.0694128 3.65575 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07725 1.167 7.32822 1.63988 C7.57918 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88098 9.22107 5.64675 9.46835 C5.41251 9.71564 5.10089 9.92605 4.7119 10.0996 C4.3229 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09912 8.98029 4.59268 8.86099 4.99423 8.62238 C5.39996 8.38378 5.70531 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16122 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35814 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82306 5.65281 3.66411 5.6745 C3.2793 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98682 6.21245 1.78187 6.44239 C1.58109 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="969.48px"
+              />
+              <Icon
+                width="2.26px"
+                height="9.76px"
+                viewBox={{"minX":0,"minY":0,"width":2.2586944103240967,"height":9.761188507080078}}
+                paths={[{"d":"M 1.1293450989686755 9.761188507080078 C 0.8198199739749472 9.761188507080078 0.5542169613057926 9.646223794257853 0.3325300221098997 9.416293566488333 C 0.11084308291400685 9.186363355785303 0 8.910880803436159 0 8.58984614837177 C 0 8.26881149330738 0.11084308291400685 7.993328958024725 0.3325300221098997 7.763398730255204 C 0.5542169613057926 7.533468502485683 0.8198199739749472 7.41850269740804 1.1293450989686755 7.41850269740804 C 1.4388702239624038 7.41850269740804 1.70447735029049 7.533468502485683 1.9261643882141972 7.763398730255204 C 2.1478512451369114 7.993328958024725 2.2586944103240967 8.26881149330738 2.2586944103240967 8.58984614837177 C 2.2586944103240967 8.802423134015468 2.2064113191303885 8.997646211940197 2.101841977452912 9.175516781598214 C 2.0014555358141366 9.35338735125623 1.8655133907497128 9.496551436662601 1.6940197546463862 9.605009089016802 C 1.526708837580768 9.709128439372792 1.3384837823236286 9.761188507080078 1.1293450989686755 9.761188507080078 Z M 1.1293450989686755 2.342684717416617 C 0.8198199739749472 2.342684717416617 0.5542169613057926 2.2277197315305384 0.3325300221098997 1.997789776824873 C 0.11084308291400685 1.7678594466564066 0 1.4923769796397153 0 1.1713423587083085 C 0 0.8503077377769016 0.11084308291400685 0.5748252707602103 0.3325300221098997 0.3448949405917439 C 0.5542169613057926 0.11496498588607831 0.8198199739749472 0 1.1293450989686755 0 C 1.4388702239624038 0 1.70447735029049 0.11496498588607831 1.9261643882141972 0.3448949405917439 C 2.1478512451369114 0.5748252707602103 2.2586944103240967 0.8503077377769016 2.2586944103240967 1.1713423587083085 C 2.2586944103240967 1.383919293152534 2.2064113191303885 1.5791424734762083 2.101841977452912 1.7570129919347524 C 2.0014555358141366 1.9348835103932964 1.8655133907497128 2.0780476128661594 1.6940197546463862 2.1865052993533407 C 1.526708837580768 2.2906245473103843 1.3384837823236286 2.342684717416617 1.1293450989686755 2.342684717416617 Z","fillRule":"nonzero"},{"d":"M1.12935 9.76119 C0.81982 9.76119 0.554217 9.64622 0.33253 9.41629 C0.110843 9.18636 0 8.91088 0 8.58985 C0 8.26881 0.110843 7.99333 0.33253 7.7634 C0.554217 7.53347 0.81982 7.4185 1.12935 7.4185 C1.43887 7.4185 1.70448 7.53347 1.92616 7.7634 C2.14785 7.99333 2.25869 8.26881 2.25869 8.58985 C2.25869 8.80242 2.20641 8.99765 2.10184 9.17552 C2.00146 9.35339 1.86551 9.49655 1.69402 9.60501 C1.52671 9.70913 1.33848 9.76119 1.12935 9.76119 Z M1.12935 2.34268 C0.81982 2.34268 0.554217 2.22772 0.33253 1.99779 C0.110843 1.76786 0 1.49238 0 1.17134 C0 0.850308 0.110843 0.574825 0.33253 0.344895 C0.554217 0.114965 0.81982 0 1.12935 0 C1.43887 0 1.70448 0.114965 1.92616 0.344895 C2.14785 0.574825 2.25869 0.850308 2.25869 1.17134 C2.25869 1.38392 2.20641 1.57914 2.10184 1.75701 C2.00146 1.93488 1.86551 2.07805 1.69402 2.18651 C1.52671 2.29062 1.33848 2.34268 1.12935 2.34268 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9652.17px"
+                left="960.05px"
+              />
+              <Icon
+                width="1.48px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":1.4807045459747314,"height":13.327277183532715}}
+                paths={[{"d":"M 1.4807045459747314 0 L 1.4807045459747314 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.4807045459747314 0 Z","fillRule":"nonzero"},{"d":"M1.4807 0 L1.4807 13.3273 L0 13.3273 L0 0 L1.4807 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="955.9px"
+              />
+              <Icon
+                width="2.11px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":2.108118772506714,"height":13.743752479553223}}
+                paths={[{"d":"M 0.30116042641344815 13.743752479553223 L 0.30116042641344815 3.7482958328994305 L 1.7818651542149977 3.7482958328994305 L 1.7818651542149977 13.743752479553223 L 0.30116042641344815 13.743752479553223 Z M 1.0540614924470684 2.082386937918121 C 0.7654501301685099 2.082386937918121 0.5165755183666825 1.9804365609022283 0.30743688367358235 1.7765357898039535 C 0.10248098514504703 1.572635752564717 0 1.3275216456164194 0 1.0411934689590605 C 0 0.7548652923017016 0.10248098514504703 0.5097508269571296 0.30743688367358235 0.30585005585885483 C 0.5165755183666825 0.10195001861961828 0.7654501301685099 0 1.0540614924470684 0 C 1.3426728547256268 0 1.5894538277050767 0.10195001861961828 1.7944096439604202 0.30585005585885483 C 2.0035483609267124 0.5097508269571296 2.108118772506714 0.7548652923017016 2.108118772506714 1.0411934689590605 C 2.108118772506714 1.3275216456164194 2.0035483609267124 1.572635752564717 1.7944096439604202 1.7765357898039535 C 1.5894538277050767 1.9804365609022283 1.3426728547256268 2.082386937918121 1.0540614924470684 2.082386937918121 Z","fillRule":"nonzero"},{"d":"M0.30116 13.7438 L0.30116 3.7483 L1.78187 3.7483 L1.78187 13.7438 L0.30116 13.7438 Z M1.05406 2.08239 C0.76545 2.08239 0.516576 1.98044 0.307437 1.77654 C0.102481 1.57264 0 1.32752 0 1.04119 C0 0.754865 0.102481 0.509751 0.307437 0.30585 C0.516576 0.10195 0.76545 0 1.05406 0 C1.34267 0 1.58945 0.10195 1.79441 0.30585 C2.00355 0.509751 2.10812 0.754865 2.10812 1.04119 C2.10812 1.32752 2.00355 1.57264 1.79441 1.77654 C1.58945 1.98044 1.34267 2.08239 1.05406 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.08px"
+                left="951.41px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704668998718262,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876587235320387 10.359874725341797 C 2.6769738720132055 10.359874725341797 2.122756367712154 10.240571314889168 1.6250063093567104 10.001964459850928 C 1.1272563168198175 9.759019302701645 0.7319860052107077 9.409786426491468 0.43919191905546806 8.954264295236168 C 0.14639783290022845 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875154708059628 6.251499110486931 0.32625571079323806 5.895757893652635 C 0.5437599567790683 5.53567840884028 0.8344640077654473 5.253688993486879 1.1983651981010712 5.0497885724034735 C 1.5622663884366952 4.845888151320068 1.9638114128509367 4.694046433978643 2.4030026408116223 4.594265621956588 C 2.8463765718520575 4.490146371291558 3.2918426771642517 4.40771967650434 3.7393993441937123 4.346983357350659 C 4.3249875165041916 4.268893646288024 4.799731292822171 4.210325816863324 5.163632746431998 4.171280961332006 C 5.531716771484473 4.127898029820657 5.799415725167301 4.0563159809891065 5.966726481099322 3.9565348020374853 C 6.138220137566744 3.8567539900154295 6.223966439252051 3.683221171714583 6.223966439252051 3.4359374564568865 L 6.223966439252051 3.383878377252096 C 6.223966439252051 2.74180911869002 6.054563179955517 2.242903966324292 5.715758767556073 1.8871629201549103 C 5.381136893690002 1.531421873985529 4.872929913088807 1.3535513509008383 4.191137858661763 1.3535513509008383 C 3.4842492566634675 1.3535513509008383 2.9300316207253148 1.5140686655413573 2.5284854444864355 1.8351032948223953 C 2.1269391037011793 2.156137924103433 1.8446035029822705 2.4988634836789783 1.681475466584637 2.863281031671497 L 0.2760630105620375 2.3426847783463476 C 0.5270294077342719 1.735321936672615 0.8616502943220821 1.2624466993720922 1.2799275461541635 0.9240590323117965 C 1.7023876985216468 0.581332585278699 2.1624927051552842 0.34272573024045916 2.6602425989643512 0.20823850133005992 C 3.16217539330882 0.06941283377668664 3.6557434396792967 0 4.140945158430563 0 C 4.450470320179005 0 4.806007025814839 0.03904448860175248 5.2075532020537185 0.11713347433850316 C 5.613282278828 0.19088474675816383 6.004371532821128 0.3448945911656271 6.3808209969423775 0.5791629904944015 C 6.761453361599029 0.8134321236823056 7.077252166601154 1.1670043259930103 7.3282184815002 1.639879563293533 C 7.579185141946637 2.1127548005940557 7.704668998718262 2.7461475573329945 7.704668998718262 3.5400577993773656 L 7.704668998718262 10.125606684409341 L 6.223966439252051 10.125606684409341 L 6.223966439252051 8.772055333508504 L 6.148676335808438 8.772055333508504 C 6.048289528474515 8.988970660925037 5.880978073220393 9.221069397203548 5.646743014915564 9.468352890596856 C 5.412507611063343 9.715636332790691 5.100892035689374 9.926044889700316 4.711894231963947 10.099577144806947 C 4.322896428238519 10.273109399913578 3.8481503482712656 10.359874725341797 3.2876587235320387 10.359874725341797 Z M 3.5135290338628753 8.980293834838564 C 4.0991172061733545 8.980293834838564 4.592685087997454 8.860990407319443 4.994231593329087 8.622383569347695 C 5.39996030810134 8.383776731375947 5.705301516217568 8.075757230292426 5.910257323871395 7.698324537035899 C 6.119396032060624 7.320891843779372 6.223966439252051 6.923936552092273 6.223966439252051 6.507459173969342 L 6.223966439252051 5.101847651608264 C 6.161225037414644 5.179937362670898 6.023193532133625 5.2515194157690726 5.809871923408994 5.316593810902785 C 5.600733215219765 5.377330130056466 5.35813130274732 5.431559520838192 5.082068292185283 5.4792808909925155 C 4.810188182158647 5.522664185166807 4.544582768482505 5.561707948442675 4.285251014514684 5.596414365331018 C 4.030101799080236 5.626782524907858 3.8230545411587085 5.652812610637978 3.6641092407501 5.674504076393653 C 3.279293975558046 5.726563701726168 2.9195764755804325 5.811160703823699 2.5849546017143616 5.928295091219492 C 2.2545154638373157 6.041091039972311 1.986816674700865 6.212454630418424 1.781860867047038 6.442384778835629 C 1.5810877789275983 6.667976676341266 1.4807025594662118 6.975996177424787 1.4807025594662118 7.366443811147426 C 1.4807025594662118 7.900055482800446 1.6710171621493204 8.303517698592877 2.0516495268059725 8.576831055851917 C 2.4364646274516497 8.84580605980044 2.923758158472646 8.980293834838564 3.5135290338628753 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67697 10.3599 2.12276 10.2406 1.62501 10.002 C1.12726 9.75902 0.731986 9.40979 0.439192 8.95426 C0.146398 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108752 6.2515 0.326256 5.89576 C0.54376 5.53568 0.834464 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96381 4.69405 2.403 4.59427 C2.84638 4.49015 3.29184 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79973 4.21033 5.16363 4.17128 C5.53172 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05456 2.2429 5.71576 1.88716 C5.38114 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.86165 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16218 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76145 0.813432 7.07725 1.167 7.32822 1.63988 C7.57919 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88098 9.22107 5.64674 9.46835 C5.41251 9.71564 5.10089 9.92605 4.71189 10.0996 C4.3229 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82305 5.65281 3.66411 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58495 5.9283 C2.25452 6.04109 1.98682 6.21245 1.78186 6.44239 C1.58109 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43646 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="941.3px"
+              />
+              <Icon
+                width="12.65px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":12.648707389831543,"height":10.125605583190918}}
+                paths={[{"d":"M 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305078153695212 0.13014877611298983 L 1.4305078153695212 1.6919390046178533 L 1.555991677608557 1.6919390046178533 C 1.756764774475808 1.1583274933971328 2.080929921221223 0.7440192089892081 2.528486607751012 0.449014151394079 C 2.9760432942808013 0.14967137242036666 3.5135291869495706 0 4.140945338854178 0 C 4.776726963101324 0 5.305847745429599 0.14967137242036666 5.72830771874828 0.449014151394079 C 6.154950592784614 0.7440192089892081 6.487481030871546 1.1583274933971328 6.725899000099799 1.6919390046178533 L 6.826286511129771 1.6919390046178533 C 7.073070281793331 1.175680529289147 7.4432436670485735 0.7657106830523661 7.936810846373651 0.46202946590751004 C 8.430378387700772 0.15400981059151037 9.022241989699038 0 9.712399546174735 0 C 10.574050437497174 0 11.278847422480569 0.2798205239961262 11.826790566943473 0.8394615719883786 C 12.374734402501188 1.3947648986020478 12.648707389831541 2.2602563828247284 12.648707389831541 3.4359370827787705 L 12.648707389831541 10.125605583190918 L 11.168002659656462 10.125605583190918 L 11.168002659656462 3.4359370827787705 C 11.168002659656462 2.6984251897164873 10.973504785961527 2.1713216770822727 10.584506965287218 1.8546255208867555 C 10.19550914461291 1.5379289892284684 9.737495535381754 1.3795807404658145 9.210466203412306 1.3795807404658145 C 8.53285734908957 1.3795807404658145 8.00791946747895 1.5921578279847695 7.635652525671166 2.017312037155658 C 7.263385583863382 2.4381274326926334 7.077252129414128 2.971739490041019 7.077252129414128 3.6181471169454844 L 7.077252129414128 10.125605583190918 L 5.571454207320556 10.125605583190918 L 5.571454207320556 3.2797587698942485 C 5.571454207320556 2.711440845559709 5.3936858303025215 2.2537496471584473 5.038150162272584 1.9066851405574845 C 4.682614494242646 1.5552821957853782 4.224600193916678 1.3795807404658145 3.6641083473008136 1.3795807404658145 C 3.2792934273441583 1.3795807404658145 2.91957554969138 1.4858691988928443 2.584953661245621 1.6984461157469037 C 2.254514508971132 1.9110233909972434 1.9868167612677317 2.206027714733323 1.7818609446838496 2.583460196276961 C 1.5810878478165988 2.956554580979246 1.480701570884507 3.3882160719440804 1.480701570884507 3.878444669171464 L 1.480701570884507 10.125605583190918 L 0 10.125605583190918 Z","fillRule":"nonzero"},{"d":"M0 10.1256 L0 0.130149 L1.43051 0.130149 L1.43051 1.69194 L1.55599 1.69194 C1.75676 1.15833 2.08093 0.744019 2.52849 0.449014 C2.97604 0.149671 3.51353 0 4.14095 0 C4.77673 0 5.30585 0.149671 5.72831 0.449014 C6.15495 0.744019 6.48748 1.15833 6.7259 1.69194 L6.82629 1.69194 C7.07307 1.17568 7.44324 0.765711 7.93681 0.462029 C8.43038 0.15401 9.02224 0 9.7124 0 C10.5741 0 11.2788 0.279821 11.8268 0.839462 C12.3747 1.39476 12.6487 2.26026 12.6487 3.43594 L12.6487 10.1256 L11.168 10.1256 L11.168 3.43594 C11.168 2.69843 10.9735 2.17132 10.5845 1.85463 C10.1955 1.53793 9.7375 1.37958 9.21047 1.37958 C8.53286 1.37958 8.00792 1.59216 7.63565 2.01731 C7.26339 2.43813 7.07725 2.97174 7.07725 3.61815 L7.07725 10.1256 L5.57145 10.1256 L5.57145 3.27976 C5.57145 2.71144 5.39369 2.25375 5.03815 1.90668 C4.68261 1.55528 4.2246 1.37958 3.66411 1.37958 C3.27929 1.37958 2.91958 1.48587 2.58495 1.69845 C2.25451 1.91102 1.98682 2.20603 1.78186 2.58346 C1.58109 2.95655 1.4807 3.38822 1.4807 3.87844 L1.4807 10.1256 L0 10.1256 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9651.7px"
+                left="926.4px"
+              />
+              <Icon
+                width="7.86px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.855247974395752,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 7.754860470015954 0 L 7.754860470015954 1.431641061033575 L 1.5559915745318595 1.431641061033575 L 1.5559915745318595 5.934802745329102 L 7.353314664883908 5.934802745329102 L 7.353314664883908 7.366443806362677 L 1.5559915745318595 7.366443806362677 L 1.5559915745318595 11.895636122499141 L 7.855247974395753 11.895636122499141 L 7.855247974395753 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L7.75486 0 L7.75486 1.43164 L1.55599 1.43164 L1.55599 5.9348 L7.35331 5.9348 L7.35331 7.36644 L1.55599 7.36644 L1.55599 11.8956 L7.85525 11.8956 L7.85525 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9648.5px"
+                left="916.04px"
+              />
+            </View>
+            <View
+              width="396.96px"
+              height="17.49px"
+              display="block"
+              position="absolute"
+              top="9573.64px"
+              left="916.04px"
+            >
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482669830322266,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492292106249613 10.333844184875488 C 3.5637162604109918 10.333844184875488 2.762736919513548 10.121267402023086 2.0893104458566736 9.69611342672253 C 1.420066807058547 9.266621149731108 0.9034911776648139 8.667934765466143 0.5395899749843878 7.90005461525743 C 0.17987147552560334 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17987147552560334 3.2797588089325536 0.5395899749843878 2.498863958449121 C 0.9034911776648139 1.7136306697429053 1.4096067251675186 1.1019294486713034 2.0579365845832247 0.6637602952343147 C 2.7104492788576784 0.22125342036711176 3.471707847051769 0 4.341724531416347 0 C 4.843657507334515 0 5.339313005855468 0.08676584608591967 5.828697279741735 0.26029755532424875 C 6.318081915630042 0.4338299813551467 6.763556263373125 0.715820086189596 7.165102453233857 1.1062678868940865 C 7.566648643094588 1.4923768739130194 7.886636678068098 2.004296951296842 8.125054990543704 2.642028050779595 C 8.363472611924504 3.2797588089325536 8.482669830322266 4.064992097638769 8.482669830322266 4.997727916898242 L 8.482669830322266 5.648473989719551 L 1.0540741211301938 5.648473989719551 L 1.0540741211301938 4.320952306995578 L 6.9768592855931635 4.320952306995578 C 6.9768592855931635 3.7569724386564745 6.868122478179195 3.253728896388423 6.650618307088051 2.8112216801914256 C 6.437296691126804 2.368714463994428 6.131938985104818 2.019480921882422 5.734575695921388 1.7635210709218978 C 5.3413949783224925 1.5075608615650893 4.877119659656072 1.379580756886685 4.341724531416347 1.379580756886685 C 3.751953636019025 1.379580756886685 3.2416674629991458 1.531421554997828 2.8108418569477753 1.835103117087135 C 2.384198987027323 2.1344462409536584 2.0558360019203517 2.5248931200677034 1.8257834907993469 3.0064448466846123 C 1.5957309796783419 3.487996914631316 1.4807047158905204 4.0042565224932645 1.4807047158905204 4.555221417493813 L 1.4807047158905204 5.440235508558014 C 1.4807047158905204 6.195100617162213 1.606191028660094 6.835000423761667 1.857157352072796 7.359935440351064 C 2.1123065761627986 7.880532086983638 2.4657599227484073 8.277487357290916 2.917499505637857 8.550800688078738 C 3.369239088527307 8.819775665976225 3.8941555411347957 8.954263427988803 4.492292106249613 8.954263427988803 C 4.881289923171207 8.954263427988803 5.232658154453887 8.89786472948227 5.5463662273798064 8.78506870632163 C 5.864256838980985 8.66793451800204 6.138234743605118 8.494402714898019 6.3682872547261224 8.264472503417789 C 6.598339765847127 8.030203939047224 6.77609233647018 7.739537145498597 6.9015754981765305 7.392472634766595 L 8.332102255489 7.808950689345011 C 8.181522043493567 8.312194129214124 7.928464615289618 8.75470144781006 7.572928950689581 9.136472372068983 C 7.2173932860895444 9.513904994637041 6.778174662711927 9.808909475482906 6.255327874502061 10.021486463133185 C 5.732481448294237 10.229725149092598 5.144804603068407 10.333844184875488 4.492292106249613 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.49229 10.3338 C3.56372 10.3338 2.76274 10.1213 2.08931 9.69611 C1.42007 9.26662 0.903491 8.66794 0.53959 7.90005 C0.179871 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179871 3.27976 0.53959 2.49886 C0.903491 1.71363 1.40961 1.10193 2.05794 0.66376 C2.71045 0.221253 3.47171 0 4.34172 0 C4.84366 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76356 0.71582 7.1651 1.10627 C7.56665 1.49238 7.88664 2.0043 8.12506 2.64203 C8.36347 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05407 5.64847 L1.05407 4.32095 L6.97686 4.32095 C6.97686 3.75697 6.86812 3.25373 6.65062 2.81122 C6.4373 2.36871 6.13194 2.01948 5.73458 1.76352 C5.34139 1.50756 4.87712 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24167 1.53142 2.81084 1.8351 C2.3842 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85716 7.35994 C2.11231 7.88053 2.46576 8.27749 2.9175 8.5508 C3.36924 8.81978 3.89416 8.95426 4.49229 8.95426 C4.88129 8.95426 5.23266 8.89787 5.54637 8.78507 C5.86426 8.66793 6.13824 8.4944 6.36829 8.26447 C6.59834 8.0302 6.77609 7.73954 6.90158 7.39247 L8.3321 7.80895 C8.18152 8.31219 7.92846 8.7547 7.57293 9.13647 C7.21739 9.51391 6.77817 9.80891 6.25533 10.0215 C5.73248 10.2297 5.1448 10.3338 4.49229 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1304.52px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.169913291931152,"height":12.520350456237793}}
+                paths={[{"d":"M 4.994239898428361 2.3947447244968454 L 4.994239898428361 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.994239898428361 2.3947447244968454 Z M 1.4555988027929274 0 L 2.936303432971157 0 L 2.936303432971157 9.526919823680572 C 2.936303432971157 9.960750369430693 2.9969444317648453 10.286123662739305 3.1182448585459825 10.503038935614367 C 3.243728012988597 10.715615940919534 3.402679455395481 10.858779948313828 3.5950870833809114 10.932531213794595 C 3.7916774308005006 11.00194404104057 3.998724683760628 11.036650454663558 4.216228842261294 11.036650454663558 C 4.379357039296321 11.036650454663558 4.513217932448623 11.027973032066301 4.617787284037479 11.010619825254807 C 4.722356635626334 10.988928271940903 4.806003060265057 10.971575610190428 4.868744460599014 10.958560750948 L 5.1699132919311515 12.338141511653271 C 5.069526487002762 12.377186265378734 4.9294098616197966 12.416231313501147 4.749550753938862 12.45527606722661 C 4.569691646257927 12.498659126921568 4.3417242800906415 12.520350456237793 4.065661276143805 12.520350456237793 C 3.6473838697883814 12.520350456237793 3.23745998914388 12.42707708909144 2.8359138225271106 12.240529928136494 C 2.438550391799137 12.053982784248037 2.108102310517604 11.769823954443867 1.8445874813278804 11.388053029128226 C 1.5852556348465114 11.006282103812586 1.4555988027929274 10.524729829735103 1.4555988027929274 9.943396787156425 L 1.4555988027929274 0 Z","fillRule":"nonzero"},{"d":"M4.99424 2.39474 L4.99424 3.69624 L0 3.69624 L0 2.39474 L4.99424 2.39474 Z M1.4556 0 L2.9363 0 L2.9363 9.52692 C2.9363 9.96075 2.99694 10.2861 3.11824 10.503 C3.24373 10.7156 3.40268 10.8588 3.59509 10.9325 C3.79168 11.0019 3.99872 11.0367 4.21623 11.0367 C4.37936 11.0367 4.51322 11.028 4.61779 11.0106 C4.72236 10.9889 4.806 10.9716 4.86874 10.9586 L5.16991 12.3381 C5.06953 12.3772 4.92941 12.4162 4.74955 12.4553 C4.56969 12.4987 4.34172 12.5204 4.06566 12.5204 C3.64738 12.5204 3.23746 12.4271 2.83591 12.2405 C2.43855 12.054 2.1081 11.7698 1.84459 11.3881 C1.58526 11.0063 1.4556 10.5247 1.4556 9.9434 L1.4556 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.99px"
+                left="1297.85px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704658031463623,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876501125899797 10.359874725341797 C 2.676965295651988 10.359874725341797 2.12275414131475 10.240571314889168 1.625004111145065 10.001964459850928 C 1.127254146793927 9.759019302701645 0.7319943885350427 9.409786426491468 0.4392003189596573 8.954264295236168 C 0.14640624938427182 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087704966639296 6.251499110486931 0.3262746480601091 5.895757893652635 C 0.5437788817294723 5.53567840884028 0.8344723852868293 5.253688993486879 1.1983735550160648 5.0497885724034735 C 1.5622747247453002 4.845888151320068 1.963823938808529 4.694046433978643 2.4030151418994277 4.594265621956588 C 2.8463890478332248 4.490146371291558 3.2918635526943243 4.40771967650434 3.739420194380294 4.346983357350659 C 4.3250083335310645 4.268893646288024 4.799743658192032 4.210325816863324 5.1636450911954554 4.171280961332006 C 5.531729095404684 4.127898029820657 5.799417502961183 4.0563159809891065 5.96672824941901 3.9565348020374853 C 6.138221896175376 3.8567539900154295 6.223987148746718 3.683221171714583 6.223987148746718 3.4359374564568865 L 6.223987148746718 3.383878377252096 C 6.223987148746718 2.74180911869002 6.054575474268855 2.242903966324292 5.715771081054661 1.8871629201549103 C 5.381149226136998 1.531421873985529 4.87294859289421 1.3535513509008383 4.191156577074548 1.3535513509008383 C 3.484268015104758 1.3535513509008383 2.9300230300343655 1.5140686655413573 2.528476876533572 1.8351032948223953 C 2.1269305584864107 2.156137924103433 1.8446118233031614 2.4988634836789783 1.6814837961428697 2.863281031671497 L 0.27606299492960273 2.3426847783463476 C 0.5270293778905314 1.735321936672615 0.8616481393364854 1.2624466993720922 1.2799253674830617 0.9240590323117965 C 1.7023854959281777 0.581332585278699 2.1624904765077577 0.34272573024045916 2.6602403421310754 0.20823850133005992 C 3.162173108052933 0.06941283377668664 3.655743232667966 0 4.140944923944041 0 C 4.450470068165209 0 4.806008859861809 0.03904448860175248 5.207555013362603 0.11713347433850316 C 5.613284067161936 0.19088474675816383 6.004373299009115 0.3448945911656271 6.3808227418134145 0.5791629904944015 C 6.761455084916253 0.8134321236823056 7.077272827777384 1.1670043259930103 7.328239128465129 1.639879563293533 C 7.579205774700246 2.1127548005940557 7.704658031463623 2.7461475573329945 7.704658031463623 3.5400577993773656 L 7.704658031463623 10.125606684409341 L 6.223987148746718 10.125606684409341 L 6.223987148746718 8.772055333508504 L 6.148669669050959 8.772055333508504 C 6.048282867401572 8.988970660925037 5.880990377363218 9.221069397203548 5.64675533232226 9.468352890596856 C 5.4125199417339305 9.715636332790691 5.100906490199112 9.926044889700316 4.711908708501202 10.099577144806947 C 4.322910926803292 10.273109399913578 3.8481417055906233 10.359874725341797 3.2876501125899797 10.359874725341797 Z M 3.5135351534851367 8.980293834838564 C 4.099123292635907 8.980293834838564 4.592693252704574 8.860990407319443 4.994239735298103 8.622383569347695 C 5.399968427095428 8.383776731375947 5.7052927683732735 8.075757230292426 5.910248564421206 7.698324537035899 C 6.119387260767678 7.320891843779372 6.223987148746718 6.923936552092273 6.223987148746718 6.507459173969342 L 6.223987148746718 5.101847651608264 C 6.161245750462127 5.179937362670898 6.023214252997326 5.2515194157690726 5.809892656352314 5.316593810902785 C 5.600753960005842 5.377330130056466 5.358122574562 5.431559520838192 5.082059579632397 5.4792808909925155 C 4.810179485001334 5.522664185166807 4.5445761925589565 5.561707948442675 4.285244453276141 5.596414365331018 C 4.030095252289856 5.626782524907858 3.823048006092654 5.652812610637978 3.6641027146845344 5.674504076393653 C 3.279287471283156 5.726563701726168 2.9195784164490393 5.811160703823699 2.5849565615313765 5.928295091219492 C 2.254517442365886 6.041091039972311 1.9868291993557539 6.212454630418424 1.7818734033078216 6.442384778835629 C 1.5811003265574248 6.667976676341266 1.4807045818129656 6.975996177424787 1.4807045818129656 7.366443811147426 C 1.4807045818129656 7.900055482800446 1.6710360232672874 8.303517698592877 2.051668366370126 8.576831055851917 C 2.4364834452251367 8.84580605980044 2.923764311491467 8.980293834838564 3.5135351534851367 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28765 10.3599 C2.67697 10.3599 2.12275 10.2406 1.625 10.002 C1.12725 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.10877 6.2515 0.326275 5.89576 C0.543779 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29186 4.40772 3.73942 4.34698 C4.32501 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22399 3.68322 6.22399 3.43594 L6.22399 3.38388 C6.22399 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87295 1.35355 4.19116 1.35355 C3.48427 1.35355 2.93002 1.51407 2.52848 1.8351 C2.12693 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861648 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16217 0.0694128 3.65574 0 4.14094 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07727 1.167 7.32824 1.63988 C7.57921 2.11275 7.70466 2.74615 7.70466 3.54006 L7.70466 10.1256 L6.22399 10.1256 L6.22399 8.77206 L6.14867 8.77206 C6.04828 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10091 9.92605 4.71191 10.0996 C4.32291 10.2731 3.84814 10.3599 3.28765 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70529 8.07576 5.91025 7.69832 C6.11939 7.32089 6.22399 6.92394 6.22399 6.50746 L6.22399 5.10185 C6.16125 5.17994 6.02321 5.25152 5.80989 5.31659 C5.60075 5.37733 5.35812 5.43156 5.08206 5.47928 C4.81018 5.52266 4.54458 5.56171 4.28524 5.59641 C4.0301 5.62678 3.82305 5.65281 3.6641 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67104 8.30352 2.05167 8.57683 C2.43648 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1288.25px"
+              />
+              <Icon
+                width="5.17px"
+                height="12.52px"
+                viewBox={{"minX":0,"minY":0,"width":5.169913291931152,"height":12.520350456237793}}
+                paths={[{"d":"M 4.994239898428361 2.3947447244968454 L 4.994239898428361 3.696236327614231 L 0 3.696236327614231 L 0 2.3947447244968454 L 4.994239898428361 2.3947447244968454 Z M 1.4555988027929274 0 L 2.936303432971157 0 L 2.936303432971157 9.526919823680572 C 2.936303432971157 9.960750369430693 2.9969444317648453 10.286123662739305 3.1182448585459825 10.503038935614367 C 3.243728012988597 10.715615940919534 3.402679455395481 10.858779948313828 3.5950870833809114 10.932531213794595 C 3.7916774308005006 11.00194404104057 3.998724683760628 11.036650454663558 4.216228842261294 11.036650454663558 C 4.379357039296321 11.036650454663558 4.513217932448623 11.027973032066301 4.617787284037479 11.010619825254807 C 4.722356635626334 10.988928271940903 4.806003060265057 10.971575610190428 4.868744460599014 10.958560750948 L 5.1699132919311515 12.338141511653271 C 5.069526487002762 12.377186265378734 4.9294098616197966 12.416231313501147 4.749550753938862 12.45527606722661 C 4.569691646257927 12.498659126921568 4.3417242800906415 12.520350456237793 4.065661276143805 12.520350456237793 C 3.6473838697883814 12.520350456237793 3.23745998914388 12.42707708909144 2.8359138225271106 12.240529928136494 C 2.438550391799137 12.053982784248037 2.108102310517604 11.769823954443867 1.8445874813278804 11.388053029128226 C 1.5852556348465114 11.006282103812586 1.4555988027929274 10.524729829735103 1.4555988027929274 9.943396787156425 L 1.4555988027929274 0 Z","fillRule":"nonzero"},{"d":"M4.99424 2.39474 L4.99424 3.69624 L0 3.69624 L0 2.39474 L4.99424 2.39474 Z M1.4556 0 L2.9363 0 L2.9363 9.52692 C2.9363 9.96075 2.99694 10.2861 3.11824 10.503 C3.24373 10.7156 3.40268 10.8588 3.59509 10.9325 C3.79168 11.0019 3.99872 11.0367 4.21623 11.0367 C4.37936 11.0367 4.51322 11.028 4.61779 11.0106 C4.72236 10.9889 4.806 10.9716 4.86874 10.9586 L5.16991 12.3381 C5.06953 12.3772 4.92941 12.4162 4.74955 12.4553 C4.56969 12.4987 4.34172 12.5204 4.06566 12.5204 C3.64738 12.5204 3.23746 12.4271 2.83591 12.2405 C2.43855 12.054 2.1081 11.7698 1.84459 11.3881 C1.58526 11.0063 1.4556 10.5247 1.4556 9.9434 L1.4556 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.99px"
+                left="1281.48px"
+              />
+              <Icon
+                width="9.26px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":9.260647773742676,"height":13.743752479553223}}
+                paths={[{"d":"M 7.579197426154342 3.514027821204915 C 7.503907669530405 2.8546056412960894 7.198549920977262 2.3426855782217144 6.6631547614418665 1.9782677002477462 C 6.127759930999255 1.613849822273778 5.47106768731708 1.4316408832867942 4.693071613086055 1.4316408832867942 C 4.124214661275187 1.4316408832867942 3.6264738373556393 1.5270836031504171 3.199830745040787 1.7179690599441528 C 2.77737075110341 1.9088545167378885 2.4469224503766616 2.171322017695964 2.2085042885110844 2.5053715457518897 C 1.9742690275673127 2.8394210738078156 1.8571574606299723 3.2190227683445305 1.8571574606299723 3.6441765952290557 C 1.8571574606299723 3.999917596999998 1.9387185821196022 4.305768386717891 2.1018466335865 4.5617289473162455 C 2.269157585975203 4.813350353020538 2.4824943033099713 5.023758047412044 2.7418262622350897 5.192952030490764 C 3.001158221160208 5.35780757546797 3.2730169323620495 5.4944636482481055 3.557445605723154 5.602921324019993 C 3.8418740816285877 5.707040928619887 4.103306804340396 5.791639012414559 4.341724785204942 5.85671339942663 L 5.646756173707144 6.221131277400597 C 5.98137807848455 6.312235567695952 6.3536327303911735 6.438045895085335 6.763544383565196 6.598563377423792 C 7.177638937661024 6.759080484299486 7.572898491540669 6.978164338101468 7.94934835243922 7.255815996952076 C 8.329980390255452 7.52912921770117 8.643712719202219 7.880532515229637 8.890496847457799 8.310024780215675 C 9.137280284618532 8.739517215866606 9.260647773742676 9.266621436833512 9.260647773742676 9.891337408983418 C 9.260647773742676 10.611496083930456 9.078724591650378 11.262241455902213 8.714823433517243 11.843574480622086 C 8.355104485211067 12.42490750534196 7.828069170939891 12.886937817158495 7.133729008951156 13.229663948353618 C 6.443571418791442 13.57239011368172 5.604922623008671 13.743752479553223 4.617787821268828 13.743752479553223 C 3.6975778546325087 13.743752479553223 2.9007685990368786 13.589742739699483 2.227342086015932 13.28172302106115 C 1.5580982764611202 12.973703302422818 1.0310627976435527 12.54421103743678 0.6462476614498454 11.993246226103036 C 0.26561526163155136 11.442281414769292 0.05019327666655932 10.802381762588555 0 10.073546347970403 L 1.6062002548721896 10.073546347970403 C 1.6480278613322519 10.576789705506645 1.81114992742414 10.993266997517928 2.0955786007852444 11.322978292270212 C 2.3841899776124835 11.64835121718694 2.74806971180538 11.891296668278626 3.1872609803371943 12.051814048218148 C 3.6306349523351438 12.207992990056157 4.107489705262202 12.286082059912664 4.617787821268828 12.286082059912664 C 5.211741849517744 12.286082059912664 5.745032921429331 12.1863006288837 6.21768634423868 11.986738568950766 C 6.6903397670480285 11.782838173315255 7.064713249935184 11.500848793155685 7.34077628599907 11.140769353283229 C 7.6168393220629556 10.776351850772025 7.754870840094898 10.351198194552392 7.754870840094898 9.865307872629653 C 7.754870840094898 9.42280066880184 7.635640261175995 9.062721041198003 7.397222280311449 8.785069553012288 C 7.15880395389948 8.507417894161682 6.845105324053794 8.281826024811153 6.456107484393952 8.108293962027195 C 6.06710964473411 7.934761540846963 5.64675933299787 7.782921301641052 5.195019723702702 7.652772160687392 L 3.613925299136615 7.184233952787737 C 2.610059617713676 6.884890837288602 1.8153360205459503 6.45756779135332 1.2297475966849745 5.902264814981891 C 0.6441593702796691 5.3469614972806765 0.35134682788111216 4.6202956771760455 0.35134682788111216 3.7222662965456648 C 0.35134682788111216 2.976077539117204 0.5458488247285638 2.3253318258156623 0.9348467631162414 1.7700292249069967 C 1.3280274378793324 1.210387469104269 1.8550630483340136 0.7765567660167179 2.515941187682328 0.46853711564434286 C 3.1810020963153343 0.1561790271704548 3.9234596382574307 0 4.74328327369826 0 C 5.571472381889917 0 6.307640499999797 0.15400980811969828 6.951787562209344 0.46202945849207333 C 7.595935019330232 0.7657106707629353 8.1062211892688 1.1821879627742196 8.482670326163225 1.7114614027918833 C 8.863303087983581 2.2407348428095473 9.06406055657209 2.8415903269915503 9.08497435980212 3.514027821204915 L 7.579197426154342 3.514027821204915 Z","fillRule":"nonzero"},{"d":"M7.5792 3.51403 C7.50391 2.85461 7.19855 2.34269 6.66315 1.97827 C6.12776 1.61385 5.47107 1.43164 4.69307 1.43164 C4.12421 1.43164 3.62647 1.52708 3.19983 1.71797 C2.77737 1.90885 2.44692 2.17132 2.2085 2.50537 C1.97427 2.83942 1.85716 3.21902 1.85716 3.64418 C1.85716 3.99992 1.93872 4.30577 2.10185 4.56173 C2.26916 4.81335 2.48249 5.02376 2.74183 5.19295 C3.00116 5.35781 3.27302 5.49446 3.55745 5.60292 C3.84187 5.70704 4.10331 5.79164 4.34172 5.85671 L5.64676 6.22113 C5.98138 6.31224 6.35363 6.43805 6.76354 6.59856 C7.17764 6.75908 7.5729 6.97816 7.94935 7.25582 C8.32998 7.52913 8.64371 7.88053 8.8905 8.31002 C9.13728 8.73952 9.26065 9.26662 9.26065 9.89134 C9.26065 10.6115 9.07872 11.2622 8.71482 11.8436 C8.3551 12.4249 7.82807 12.8869 7.13373 13.2297 C6.44357 13.5724 5.60492 13.7438 4.61779 13.7438 C3.69758 13.7438 2.90077 13.5897 2.22734 13.2817 C1.5581 12.9737 1.03106 12.5442 0.646248 11.9932 C0.265615 11.4423 0.0501933 10.8024 0 10.0735 L1.6062 10.0735 C1.64803 10.5768 1.81115 10.9933 2.09558 11.323 C2.38419 11.6484 2.74807 11.8913 3.18726 12.0518 C3.63063 12.208 4.10749 12.2861 4.61779 12.2861 C5.21174 12.2861 5.74503 12.1863 6.21769 11.9867 C6.69034 11.7828 7.06471 11.5008 7.34078 11.1408 C7.61684 10.7764 7.75487 10.3512 7.75487 9.86531 C7.75487 9.4228 7.63564 9.06272 7.39722 8.78507 C7.1588 8.50742 6.84511 8.28183 6.45611 8.10829 C6.06711 7.93476 5.64676 7.78292 5.19502 7.65277 L3.61393 7.18423 C2.61006 6.88489 1.81534 6.45757 1.22975 5.90226 C0.644159 5.34696 0.351347 4.6203 0.351347 3.72227 C0.351347 2.97608 0.545849 2.32533 0.934847 1.77003 C1.32803 1.21039 1.85506 0.776557 2.51594 0.468537 C3.181 0.156179 3.92346 0 4.74328 0 C5.57147 0 6.30764 0.15401 6.95179 0.462029 C7.59593 0.765711 8.10622 1.18219 8.48267 1.71146 C8.8633 2.24073 9.06406 2.84159 9.08497 3.51403 L7.5792 3.51403 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9573.87px"
+                left="1270.66px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704658031463623,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876501125899797 10.359874725341797 C 2.676965295651988 10.359874725341797 2.12275414131475 10.240571314889168 1.625004111145065 10.001964459850928 C 1.127254146793927 9.759019302701645 0.7319943885350427 9.409786426491468 0.4392003189596573 8.954264295236168 C 0.14640624938427182 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087704966639296 6.251499110486931 0.3262746480601091 5.895757893652635 C 0.5437788817294723 5.53567840884028 0.8344723852868293 5.253688993486879 1.1983735550160648 5.0497885724034735 C 1.5622747247453002 4.845888151320068 1.963823938808529 4.694046433978643 2.4030151418994277 4.594265621956588 C 2.8463890478332248 4.490146371291558 3.2918635526943243 4.40771967650434 3.739420194380294 4.346983357350659 C 4.3250083335310645 4.268893646288024 4.799743658192032 4.210325816863324 5.1636450911954554 4.171280961332006 C 5.531729095404684 4.127898029820657 5.799417502961183 4.0563159809891065 5.96672824941901 3.9565348020374853 C 6.138221896175376 3.8567539900154295 6.223987148746718 3.683221171714583 6.223987148746718 3.4359374564568865 L 6.223987148746718 3.383878377252096 C 6.223987148746718 2.74180911869002 6.054575474268855 2.242903966324292 5.715771081054661 1.8871629201549103 C 5.381149226136998 1.531421873985529 4.87294859289421 1.3535513509008383 4.191156577074548 1.3535513509008383 C 3.484268015104758 1.3535513509008383 2.9300230300343655 1.5140686655413573 2.528476876533572 1.8351032948223953 C 2.1269305584864107 2.156137924103433 1.8446118233031614 2.4988634836789783 1.6814837961428697 2.863281031671497 L 0.27606299492960273 2.3426847783463476 C 0.5270293778905314 1.735321936672615 0.8616481393364854 1.2624466993720922 1.2799253674830617 0.9240590323117965 C 1.7023854959281777 0.581332585278699 2.1624904765077577 0.34272573024045916 2.6602403421310754 0.20823850133005992 C 3.162173108052933 0.06941283377668664 3.655743232667966 0 4.140944923944041 0 C 4.450470068165209 0 4.806008859861809 0.03904448860175248 5.207555013362603 0.11713347433850316 C 5.613284067161936 0.19088474675816383 6.004373299009115 0.3448945911656271 6.3808227418134145 0.5791629904944015 C 6.761455084916253 0.8134321236823056 7.077272827777384 1.1670043259930103 7.328239128465129 1.639879563293533 C 7.579205774700246 2.1127548005940557 7.704658031463623 2.7461475573329945 7.704658031463623 3.5400577993773656 L 7.704658031463623 10.125606684409341 L 6.223987148746718 10.125606684409341 L 6.223987148746718 8.772055333508504 L 6.148669669050959 8.772055333508504 C 6.048282867401572 8.988970660925037 5.880990377363218 9.221069397203548 5.64675533232226 9.468352890596856 C 5.4125199417339305 9.715636332790691 5.100906490199112 9.926044889700316 4.711908708501202 10.099577144806947 C 4.322910926803292 10.273109399913578 3.8481417055906233 10.359874725341797 3.2876501125899797 10.359874725341797 Z M 3.5135351534851367 8.980293834838564 C 4.099123292635907 8.980293834838564 4.592693252704574 8.860990407319443 4.994239735298103 8.622383569347695 C 5.399968427095428 8.383776731375947 5.7052927683732735 8.075757230292426 5.910248564421206 7.698324537035899 C 6.119387260767678 7.320891843779372 6.223987148746718 6.923936552092273 6.223987148746718 6.507459173969342 L 6.223987148746718 5.101847651608264 C 6.161245750462127 5.179937362670898 6.023214252997326 5.2515194157690726 5.809892656352314 5.316593810902785 C 5.600753960005842 5.377330130056466 5.358122574562 5.431559520838192 5.082059579632397 5.4792808909925155 C 4.810179485001334 5.522664185166807 4.5445761925589565 5.561707948442675 4.285244453276141 5.596414365331018 C 4.030095252289856 5.626782524907858 3.823048006092654 5.652812610637978 3.6641027146845344 5.674504076393653 C 3.279287471283156 5.726563701726168 2.9195784164490393 5.811160703823699 2.5849565615313765 5.928295091219492 C 2.254517442365886 6.041091039972311 1.9868291993557539 6.212454630418424 1.7818734033078216 6.442384778835629 C 1.5811003265574248 6.667976676341266 1.4807045818129656 6.975996177424787 1.4807045818129656 7.366443811147426 C 1.4807045818129656 7.900055482800446 1.6710360232672874 8.303517698592877 2.051668366370126 8.576831055851917 C 2.4364834452251367 8.84580605980044 2.923764311491467 8.980293834838564 3.5135351534851367 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28765 10.3599 C2.67697 10.3599 2.12275 10.2406 1.625 10.002 C1.12725 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.10877 6.2515 0.326275 5.89576 C0.543779 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29186 4.40772 3.73942 4.34698 C4.32501 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22399 3.68322 6.22399 3.43594 L6.22399 3.38388 C6.22399 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87295 1.35355 4.19116 1.35355 C3.48427 1.35355 2.93002 1.51407 2.52848 1.8351 C2.12693 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861648 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16217 0.0694128 3.65574 0 4.14094 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07727 1.167 7.32824 1.63988 C7.57921 2.11275 7.70466 2.74615 7.70466 3.54006 L7.70466 10.1256 L6.22399 10.1256 L6.22399 8.77206 L6.14867 8.77206 C6.04828 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10091 9.92605 4.71191 10.0996 C4.32291 10.2731 3.84814 10.3599 3.28765 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70529 8.07576 5.91025 7.69832 C6.11939 7.32089 6.22399 6.92394 6.22399 6.50746 L6.22399 5.10185 C6.16125 5.17994 6.02321 5.25152 5.80989 5.31659 C5.60075 5.37733 5.35812 5.43156 5.08206 5.47928 C4.81018 5.52266 4.54458 5.56171 4.28524 5.59641 C4.0301 5.62678 3.82305 5.65281 3.6641 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67104 8.30352 2.05167 8.57683 C2.43648 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1255.64px"
+              />
+              <Icon
+                width="7.63px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.6293745040893555,"height":10.125605583190918}}
+                paths={[{"d":"M 1.480704630958812 4.112713776881241 L 1.480704630958812 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 1.4305266752589174 0.13014877611298983 L 1.4305266752589174 1.6919390046178533 L 1.5559884140572438 1.6919390046178533 C 1.7818581925463084 1.1843574056314345 2.1248516514774307 0.7765567784802252 2.584956647328287 0.4685371231642255 C 3.0450616431791433 0.15617902967708214 3.6390275487075066 0 4.366830109778005 0 C 5.01934256916935 0 5.590269514289745 0.13882565245527717 6.079654122107451 0.4164769573658315 C 6.569038367923136 0.6897905579642921 6.949701625468326 1.106267873726404 7.221581729123321 1.6659089217186562 C 7.493462178325699 2.2212122483323253 7.6293745040893555 2.9240185133393077 7.6293745040893555 3.774326522085336 L 7.6293745040893555 10.125605583190918 L 6.148669873130544 10.125605583190918 L 6.148669873130544 3.878444669171464 C 6.148669873130544 3.0932113898117213 5.952082668443041 2.48151072214874 5.5589019733965905 2.04334157392719 C 5.16572127835014 1.6008343629972663 4.626140779277888 1.3795807404658145 3.9401658403915936 1.3795807404658145 C 3.467512472321362 1.3795807404658145 3.04507674853618 1.4858691988928443 2.672810193674577 1.6984461157469037 C 2.304726012701954 1.9110233909972434 2.01399881685369 2.2212122483323253 1.8006775586757362 2.6290127048186394 C 1.5873561359514095 3.036813502634744 1.480704630958812 3.531380538033271 1.480704630958812 4.112713776881241 Z","fillRule":"nonzero"},{"d":"M1.4807 4.11271 L1.4807 10.1256 L0 10.1256 L0 0.130149 L1.43053 0.130149 L1.43053 1.69194 L1.55599 1.69194 C1.78186 1.18436 2.12485 0.776557 2.58496 0.468537 C3.04506 0.156179 3.63903 0 4.36683 0 C5.01934 0 5.59027 0.138826 6.07965 0.416477 C6.56904 0.689791 6.9497 1.10627 7.22158 1.66591 C7.49346 2.22121 7.62937 2.92402 7.62937 3.77433 L7.62937 10.1256 L6.14867 10.1256 L6.14867 3.87844 C6.14867 3.09321 5.95208 2.48151 5.5589 2.04334 C5.16572 1.60083 4.62614 1.37958 3.94017 1.37958 C3.46751 1.37958 3.04508 1.48587 2.67281 1.69845 C2.30473 1.91102 2.014 2.22121 1.80068 2.62901 C1.58736 3.03681 1.4807 3.53138 1.4807 4.11271 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1245.75px"
+              />
+              <Icon
+                width="7.55px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":7.554090976715088,"height":10.125605583190918}}
+                paths={[{"d":"M 6.073386295630859 5.908772566968218 L 6.073386295630859 0 L 7.554090976715089 0 L 7.554090976715089 9.995456807077927 L 6.073386295630859 9.995456807077927 L 6.073386295630859 8.303517256332409 L 5.972996681735459 8.303517256332409 C 5.747126714599142 8.811099060116701 5.395792207128883 9.242760653480474 4.918956284481254 9.598501729226912 C 4.442119999831593 9.949904503334123 3.839779519170766 10.125605583190918 3.1119769334623983 10.125605583190918 C 2.5096576792844 10.125605583190918 1.9742809928243712 9.98894955941696 1.5058105093326597 9.715636283081801 C 1.0373398612945697 9.437984705107414 0.6692559311356167 9.02150750881073 0.40155845558159464 8.466204318728977 C 0.13386098002757263 7.906562827007996 0 7.201588025575024 0 6.351280153360912 L 0 0 L 1.4807046810842301 0 L 1.4807046810842301 6.247159821764123 C 1.4807046810842301 6.975995248079868 1.6772920569730614 7.55732882825763 2.0704726007832472 7.991159538308036 C 2.467836045172408 8.424990077693547 2.973951416231693 8.641905603383645 3.5888191746909617 8.641905603383645 C 3.956903203577742 8.641905603383645 4.331276655781257 8.544293475171237 4.711909024402929 8.349069764874088 C 5.096723931601543 8.15384596924449 5.418797452763817 7.854502831874498 5.678129571435111 7.4510403698306 C 5.941644228683347 7.047578010185639 6.073386295630859 6.533488753942505 6.073386295630859 5.908772566968218 Z","fillRule":"nonzero"},{"d":"M6.07339 5.90877 L6.07339 0 L7.55409 0 L7.55409 9.99546 L6.07339 9.99546 L6.07339 8.30352 L5.973 8.30352 C5.74713 8.8111 5.39579 9.24276 4.91896 9.5985 C4.44212 9.9499 3.83978 10.1256 3.11198 10.1256 C2.50966 10.1256 1.97428 9.98895 1.50581 9.71564 C1.03734 9.43798 0.669256 9.02151 0.401558 8.4662 C0.133861 7.90656 0 7.20159 0 6.35128 L0 0 L1.4807 0 L1.4807 6.24716 C1.4807 6.976 1.67729 7.55733 2.07047 7.99116 C2.46784 8.42499 2.97395 8.6419 3.58882 8.6419 C3.9569 8.6419 4.33128 8.54429 4.71191 8.34907 C5.09672 8.15385 5.4188 7.8545 5.67813 7.45104 C5.94164 7.04758 6.07339 6.53349 6.07339 5.90877 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.38px"
+                left="1235.49px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.54px"
+                viewBox={{"minX":0,"minY":0,"width":8.50777530670166,"height":13.535514831542969}}
+                paths={[{"d":"M 4.090767170856012 13.535514831542969 C 3.2876746927678706 13.535514831542969 2.5786825352090945 13.32510739735457 1.9638149194061674 12.904291709786236 C 1.3489473036032402 12.479137720383134 0.8679223678719572 11.880451316259476 0.5207521570070099 11.10823283874507 C 0.17358204486988804 10.331676059395896 0 9.414124333884814 0 8.35557779874375 C 0 7.305707389410495 0.17358204486988804 6.394662980119646 0.5207521570070099 5.6224446391371625 C 0.8679223678719572 4.850226298154679 1.351032632730075 4.253709215613308 1.9700829515813634 3.8328934256460334 C 2.5891334678883027 3.4120780111415447 3.304381547009033 3.201670303889301 4.115839299556796 3.201670303889301 C 4.743255419416108 3.201670303889301 5.23894456359154 3.310127986290441 5.602845685377757 3.527043351092722 C 5.9709297076679855 3.739620277528312 6.25116296304607 3.9825651802753606 6.443570775199208 4.255878059333868 C 6.640161125854332 4.524853233884767 6.792823312219636 4.746106849322345 6.901575212258826 4.919638922713094 L 7.02707065215361 4.919638922713094 L 7.02707065215361 0 L 8.50777530670166 0 L 8.50777530670166 13.32727634347407 L 7.077248608652894 13.32727634347407 L 7.077248608652894 11.791516128646718 L 6.901575212258826 11.791516128646718 C 6.792823312219636 11.973724993438397 6.638075994183148 12.203655485609358 6.437302743024012 12.481307076098402 C 6.236529491864876 12.754620347686185 5.950006418371472 12.999734128286775 5.577739857579257 13.216649441889585 C 5.205472934785016 13.429226436591136 4.7098174897073 13.535514831542969 4.090767170856012 13.535514831542969 Z M 4.29154639504858 12.15593402889498 C 4.885500363972601 12.15593402889498 5.387411566065896 11.995416280747866 5.797323178297414 11.674381569512194 C 6.207234790528932 11.349008624707714 6.518848240916171 10.899994350676172 6.732169848039954 10.32733796235901 C 6.945491109616348 9.75034334047304 7.05217647995211 9.084413599240275 7.05217647995211 8.329548260798983 C 7.05217647995211 7.583359457761267 6.947576241287531 6.930443768708292 6.738437880215149 6.370802320028417 C 6.529299173595378 5.806822808444639 6.219804915979066 5.368654015936172 5.809892941745522 5.056295908370037 C 5.399981329514004 4.739599362437212 4.8938658358878735 4.581251106537289 4.29154639504858 4.581251106537289 C 3.6641304726449184 4.581251106537289 3.141265441447804 4.748275897840788 2.722988192754638 5.0823254463148055 C 2.3088936800191084 5.412036931884918 1.9972802296318695 5.86105110351752 1.7881415230120987 6.4293690534679895 C 1.58318571689634 6.993348940514555 1.4807046545480496 7.6267427491727995 1.4807046545480496 8.329548260798983 C 1.4807046545480496 9.041030512626627 1.585270848567524 9.687437212943323 1.7944095551872947 10.26877013666406 C 2.0077309813100643 10.845764963347913 2.321429744369501 11.305625879423872 2.7355242571050304 11.648352031567427 C 3.1538015057981963 11.986739950142175 3.672496076197292 12.15593402889498 4.29154639504858 12.15593402889498 Z","fillRule":"nonzero"},{"d":"M4.09077 13.5355 C3.28767 13.5355 2.57868 13.3251 1.96381 12.9043 C1.34895 12.4791 0.867922 11.8805 0.520752 11.1082 C0.173582 10.3317 0 9.41412 0 8.35558 C0 7.30571 0.173582 6.39466 0.520752 5.62244 C0.867922 4.85023 1.35103 4.25371 1.97008 3.83289 C2.58913 3.41208 3.30438 3.20167 4.11584 3.20167 C4.74326 3.20167 5.23894 3.31013 5.60285 3.52704 C5.97093 3.73962 6.25116 3.98257 6.44357 4.25588 C6.64016 4.52485 6.79282 4.74611 6.90158 4.91964 L7.02707 4.91964 L7.02707 0 L8.50778 0 L8.50778 13.3273 L7.07725 13.3273 L7.07725 11.7915 L6.90158 11.7915 C6.79282 11.9737 6.63808 12.2037 6.4373 12.4813 C6.23653 12.7546 5.95001 12.9997 5.57774 13.2167 C5.20547 13.4292 4.70982 13.5355 4.09077 13.5355 Z M4.29155 12.1559 C4.8855 12.1559 5.38741 11.9954 5.79732 11.6744 C6.20723 11.349 6.51885 10.9 6.73217 10.3273 C6.94549 9.75034 7.05218 9.08441 7.05218 8.32955 C7.05218 7.58336 6.94758 6.93044 6.73844 6.3708 C6.5293 5.80682 6.2198 5.36865 5.80989 5.0563 C5.39998 4.7396 4.89387 4.58125 4.29155 4.58125 C3.66413 4.58125 3.14127 4.74828 2.72299 5.08233 C2.30889 5.41204 1.99728 5.86105 1.78814 6.42937 C1.58319 6.99335 1.4807 7.62674 1.4807 8.32955 C1.4807 9.04103 1.58527 9.68744 1.79441 10.2688 C2.00773 10.8458 2.32143 11.3056 2.73552 11.6484 C3.1538 11.9867 3.6725 12.1559 4.29155 12.1559 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1224.06px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704658031463623,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876501125899797 10.359874725341797 C 2.676965295651988 10.359874725341797 2.12275414131475 10.240571314889168 1.625004111145065 10.001964459850928 C 1.127254146793927 9.759019302701645 0.7319943885350427 9.409786426491468 0.4392003189596573 8.954264295236168 C 0.14640624938427182 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087704966639296 6.251499110486931 0.3262746480601091 5.895757893652635 C 0.5437788817294723 5.53567840884028 0.8344723852868293 5.253688993486879 1.1983735550160648 5.0497885724034735 C 1.5622747247453002 4.845888151320068 1.963823938808529 4.694046433978643 2.4030151418994277 4.594265621956588 C 2.8463890478332248 4.490146371291558 3.2918635526943243 4.40771967650434 3.739420194380294 4.346983357350659 C 4.3250083335310645 4.268893646288024 4.799743658192032 4.210325816863324 5.1636450911954554 4.171280961332006 C 5.531729095404684 4.127898029820657 5.799417502961183 4.0563159809891065 5.96672824941901 3.9565348020374853 C 6.138221896175376 3.8567539900154295 6.223987148746718 3.683221171714583 6.223987148746718 3.4359374564568865 L 6.223987148746718 3.383878377252096 C 6.223987148746718 2.74180911869002 6.054575474268855 2.242903966324292 5.715771081054661 1.8871629201549103 C 5.381149226136998 1.531421873985529 4.87294859289421 1.3535513509008383 4.191156577074548 1.3535513509008383 C 3.484268015104758 1.3535513509008383 2.9300230300343655 1.5140686655413573 2.528476876533572 1.8351032948223953 C 2.1269305584864107 2.156137924103433 1.8446118233031614 2.4988634836789783 1.6814837961428697 2.863281031671497 L 0.27606299492960273 2.3426847783463476 C 0.5270293778905314 1.735321936672615 0.8616481393364854 1.2624466993720922 1.2799253674830617 0.9240590323117965 C 1.7023854959281777 0.581332585278699 2.1624904765077577 0.34272573024045916 2.6602403421310754 0.20823850133005992 C 3.162173108052933 0.06941283377668664 3.655743232667966 0 4.140944923944041 0 C 4.450470068165209 0 4.806008859861809 0.03904448860175248 5.207555013362603 0.11713347433850316 C 5.613284067161936 0.19088474675816383 6.004373299009115 0.3448945911656271 6.3808227418134145 0.5791629904944015 C 6.761455084916253 0.8134321236823056 7.077272827777384 1.1670043259930103 7.328239128465129 1.639879563293533 C 7.579205774700246 2.1127548005940557 7.704658031463623 2.7461475573329945 7.704658031463623 3.5400577993773656 L 7.704658031463623 10.125606684409341 L 6.223987148746718 10.125606684409341 L 6.223987148746718 8.772055333508504 L 6.148669669050959 8.772055333508504 C 6.048282867401572 8.988970660925037 5.880990377363218 9.221069397203548 5.64675533232226 9.468352890596856 C 5.4125199417339305 9.715636332790691 5.100906490199112 9.926044889700316 4.711908708501202 10.099577144806947 C 4.322910926803292 10.273109399913578 3.8481417055906233 10.359874725341797 3.2876501125899797 10.359874725341797 Z M 3.5135351534851367 8.980293834838564 C 4.099123292635907 8.980293834838564 4.592693252704574 8.860990407319443 4.994239735298103 8.622383569347695 C 5.399968427095428 8.383776731375947 5.7052927683732735 8.075757230292426 5.910248564421206 7.698324537035899 C 6.119387260767678 7.320891843779372 6.223987148746718 6.923936552092273 6.223987148746718 6.507459173969342 L 6.223987148746718 5.101847651608264 C 6.161245750462127 5.179937362670898 6.023214252997326 5.2515194157690726 5.809892656352314 5.316593810902785 C 5.600753960005842 5.377330130056466 5.358122574562 5.431559520838192 5.082059579632397 5.4792808909925155 C 4.810179485001334 5.522664185166807 4.5445761925589565 5.561707948442675 4.285244453276141 5.596414365331018 C 4.030095252289856 5.626782524907858 3.823048006092654 5.652812610637978 3.6641027146845344 5.674504076393653 C 3.279287471283156 5.726563701726168 2.9195784164490393 5.811160703823699 2.5849565615313765 5.928295091219492 C 2.254517442365886 6.041091039972311 1.9868291993557539 6.212454630418424 1.7818734033078216 6.442384778835629 C 1.5811003265574248 6.667976676341266 1.4807045818129656 6.975996177424787 1.4807045818129656 7.366443811147426 C 1.4807045818129656 7.900055482800446 1.6710360232672874 8.303517698592877 2.051668366370126 8.576831055851917 C 2.4364834452251367 8.84580605980044 2.923764311491467 8.980293834838564 3.5135351534851367 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28765 10.3599 C2.67697 10.3599 2.12275 10.2406 1.625 10.002 C1.12725 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.10877 6.2515 0.326275 5.89576 C0.543779 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29186 4.40772 3.73942 4.34698 C4.32501 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22399 3.68322 6.22399 3.43594 L6.22399 3.38388 C6.22399 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87295 1.35355 4.19116 1.35355 C3.48427 1.35355 2.93002 1.51407 2.52848 1.8351 C2.12693 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861648 1.26245 1.27993 0.924059 C1.70239 0.581333 2.16249 0.342726 2.66024 0.208239 C3.16217 0.0694128 3.65574 0 4.14094 0 C4.45047 0 4.80601 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07727 1.167 7.32824 1.63988 C7.57921 2.11275 7.70466 2.74615 7.70466 3.54006 L7.70466 10.1256 L6.22399 10.1256 L6.22399 8.77206 L6.14867 8.77206 C6.04828 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10091 9.92605 4.71191 10.0996 C4.32291 10.2731 3.84814 10.3599 3.28765 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70529 8.07576 5.91025 7.69832 C6.11939 7.32089 6.22399 6.92394 6.22399 6.50746 L6.22399 5.10185 C6.16125 5.17994 6.02321 5.25152 5.80989 5.31659 C5.60075 5.37733 5.35812 5.43156 5.08206 5.47928 C4.81018 5.52266 4.54458 5.56171 4.28524 5.59641 C4.0301 5.62678 3.82305 5.65281 3.6641 5.6745 C3.27929 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67104 8.30352 2.05167 8.57683 C2.43648 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1214.11px"
+              />
+              <Icon
+                width="9.51px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":9.511636734008789,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 1.5559882761482215 0 L 1.5559882761482215 6.611579512595381 L 1.7065895280943026 6.611579512595381 L 7.478806275037331 0 L 9.511636734008789 0 L 4.115838869195483 6.0128924563410155 L 9.511636734008789 13.327277183532717 L 7.62937382788922 13.327277183532717 L 3.162188202643201 7.132175765582387 L 1.5559882761482215 9.006323368591055 L 1.5559882761482215 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L1.55599 0 L1.55599 6.61158 L1.70659 6.61158 L7.47881 0 L9.51164 0 L4.11584 6.01289 L9.51164 13.3273 L7.62937 13.3273 L3.16219 7.13218 L1.55599 9.00632 L1.55599 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1203.23px"
+              />
+              <Icon
+                width="8.63px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":8.6332368850708,"height":13.743754386901855}}
+                paths={[{"d":"M 1.7065728248823628 13.743754386901855 C 1.4556063520420377 13.743754386901855 1.2318265270448605 13.72206310389841 1.035236262361624 13.678679996030453 C 0.8386459154052013 13.639635143056537 0.7026997181626298 13.600589014362473 0.6274097894742421 13.561544344853328 L 1.0038624029782037 12.207993082608818 C 1.3635808807667746 12.303435816666056 1.6814668988283865 12.338143321403228 1.957530000852643 12.312113418709513 C 2.233593004149076 12.286083607748184 2.478292860030937 12.158102765198016 2.6916142821402227 11.928172546508566 C 2.9091184401284496 11.702580663778985 3.107790940427484 11.335994108207458 3.287650212231044 10.828412282466825 L 3.563713215527477 10.047517407499253 L 0 0 L 1.606183214674834 0 L 4.266423637431636 7.965130346082142 L 4.366813247639165 7.965130346082142 L 7.027053670395967 0 L 8.6332368850708 0 L 4.542486640728069 11.45312883779411 C 4.358444633045568 11.96938733545448 4.130494116963915 12.396710236067873 3.8586140140927956 12.735098051629 C 3.5867337302206663 13.077824305548939 3.2709329918827432 13.331614399227721 2.9112144482756235 13.496469953981926 C 2.5556788050938173 13.661325696467523 2.154129480132738 13.743754386901855 1.7065728248823628 13.743754386901855 Z","fillRule":"nonzero"},{"d":"M1.70657 13.7438 C1.45561 13.7438 1.23183 13.7221 1.03524 13.6787 C0.838646 13.6396 0.7027 13.6006 0.62741 13.5615 L1.00386 12.208 C1.36358 12.3034 1.68147 12.3381 1.95753 12.3121 C2.23359 12.2861 2.47829 12.1581 2.69161 11.9282 C2.90912 11.7026 3.10779 11.336 3.28765 10.8284 L3.56371 10.0475 L0 0 L1.60618 0 L4.26642 7.96513 L4.36681 7.96513 L7.02705 0 L8.63324 0 L4.54249 11.4531 C4.35844 11.9694 4.13049 12.3967 3.85861 12.7351 C3.58673 13.0778 3.27093 13.3316 2.91121 13.4965 C2.55568 13.6613 2.15413 13.7438 1.70657 13.7438 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.38px"
+                left="1187.48px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704675674438477,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876673007016994 10.359874725341797 C 2.676982420875432 10.359874725341797 2.122771209465573 10.240571314889168 1.6250211280376283 10.001964459850928 C 1.1272711124282373 9.759019302701645 0.7319944639157683 9.409786426491468 0.43920036418847214 8.954264295236168 C 0.14640626446117605 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087536583153414 6.251499110486931 0.3262578321100816 5.895757893652635 C 0.543762088178014 5.53567840884028 0.834472471220731 5.253688993486879 1.1983736784244807 5.0497885724034735 C 1.5622748856282305 4.845888151320068 1.9638241410429662 4.694046433978643 2.403015389361741 4.594265621956588 C 2.8463893409541488 4.490146371291558 3.2918470421404127 4.40771967650434 3.739403729915731 4.346983357350659 C 4.324991929370323 4.268893646288024 4.799744152469262 4.210325816863324 5.163645622947227 4.171280961332006 C 5.531729665061717 4.127898029820657 5.799418100184749 4.0563159809891065 5.966728863872223 3.9565348020374853 C 6.138222528288993 3.8567539900154295 6.223970940142668 3.683221171714583 6.223970940142668 3.4359374564568865 L 6.223970940142668 3.383878377252096 C 6.223970940142668 2.74180911869002 6.054576097768568 2.242903966324292 5.715771669664324 1.8871629201549103 C 5.381149780287329 1.531421873985529 4.872932245160313 1.3535513509008383 4.191140159129762 1.3535513509008383 C 3.484251524364643 1.3535513509008383 2.9300401813176764 1.5140686655413573 2.528493986465691 1.8351032948223953 C 2.126947627067321 2.156137924103433 1.844612013261144 2.4988634836789783 1.6814839693019408 2.863281031671497 L 0.2760630233585486 2.3426847783463476 C 0.5270294321639759 1.735321936672615 0.8616650776187097 1.2624466993720922 1.2799423488394426 0.9240590323117965 C 1.70240252078947 0.581332585278699 2.162507548750625 0.34272573024045916 2.6602574656321853 0.20823850133005992 C 3.16219028324304 0.06941283377668664 3.6557436091361217 0 4.140945350378229 0 C 4.450470526474272 0 4.80600935478423 0.03904448860175248 5.207555549636215 0.11713347433850316 C 5.613284645217495 0.19088474675816383 6.004373917339013 0.3448945911656271 6.380823398910047 0.5791629904944015 C 6.761455781210374 0.8134321236823056 7.0772567070446275 1.1670043259930103 7.3282230335768626 1.639879563293533 C 7.579189705656505 2.1127548005940557 7.7046756744384775 2.7461475573329945 7.7046756744384775 3.5400577993773656 L 7.7046756744384775 10.125606684409341 L 6.223970940142668 10.125606684409341 L 6.223970940142668 8.772055333508504 L 6.148687151790251 8.772055333508504 C 6.04830033980304 8.988970660925037 5.880990982987152 9.221069397203548 5.646755913824687 9.468352890596856 C 5.412520499114815 9.715636332790691 5.100890165940301 9.926044889700316 4.71189234418343 10.099577144806947 C 4.322894522426559 10.273109399913578 3.8481589514217243 10.359874725341797 3.2876673007016994 10.359874725341797 Z M 3.513535515308715 8.980293834838564 C 4.099123714763307 8.980293834838564 4.59269372565977 8.860990407319443 4.994240249604524 8.622383569347695 C 5.399968983183758 8.383776731375947 5.705310205453647 8.075757230292426 5.910266022607911 7.698324537035899 C 6.11940474049147 7.320891843779372 6.223970940142668 6.923936552092273 6.223970940142668 6.507459173969342 L 6.223970940142668 5.101847651608264 C 6.161229535396973 5.179937362670898 6.023198023717698 5.2515194157690726 5.809876405104845 5.316593810902785 C 5.600737687221287 5.377330130056466 5.358139975890814 5.431559520838192 5.082076952532265 5.4792808909925155 C 4.810196829903012 5.522664185166807 4.544593510108827 5.561707948442675 4.2852617441200485 5.596414365331018 C 4.030112516858519 5.626782524907858 3.8230652493396073 5.652812610637978 3.664119941563314 5.674504076393653 C 3.2793046585336914 5.726563701726168 2.9195787171069987 5.811160703823699 2.5849568277300032 5.928295091219492 C 2.2545176745359177 6.041091039972311 1.986829403959271 6.212454630418424 1.7818735868050068 6.442384778835629 C 1.5811004893790142 6.667976676341266 1.4807047342958088 6.975996177424787 1.4807047342958088 7.366443811147426 C 1.4807047342958088 7.900055482800446 1.6710193458006823 8.303517698592877 2.0516517281010103 8.576831055851917 C 2.4364668465842483 8.84580605980044 2.9237646125804897 8.980293834838564 3.513535515308715 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28767 10.3599 C2.67698 10.3599 2.12277 10.2406 1.62502 10.002 C1.12727 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29185 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93004 1.51407 2.52849 1.8351 C2.12695 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861665 1.26245 1.27994 0.924059 C1.7024 0.581333 2.16251 0.342726 2.66026 0.208239 C3.16219 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20756 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07726 1.167 7.32822 1.63988 C7.57919 2.11275 7.70468 2.74615 7.70468 3.54006 L7.70468 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14869 8.77206 C6.0483 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10089 9.92605 4.71189 10.0996 C4.32289 10.2731 3.84816 10.3599 3.28767 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70531 8.07576 5.91027 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.0232 5.25152 5.80988 5.31659 C5.60074 5.37733 5.35814 5.43156 5.08208 5.47928 C4.8102 5.52266 4.54459 5.56171 4.28526 5.59641 C4.03011 5.62678 3.82307 5.65281 3.66412 5.6745 C3.2793 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1178.17px"
+              />
+              <Icon
+                width="16.01px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":16.011653900146484,"height":13.327277183532715}}
+                paths={[{"d":"M 3.513518346557875 13.327277183532717 L 0 0 L 1.5810773586091618 0 L 4.266423559880109 10.854442524269682 L 4.391902145584403 10.854442524269682 L 7.127443151046714 0 L 8.88421074909977 0 L 11.619734905013846 10.854442524269682 L 11.745230340266374 10.854442524269682 L 14.430559691989087 0 L 16.011653900146484 0 L 12.498118704040374 13.327277183532717 L 10.891935518561413 13.327277183532717 L 8.056021754264606 2.7071027000433245 L 7.955632145881878 2.7071027000433245 L 5.119718381585072 13.327277183532717 L 3.513518346557875 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M3.51352 13.3273 L0 0 L1.58108 0 L4.26642 10.8544 L4.3919 10.8544 L7.12744 0 L8.88421 0 L11.6197 10.8544 L11.7452 10.8544 L14.4306 0 L16.0117 0 L12.4981 13.3273 L10.8919 13.3273 L8.05602 2.7071 L7.95563 2.7071 L5.11972 13.3273 L3.51352 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1161.77px"
+              />
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428595542907715,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252922143168205 2.3687140885316538 L 5.922801881434396 2.759162606028713 C 5.839146675276773 2.529232292149545 5.715762338348882 2.30580910654337 5.552634135522513 2.088894107332552 C 5.393688833279812 1.867640311502666 5.176181507766888 1.685431367422486 4.9001184940193205 1.542267275092012 C 4.62405511826972 1.399103182761538 4.270601796050576 1.3275211365963009 3.839776364189339 1.3275211365963009 C 3.2500052845380067 1.3275211365963009 2.758537107538604 1.4685161975467704 2.365356563287186 1.7505063023812197 C 1.9763585576174043 2.0281576105966015 1.781856675220886 2.3817294032000036 1.781856675220886 2.8112216801914256 C 1.781856675220886 3.1929926044503496 1.9157007235763106 3.494504947428265 2.1833982817039352 3.7157587432581507 C 2.451095675285181 3.937012180691752 2.8693776544248912 4.121390702279608 3.43823475770629 4.268893232832865 L 4.868744633448156 4.633311120993225 C 5.730395826263386 4.850226120204043 6.372457375597876 5.182106455552588 6.794917697386565 5.628952109972369 C 7.2173776571732216 6.071459326169367 7.428595542907715 6.641946305714974 7.428595542907715 7.340413560603883 C 7.428595542907715 7.913069929925779 7.269660755178613 8.424989904910662 6.951770150693212 8.87617372448939 C 6.638062084789447 9.32735754406812 6.198860353701912 9.683098402184505 5.634185953548528 9.943396759633773 C 5.069511553395143 10.20369511708304 4.412819329889224 10.333844184875488 3.664102964449829 10.333844184875488 C 2.681151340547079 10.333844184875488 1.86760962556933 10.11259110583817 1.2234626154311898 9.670083889641173 C 0.5793154736559468 9.227576673444176 0.17149365844631234 8.581169004712672 0 7.730860985845599 L 1.4054040474652616 7.366443097685239 C 1.5392526537553763 7.904393053480212 1.7923104053875543 8.307855247262607 2.1645773352710718 8.576830225160094 C 2.541026803736225 8.845805203057582 3.032511632829153 8.98029296507016 3.6390139857224044 8.98029296507016 C 4.3291715200913226 8.98029296507016 4.877110434615494 8.828452644820729 5.2828391540695065 8.524771150997381 C 5.692751136109222 8.216751492015085 5.897712902706972 7.847995643493656 5.897712902706972 7.418503264103295 C 5.897712902706972 7.071438753371294 5.780584660233869 6.780771772091278 5.546349253678772 6.546503395452101 C 5.312113847123676 6.307896580590141 4.95240438931315 6.130026253930886 4.467203026965106 6.012891877879911 L 2.8610197514837306 5.622444452638194 C 1.9784545822985664 5.405529282762479 1.3301201630059811 5.069310338526254 0.9160257411124573 4.613788148990701 C 0.5061139565283965 4.153927521232365 0.30115199247499214 3.5791019669320567 0.30115199247499214 2.8893113836908375 C 0.30115199247499214 2.3253315153517335 0.4538308585230046 1.8264264113064659 0.7591732878058103 1.3925960715550347 C 1.0686985518537335 0.9587653563408294 1.4890655804311463 0.6182081445467184 2.0202777961027265 0.3709244532391917 C 2.555672747811597 0.12364147872423398 3.1621672024786704 0 3.839776364189339 0 C 4.793448539647575 0 5.542178628254954 0.21691498214432847 6.085939216584784 0.650744980565965 C 6.633882343496249 1.0845760712429446 7.022869637196778 1.6572320651020667 7.252922143168205 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25292 2.36871 L5.9228 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62406 1.3991 4.2706 1.32752 3.83978 1.32752 C3.25001 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.9157 3.49451 2.1834 3.71576 C2.4511 3.93701 2.86938 4.12139 3.43823 4.26889 L4.86874 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.4286 6.64195 7.4286 7.34041 C7.4286 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19886 9.6831 5.63419 9.9434 C5.06951 10.2037 4.41282 10.3338 3.6641 10.3338 C2.68115 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.4054 7.36644 C1.53925 7.90439 1.79231 8.30786 2.16458 8.57683 C2.54103 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78058 6.78077 5.54635 6.5465 C5.31211 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.916026 4.61379 C0.506114 4.15393 0.301152 3.5791 0.301152 2.88931 C0.301152 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55567 0.123641 3.16217 0 3.83978 0 C4.79345 0 5.54218 0.216915 6.08594 0.650745 C6.63388 1.08458 7.02287 1.65723 7.25292 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1148.12px"
+              />
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428595542907715,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252922143168205 2.3687140885316538 L 5.922801881434396 2.759162606028713 C 5.839146675276773 2.529232292149545 5.715762338348882 2.30580910654337 5.552634135522513 2.088894107332552 C 5.393688833279812 1.867640311502666 5.176181507766888 1.685431367422486 4.9001184940193205 1.542267275092012 C 4.62405511826972 1.399103182761538 4.270601796050576 1.3275211365963009 3.839776364189339 1.3275211365963009 C 3.2500052845380067 1.3275211365963009 2.758537107538604 1.4685161975467704 2.365356563287186 1.7505063023812197 C 1.9763585576174043 2.0281576105966015 1.781856675220886 2.3817294032000036 1.781856675220886 2.8112216801914256 C 1.781856675220886 3.1929926044503496 1.9157007235763106 3.494504947428265 2.1833982817039352 3.7157587432581507 C 2.451095675285181 3.937012180691752 2.8693776544248912 4.121390702279608 3.43823475770629 4.268893232832865 L 4.868744633448156 4.633311120993225 C 5.730395826263386 4.850226120204043 6.372457375597876 5.182106455552588 6.794917697386565 5.628952109972369 C 7.2173776571732216 6.071459326169367 7.428595542907715 6.641946305714974 7.428595542907715 7.340413560603883 C 7.428595542907715 7.913069929925779 7.269660755178613 8.424989904910662 6.951770150693212 8.87617372448939 C 6.638062084789447 9.32735754406812 6.198860353701912 9.683098402184505 5.634185953548528 9.943396759633773 C 5.069511553395143 10.20369511708304 4.412819329889224 10.333844184875488 3.664102964449829 10.333844184875488 C 2.681151340547079 10.333844184875488 1.86760962556933 10.11259110583817 1.2234626154311898 9.670083889641173 C 0.5793154736559468 9.227576673444176 0.17149365844631234 8.581169004712672 0 7.730860985845599 L 1.4054040474652616 7.366443097685239 C 1.5392526537553763 7.904393053480212 1.7923104053875543 8.307855247262607 2.1645773352710718 8.576830225160094 C 2.541026803736225 8.845805203057582 3.032511632829153 8.98029296507016 3.6390139857224044 8.98029296507016 C 4.3291715200913226 8.98029296507016 4.877110434615494 8.828452644820729 5.2828391540695065 8.524771150997381 C 5.692751136109222 8.216751492015085 5.897712902706972 7.847995643493656 5.897712902706972 7.418503264103295 C 5.897712902706972 7.071438753371294 5.780584660233869 6.780771772091278 5.546349253678772 6.546503395452101 C 5.312113847123676 6.307896580590141 4.95240438931315 6.130026253930886 4.467203026965106 6.012891877879911 L 2.8610197514837306 5.622444452638194 C 1.9784545822985664 5.405529282762479 1.3301201630059811 5.069310338526254 0.9160257411124573 4.613788148990701 C 0.5061139565283965 4.153927521232365 0.30115199247499214 3.5791019669320567 0.30115199247499214 2.8893113836908375 C 0.30115199247499214 2.3253315153517335 0.4538308585230046 1.8264264113064659 0.7591732878058103 1.3925960715550347 C 1.0686985518537335 0.9587653563408294 1.4890655804311463 0.6182081445467184 2.0202777961027265 0.3709244532391917 C 2.555672747811597 0.12364147872423398 3.1621672024786704 0 3.839776364189339 0 C 4.793448539647575 0 5.542178628254954 0.21691498214432847 6.085939216584784 0.650744980565965 C 6.633882343496249 1.0845760712429446 7.022869637196778 1.6572320651020667 7.252922143168205 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25292 2.36871 L5.9228 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62406 1.3991 4.2706 1.32752 3.83978 1.32752 C3.25001 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.9157 3.49451 2.1834 3.71576 C2.4511 3.93701 2.86938 4.12139 3.43823 4.26889 L4.86874 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.4286 6.64195 7.4286 7.34041 C7.4286 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19886 9.6831 5.63419 9.9434 C5.06951 10.2037 4.41282 10.3338 3.6641 10.3338 C2.68115 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.4054 7.36644 C1.53925 7.90439 1.79231 8.30786 2.16458 8.57683 C2.54103 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78058 6.78077 5.54635 6.5465 C5.31211 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.916026 4.61379 C0.506114 4.15393 0.301152 3.5791 0.301152 2.88931 C0.301152 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55567 0.123641 3.16217 0 3.83978 0 C4.79345 0 5.54218 0.216915 6.08594 0.650745 C6.63388 1.08458 7.02287 1.65723 7.25292 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1138.89px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482669830322266,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492308955799168 10.333844184875488 C 3.5637331099605474 10.333844184875488 2.7627200699639918 10.121267402023086 2.0892935963071175 9.69611342672253 C 1.4200499575089909 9.266621149731108 0.9034911776648139 8.667934765466143 0.5395899749843878 7.90005461525743 C 0.17987147552560334 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17987147552560334 3.2797588089325536 0.5395899749843878 2.498863958449121 C 0.9034911776648139 1.7136306697429053 1.4096067251675186 1.1019294486713034 2.0579365845832247 0.6637602952343147 C 2.7104492788576784 0.22125342036711176 3.471707847051769 0 4.341724531416347 0 C 4.843657507334515 0 5.339313005855468 0.08676584608591967 5.828697279741735 0.26029755532424875 C 6.318081915630042 0.4338299813551467 6.763556263373125 0.715820086189596 7.165102453233857 1.1062678868940865 C 7.566648643094588 1.4923768739130194 7.886619828518541 2.004296951296842 8.125038140994148 2.642028050779595 C 8.363455762374947 3.2797588089325536 8.482669830322266 4.064992097638769 8.482669830322266 4.997727916898242 L 8.482669830322266 5.648473989719551 L 1.0540572715806378 5.648473989719551 L 1.0540572715806378 4.320952306995578 L 6.976876135142719 4.320952306995578 C 6.976876135142719 3.7569724386564745 6.868122478179195 3.253728896388423 6.650618307088051 2.8112216801914256 C 6.437296691126804 2.368714463994428 6.1319558346543745 2.019480921882422 5.734592545470944 1.7635210709218978 C 5.341411827872049 1.5075608615650893 4.877119659656072 1.379580756886685 4.341724531416347 1.379580756886685 C 3.751953636019025 1.379580756886685 3.2416506134495897 1.531421554997828 2.8108250073982193 1.835103117087135 C 2.384182137477767 2.1344462409536584 2.0558360019203517 2.5248931200677034 1.8257834907993469 3.0064448466846123 C 1.5957309796783419 3.487996914631316 1.4807047158905204 4.0042565224932645 1.4807047158905204 4.555221417493813 L 1.4807047158905204 5.440235508558014 C 1.4807047158905204 6.195100617162213 1.606191028660094 6.835000423761667 1.857157352072796 7.359935440351064 C 2.1123065761627986 7.880532086983638 2.465743073198851 8.277487357290916 2.917482656088301 8.550800688078738 C 3.369222238977751 8.819775665976225 3.8941723906843513 8.954263427988803 4.492308955799168 8.954263427988803 C 4.881306772720762 8.954263427988803 5.232658154453887 8.89786472948227 5.5463662273798064 8.78506870632163 C 5.864256838980985 8.66793451800204 6.138217894055561 8.494402714898019 6.368270405176566 8.264472503417789 C 6.598322916297571 8.030203939047224 6.77609233647018 7.739537145498597 6.9015754981765305 7.392472634766595 L 8.332085405939443 7.808950689345011 C 8.18150519394401 8.312194129214124 7.928447765740063 8.75470144781006 7.572912101140026 9.136472372068983 C 7.217376436539989 9.513904994637041 6.7781915122614835 9.808909475482906 6.255344724051618 10.021486463133185 C 5.732498297843794 10.229725149092598 5.144821452617963 10.333844184875488 4.492308955799168 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.49231 10.3338 C3.56373 10.3338 2.76272 10.1213 2.08929 9.69611 C1.42005 9.26662 0.903491 8.66794 0.53959 7.90005 C0.179871 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179871 3.27976 0.53959 2.49886 C0.903491 1.71363 1.40961 1.10193 2.05794 0.66376 C2.71045 0.221253 3.47171 0 4.34172 0 C4.84366 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76356 0.71582 7.1651 1.10627 C7.56665 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36346 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97688 4.32095 C6.97688 3.75697 6.86812 3.25373 6.65062 2.81122 C6.4373 2.36871 6.13196 2.01948 5.73459 1.76352 C5.34141 1.50756 4.87712 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81083 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85716 7.35994 C2.11231 7.88053 2.46574 8.27749 2.91748 8.5508 C3.36922 8.81978 3.89417 8.95426 4.49231 8.95426 C4.88131 8.95426 5.23266 8.89787 5.54637 8.78507 C5.86426 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59832 8.0302 6.77609 7.73954 6.90158 7.39247 L8.33209 7.80895 C8.18151 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.7325 10.2297 5.14482 10.3338 4.49231 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1128.58px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.818549633026123,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4304929687722767 0.15617940377737846 L 1.4304929687722767 1.6659099994409683 L 1.5308825787506652 1.6659099994409683 C 1.7065589497279288 1.1713433438196974 2.0244620305227494 0.7700498312983314 2.484567023996853 0.4620294618768706 C 2.9446722149266034 0.15400980924796392 3.463332746193173 0 4.040555430016367 0 C 4.149307327761243 0 4.285236856146023 0.0021692190666480655 4.4483650524243785 0.006507657199944197 C 4.611493248702734 0.010846095333240328 4.734894084679063 0.017353752533184524 4.818549633026123 0.026030628799776787 L 4.818549633026123 1.587820297552279 C 4.768356230794751 1.5748053468819456 4.653329986539885 1.555282922476429 4.473470879693227 1.5292530211357622 C 4.297794327714954 1.49888504645801 4.111650339276833 1.4837010591191335 3.91505999276913 1.4837010591191335 C 3.446589527556238 1.4837010591191335 3.0283245957560014 1.5856512662170141 2.6602404166847817 1.789551663346286 C 2.296339138029328 1.9891136223422616 2.007730938953438 2.266765112562033 1.7944095173310606 2.62250611693911 C 1.585270996124449 2.973909058645657 1.480687773761471 3.3752018202414904 1.480687773761471 3.826385562247887 L 1.480687773761471 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43049 0.156179 L1.43049 1.66591 L1.53088 1.66591 C1.70656 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46333 0 4.04056 0 C4.14931 0 4.28524 0.00216922 4.44836 0.00650766 C4.61149 0.0108461 4.73489 0.0173538 4.81855 0.0260306 L4.81855 1.58782 C4.76836 1.57481 4.65333 1.55528 4.47347 1.52925 C4.29779 1.49889 4.11165 1.4837 3.91506 1.4837 C3.44659 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.48069 3.3752 1.48069 3.82639 L1.48069 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.23px"
+                left="1122.75px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.87px"
+                viewBox={{"minX":0,"minY":0,"width":8.507759094238281,"height":13.873903274536133}}
+                paths={[{"d":"M 0 13.873903274536133 L 0 0.13014878273615327 L 1.4304931060704889 0.13014878273615327 L 1.4304931060704889 1.7179686288153815 L 1.6061833651696076 1.7179686288153815 C 1.7149354543534798 1.544436554415382 1.8655121583211902 1.3231829376910071 2.0579198038813535 1.054207761575767 C 2.2545101692577294 0.7808948809276909 2.5347606571726606 0.5379499767676915 2.898661806208843 0.32537304909576886 C 3.2667460206086525 0.10845768303192296 3.7644867991761903 0 4.391902636925455 0 C 5.203360845148844 0 5.918608780373747 0.21040770847596107 6.537659145581308 0.6312231254278833 C 7.156709510788868 1.0520389178425944 7.6398362993717415 1.6485560038532667 7.987006898235848 2.420774349326919 C 8.334176444003072 3.1929926948005716 8.507759094238281 4.104037109389994 8.507759094238281 5.153907524829223 C 8.507759094238281 6.212454066126721 8.334176444003072 7.1300057969742205 7.987006898235848 7.906562580839796 C 7.6398362993717415 8.678781062845372 7.158811492166312 9.277467470450947 6.543944027775991 9.702621462326716 C 5.929076234292894 10.123437152342484 5.2201008731928615 10.3338445877546 4.417008466603951 10.3338445877546 C 3.7979581013963903 10.3338445877546 3.3022857696524452 10.227556192184599 2.930018818981784 10.014979196246715 C 2.557751868311123 9.79806388138234 2.27124582036783 9.552950099356188 2.0704727187206022 9.279636826178832 C 1.8696996170733746 9.001985234074986 1.7149354543534798 8.772054740566766 1.6061833651696076 8.589845874715373 L 1.480687915877363 8.589845874715373 L 1.480687915877363 13.873903274536133 L 0 13.873903274536133 Z M 1.4555989357489858 5.127877986733069 C 1.4555989357489858 5.882743329564606 1.5622504504270298 6.548673074670376 1.7755718925239226 7.125667699912105 C 1.9888933346208153 7.698324091559797 2.3005236743473265 8.147338368202776 2.7104354818205953 8.472711314899602 C 3.120347289293864 8.79374602800239 3.6222755430682243 8.954263777083064 4.216229227376455 8.954263777083064 C 4.835279921676792 8.954263777083064 5.351855206350504 8.785069697346236 5.765949750094625 8.446681776803448 C 6.184226832653931 8.103955622666621 6.497925800205062 7.644094703916142 6.707064522485742 7.067099873876527 C 6.920386145583661 6.485766946774797 7.027054328810799 5.839360242698645 7.027054328810799 5.127877986733069 C 7.027054328810799 4.4250724710194165 6.922488126961106 3.7916786586773976 6.713349404680426 3.2276987683507636 C 6.508393583216986 2.6593808150949956 6.196763259945113 2.2103666408509577 5.778485815383753 1.8806551533632658 C 5.364391271639633 1.5466056029464395 4.843645394218495 1.379580810671536 4.216229227376455 1.379580810671536 C 3.6139101363450763 1.379580810671536 3.107794374454616 1.537929067492401 2.697882566981347 1.8546256152671123 C 2.2879707595080783 2.1669837246499 1.9784425821600382 2.6051525197067265 1.7693038598793582 3.1691320345705716 C 1.5601651375986783 3.728773486505282 1.4555989357489858 4.38168917935557 1.4555989357489858 5.127877986733069 Z","fillRule":"nonzero"},{"d":"M0 13.8739 L0 0.130149 L1.43049 0.130149 L1.43049 1.71797 L1.60618 1.71797 C1.71494 1.54444 1.86551 1.32318 2.05792 1.05421 C2.25451 0.780895 2.53476 0.53795 2.89866 0.325373 C3.26675 0.108458 3.76449 0 4.3919 0 C5.20336 0 5.91861 0.210408 6.53766 0.631223 C7.15671 1.05204 7.63984 1.64856 7.98701 2.42077 C8.33418 3.19299 8.50776 4.10404 8.50776 5.15391 C8.50776 6.21245 8.33418 7.13001 7.98701 7.90656 C7.63984 8.67878 7.15881 9.27747 6.54394 9.70262 C5.92908 10.1234 5.2201 10.3338 4.41701 10.3338 C3.79796 10.3338 3.30229 10.2276 2.93002 10.015 C2.55775 9.79806 2.27125 9.55295 2.07047 9.27964 C1.8697 9.00199 1.71494 8.77205 1.60618 8.58985 L1.48069 8.58985 L1.48069 13.8739 L0 13.8739 Z M1.4556 5.12788 C1.4556 5.88274 1.56225 6.54867 1.77557 7.12567 C1.98889 7.69832 2.30052 8.14734 2.71044 8.47271 C3.12035 8.79375 3.62228 8.95426 4.21623 8.95426 C4.83528 8.95426 5.35186 8.78507 5.76595 8.44668 C6.18423 8.10396 6.49793 7.64409 6.70706 7.0671 C6.92039 6.48577 7.02705 5.83936 7.02705 5.12788 C7.02705 4.42507 6.92249 3.79168 6.71335 3.2277 C6.50839 2.65938 6.19676 2.21037 5.77849 1.88066 C5.36439 1.54661 4.84365 1.37958 4.21623 1.37958 C3.61391 1.37958 3.10779 1.53793 2.69788 1.85463 C2.28797 2.16698 1.97844 2.60515 1.7693 3.16913 C1.56017 3.72877 1.4556 4.38169 1.4556 5.12788 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1111.98px"
+              />
+              <Icon
+                width="8.03px"
+                height="10px"
+                viewBox={{"minX":0,"minY":0,"width":8.030916213989258,"height":9.99545669555664}}
+                paths={[{"d":"M 1.7065728547631238 0 L 4.01544968222021 4.086684194513766 L 6.324343359226133 0 L 8.030916213989258 0 L 4.918939340358826 4.997728893905979 L 8.030916213989258 9.99545669555664 L 6.324343359226133 9.99545669555664 L 4.01544968222021 6.117010977402432 L 1.7065728547631238 9.99545669555664 L 0 9.99545669555664 L 3.061782067647794 4.997728893905979 L 0 0 L 1.7065728547631238 0 Z","fillRule":"nonzero"},{"d":"M1.70657 0 L4.01545 4.08668 L6.32434 0 L8.03092 0 L4.91894 4.99773 L8.03092 9.99546 L6.32434 9.99546 L4.01545 6.11701 L1.70657 9.99546 L0 9.99546 L3.06178 4.99773 L0 0 L1.70657 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.38px"
+                left="1101.84px"
+              />
+              <Icon
+                width="7.86px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.855259895324707,"height":13.327277183532715}}
+                paths={[{"d":"M 0 13.327277183532717 L 0 0 L 7.754870280446233 0 L 7.754870280446233 1.431641061033575 L 1.555988481968373 1.431641061033575 L 1.555988481968373 5.934802745329102 L 7.353311820932337 5.934802745329102 L 7.353311820932337 7.366443806362677 L 1.555988481968373 7.366443806362677 L 1.555988481968373 11.895636122499141 L 7.855259895324707 11.895636122499141 L 7.855259895324707 13.327277183532717 L 0 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0 13.3273 L0 0 L7.75487 0 L7.75487 1.43164 L1.55599 1.43164 L1.55599 5.9348 L7.35331 5.9348 L7.35331 7.36644 L1.55599 7.36644 L1.55599 11.8956 L7.85526 11.8956 L7.85526 13.3273 L0 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1092.08px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704675674438477,"height":10.359874725341797}}
+                paths={[{"d":"M 3.2876673007016994 10.359874725341797 C 2.676982420875432 10.359874725341797 2.122771209465573 10.240571314889168 1.6250211280376283 10.001964459850928 C 1.1272711124282373 9.759019302701645 0.7319944639157683 9.409786426491468 0.43920036418847214 8.954264295236168 C 0.14640626446117605 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.1087536583153414 6.251499110486931 0.3262578321100816 5.895757893652635 C 0.543762088178014 5.53567840884028 0.834472471220731 5.253688993486879 1.1983736784244807 5.0497885724034735 C 1.5622748856282305 4.845888151320068 1.9638241410429662 4.694046433978643 2.403015389361741 4.594265621956588 C 2.8463893409541488 4.490146371291558 3.2918470421404127 4.40771967650434 3.739403729915731 4.346983357350659 C 4.324991929370323 4.268893646288024 4.799744152469262 4.210325816863324 5.163645622947227 4.171280961332006 C 5.531729665061717 4.127898029820657 5.799418100184749 4.0563159809891065 5.966728863872223 3.9565348020374853 C 6.138222528288993 3.8567539900154295 6.223970940142668 3.683221171714583 6.223970940142668 3.4359374564568865 L 6.223970940142668 3.383878377252096 C 6.223970940142668 2.74180911869002 6.054576097768568 2.242903966324292 5.715771669664324 1.8871629201549103 C 5.381149780287329 1.531421873985529 4.872932245160313 1.3535513509008383 4.191140159129762 1.3535513509008383 C 3.484251524364643 1.3535513509008383 2.9300401813176764 1.5140686655413573 2.528493986465691 1.8351032948223953 C 2.126947627067321 2.156137924103433 1.844612013261144 2.4988634836789783 1.6814839693019408 2.863281031671497 L 0.2760630233585486 2.3426847783463476 C 0.5270294321639759 1.735321936672615 0.8616650776187097 1.2624466993720922 1.2799423488394426 0.9240590323117965 C 1.70240252078947 0.581332585278699 2.162507548750625 0.34272573024045916 2.6602574656321853 0.20823850133005992 C 3.16219028324304 0.06941283377668664 3.6557436091361217 0 4.140945350378229 0 C 4.450470526474272 0 4.80600935478423 0.03904448860175248 5.207555549636215 0.11713347433850316 C 5.613284645217495 0.19088474675816383 6.004373917339013 0.3448945911656271 6.380823398910047 0.5791629904944015 C 6.761455781210374 0.8134321236823056 7.0772567070446275 1.1670043259930103 7.3282230335768626 1.639879563293533 C 7.579189705656505 2.1127548005940557 7.7046756744384775 2.7461475573329945 7.7046756744384775 3.5400577993773656 L 7.7046756744384775 10.125606684409341 L 6.223970940142668 10.125606684409341 L 6.223970940142668 8.772055333508504 L 6.148687151790251 8.772055333508504 C 6.04830033980304 8.988970660925037 5.880990982987152 9.221069397203548 5.646755913824687 9.468352890596856 C 5.412520499114815 9.715636332790691 5.100890165940301 9.926044889700316 4.71189234418343 10.099577144806947 C 4.322894522426559 10.273109399913578 3.8481589514217243 10.359874725341797 3.2876673007016994 10.359874725341797 Z M 3.513535515308715 8.980293834838564 C 4.099123714763307 8.980293834838564 4.59269372565977 8.860990407319443 4.994240249604524 8.622383569347695 C 5.399968983183758 8.383776731375947 5.705310205453647 8.075757230292426 5.910266022607911 7.698324537035899 C 6.11940474049147 7.320891843779372 6.223970940142668 6.923936552092273 6.223970940142668 6.507459173969342 L 6.223970940142668 5.101847651608264 C 6.161229535396973 5.179937362670898 6.023198023717698 5.2515194157690726 5.809876405104845 5.316593810902785 C 5.600737687221287 5.377330130056466 5.358139975890814 5.431559520838192 5.082076952532265 5.4792808909925155 C 4.810196829903012 5.522664185166807 4.544593510108827 5.561707948442675 4.2852617441200485 5.596414365331018 C 4.030112516858519 5.626782524907858 3.8230652493396073 5.652812610637978 3.664119941563314 5.674504076393653 C 3.2793046585336914 5.726563701726168 2.9195787171069987 5.811160703823699 2.5849568277300032 5.928295091219492 C 2.2545176745359177 6.041091039972311 1.986829403959271 6.212454630418424 1.7818735868050068 6.442384778835629 C 1.5811004893790142 6.667976676341266 1.4807047342958088 6.975996177424787 1.4807047342958088 7.366443811147426 C 1.4807047342958088 7.900055482800446 1.6710193458006823 8.303517698592877 2.0516517281010103 8.576831055851917 C 2.4364668465842483 8.84580605980044 2.9237646125804897 8.980293834838564 3.513535515308715 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28767 10.3599 C2.67698 10.3599 2.12277 10.2406 1.62502 10.002 C1.12727 9.75902 0.731994 9.40979 0.4392 8.95426 C0.146406 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834472 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40302 4.59427 C2.84639 4.49015 3.29185 4.40772 3.7394 4.34698 C4.32499 4.26889 4.79974 4.21033 5.16365 4.17128 C5.53173 4.1279 5.79942 4.05632 5.96673 3.95654 C6.13822 3.85675 6.22397 3.68322 6.22397 3.43594 L6.22397 3.38388 C6.22397 2.74181 6.05458 2.2429 5.71577 1.88716 C5.38115 1.53142 4.87293 1.35355 4.19114 1.35355 C3.48425 1.35355 2.93004 1.51407 2.52849 1.8351 C2.12695 2.15614 1.84461 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861665 1.26245 1.27994 0.924059 C1.7024 0.581333 2.16251 0.342726 2.66026 0.208239 C3.16219 0.0694128 3.65574 0 4.14095 0 C4.45047 0 4.80601 0.0390445 5.20756 0.117133 C5.61328 0.190885 6.00437 0.344895 6.38082 0.579163 C6.76146 0.813432 7.07726 1.167 7.32822 1.63988 C7.57919 2.11275 7.70468 2.74615 7.70468 3.54006 L7.70468 10.1256 L6.22397 10.1256 L6.22397 8.77206 L6.14869 8.77206 C6.0483 8.98897 5.88099 9.22107 5.64676 9.46835 C5.41252 9.71564 5.10089 9.92605 4.71189 10.0996 C4.32289 10.2731 3.84816 10.3599 3.28767 10.3599 Z M3.51354 8.98029 C4.09912 8.98029 4.59269 8.86099 4.99424 8.62238 C5.39997 8.38378 5.70531 8.07576 5.91027 7.69832 C6.1194 7.32089 6.22397 6.92394 6.22397 6.50746 L6.22397 5.10185 C6.16123 5.17994 6.0232 5.25152 5.80988 5.31659 C5.60074 5.37733 5.35814 5.43156 5.08208 5.47928 C4.8102 5.52266 4.54459 5.56171 4.28526 5.59641 C4.03011 5.62678 3.82307 5.65281 3.66412 5.6745 C3.2793 5.72656 2.91958 5.81116 2.58496 5.9283 C2.25452 6.04109 1.98683 6.21245 1.78187 6.44239 C1.5811 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67102 8.30352 2.05165 8.57683 C2.43647 8.84581 2.92376 8.98029 3.51354 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1076.51px"
+              />
+              <Icon
+                width="2.11px"
+                height="13.74px"
+                viewBox={{"minX":0,"minY":0,"width":2.10811448097229,"height":13.743752479553223}}
+                paths={[{"d":"M 0.301168839881218 13.743752479553223 L 0.301168839881218 3.7482958328994305 L 1.7818566625421666 3.7482958328994305 L 1.7818566625421666 13.743752479553223 L 0.301168839881218 13.743752479553223 Z M 1.054057240486145 2.082386937918121 C 0.7654458890432045 2.082386937918121 0.516575498972384 1.9804365609022283 0.3074368721311796 1.7765357898039535 C 0.10248098129750349 1.572635752564717 0 1.3275216456164194 0 1.0411934689590605 C 0 0.7548652923017016 0.10248098129750349 0.5097508269571296 0.3074368721311796 0.30585005585885483 C 0.516575498972384 0.10195001861961828 0.7654458890432045 0 1.054057240486145 0 C 1.3426685919290855 0 1.5894537680306615 0.10195001861961828 1.7944095765911487 0.30585005585885483 C 2.0035482857055418 0.5097508269571296 2.10811448097229 0.7548652923017016 2.10811448097229 1.0411934689590605 C 2.10811448097229 1.3275216456164194 2.0035482857055418 1.572635752564717 1.7944095765911487 1.7765357898039535 C 1.5894537680306615 1.9804365609022283 1.3426685919290855 2.082386937918121 1.054057240486145 2.082386937918121 Z","fillRule":"nonzero"},{"d":"M0.301169 13.7438 L0.301169 3.7483 L1.78186 3.7483 L1.78186 13.7438 L0.301169 13.7438 Z M1.05406 2.08239 C0.765446 2.08239 0.516576 1.98044 0.307437 1.77654 C0.102481 1.57264 0 1.32752 0 1.04119 C0 0.754865 0.102481 0.509751 0.307437 0.30585 C0.516576 0.10195 0.765446 0 1.05406 0 C1.34267 0 1.58945 0.10195 1.79441 0.30585 C2.00355 0.509751 2.10811 0.754865 2.10811 1.04119 C2.10811 1.32752 2.00355 1.57264 1.79441 1.77654 C1.58945 1.98044 1.34267 2.08239 1.05406 2.08239 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9573.64px"
+                left="1072.47px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.818549633026123,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4304929687722767 0.15617940377737846 L 1.4304929687722767 1.6659099994409683 L 1.5308825787506652 1.6659099994409683 C 1.7065589497279288 1.1713433438196974 2.0244620305227494 0.7700498312983314 2.484567023996853 0.4620294618768706 C 2.9446722149266034 0.15400980924796392 3.463332746193173 0 4.040555430016367 0 C 4.149307327761243 0 4.285236856146023 0.0021692190666480655 4.4483650524243785 0.006507657199944197 C 4.611493248702734 0.010846095333240328 4.734894084679063 0.017353752533184524 4.818549633026123 0.026030628799776787 L 4.818549633026123 1.587820297552279 C 4.768356230794751 1.5748053468819456 4.653329986539885 1.555282922476429 4.473470879693227 1.5292530211357622 C 4.297794327714954 1.49888504645801 4.111650339276833 1.4837010591191335 3.91505999276913 1.4837010591191335 C 3.446589527556238 1.4837010591191335 3.0283245957560014 1.5856512662170141 2.6602404166847817 1.789551663346286 C 2.296339138029328 1.9891136223422616 2.007730938953438 2.266765112562033 1.7944095173310606 2.62250611693911 C 1.585270996124449 2.973909058645657 1.480687773761471 3.3752018202414904 1.480687773761471 3.826385562247887 L 1.480687773761471 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43049 0.156179 L1.43049 1.66591 L1.53088 1.66591 C1.70656 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46333 0 4.04056 0 C4.14931 0 4.28524 0.00216922 4.44836 0.00650766 C4.61149 0.0108461 4.73489 0.0173538 4.81855 0.0260306 L4.81855 1.58782 C4.76836 1.57481 4.65333 1.55528 4.47347 1.52925 C4.29779 1.49889 4.11165 1.4837 3.91506 1.4837 C3.44659 1.4837 3.02832 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.48069 3.3752 1.48069 3.82639 L1.48069 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.23px"
+                left="1066.19px"
+              />
+              <Icon
+                width="7.7px"
+                height="10.36px"
+                viewBox={{"minX":0,"minY":0,"width":7.704666614532471,"height":10.359874725341797}}
+                paths={[{"d":"M 3.287658604909989 10.359874725341797 C 2.6769737754252825 10.359874725341797 2.1227626097016 10.240571314889168 1.6250125693054815 10.001964459850928 C 1.1272625947279113 9.759019302701645 0.7319859787999128 9.409786426491468 0.4391919032089798 8.954264295236168 C 0.1463978276180467 8.494403827736843 0 7.9391000311349185 0 7.288354100084791 C 0 6.715697675299402 0.10875364935027762 6.251499110486931 0.32625780521514935 5.895757893652635 C 0.5437620433532065 5.53567840884028 0.8344639776571425 5.253688993486879 1.1983651548628438 5.0497885724034735 C 1.562266332068545 4.845888151320068 1.9638155543817304 4.694046433978643 2.4030067664959525 4.594265621956588 C 2.8463806815390083 4.490146371291558 3.291838346004147 4.40771967650434 3.7393949968853106 4.346983357350659 C 4.324983148067177 4.268893646288024 4.799735332030109 4.210325816863324 5.163636772510004 4.171280961332006 C 5.531720784281635 4.127898029820657 5.799409197337879 4.0563159809891065 5.966719947233159 3.9565348020374853 C 6.138213597512918 3.8567539900154295 6.223962002297957 3.683221171714583 6.223962002297957 3.4359374564568865 L 6.223962002297957 3.383878377252096 C 6.223962002297957 2.74180911869002 6.054567173887852 2.242903966324292 5.715762773712814 1.8871629201549103 C 5.381140911920238 1.531421873985529 4.872923418687929 1.3535513509008383 4.191131388860632 1.3535513509008383 C 3.4842428123675915 1.3535513509008383 2.930031515006813 1.5140686655413573 2.528485353256125 1.8351032948223953 C 2.1269390269590667 2.156137924103433 1.8446034364271118 2.4988634836789783 1.6814754059153028 2.863281031671497 L 0.2760630006014051 2.3426847783463476 C 0.5270293887185182 1.735321936672615 0.8616565818135098 1.2624466993720922 1.2799338185537252 0.9240590323117965 C 1.7023939556784193 0.581332585278699 2.162498945711003 0.34272573024045916 2.6602488215607507 0.20823850133005992 C 3.162181597794977 0.06941283377668664 3.65573488300219 0 4.140936584246888 0 C 4.450461734827349 0 4.806000533828607 0.03904448860175248 5.207546695579294 0.11713347433850316 C 5.613275757714461 0.19088474675816383 6.004364997596693 0.3448945911656271 6.380814448135266 0.5791629904944015 C 6.761446799058318 0.8134321236823056 7.077247698859649 1.1670043259930103 7.328214004703577 1.639879563293533 C 7.579180656094883 2.1127548005940557 7.704666614532471 2.7461475573329945 7.704666614532471 3.5400577993773656 L 7.704666614532471 10.125606684409341 L 6.223962002297957 10.125606684409341 L 6.223962002297957 8.772055333508504 L 6.148678220151528 8.772055333508504 C 6.048291416439663 8.988970660925037 5.880982073415854 9.221069397203548 5.646747023562463 9.468352890596856 C 5.412511628161692 9.715636332790691 5.100881320676298 9.926044889700316 4.711883530986305 10.099577144806947 C 4.322885741296312 10.273109399913578 3.8481502094261115 10.359874725341797 3.287658604909989 10.359874725341797 Z M 3.5135268008976497 8.980293834838564 C 4.099114952079516 8.980293834838564 4.5926849222887345 8.860990407319443 4.994231413132164 8.622383569347695 C 5.3999601132653146 8.383776731375947 5.705301310364523 8.075757230292426 5.910257110623338 7.698324537035899 C 6.119395811266631 7.320891843779372 6.223962002297957 6.923936552092273 6.223962002297957 6.507459173969342 L 6.223962002297957 5.101847651608264 C 6.161220602724323 5.179937362670898 6.023189102423621 5.2515194157690726 5.809867501395849 5.316593810902785 C 5.600728800752556 5.377330130056466 5.358131109420527 5.431559520838192 5.082068108819122 5.4792808909925155 C 4.8101880086021955 5.522664185166807 4.544584710702914 5.561707948442675 4.285252966092044 5.596414365331018 C 4.030103759863638 5.626782524907858 3.823056509412584 5.652812610637978 3.664111214738883 5.674504076393653 C 3.2792959634313523 5.726563701726168 2.9195700516585212 5.811160703823699 2.584948189865946 5.928295091219492 C 2.254509063911478 6.041091039972311 1.9868208154016058 6.212454630418424 1.7818650151427913 6.442384778835629 C 1.5810919342674477 6.667976676341266 1.4806961874603257 6.975996177424787 1.4806961874603257 7.366443811147426 C 1.4806961874603257 7.900055482800446 1.671010783276691 8.303517698592877 2.0516431341997428 8.576831055851917 C 2.436458220960902 8.84580605980044 2.92375594678695 8.980293834838564 3.5135268008976497 8.980293834838564 Z","fillRule":"nonzero"},{"d":"M3.28766 10.3599 C2.67697 10.3599 2.12276 10.2406 1.62501 10.002 C1.12726 9.75902 0.731986 9.40979 0.439192 8.95426 C0.146398 8.4944 0 7.9391 0 7.28835 C0 6.7157 0.108754 6.2515 0.326258 5.89576 C0.543762 5.53568 0.834464 5.25369 1.19837 5.04979 C1.56227 4.84589 1.96382 4.69405 2.40301 4.59427 C2.84638 4.49015 3.29184 4.40772 3.73939 4.34698 C4.32498 4.26889 4.79974 4.21033 5.16364 4.17128 C5.53172 4.1279 5.79941 4.05632 5.96672 3.95654 C6.13821 3.85675 6.22396 3.68322 6.22396 3.43594 L6.22396 3.38388 C6.22396 2.74181 6.05457 2.2429 5.71576 1.88716 C5.38114 1.53142 4.87292 1.35355 4.19113 1.35355 C3.48424 1.35355 2.93003 1.51407 2.52849 1.8351 C2.12694 2.15614 1.8446 2.49886 1.68148 2.86328 L0.276063 2.34268 C0.527029 1.73532 0.861657 1.26245 1.27993 0.924059 C1.70239 0.581333 2.1625 0.342726 2.66025 0.208239 C3.16218 0.0694128 3.65573 0 4.14094 0 C4.45046 0 4.806 0.0390445 5.20755 0.117133 C5.61328 0.190885 6.00436 0.344895 6.38081 0.579163 C6.76145 0.813432 7.07725 1.167 7.32821 1.63988 C7.57918 2.11275 7.70467 2.74615 7.70467 3.54006 L7.70467 10.1256 L6.22396 10.1256 L6.22396 8.77206 L6.14868 8.77206 C6.04829 8.98897 5.88098 9.22107 5.64675 9.46835 C5.41251 9.71564 5.10088 9.92605 4.71188 10.0996 C4.32289 10.2731 3.84815 10.3599 3.28766 10.3599 Z M3.51353 8.98029 C4.09911 8.98029 4.59268 8.86099 4.99423 8.62238 C5.39996 8.38378 5.7053 8.07576 5.91026 7.69832 C6.1194 7.32089 6.22396 6.92394 6.22396 6.50746 L6.22396 5.10185 C6.16122 5.17994 6.02319 5.25152 5.80987 5.31659 C5.60073 5.37733 5.35813 5.43156 5.08207 5.47928 C4.81019 5.52266 4.54458 5.56171 4.28525 5.59641 C4.0301 5.62678 3.82306 5.65281 3.66411 5.6745 C3.2793 5.72656 2.91957 5.81116 2.58495 5.9283 C2.25451 6.04109 1.98682 6.21245 1.78187 6.44239 C1.58109 6.66798 1.4807 6.976 1.4807 7.36644 C1.4807 7.90006 1.67101 8.30352 2.05164 8.57683 C2.43646 8.84581 2.92376 8.98029 3.51353 8.98029 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1055.78px"
+              />
+              <Icon
+                width="8.93px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.934405326843262,"height":13.327277183532715}}
+                paths={[{"d":"M 0.07529220437872065 13.327277183532717 L 0.07529220437872065 12.155934795120368 L 7.001964387873424 1.431641061033575 L 0 1.431641061033575 L 0 0 L 8.85911312246454 0 L 8.85911312246454 1.1713423884123482 L 1.9324409389698365 11.895636122499141 L 8.934405326843262 11.895636122499141 L 8.934405326843262 13.327277183532717 L 0.07529220437872065 13.327277183532717 Z","fillRule":"nonzero"},{"d":"M0.0752922 13.3273 L0.0752922 12.1559 L7.00196 1.43164 L0 1.43164 L0 0 L8.85911 0 L8.85911 1.17134 L1.93244 11.8956 L8.93441 11.8956 L8.93441 13.3273 L0.0752922 13.3273 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1044.89px"
+              />
+              <Icon
+                width="8.23px"
+                height="13.51px"
+                viewBox={{"minX":0,"minY":0,"width":8.231695175170898,"height":13.509485244750977}}
+                paths={[{"d":"M 3.990369001408449 13.509485244750978 C 3.2542011787422345 13.509485244750978 2.5912277938835775 13.357644851747995 2.0014567450582446 13.053963417215403 C 1.4116858936885555 12.75028201681579 0.9390355943544584 12.33380367686466 0.5834998575680816 11.804530308808918 C 0.22796412078170486 11.275257043152116 0.03346214982353775 10.672233056166682 0 9.995457221464255 L 1.5058020075430418 9.995457221464255 C 1.5643608561210771 10.598481788710359 1.8278702302942154 11.097386702702718 2.296340689825758 11.492172577834983 C 2.7689940497223393 11.882620117015186 3.3336738503916847 12.077844279134563 3.990369001408449 12.077844279134563 C 4.517398650951745 12.077844279134563 4.985869801578042 11.949864529070044 5.395781400190572 11.693904499879809 C 5.80987589916814 11.437944368290632 6.134034535459701 11.086541152952895 6.368269929771842 10.639695655991641 C 6.606687878901645 10.188511891344286 6.725901592402005 9.67876122280422 6.725901592402005 9.110443104243755 C 6.725901592402005 8.529110046093063 6.602508845376304 8.010682125388202 6.355725441063802 7.5551599223898425 C 6.113124591568961 7.095299656503263 5.778505890621875 6.733051710607235 5.351863052551207 6.468414975379893 C 4.925220214480539 6.203778240152552 4.437922852921263 6.069289569641248 3.88997939264753 6.064951131290244 C 3.496798704400399 6.060613056935477 3.0931640890773484 6.123519682099262 2.6790697546461506 6.253668830537431 C 2.264975255668583 6.379479540624596 1.9240755400459508 6.542165508977137 1.6563779959102716 6.741727853450164 L 0.2007707927476892 6.559518903984858 L 0.9787734110965145 0 L 7.654471774343911 0 L 7.654471774343911 1.431640965616415 L 2.283796201117718 1.431640965616415 L 1.8320513864677308 5.36214596353505 L 1.9073435930384202 5.36214596353505 C 2.170858236809061 5.1452305995170855 2.501298068777176 4.965191415354971 2.898661492842975 4.822027318793329 C 3.296024916908774 4.678863222231687 3.7101192513399717 4.607281173950867 4.1409449897756785 4.607281173950867 C 4.9273060371772 4.607281173950867 5.627923616583308 4.802504892341497 6.242791343594843 5.1929523291227575 C 6.861841641878676 5.5790617030158 7.347045447061895 6.108334422544912 7.698398546757425 6.780771614098452 C 8.05393385572324 7.453209146981796 8.231695175170898 8.221089456416875 8.231695175170898 9.084412474137729 C 8.231695175170898 9.934720381603452 8.04765318659507 10.693924565262092 7.679569176534141 11.362023796326355 C 7.31566806683825 12.025784589039613 6.813739669870244 12.550719621143292 6.173775593765248 12.936828858504413 C 5.533811517660252 13.31859979404645 4.806010022272498 13.509485244750978 3.990369001408449 13.509485244750978 Z","fillRule":"nonzero"},{"d":"M3.99037 13.5095 C3.2542 13.5095 2.59123 13.3576 2.00146 13.054 C1.41169 12.7503 0.939036 12.3338 0.5835 11.8045 C0.227964 11.2753 0.0334621 10.6722 0 9.99546 L1.5058 9.99546 C1.56436 10.5985 1.82787 11.0974 2.29634 11.4922 C2.76899 11.8826 3.33367 12.0778 3.99037 12.0778 C4.5174 12.0778 4.98587 11.9499 5.39578 11.6939 C5.80988 11.4379 6.13403 11.0865 6.36827 10.6397 C6.60669 10.1885 6.7259 9.67876 6.7259 9.11044 C6.7259 8.52911 6.60251 8.01068 6.35573 7.55516 C6.11312 7.0953 5.77851 6.73305 5.35186 6.46842 C4.92522 6.20378 4.43792 6.06929 3.88998 6.06495 C3.4968 6.06061 3.09316 6.12352 2.67907 6.25367 C2.26498 6.37948 1.92408 6.54217 1.65638 6.74173 L0.200771 6.55952 L0.978773 0 L7.65447 0 L7.65447 1.43164 L2.2838 1.43164 L1.83205 5.36215 L1.90734 5.36215 C2.17086 5.14523 2.5013 4.96519 2.89866 4.82203 C3.29602 4.67886 3.71012 4.60728 4.14094 4.60728 C4.92731 4.60728 5.62792 4.80251 6.24279 5.19295 C6.86184 5.57906 7.34705 6.10833 7.6984 6.78077 C8.05393 7.45321 8.2317 8.22109 8.2317 9.08441 C8.2317 9.93472 8.04765 10.6939 7.67957 11.362 C7.31567 12.0258 6.81374 12.5507 6.17378 12.9368 C5.53381 13.3186 4.80601 13.5095 3.99037 13.5095 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1029.48px"
+              />
+              <Icon
+                width="8.73px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.733626365661621,"height":10.333844184875488}}
+                paths={[{"d":"M 4.3668131828308105 10.333844184875488 C 3.496796432152819 10.333844184875488 2.7334358741486504 10.119098080512758 2.0767405259593814 9.689605769388356 C 1.424227880677703 9.260113458263953 0.913933551562542 8.659257752488658 0.545849541660315 7.8870393005890795 C 0.18194836630277472 7.114820780423542 0 6.212453687393757 0 5.179936860978422 C 0 4.138743362915398 0.18194836630277472 3.2298682029556844 0.545849541660315 2.4533114493652404 C 0.913933551562542 1.6767546957747963 1.424227880677703 1.0737303170157813 2.0767405259593814 0.6442384154871332 C 2.7334358741486504 0.21474613849571106 3.496796432152819 0 4.3668131828308105 0 C 5.236829801871706 0 5.9980966060450776 0.21474613849571106 6.650609382963852 0.6442384154871332 C 7.307304731153121 1.0737303170157813 7.817599257723926 1.6767546957747963 8.181500367262919 2.4533114493652404 C 8.549584377165145 3.2298682029556844 8.733626365661621 4.138743362915398 8.733626365661621 5.179936860978422 C 8.733626365661621 6.212453687393757 8.549584377165145 7.114820780423542 8.181500367262919 7.8870393005890795 C 7.817599257723926 8.659257752488658 7.307304731153121 9.260113458263953 6.650609382963852 9.689605769388356 C 5.9980966060450776 10.119098080512758 5.236829801871706 10.333844184875488 4.3668131828308105 10.333844184875488 Z M 4.3668131828308105 8.954263427988803 C 5.027691102290574 8.954263427988803 5.571450937960795 8.77856132205129 5.998093775847513 8.427158475495444 C 6.424736613734232 8.075755731338537 6.74053718283895 7.61372649886244 6.945493327604224 7.041070061274585 C 7.15044912682212 6.468413691952689 7.252930185721373 5.848035935765315 7.252930185721373 5.179936860978422 C 7.252930185721373 4.5118377861915295 7.15044912682212 3.8892908108927644 6.945493327604224 3.312296003348085 C 6.74053718283895 2.7353015371332 6.424736613734232 2.268933661636443 5.998093775847513 1.9131922744588752 C 5.571450937960795 1.5574512627440815 5.027691102290574 1.379580756886685 4.3668131828308105 1.379580756886685 C 3.7059349342783063 1.379580756886685 3.1621752631544573 1.5574512627440815 2.735532589814109 1.9131922744588752 C 2.308889751927391 2.268933661636443 1.9930890182763015 2.7353015371332 1.788133038057398 3.312296003348085 C 1.5831772388395016 3.8892908108927644 1.480696179940249 4.5118377861915295 1.480696179940249 5.179936860978422 C 1.480696179940249 5.848035935765315 1.5831772388395016 6.468413691952689 1.788133038057398 7.041070061274585 C 1.9930890182763015 7.61372649886244 2.308889751927391 8.075755731338537 2.735532589814109 8.427158475495444 C 3.1621752631544573 8.77856132205129 3.7059349342783063 8.954263427988803 4.3668131828308105 8.954263427988803 Z","fillRule":"nonzero"},{"d":"M4.36681 10.3338 C3.4968 10.3338 2.73344 10.1191 2.07674 9.68961 C1.42423 9.26011 0.913934 8.65926 0.54585 7.88704 C0.181948 7.11482 0 6.21245 0 5.17994 C0 4.13874 0.181948 3.22987 0.54585 2.45331 C0.913934 1.67675 1.42423 1.07373 2.07674 0.644238 C2.73344 0.214746 3.4968 0 4.36681 0 C5.23683 0 5.9981 0.214746 6.65061 0.644238 C7.3073 1.07373 7.8176 1.67675 8.1815 2.45331 C8.54958 3.22987 8.73363 4.13874 8.73363 5.17994 C8.73363 6.21245 8.54958 7.11482 8.1815 7.88704 C7.8176 8.65926 7.3073 9.26011 6.65061 9.68961 C5.9981 10.1191 5.23683 10.3338 4.36681 10.3338 Z M4.36681 8.95426 C5.02769 8.95426 5.57145 8.77856 5.99809 8.42716 C6.42474 8.07576 6.74054 7.61373 6.94549 7.04107 C7.15045 6.46841 7.25293 5.84804 7.25293 5.17994 C7.25293 4.51184 7.15045 3.88929 6.94549 3.3123 C6.74054 2.7353 6.42474 2.26893 5.99809 1.91319 C5.57145 1.55745 5.02769 1.37958 4.36681 1.37958 C3.70593 1.37958 3.16218 1.55745 2.73553 1.91319 C2.30889 2.26893 1.99309 2.7353 1.78813 3.3123 C1.58318 3.88929 1.4807 4.51184 1.4807 5.17994 C1.4807 5.84804 1.58318 6.46841 1.78813 7.04107 C1.99309 7.61373 2.30889 8.07576 2.73553 8.42716 C3.16218 8.77856 3.70593 8.95426 4.36681 8.95426 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="1013.51px"
+              />
+              <Icon
+                width="10.19px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":10.189242362976074,"height":13.327277183532715}}
+                paths={[{"d":"M 10.189242362976074 0 L 10.189242362976074 13.327277183532717 L 8.683440301401584 13.327277183532717 L 1.681475458435493 2.86328212206715 L 1.5559968677560487 2.86328212206715 L 1.5559968677560487 13.327277183532717 L 0 13.327277183532717 L 0 0 L 1.5058020615744905 0 L 8.53286430763136 10.490024601051054 L 8.658342898310805 10.490024601051054 L 8.658342898310805 0 L 10.189242362976074 0 Z","fillRule":"nonzero"},{"d":"M10.1892 0 L10.1892 13.3273 L8.68344 13.3273 L1.68148 2.86328 L1.556 2.86328 L1.556 13.3273 L0 13.3273 L0 0 L1.5058 0 L8.53286 10.49 L8.65834 10.49 L8.65834 0 L10.1892 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="1000.86px"
+              />
+              <Icon
+                width="2.26px"
+                height="9.08px"
+                viewBox={{"minX":0,"minY":0,"width":2.2586987018585205,"height":9.084413528442383}}
+                paths={[{"d":"M 1.1293493509292603 9.084413528442383 C 0.8198242150893773 9.084413528442383 0.5542211931131544 8.969447728591934 0.33253424614906885 8.739517511276741 C 0.11084729918498323 8.509587191562607 0 8.234104737071386 0 7.913070130736586 C 0 7.592035524401787 0.11084729918498323 7.316553069910565 0.33253424614906885 7.086622750196431 C 0.5542211931131544 6.85669261821369 0.8198242150893773 6.741727825286161 1.1293493509292603 6.741727825286161 C 1.4388744867691432 6.741727825286161 1.7044858347913352 6.85669261821369 1.9261728804832385 7.086622750196431 C 2.147859745174143 7.316553069910565 2.2586987018585205 7.592035524401787 2.2586987018585205 7.913070130736586 C 2.2586987018585205 8.125647243246885 2.2064156088327453 8.320871319218249 2.101846263491026 8.498741829589484 C 2.001459818334582 8.67661233996072 1.865521880893466 8.819776435924283 1.694028238780784 8.928234117480176 C 1.5267173158523781 9.032353454568886 1.3384880416126994 9.084413528442383 1.1293493509292603 9.084413528442383 Z M 1.1293493509292603 2.3426857031562203 C 0.8198242150893773 2.3426857031562203 0.5542211931131544 2.2277205518323986 0.33253424614906885 1.997790232118265 C 0.11084729918498323 1.7678599124041314 0 1.492377287248008 0 1.1713423054504248 C 0 0.8503080745784091 0.11084729918498323 0.5748259614169908 0.33253424614906885 0.34489601716564083 C 0.5542211931131544 0.11496533905521361 0.8198242150893773 0 1.1293493509292603 0 C 1.4388744867691432 0 1.7044858347913352 0.11496533905521361 1.9261728804832385 0.34489601716564083 C 2.147859745174143 0.5748259614169908 2.2586987018585205 0.8503080745784091 2.2586987018585205 1.1713423054504248 C 2.2586987018585205 1.3839199640884083 2.2064156088327453 1.5791438523283807 2.101846263491026 1.7570140043033224 C 2.001459818334582 1.9348845146745577 1.865521880893466 2.078048610638122 1.694028238780784 2.1865062921940153 C 1.5267173158523781 2.2906259023465667 1.3384880416126994 2.3426857031562203 1.1293493509292603 2.3426857031562203 Z","fillRule":"nonzero"},{"d":"M1.12935 9.08441 C0.819824 9.08441 0.554221 8.96945 0.332534 8.73952 C0.110847 8.50959 0 8.23411 0 7.91307 C0 7.59204 0.110847 7.31655 0.332534 7.08662 C0.554221 6.85669 0.819824 6.74173 1.12935 6.74173 C1.43887 6.74173 1.70449 6.85669 1.92617 7.08662 C2.14786 7.31655 2.2587 7.59204 2.2587 7.91307 C2.2587 8.12565 2.20642 8.32087 2.10185 8.49874 C2.00146 8.67661 1.86552 8.81978 1.69403 8.92823 C1.52672 9.03235 1.33849 9.08441 1.12935 9.08441 Z M1.12935 2.34269 C0.819824 2.34269 0.554221 2.22772 0.332534 1.99779 C0.110847 1.76786 0 1.49238 0 1.17134 C0 0.850308 0.110847 0.574826 0.332534 0.344896 C0.554221 0.114965 0.819824 0 1.12935 0 C1.43887 0 1.70449 0.114965 1.92617 0.344896 C2.14786 0.574826 2.2587 0.850308 2.2587 1.17134 C2.2587 1.38392 2.20642 1.57914 2.10185 1.75701 C2.00146 1.93488 1.86552 2.07805 1.69403 2.18651 C1.52672 2.29063 1.33849 2.34269 1.12935 2.34269 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9576.59px"
+                left="990.78px"
+              />
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428607940673828,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252930334208444 2.3687140885316538 L 5.922805902952191 2.759162606028713 C 5.839150699490456 2.529232292149545 5.715762154151614 2.30580910654337 5.552633956582246 2.088894107332552 C 5.3936886594617475 1.867640311502666 5.176181340958256 1.685431367422486 4.900118336107149 1.542267275092012 C 4.62405496925402 1.399103182761538 4.270614295586809 1.3275211365963009 3.8397888776094367 1.3275211365963009 C 3.250017816964182 1.3275211365963009 2.7585412310286093 1.4685161975467704 2.3653606994479044 1.7505063023812197 C 1.976362706314048 2.0281576105966015 1.7818608301855854 2.3817294032000036 1.7818608301855854 2.8112216801914256 C 1.7818608301855854 3.1929926044503496 1.9157132990020436 3.494504947428265 2.1834108485027945 3.7157587432581507 C 2.4511082334571723 3.937012180691752 2.869381774342928 4.121390702279608 3.4382388592922277 4.268893232832865 L 4.868748688934203 4.633311120993225 C 5.730399853981695 4.850226120204043 6.372457170237826 5.182106455552588 6.794917478412227 5.628952109972369 C 7.2173774245846065 6.071459326169367 7.428607940673828 6.641946305714974 7.428607940673828 7.340413560603883 C 7.428607940673828 7.913069929925779 7.269660520905113 8.424989904910662 6.951769926664117 8.87617372448939 C 6.638061870869969 9.32735754406812 6.19887279109771 9.683098402184505 5.634198409141632 9.943396759633773 C 5.069524027185555 10.20369511708304 4.412827612455168 10.333844184875488 3.6641112711440527 10.333844184875488 C 2.6811596789180925 10.333844184875488 1.867609565383379 10.11259110583817 1.2234625760036457 9.670083889641173 C 0.5793154549868137 9.227576673444176 0.17149365291972438 8.581169004712672 0 7.730860985845599 L 1.4054124269487556 7.366443097685239 C 1.539261028925439 7.904393053480212 1.7923187724025287 8.307855247262607 2.1645856902892997 8.576830225160094 C 2.541035146622919 8.845805203057582 3.0325115351028433 8.98029296507016 3.639013868450832 8.98029296507016 C 4.329171380578599 8.98029296507016 4.877114489831944 8.828452644820729 5.282843196210864 8.524771150997381 C 5.692755165040676 8.216751492015085 5.897712712646129 7.847995643493656 5.897712712646129 7.418503264103295 C 5.897712712646129 7.071438753371294 5.780592898721941 6.780771772091278 5.546357499715361 6.546503395452101 C 5.312122100708781 6.307896580590141 4.952404229716004 6.130026253930886 4.467202883004153 6.012891877879911 L 2.861019659283952 5.622444452638194 C 1.9784545185405047 5.405529282762479 1.330124332528429 5.069310338526254 0.9160299239795926 4.613788148990701 C 0.5061181526054288 4.153927521232365 0.3011604075443275 3.5791019669320567 0.3011604075443275 2.8893113836908375 C 0.3011604075443275 2.3253315153517335 0.4538308438977632 1.8264264113064659 0.7591732633405444 1.3925960715550347 C 1.0686985174136463 0.9587653563408294 1.489069744831389 0.6182081445467184 2.020281943384021 0.3709244532391917 C 2.5556768778391494 0.12364147872423398 3.1621797377355323 0 3.8397888776094367 0 C 4.793461022334448 0 5.54217423726447 0.21691498214432847 6.085934808070965 0.650744980565965 C 6.633877917324309 1.0845760712429446 7.022877835650734 1.6572320651020667 7.252930334208444 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25293 2.36871 L5.92281 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62405 1.3991 4.27061 1.32752 3.83979 1.32752 C3.25002 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.91571 3.49451 2.18341 3.71576 C2.45111 3.93701 2.86938 4.12139 3.43824 4.26889 L4.86875 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.42861 6.64195 7.42861 7.34041 C7.42861 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19887 9.6831 5.6342 9.9434 C5.06952 10.2037 4.41283 10.3338 3.66411 10.3338 C2.68116 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.40541 7.36644 C1.53926 7.90439 1.79232 8.30786 2.16459 8.57683 C2.54104 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78059 6.78077 5.54636 6.5465 C5.31212 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.91603 4.61379 C0.506118 4.15393 0.30116 3.5791 0.30116 2.88931 C0.30116 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55568 0.123641 3.16218 0 3.83979 0 C4.79346 0 5.54217 0.216915 6.08593 0.650745 C6.63388 1.08458 7.02288 1.65723 7.25293 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="976.2px"
+              />
+              <Icon
+                width="7.43px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":7.428607940673828,"height":10.333844184875488}}
+                paths={[{"d":"M 7.252930334208444 2.3687140885316538 L 5.922805902952191 2.759162606028713 C 5.839150699490456 2.529232292149545 5.715762154151614 2.30580910654337 5.552633956582246 2.088894107332552 C 5.3936886594617475 1.867640311502666 5.176181340958256 1.685431367422486 4.900118336107149 1.542267275092012 C 4.62405496925402 1.399103182761538 4.270614295586809 1.3275211365963009 3.8397888776094367 1.3275211365963009 C 3.250017816964182 1.3275211365963009 2.7585412310286093 1.4685161975467704 2.3653606994479044 1.7505063023812197 C 1.976362706314048 2.0281576105966015 1.7818608301855854 2.3817294032000036 1.7818608301855854 2.8112216801914256 C 1.7818608301855854 3.1929926044503496 1.9157132990020436 3.494504947428265 2.1834108485027945 3.7157587432581507 C 2.4511082334571723 3.937012180691752 2.869381774342928 4.121390702279608 3.4382388592922277 4.268893232832865 L 4.868748688934203 4.633311120993225 C 5.730399853981695 4.850226120204043 6.372457170237826 5.182106455552588 6.794917478412227 5.628952109972369 C 7.2173774245846065 6.071459326169367 7.428607940673828 6.641946305714974 7.428607940673828 7.340413560603883 C 7.428607940673828 7.913069929925779 7.269660520905113 8.424989904910662 6.951769926664117 8.87617372448939 C 6.638061870869969 9.32735754406812 6.19887279109771 9.683098402184505 5.634198409141632 9.943396759633773 C 5.069524027185555 10.20369511708304 4.412827612455168 10.333844184875488 3.6641112711440527 10.333844184875488 C 2.6811596789180925 10.333844184875488 1.867609565383379 10.11259110583817 1.2234625760036457 9.670083889641173 C 0.5793154549868137 9.227576673444176 0.17149365291972438 8.581169004712672 0 7.730860985845599 L 1.4054124269487556 7.366443097685239 C 1.539261028925439 7.904393053480212 1.7923187724025287 8.307855247262607 2.1645856902892997 8.576830225160094 C 2.541035146622919 8.845805203057582 3.0325115351028433 8.98029296507016 3.639013868450832 8.98029296507016 C 4.329171380578599 8.98029296507016 4.877114489831944 8.828452644820729 5.282843196210864 8.524771150997381 C 5.692755165040676 8.216751492015085 5.897712712646129 7.847995643493656 5.897712712646129 7.418503264103295 C 5.897712712646129 7.071438753371294 5.780592898721941 6.780771772091278 5.546357499715361 6.546503395452101 C 5.312122100708781 6.307896580590141 4.952404229716004 6.130026253930886 4.467202883004153 6.012891877879911 L 2.861019659283952 5.622444452638194 C 1.9784545185405047 5.405529282762479 1.330124332528429 5.069310338526254 0.9160299239795926 4.613788148990701 C 0.5061181526054288 4.153927521232365 0.3011604075443275 3.5791019669320567 0.3011604075443275 2.8893113836908375 C 0.3011604075443275 2.3253315153517335 0.4538308438977632 1.8264264113064659 0.7591732633405444 1.3925960715550347 C 1.0686985174136463 0.9587653563408294 1.489069744831389 0.6182081445467184 2.020281943384021 0.3709244532391917 C 2.5556768778391494 0.12364147872423398 3.1621797377355323 0 3.8397888776094367 0 C 4.793461022334448 0 5.54217423726447 0.21691498214432847 6.085934808070965 0.650744980565965 C 6.633877917324309 1.0845760712429446 7.022877835650734 1.6572320651020667 7.252930334208444 2.3687140885316538 Z","fillRule":"nonzero"},{"d":"M7.25293 2.36871 L5.92281 2.75916 C5.83915 2.52923 5.71576 2.30581 5.55263 2.08889 C5.39369 1.86764 5.17618 1.68543 4.90012 1.54227 C4.62405 1.3991 4.27061 1.32752 3.83979 1.32752 C3.25002 1.32752 2.75854 1.46852 2.36536 1.75051 C1.97636 2.02816 1.78186 2.38173 1.78186 2.81122 C1.78186 3.19299 1.91571 3.49451 2.18341 3.71576 C2.45111 3.93701 2.86938 4.12139 3.43824 4.26889 L4.86875 4.63331 C5.7304 4.85023 6.37246 5.18211 6.79492 5.62895 C7.21738 6.07146 7.42861 6.64195 7.42861 7.34041 C7.42861 7.91307 7.26966 8.42499 6.95177 8.87617 C6.63806 9.32736 6.19887 9.6831 5.6342 9.9434 C5.06952 10.2037 4.41283 10.3338 3.66411 10.3338 C2.68116 10.3338 1.86761 10.1126 1.22346 9.67008 C0.579315 9.22758 0.171494 8.58117 0 7.73086 L1.40541 7.36644 C1.53926 7.90439 1.79232 8.30786 2.16459 8.57683 C2.54104 8.84581 3.03251 8.98029 3.63901 8.98029 C4.32917 8.98029 4.87711 8.82845 5.28284 8.52477 C5.69275 8.21675 5.89771 7.848 5.89771 7.4185 C5.89771 7.07144 5.78059 6.78077 5.54636 6.5465 C5.31212 6.3079 4.9524 6.13003 4.4672 6.01289 L2.86102 5.62244 C1.97845 5.40553 1.33012 5.06931 0.91603 4.61379 C0.506118 4.15393 0.30116 3.5791 0.30116 2.88931 C0.30116 2.32533 0.453831 1.82643 0.759173 1.3926 C1.0687 0.958765 1.48907 0.618208 2.02028 0.370924 C2.55568 0.123641 3.16218 0 3.83979 0 C4.79346 0 5.54217 0.216915 6.08593 0.650745 C6.63388 1.08458 7.02288 1.65723 7.25293 2.36871 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="966.97px"
+              />
+              <Icon
+                width="8.48px"
+                height="10.33px"
+                viewBox={{"minX":0,"minY":0,"width":8.482665061950684,"height":10.333844184875488}}
+                paths={[{"d":"M 4.492300236582974 10.333844184875488 C 3.563724451606529 10.333844184875488 2.7627241012725667 10.121267402023086 2.0892976717544682 9.69611342672253 C 1.4200540768209593 9.266621149731108 0.9034826936725504 8.667934765466143 0.5395815148435084 7.90005461525743 C 0.17986303896195877 7.127836163357851 0 6.229807576816809 0 5.205967490315122 C 0 4.182126994217683 0.17986303896195877 3.2797588089325536 0.5395815148435084 2.498863958449121 C 0.9034826936725504 1.7136306697429053 1.4095982080026346 1.1019294486713034 2.057928024924487 0.6637602952343147 C 2.710440676430929 0.22125342036711176 3.4717034071165283 0 4.341720034457106 0 C 4.843652977476795 0 5.339312655897829 0.08676584608591967 5.828696897708103 0.26029755532424875 C 6.318081501520395 0.4338299813551467 6.7635473952912735 0.715820086189596 7.165093558833234 1.1062678868940865 C 7.566639722375194 1.4923768739130194 7.886619311601319 2.004296951296842 8.125037608450137 2.642028050779595 C 8.363455214204196 3.2797588089325536 8.482665061950684 4.064992097638769 8.482665061950684 4.997727916898242 L 8.482665061950684 5.648473989719551 L 1.0540614148810736 5.648473989719551 L 1.0540614148810736 4.320952306995578 L 6.976867253079121 4.320952306995578 C 6.976867253079121 3.7569724386564745 6.8681136032437005 3.253728896388423 6.650609446408556 2.8112216801914256 C 6.43728784442917 2.368714463994428 6.1319470079698695 2.019480921882422 5.734583744831047 1.7635210709218978 C 5.341403053002621 1.5075608615650893 4.877115127605124 1.379580756886685 4.341720034457106 1.379580756886685 C 3.7519491777154745 1.379580756886685 3.2416504009802343 1.531421554997828 2.8108248231667123 1.835103117087135 C 2.384181981209957 2.1344462409536584 2.05583586717352 2.5248931200677034 1.825783371130978 3.0064448466846123 C 1.595730875088436 3.487996914631316 1.4807046188398465 4.0042565224932645 1.4807046188398465 4.555221417493813 L 1.4807046188398465 5.440235508558014 C 1.4807046188398465 6.195100617162213 1.6061867109974863 6.835000423761667 1.8571530179609592 7.359935440351064 C 2.1123022253275705 7.880532086983638 2.4657471239723594 8.277487357290916 2.917486677253184 8.550800688078738 C 3.3692262305340086 8.819775665976225 3.8941637106721627 8.954263427988803 4.492300236582974 8.954263427988803 C 4.8812980280082625 8.954263427988803 5.232649386712562 8.89786472948227 5.546357439076934 8.78506870632163 C 5.864248029842427 8.66793451800204 6.138221704121957 8.494402714898019 6.368274200164499 8.264472503417789 C 6.598326696207041 8.030203939047224 6.776096104728007 7.739537145498597 6.901579258209743 7.392472634766595 L 8.332084859824818 7.808950689345011 C 8.18150465769895 8.312194129214124 7.928447246081287 8.75470144781006 7.572911604784327 9.136472372068983 C 7.217375963487367 9.513904994637041 6.778186855607497 9.808909475482906 6.255340101666876 10.021486463133185 C 5.732493709728273 10.229725149092598 5.14481269063377 10.333844184875488 4.492300236582974 10.333844184875488 Z","fillRule":"nonzero"},{"d":"M4.4923 10.3338 C3.56372 10.3338 2.76272 10.1213 2.0893 9.69611 C1.42005 9.26662 0.903483 8.66794 0.539581 7.90005 C0.179863 7.12784 0 6.22981 0 5.20597 C0 4.18213 0.179863 3.27976 0.539581 2.49886 C0.903483 1.71363 1.4096 1.10193 2.05793 0.66376 C2.71044 0.221253 3.4717 0 4.34172 0 C4.84365 0 5.33931 0.0867658 5.8287 0.260298 C6.31808 0.43383 6.76355 0.71582 7.16509 1.10627 C7.56664 1.49238 7.88662 2.0043 8.12504 2.64203 C8.36345 3.27976 8.48267 4.06499 8.48267 4.99773 L8.48267 5.64847 L1.05406 5.64847 L1.05406 4.32095 L6.97687 4.32095 C6.97687 3.75697 6.86811 3.25373 6.65061 2.81122 C6.43729 2.36871 6.13195 2.01948 5.73458 1.76352 C5.3414 1.50756 4.87711 1.37958 4.34172 1.37958 C3.75195 1.37958 3.24165 1.53142 2.81082 1.8351 C2.38418 2.13445 2.05584 2.52489 1.82578 3.00644 C1.59573 3.488 1.4807 4.00426 1.4807 4.55522 L1.4807 5.44024 C1.4807 6.1951 1.60619 6.835 1.85715 7.35994 C2.1123 7.88053 2.46575 8.27749 2.91749 8.5508 C3.36923 8.81978 3.89416 8.95426 4.4923 8.95426 C4.8813 8.95426 5.23265 8.89787 5.54636 8.78507 C5.86425 8.66793 6.13822 8.4944 6.36827 8.26447 C6.59833 8.0302 6.7761 7.73954 6.90158 7.39247 L8.33208 7.80895 C8.1815 8.31219 7.92845 8.7547 7.57291 9.13647 C7.21738 9.51391 6.77819 9.80891 6.25534 10.0215 C5.73249 10.2297 5.14481 10.3338 4.4923 10.3338 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.25px"
+                left="956.66px"
+              />
+              <Icon
+                width="4.82px"
+                height="10.15px"
+                viewBox={{"minX":0,"minY":0,"width":4.818553924560547,"height":10.151636123657227}}
+                paths={[{"d":"M 0 10.151636123657227 L 0 0.15617940377737846 L 1.4305098418176603 0.15617940377737846 L 1.4305098418176603 1.6659099994409683 L 1.5308952410578065 1.6659099994409683 C 1.7065716149206474 1.1713433438196974 2.02446206377561 0.7700498312983314 2.4845670648071816 0.4620294618768706 C 2.944672263294403 0.15400980924796392 3.4633370154674417 0 4.0405597087718235 0 C 4.149311608303008 0 4.285253776082087 0.0021692190666480655 4.448381975039909 0.006507657199944197 C 4.611510173997731 0.010846095333240328 4.734898374839399 0.017353752533184524 4.818553924560547 0.026030628799776787 L 4.818553924560547 1.587820297552279 C 4.768360521504722 1.5748053468819456 4.653334275360487 1.555282922476429 4.473475165559549 1.5292530211357622 C 4.297798610695696 1.49888504645801 4.111667256361646 1.4837010591191335 3.915076906624842 1.4837010591191335 C 3.4466064337170748 1.4837010591191335 3.0283288578850307 1.5856512662170141 2.6602446727678335 1.789551663346286 C 2.296343388135109 1.9891136223422616 2.007730971931482 2.266765112562033 1.7944095468051868 2.62250611693911 C 1.5852710221633644 2.973909058645657 1.4807046476313308 3.3752018202414904 1.4807046476313308 3.826385562247887 L 1.4807046476313308 10.151636123657227 L 0 10.151636123657227 Z","fillRule":"nonzero"},{"d":"M0 10.1516 L0 0.156179 L1.43051 0.156179 L1.43051 1.66591 L1.5309 1.66591 C1.70657 1.17134 2.02446 0.77005 2.48457 0.462029 C2.94467 0.15401 3.46334 0 4.04056 0 C4.14931 0 4.28525 0.00216922 4.44838 0.00650766 C4.61151 0.0108461 4.7349 0.0173538 4.81855 0.0260306 L4.81855 1.58782 C4.76836 1.57481 4.65333 1.55528 4.47347 1.52925 C4.2978 1.49889 4.11167 1.4837 3.91508 1.4837 C3.44661 1.4837 3.02833 1.58565 2.66024 1.78955 C2.29634 1.98911 2.00773 2.26677 1.79441 2.62251 C1.58527 2.97391 1.4807 3.3752 1.4807 3.82639 L1.4807 10.1516 L0 10.1516 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9577.23px"
+                left="950.83px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.54px"
+                viewBox={{"minX":0,"minY":0,"width":8.507761001586914,"height":13.535514831542969}}
+                paths={[{"d":"M 4.090752638218187 13.535514831542969 C 3.2876601187622088 13.535514831542969 2.5786805618450614 13.32510739735457 1.9638129143698873 12.904291709786236 C 1.348945266894713 12.479137720383134 0.8679245187729414 11.880451316259476 0.5207542900250217 11.10823283874507 C 0.17358416000493238 10.331676059395896 0 9.414124333884814 0 8.35557779874375 C 0 7.305707389410495 0.17358416000493238 6.394662980119646 0.5207542900250217 5.6224446391371625 C 0.8679245187729414 4.850226298154679 1.3510348085163961 4.253709215613308 1.9700851592553854 3.8328934256460334 C 2.5891357074500356 3.4120780111415447 3.304390141994826 3.201670303889301 4.115847936341327 3.201670303889301 C 4.743264088519268 3.201670303889301 5.238923771515963 3.310127986290441 5.602824912046973 3.527043351092722 C 5.970908953297459 3.739620277528312 6.251154860272842 3.9825651802753606 6.443562682337037 4.255878059333868 C 6.640153043118662 4.524853233884767 6.792823662122562 4.746106849322345 6.901575567763636 4.919638922713094 L 7.027058376960481 4.919638922713094 L 7.027058376960481 0 L 8.507761001586914 0 L 8.507761001586914 13.32727634347407 L 7.077251079400476 13.32727634347407 L 7.077251079400476 11.791516128646718 L 6.901575567763636 11.791516128646718 C 6.792823662122562 11.973724993438397 6.638061592758925 12.203655485609358 6.4372883312578235 12.481307076098402 C 6.236515069756722 12.754620347686185 5.949994087698035 12.999734128286775 5.577727507730118 13.216649441889585 C 5.205460565760156 13.429226436591136 4.709802988957176 13.535514831542969 4.090752638218187 13.535514831542969 Z M 4.291525554171882 12.15593402889498 C 4.885479553690874 12.15593402889498 5.387411843575112 11.995416280747866 5.797323476921455 11.674381569512194 C 6.207235110267797 11.349008624707714 6.5188506829001716 10.899994350676172 6.7321723010122945 10.32733796235901 C 6.945493573577011 9.75034334047304 7.052155781277337 9.084413599240275 7.052155781277337 8.329548260798983 C 7.052155781277337 7.583359457761267 6.947587130130464 6.930443768708292 6.738448758285224 6.370802320028417 C 6.529310040892577 5.806822808444639 6.219784174428269 5.368654015936172 5.809872179079882 5.056295908370037 C 5.399960545733539 4.739599362437212 4.893845026037058 4.581251106537289 4.291525554171882 4.581251106537289 C 3.664109599449602 4.581251106537289 3.1412634970627975 4.748275897840788 2.7229862268238874 5.0823254463148055 C 2.308891692758069 5.412036931884918 1.9972740139319787 5.86105110351752 1.7881352965393316 6.4293690534679895 C 1.5831794798661605 6.993348940514555 1.4807026246264328 7.6267427491727995 1.4807026246264328 8.329548260798983 C 1.4807026246264328 9.041030512626627 1.5852709302258983 9.687437212943323 1.7944096476185454 10.26877013666406 C 2.0077310847296457 10.845764963347913 2.321438288722781 11.305625879423872 2.735532822788599 11.648352031567427 C 3.1538100930275093 11.986739950142175 3.6724752034328922 12.15593402889498 4.291525554171882 12.15593402889498 Z","fillRule":"nonzero"},{"d":"M4.09075 13.5355 C3.28766 13.5355 2.57868 13.3251 1.96381 12.9043 C1.34895 12.4791 0.867925 11.8805 0.520754 11.1082 C0.173584 10.3317 0 9.41412 0 8.35558 C0 7.30571 0.173584 6.39466 0.520754 5.62244 C0.867925 4.85023 1.35103 4.25371 1.97009 3.83289 C2.58914 3.41208 3.30439 3.20167 4.11585 3.20167 C4.74326 3.20167 5.23892 3.31013 5.60283 3.52704 C5.97091 3.73962 6.25115 3.98257 6.44356 4.25588 C6.64015 4.52485 6.79282 4.74611 6.90158 4.91964 L7.02706 4.91964 L7.02706 0 L8.50776 0 L8.50776 13.3273 L7.07725 13.3273 L7.07725 11.7915 L6.90158 11.7915 C6.79282 11.9737 6.63806 12.2037 6.43729 12.4813 C6.23652 12.7546 5.94999 12.9997 5.57773 13.2167 C5.20546 13.4292 4.7098 13.5355 4.09075 13.5355 Z M4.29153 12.1559 C4.88548 12.1559 5.38741 11.9954 5.79732 11.6744 C6.20724 11.349 6.51885 10.9 6.73217 10.3273 C6.94549 9.75034 7.05216 9.08441 7.05216 8.32955 C7.05216 7.58336 6.94759 6.93044 6.73845 6.3708 C6.52931 5.80682 6.21978 5.36865 5.80987 5.0563 C5.39996 4.7396 4.89385 4.58125 4.29153 4.58125 C3.66411 4.58125 3.14126 4.74828 2.72299 5.08233 C2.30889 5.41204 1.99727 5.86105 1.78814 6.42937 C1.58318 6.99335 1.4807 7.62674 1.4807 8.32955 C1.4807 9.04103 1.58527 9.68744 1.79441 10.2688 C2.00773 10.8458 2.32144 11.3056 2.73553 11.6484 C3.15381 11.9867 3.67248 12.1559 4.29153 12.1559 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="939.41px"
+              />
+              <Icon
+                width="8.51px"
+                height="13.54px"
+                viewBox={{"minX":0,"minY":0,"width":8.507761001586914,"height":13.535514831542969}}
+                paths={[{"d":"M 4.090752638218187 13.535514831542969 C 3.2876601187622088 13.535514831542969 2.5786795087482037 13.32510739735457 1.9638118612730293 12.904291709786236 C 1.348944213797855 12.479137720383134 0.8679255718697994 11.880451316259476 0.5207553431218797 11.10823283874507 C 0.17358521310179031 10.331676059395896 0 9.414124333884814 0 8.35557779874375 C 0 7.305707389410495 0.17358521310179031 6.394662980119646 0.5207553431218797 5.6224446391371625 C 0.8679255718697994 4.850226298154679 1.3510358616132538 4.253709215613308 1.9700862123522431 3.8328934256460334 C 2.5891367605468933 3.4120780111415447 3.304390141994826 3.201670303889301 4.115847936341327 3.201670303889301 C 4.743264088519268 3.201670303889301 5.238923771515963 3.310127986290441 5.602824912046973 3.527043351092722 C 5.970908953297459 3.739620277528312 6.251154860272842 3.9825651802753606 6.443562682337037 4.255878059333868 C 6.640153043118662 4.524853233884767 6.792823662122562 4.746106849322345 6.901575567763636 4.919638922713094 L 7.027058376960481 4.919638922713094 L 7.027058376960481 0 L 8.507761001586914 0 L 8.507761001586914 13.32727634347407 L 7.077251079400476 13.32727634347407 L 7.077251079400476 11.791516128646718 L 6.901575567763636 11.791516128646718 C 6.792823662122562 11.973724993438397 6.638061592758925 12.203655485609358 6.4372883312578235 12.481307076098402 C 6.236515069756722 12.754620347686185 5.949994087698035 12.999734128286775 5.577727507730118 13.216649441889585 C 5.205460565760156 13.429226436591136 4.709802988957176 13.535514831542969 4.090752638218187 13.535514831542969 Z M 4.291525554171882 12.15593402889498 C 4.885479553690874 12.15593402889498 5.387411843575112 11.995416280747866 5.797323476921455 11.674381569512194 C 6.207235110267797 11.349008624707714 6.5188506829001716 10.899994350676172 6.7321723010122945 10.32733796235901 C 6.945493573577011 9.75034334047304 7.052155781277337 9.084413599240275 7.052155781277337 8.329548260798983 C 7.052155781277337 7.583359457761267 6.947587130130464 6.930443768708292 6.738448758285224 6.370802320028417 C 6.529310040892577 5.806822808444639 6.219784174428269 5.368654015936172 5.809872179079882 5.056295908370037 C 5.399960545733539 4.739599362437212 4.893845026037058 4.581251106537289 4.291525554171882 4.581251106537289 C 3.664109599449602 4.581251106537289 3.1412624439659393 4.748275897840788 2.722985173727029 5.0823254463148055 C 2.308890639661211 5.412036931884918 1.9972740139319787 5.86105110351752 1.7881352965393316 6.4293690534679895 C 1.5831794798661605 6.993348940514555 1.4807015715295748 7.6267427491727995 1.4807015715295748 8.329548260798983 C 1.4807015715295748 9.041030512626627 1.5852709302258983 9.687437212943323 1.7944096476185454 10.26877013666406 C 2.0077310847296457 10.845764963347913 2.3214393418196386 11.305625879423872 2.735533875885457 11.648352031567427 C 3.153811146124367 11.986739950142175 3.6724752034328922 12.15593402889498 4.291525554171882 12.15593402889498 Z","fillRule":"nonzero"},{"d":"M4.09075 13.5355 C3.28766 13.5355 2.57868 13.3251 1.96381 12.9043 C1.34894 12.4791 0.867926 11.8805 0.520755 11.1082 C0.173585 10.3317 0 9.41412 0 8.35558 C0 7.30571 0.173585 6.39466 0.520755 5.62244 C0.867926 4.85023 1.35104 4.25371 1.97009 3.83289 C2.58914 3.41208 3.30439 3.20167 4.11585 3.20167 C4.74326 3.20167 5.23892 3.31013 5.60283 3.52704 C5.97091 3.73962 6.25115 3.98257 6.44356 4.25588 C6.64015 4.52485 6.79282 4.74611 6.90158 4.91964 L7.02706 4.91964 L7.02706 0 L8.50776 0 L8.50776 13.3273 L7.07725 13.3273 L7.07725 11.7915 L6.90158 11.7915 C6.79282 11.9737 6.63806 12.2037 6.43729 12.4813 C6.23652 12.7546 5.94999 12.9997 5.57773 13.2167 C5.20546 13.4292 4.7098 13.5355 4.09075 13.5355 Z M4.29153 12.1559 C4.88548 12.1559 5.38741 11.9954 5.79732 11.6744 C6.20724 11.349 6.51885 10.9 6.73217 10.3273 C6.94549 9.75034 7.05216 9.08441 7.05216 8.32955 C7.05216 7.58336 6.94759 6.93044 6.73845 6.3708 C6.52931 5.80682 6.21978 5.36865 5.80987 5.0563 C5.39996 4.7396 4.89385 4.58125 4.29153 4.58125 C3.66411 4.58125 3.14126 4.74828 2.72299 5.08233 C2.30889 5.41204 1.99727 5.86105 1.78814 6.42937 C1.58318 6.99335 1.4807 7.62674 1.4807 8.32955 C1.4807 9.04103 1.58527 9.68744 1.79441 10.2688 C2.00773 10.8458 2.32144 11.3056 2.73553 11.6484 C3.15381 11.9867 3.67248 12.1559 4.29153 12.1559 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="928.43px"
+              />
+              <Icon
+                width="11.04px"
+                height="13.33px"
+                viewBox={{"minX":0,"minY":0,"width":11.042519569396973,"height":13.327277183532715}}
+                paths={[{"d":"M 1.6312813239585695 13.327277183532717 L 0 13.327277183532717 L 4.718167691718873 0 L 6.324352404226466 0 L 11.042519569396973 13.327277183532717 L 9.411237982164222 13.327277183532717 L 5.57145300760044 2.108416736044406 L 5.471066561796533 2.108416736044406 L 1.6312813239585695 13.327277183532717 Z M 2.2336005253303712 8.12131028464087 L 8.808919307340785 8.12131028464087 L 8.808919307340785 9.552950253418997 L 2.2336005253303712 9.552950253418997 L 2.2336005253303712 8.12131028464087 Z","fillRule":"nonzero"},{"d":"M1.63128 13.3273 L0 13.3273 L4.71817 0 L6.32435 0 L11.0425 13.3273 L9.41124 13.3273 L5.57145 2.10842 L5.47107 2.10842 L1.63128 13.3273 Z M2.2336 8.12131 L8.80892 8.12131 L8.80892 9.55295 L2.2336 9.55295 L2.2336 8.12131 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9574.05px"
+                left="916.04px"
+              />
+            </View>
+            <View
+              width="68.07px"
+              height="13.7px"
+              display="block"
+              position="absolute"
+              top="9531px"
+              left="916px"
+            >
+              <Icon
+                width="5.98px"
+                height="12.53px"
+                viewBox={{"minX":0,"minY":0,"width":5.979273319244385,"height":12.531278610229492}}
+                paths={[{"d":"M 5.803599914400419 2.3947447511084325 L 5.803599914400419 4.4771317761389025 L 0 4.4771317761389025 L 0 2.3947447511084325 L 5.803599914400419 2.3947447511084325 Z M 1.3175758106542494 0 L 3.9903651135347995 0 L 3.9903651135347995 9.318681445496441 C 3.9903651135347995 9.574641470674697 4.028013498849096 9.774203265892057 4.103303432575457 9.91736736020971 C 4.178593185300795 10.056193195442505 4.283159384349909 10.153805236572595 4.417008348303921 10.210203206269519 C 4.555039859188418 10.266601175966443 4.713987272243224 10.294799476021995 4.893846391535557 10.294799476021995 C 5.0193295540791505 10.294799476021995 5.14481165529857 10.283953834709784 5.270294817842164 10.262262281154834 C 5.395777980385757 10.236232470648337 5.491981886976078 10.216710499964456 5.558906541726787 10.203695548845015 L 5.979273319244386 12.266559601601973 C 5.845424709065098 12.309942657512403 5.657203655202356 12.35983337511396 5.414602785978183 12.416231353344129 C 5.17200191675401 12.476967641858625 4.87711268252101 12.513843335808161 4.529942454957161 12.526858252794622 C 3.885795426102357 12.552888086767542 3.321124004285685 12.4639534235316 2.835922430383722 12.260053036432828 C 2.354903428094202 12.056152649334056 1.98054266757338 11.73945576818051 1.7128451839405905 11.309963451094573 C 1.445147700307801 10.880471168141614 1.3133929976214098 10.33818358578818 1.3175758106542494 9.683099338715076 L 1.3175758106542494 0 Z","fillRule":"nonzero"},{"d":"M5.8036 2.39474 L5.8036 4.47713 L0 4.47713 L0 2.39474 L5.8036 2.39474 Z M1.31758 0 L3.99037 0 L3.99037 9.31868 C3.99037 9.57464 4.02801 9.7742 4.1033 9.91737 C4.17859 10.0562 4.28316 10.1538 4.41701 10.2102 C4.55504 10.2666 4.71399 10.2948 4.89385 10.2948 C5.01933 10.2948 5.14481 10.284 5.27029 10.2623 C5.39578 10.2362 5.49198 10.2167 5.55891 10.2037 L5.97927 12.2666 C5.84542 12.3099 5.6572 12.3598 5.4146 12.4162 C5.172 12.477 4.87711 12.5138 4.52994 12.5269 C3.8858 12.5529 3.32112 12.464 2.83592 12.2601 C2.3549 12.0562 1.98054 11.7395 1.71285 11.31 C1.44515 10.8805 1.31339 10.3382 1.31758 9.6831 L1.31758 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9532.12px"
+                left="978.1px"
+              />
+              <Icon
+                width="9.05px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":9.047334671020508,"height":10.320830345153809}}
+                paths={[{"d":"M 4.743265372845466 10.320830345153809 C 3.7561311848064087 10.320830345153809 2.907026509649586 10.103914842971667 2.195955099031904 9.670084248203153 C 1.4890665884089254 9.231915317449932 0.9453069651926658 8.624552614479342 0.5646746497381127 7.847995832094552 C 0.1882251355504494 7.0714389131778415 0 6.17774695680699 0 5.166921737896996 C 0 4.1430816134318205 0.19031457808226343 3.2450532666561624 0.5709468935368165 2.4728345130592557 C 0.9557619444397172 1.6962777306744672 1.5016152225744923 1.0910833935711821 2.2085037990160132 0.6572526622707461 C 2.915392309638992 0.2190842093792551 3.756130658258071 0 4.730716672861356 0 C 5.571453968383759 0 6.307621857510068 0.15834791518910946 6.939220471877369 0.47504371143434765 C 7.570819086244669 0.7917402586051621 8.07066191244564 1.236416710401936 8.438745889918065 1.8090731009576502 C 8.80682986739049 2.381729491513364 9.00968997382586 3.0541670294566945 9.047334671020508 3.826385783053601 L 6.525126009561867 3.826385783053601 C 6.454018815845265 3.3274802850463883 6.265793581567002 2.926187500293523 5.960451359823754 2.6225062682736597 C 5.659291676073227 2.314486597870146 5.264019572639196 2.160475687479496 4.774635016612388 2.160475687479496 C 4.360540554296885 2.160475687479496 3.9987291826251457 2.277609888675608 3.6892040608871945 2.511878274001342 C 3.383861674597591 2.7418085964062135 3.1454470704126236 3.0780273824443687 2.9739534361131734 3.5205346150493173 C 2.8024598018137232 3.963041847654266 2.7167114050189847 4.4988237305927 2.7167114050189847 5.12787797695491 C 2.7167114050189847 5.765608963552497 2.8003660646220294 6.307896626752466 2.967676979927768 6.754742127076161 C 3.139170614227218 7.201587798064761 3.3796789391492434 7.542145397949354 3.6892040608871945 7.776413783275088 C 3.9987291826251457 8.010682356332216 4.360540554296885 8.127816369796934 4.774635016612388 8.127816369796934 C 5.079977600357618 8.127816369796934 5.353950869428637 8.062741253227104 5.596551697444689 7.932592103809585 C 5.8433350799080985 7.802442954392064 6.046199411071146 7.613726900641127 6.2051446909338335 7.366443370829345 C 6.368272870791224 7.114821590365308 6.47493261238311 6.813309031409577 6.525126009561867 6.461906274222828 L 9.047334671020508 6.461906274222828 C 9.005507073831158 7.225448151052435 8.804736311199788 7.897885893793649 8.445018133716768 8.47921895631878 C 8.089482527135742 9.056213648726223 7.5980061591096 9.507397280236741 6.970590115644292 9.832770226313126 C 6.343174401271694 10.158143172389511 5.600733873435428 10.320830345153809 4.743265372845466 10.320830345153809 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.75613 10.3208 2.90703 10.1039 2.19596 9.67008 C1.48907 9.23192 0.945307 8.62455 0.564675 7.848 C0.188225 7.07144 0 6.17775 0 5.16692 C0 4.14308 0.190315 3.24505 0.570947 2.47283 C0.955762 1.69628 1.50162 1.09108 2.2085 0.657253 C2.91539 0.219084 3.75613 0 4.73072 0 C5.57145 0 6.30762 0.158348 6.93922 0.475044 C7.57082 0.79174 8.07066 1.23642 8.43875 1.80907 C8.80683 2.38173 9.00969 3.05417 9.04733 3.82639 L6.52513 3.82639 C6.45402 3.32748 6.26579 2.92619 5.96045 2.62251 C5.65929 2.31449 5.26402 2.16048 4.77463 2.16048 C4.36054 2.16048 3.99873 2.27761 3.6892 2.51188 C3.38386 2.74181 3.14545 3.07803 2.97395 3.52053 C2.80246 3.96304 2.71671 4.49882 2.71671 5.12788 C2.71671 5.76561 2.80037 6.3079 2.96768 6.75474 C3.13917 7.20159 3.37968 7.54215 3.6892 7.77641 C3.99873 8.01068 4.36054 8.12782 4.77463 8.12782 C5.07998 8.12782 5.35395 8.06274 5.59655 7.93259 C5.84333 7.80244 6.0462 7.61373 6.20514 7.36644 C6.36827 7.11482 6.47493 6.81331 6.52513 6.46191 L9.04733 6.46191 C9.00551 7.22545 8.80474 7.89789 8.44502 8.47922 C8.08948 9.05621 7.59801 9.5074 6.97059 9.83277 C6.34317 10.1581 5.60073 10.3208 4.74327 10.3208 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.38px"
+                left="968.01px"
+              />
+              <Icon
+                width="8.63px"
+                height="10.31px"
+                viewBox={{"minX":0,"minY":0,"width":8.626964569091797,"height":10.314322471618652}}
+                paths={[{"d":"M 3.1998177015409093 10.314322471618652 C 2.584950102404727 10.314322471618652 2.0370072969641746 10.203695384186618 1.5559883966688481 9.982441772516717 C 1.0749694963735217 9.756849859085923 0.6943402712718441 9.424969654912198 0.4140945015109871 8.986800767466269 C 0.13803150050366236 8.544293578259447 0 7.993328503700507 0 7.333906021651168 C 0 6.778602850129214 0.0982936012453059 6.312234932971523 0.2948839465716058 5.934802270178094 C 0.4914742589886315 5.557369778049564 0.7591709820302217 5.25368785266204 1.097975547249805 5.023757535071414 C 1.436780211197211 4.793827217480787 1.821596779441538 4.620295513974613 2.252422355966654 4.503161323764283 C 2.6874306683360283 4.386027133553954 3.1433523966524994 4.303599353164143 3.62018865983139 4.255877986861476 C 4.180680133534556 4.195141672609905 4.632418961460397 4.138743067058699 4.975406262524238 4.086683262463218 C 5.3183939255900965 4.03028538650446 5.5672684196057105 3.94785869837001 5.722030814122494 3.839401017815771 C 5.8767935706412935 3.7309433372615324 5.954175467221763 3.5704254894489 5.954175467221763 3.3578485666332347 L 5.954175467221763 3.31880371425328 C 5.954175467221763 2.906664808037608 5.828693720986763 2.58779870702153 5.577727069226438 2.3622064693274263 C 5.330943663404122 2.136614590029613 4.979588109818093 2.0238192050416313 4.523665657497589 2.0238192050416313 C 4.042646855930085 2.0238192050416313 3.6599237453468003 2.1344461047422767 3.375495305560234 2.3556999041435676 C 3.091066668318022 2.5726152652520455 2.9028416054519113 2.8459285151191493 2.810820602373697 3.175639619611899 L 0.338802294479662 2.967401135089047 C 0.46428552985932026 2.3600380011065805 0.7110705893726661 1.8351029760438564 1.0791546016855238 1.3925960940338553 C 1.4472386139983815 0.9457500569384609 1.92198250552228 0.6030236205007828 2.503387954630204 0.3644168017873111 C 3.0889761066731114 0.12147226157360705 3.766584052378406 0 4.5362143586694765 0 C 5.071609121123625 0 5.584001419812382 0.06507438988147124 6.073386022161144 0.19522316964441372 C 6.566953162898519 0.32537267473318165 7.004052925463208 0.52710386874635 7.384685276945937 0.8004167431506735 C 7.769500166817278 1.0737303514140675 8.072751674816313 1.425133288974591 8.29443873139163 1.854625572898734 C 8.51612542596493 2.2797794185300644 8.626964569091797 2.7895302850307235 8.626964569091797 3.383878104134751 L 8.626964569091797 10.125605867158098 L 6.092206967725425 10.125605867158098 L 6.092206967725425 8.739517430563462 L 6.0169189730812 8.739517430563462 C 5.862156216562401 9.051875430411581 5.655108965806908 9.32735798475754 5.39577722081472 9.565964803471012 C 5.136445113820517 9.80023332042359 4.82482747594748 9.984610718599283 4.4609263640252514 10.119098209718878 C 4.097025252103023 10.249247390544335 3.6766539647198 10.314322471618652 3.1998177015409093 10.314322471618652 Z M 3.965267411090546 8.401129074022306 C 4.358448101743146 8.401129074022306 4.705616559006083 8.32087069624367 5.006775909260408 8.160353394558719 C 5.307935621516749 7.995497739913404 5.54426491919818 7.774244589038734 5.7157585697301005 7.496593088610207 C 5.8872525658094 7.21894141751678 5.972996412786044 6.904413908391924 5.972996412786044 6.553011158562791 L 5.972996412786044 5.492295763630873 C 5.889340864941708 5.548693639589631 5.774314617264429 5.600752714592664 5.6279176615268875 5.6484740808953315 C 5.485703260632596 5.691857188103332 5.32466651552987 5.733071626559228 5.14480740976407 5.772116295474415 C 4.964947958450891 5.806822709561557 4.785089214687108 5.839359723170837 4.605230108921308 5.869727880296622 C 4.425370657608129 5.895757782594362 4.262244568503638 5.919618463612385 4.115847612766096 5.941309927617312 C 3.802139725886255 5.98903129391998 3.5281662498817026 6.064950870742891 3.2939308541365153 6.169070292202462 C 3.059695622937699 6.273189534463888 2.8777471813974533 6.414185314482833 2.7480813089013596 6.592056010942747 C 2.618415255404258 6.765588081378457 2.5535827593177536 6.982502537962963 2.5535827593177536 7.242801002012819 C 2.5535827593177536 7.620233664806249 2.6853374574945432 7.908731260966808 2.9488521028773595 8.108293227300324 C 3.216549648650805 8.303517028404869 3.555355645423817 8.401129074022306 3.965267411090546 8.401129074022306 Z","fillRule":"nonzero"},{"d":"M3.19982 10.3143 C2.58495 10.3143 2.03701 10.2037 1.55599 9.98244 C1.07497 9.75685 0.69434 9.42497 0.414095 8.9868 C0.138031 8.54429 0 7.99333 0 7.33391 C0 6.7786 0.0982936 6.31223 0.294884 5.9348 C0.491474 5.55737 0.759171 5.25369 1.09798 5.02376 C1.43678 4.79383 1.8216 4.6203 2.25242 4.50316 C2.68743 4.38603 3.14335 4.3036 3.62019 4.25588 C4.18068 4.19514 4.63242 4.13874 4.97541 4.08668 C5.31839 4.03029 5.56727 3.94786 5.72203 3.8394 C5.87679 3.73094 5.95418 3.57043 5.95418 3.35785 L5.95418 3.3188 C5.95418 2.90666 5.82869 2.5878 5.57773 2.36221 C5.33094 2.13661 4.97959 2.02382 4.52367 2.02382 C4.04265 2.02382 3.65992 2.13445 3.3755 2.3557 C3.09107 2.57262 2.90284 2.84593 2.81082 3.17564 L0.338802 2.9674 C0.464286 2.36004 0.711071 1.8351 1.07915 1.3926 C1.44724 0.94575 1.92198 0.603024 2.50339 0.364417 C3.08898 0.121472 3.76658 0 4.53621 0 C5.07161 0 5.584 0.0650744 6.07339 0.195223 C6.56695 0.325373 7.00405 0.527104 7.38469 0.800417 C7.7695 1.07373 8.07275 1.42513 8.29444 1.85463 C8.51613 2.27978 8.62696 2.78953 8.62696 3.38388 L8.62696 10.1256 L6.09221 10.1256 L6.09221 8.73952 L6.01692 8.73952 C5.86216 9.05188 5.65511 9.32736 5.39578 9.56596 C5.13645 9.80023 4.82483 9.98461 4.46093 10.1191 C4.09703 10.2492 3.67665 10.3143 3.19982 10.3143 Z M3.96527 8.40113 C4.35845 8.40113 4.70562 8.32087 5.00678 8.16035 C5.30794 7.9955 5.54426 7.77424 5.71576 7.49659 C5.88725 7.21894 5.973 6.90441 5.973 6.55301 L5.973 5.4923 C5.88934 5.54869 5.77431 5.60075 5.62792 5.64847 C5.4857 5.69186 5.32467 5.73307 5.14481 5.77212 C4.96495 5.80682 4.78509 5.83936 4.60523 5.86973 C4.42537 5.89576 4.26224 5.91962 4.11585 5.94131 C3.80214 5.98903 3.52817 6.06495 3.29393 6.16907 C3.0597 6.27319 2.87775 6.41419 2.74808 6.59206 C2.61842 6.76559 2.55358 6.9825 2.55358 7.2428 C2.55358 7.62023 2.68534 7.90873 2.94885 8.10829 C3.21655 8.30352 3.55536 8.40113 3.96527 8.40113 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.38px"
+                left="957.7px"
+              />
+              <Icon
+                width="5.98px"
+                height="12.53px"
+                viewBox={{"minX":0,"minY":0,"width":5.979273319244385,"height":12.531278610229492}}
+                paths={[{"d":"M 5.803599914400419 2.3947447511084325 L 5.803599914400419 4.4771317761389025 L 0 4.4771317761389025 L 0 2.3947447511084325 L 5.803599914400419 2.3947447511084325 Z M 1.3175758106542494 0 L 3.9903651135347995 0 L 3.9903651135347995 9.318681445496441 C 3.9903651135347995 9.574641470674697 4.028013498849096 9.774203265892057 4.103303432575457 9.91736736020971 C 4.178593185300795 10.056193195442505 4.283159384349909 10.153805236572595 4.417008348303921 10.210203206269519 C 4.555039859188418 10.266601175966443 4.713987272243224 10.294799476021995 4.893846391535557 10.294799476021995 C 5.0193295540791505 10.294799476021995 5.14481165529857 10.283953834709784 5.270294817842164 10.262262281154834 C 5.395777980385757 10.236232470648337 5.491981886976078 10.216710499964456 5.558906541726787 10.203695548845015 L 5.979273319244386 12.266559601601973 C 5.845424709065098 12.309942657512403 5.657203655202356 12.35983337511396 5.414602785978183 12.416231353344129 C 5.17200191675401 12.476967641858625 4.87711268252101 12.513843335808161 4.529942454957161 12.526858252794622 C 3.885795426102357 12.552888086767542 3.321124004285685 12.4639534235316 2.835922430383722 12.260053036432828 C 2.354903428094202 12.056152649334056 1.98054266757338 11.73945576818051 1.7128451839405905 11.309963451094573 C 1.445147700307801 10.880471168141614 1.3133929976214098 10.33818358578818 1.3175758106542494 9.683099338715076 L 1.3175758106542494 0 Z","fillRule":"nonzero"},{"d":"M5.8036 2.39474 L5.8036 4.47713 L0 4.47713 L0 2.39474 L5.8036 2.39474 Z M1.31758 0 L3.99037 0 L3.99037 9.31868 C3.99037 9.57464 4.02801 9.7742 4.1033 9.91737 C4.17859 10.0562 4.28316 10.1538 4.41701 10.2102 C4.55504 10.2666 4.71399 10.2948 4.89385 10.2948 C5.01933 10.2948 5.14481 10.284 5.27029 10.2623 C5.39578 10.2362 5.49198 10.2167 5.55891 10.2037 L5.97927 12.2666 C5.84542 12.3099 5.6572 12.3598 5.4146 12.4162 C5.172 12.477 4.87711 12.5138 4.52994 12.5269 C3.8858 12.5529 3.32112 12.464 2.83592 12.2601 C2.3549 12.0562 1.98054 11.7395 1.71285 11.31 C1.44515 10.8805 1.31339 10.3382 1.31758 9.6831 L1.31758 0 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9532.12px"
+                left="950.61px"
+              />
+              <Icon
+                width="8.88px"
+                height="10.13px"
+                viewBox={{"minX":0,"minY":0,"width":8.884208679199219,"height":10.125605583190918}}
+                paths={[{"d":"M 2.6727911925611667 4.34698288459102 L 2.6727911925611667 10.125605583190918 L 0 10.125605583190918 L 0 0.13014877611298983 L 2.547308393957203 0.13014877611298983 L 2.547308393957203 1.8936703721717185 L 2.660242491462063 1.8936703721717185 C 2.8735639105652093 1.312337133323748 3.2311920684713744 0.8524765110390398 3.7331248425323835 0.5140885394505739 C 4.235057452047022 0.17136284648352457 4.843649808516968 0 5.558903985226487 0 C 6.228147705914015 0 6.811645095472032 0.15184059150593848 7.309395133713043 0.4555218086507945 C 7.807145171954054 0.7592030257956506 8.194051180683878 1.1930335310481823 8.470114180090015 1.757013392674348 C 8.74617717949615 2.31665481612937 8.884208679199219 2.9847544632246588 8.884208679199219 3.761311207571905 L 8.884208679199219 10.125605583190918 L 6.2114174866380525 10.125605583190918 L 6.2114174866380525 4.255877867507663 C 6.215600036057865 3.6441766537170164 6.065019133105479 3.166963029673273 5.759676884231537 2.824236961243454 C 5.454334273355579 2.4771724546424916 5.033965094604084 2.3036396722808345 4.498570335255271 2.3036396722808345 C 4.1388517967173275 2.3036396722808345 3.820961537839035 2.383899327795382 3.5448985384328995 2.5444164372473277 C 3.2730182583921246 2.704933922162043 3.059698418934132 2.9392019205500017 2.9049358443139766 3.2472215758660012 C 2.754355989059182 3.550903134340648 2.6769739173257054 3.9174906127117572 2.6727911925611667 4.34698288459102 Z","fillRule":"nonzero"},{"d":"M2.67279 4.34698 L2.67279 10.1256 L0 10.1256 L0 0.130149 L2.54731 0.130149 L2.54731 1.89367 L2.66024 1.89367 C2.87356 1.31234 3.23119 0.852476 3.73312 0.514089 C4.23506 0.171363 4.84365 0 5.5589 0 C6.22815 0 6.81165 0.151841 7.30939 0.455522 C7.80715 0.759203 8.19405 1.19303 8.47011 1.75701 C8.74618 2.31665 8.88421 2.98475 8.88421 3.76131 L8.88421 10.1256 L6.21142 10.1256 L6.21142 4.25588 C6.2156 3.64418 6.06502 3.16696 5.75968 2.82424 C5.45433 2.47717 5.03397 2.30364 4.49857 2.30364 C4.13885 2.30364 3.82096 2.3839 3.5449 2.54442 C3.27302 2.70493 3.0597 2.9392 2.90494 3.24722 C2.75436 3.5509 2.67697 3.91749 2.67279 4.34698 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.38px"
+                left="940.3px"
+              />
+              <Icon
+                width="9.49px"
+                height="10.32px"
+                viewBox={{"minX":0,"minY":0,"width":9.486530303955078,"height":10.320830345153809}}
+                paths={[{"d":"M 4.7432662050743994 10.320830345153809 C 3.768680151112375 10.320830345153809 2.9258500729802575 10.106084198695415 2.214778537601645 9.67659190577863 C 1.5078899029516455 9.242761276877136 0.9620386352379835 8.639736193098656 0.5772234509988605 7.867517712565595 C 0.19240833257829132 7.090960930180807 0 6.190761862362172 0 5.166921737896996 C 0 4.13440473666452 0.19240833257829132 3.2320375419094427 0.5772234509988605 2.4598191979083044 C 0.9620386352379835 1.6832624155235159 1.5078899029516455 1.0802376730748444 2.214778537601645 0.6507450046952705 C 2.9258500729802575 0.21691499018742993 3.768680151112375 0 4.7432662050743994 0 C 5.717852259036424 0 6.558588583154853 0.21691499018742993 7.265477415260513 0.6507450046952705 C 7.976548753183464 1.0802376730748444 8.524491931991308 1.6832624155235159 8.909306852956217 2.4598191979083044 C 9.294122497925215 3.2320375419094427 9.486530303955078 4.13440473666452 9.486530303955078 5.166921737896996 C 9.486530303955078 6.190761862362172 9.294122497925215 7.090960930180807 8.909306852956217 7.867517712565595 C 8.524491931991308 8.639736193098656 7.976548753183464 9.242761276877136 7.265477415260513 9.67659190577863 C 6.558588583154853 10.106084198695415 5.717852259036424 10.320830345153809 4.7432662050743994 10.320830345153809 Z M 4.755812801066519 8.173367788314495 C 5.199186950042383 8.173367788314495 5.5693624095519585 8.043219739685604 5.8663392454138 7.782921440850564 C 6.163316081275642 7.518284703631873 6.387095988317511 7.158205257409216 6.537675856612738 6.702683050983124 C 6.692438625636579 6.2471608445570315 6.76981842227589 5.72873278341916 6.76981842227589 5.1473998574259525 C 6.76981842227589 4.566066931432745 6.692438625636579 4.0476388702948745 6.537675856612738 3.5921166638687816 C 6.387095988317511 3.136594457442689 6.163316081275642 2.7765150112200327 5.8663392454138 2.511878274001342 C 5.5693624095519585 2.247241536782651 5.199186950042383 2.1149242689619343 4.755812801066519 2.1149242689619343 C 4.308256113364087 2.1149242689619343 3.93180768495122 2.247241536782651 3.626465409634197 2.511878274001342 C 3.3253056730437414 2.7765150112200327 3.0973437373690977 3.136594457442689 2.94258114934628 3.5921166638687816 C 2.792001281051052 4.0476388702948745 2.716711881679188 4.566066931432745 2.716711881679188 5.1473998574259525 C 2.716711881679188 5.72873278341916 2.792001281051052 6.2471608445570315 2.94258114934628 6.702683050983124 C 3.0973437373690977 7.158205257409216 3.3253056730437414 7.518284703631873 3.626465409634197 7.782921440850564 C 3.93180768495122 8.043219739685604 4.308256113364087 8.173367788314495 4.755812801066519 8.173367788314495 Z","fillRule":"nonzero"},{"d":"M4.74327 10.3208 C3.76868 10.3208 2.92585 10.1061 2.21478 9.67659 C1.50789 9.24276 0.962039 8.63974 0.577223 7.86752 C0.192408 7.09096 0 6.19076 0 5.16692 C0 4.1344 0.192408 3.23204 0.577223 2.45982 C0.962039 1.68326 1.50789 1.08024 2.21478 0.650745 C2.92585 0.216915 3.76868 0 4.74327 0 C5.71785 0 6.55859 0.216915 7.26548 0.650745 C7.97655 1.08024 8.52449 1.68326 8.90931 2.45982 C9.29412 3.23204 9.48653 4.1344 9.48653 5.16692 C9.48653 6.19076 9.29412 7.09096 8.90931 7.86752 C8.52449 8.63974 7.97655 9.24276 7.26548 9.67659 C6.55859 10.1061 5.71785 10.3208 4.74327 10.3208 Z M4.75581 8.17337 C5.19919 8.17337 5.56936 8.04322 5.86634 7.78292 C6.16332 7.51828 6.3871 7.15821 6.53768 6.70268 C6.69244 6.24716 6.76982 5.72873 6.76982 5.1474 C6.76982 4.56607 6.69244 4.04764 6.53768 3.59212 C6.3871 3.13659 6.16332 2.77652 5.86634 2.51188 C5.56936 2.24724 5.19919 2.11492 4.75581 2.11492 C4.30826 2.11492 3.93181 2.24724 3.62647 2.51188 C3.32531 2.77652 3.09734 3.13659 2.94258 3.59212 C2.792 4.04764 2.71671 4.56607 2.71671 5.1474 C2.71671 5.72873 2.792 6.24716 2.94258 6.70268 C3.09734 7.15821 3.32531 7.51828 3.62647 7.78292 C3.93181 8.04322 4.30826 8.17337 4.75581 8.17337 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9534.38px"
+                left="929.07px"
+              />
+              <Icon
+                width="11.56px"
+                height="13.69px"
+                viewBox={{"minX":0,"minY":0,"width":11.563275337219238,"height":13.691694259643555}}
+                paths={[{"d":"M 11.563275337219237 4.848057425938644 L 8.815194029566868 4.848057425938644 C 8.765000627659944 4.479301086894886 8.662522723312772 4.151758820127241 8.507760328866327 3.865430625635707 C 8.352997934419882 3.5747639927724375 8.154316122533931 3.3274806513711472 7.911714926117747 3.123580601431837 C 7.669114075248942 2.9196798176334426 7.388868338524729 2.7635007722020095 7.070977748854384 2.655043456604292 C 6.7572696975707505 2.546586141006575 6.416373682310788 2.4923574789410936 6.048289670165223 2.4923574789410936 C 5.383228846288921 2.4923574789410936 4.803914617274687 2.663720333347764 4.3103474767616365 3.0064460421611052 C 3.816780336248586 3.344834029395304 3.4340566170176747 3.8394010876606712 3.1621763355235393 4.490147182824226 C 2.890296054029404 5.136554498286239 2.7543559215096547 5.921787813952089 2.7543559215096547 6.8458471298217765 C 2.7543559215096547 7.795935983666499 2.890296054029404 8.594184068319867 3.1621763355235393 9.24059192990957 C 3.4382391554043865 9.886999381903506 3.8230541602832915 10.37505878261127 4.316621300796342 10.70477009789988 C 4.810188803311409 11.034481413188491 5.381137593550202 11.19933678070246 6.029467144964334 11.19933678070246 C 6.3933685858139135 11.19933678070246 6.730081898140792 11.149447103136405 7.0396070490356975 11.04966611815447 C 7.353315100319331 10.949884945441141 7.631469370394543 10.804551637542751 7.874069875715969 10.613666168859565 C 8.116671072132153 10.418442449536036 8.31744433421247 10.182004845667791 8.476389629047642 9.904353340188335 C 8.639517824271543 9.626701664043976 8.752452629929497 9.310004759346587 8.815194029566868 8.954263735418037 L 11.563275337219237 8.967279050533245 C 11.492168836126485 9.578980292606555 11.314401188864114 10.168990264411665 11.029972387204802 10.7373083856879 C 10.749726485934218 11.301288068592399 10.37118558481885 11.806700130531727 9.894349683858696 12.253545629628281 C 9.421695992192511 12.696052861018003 8.857021651264633 13.047456095101447 8.200326628165787 13.3077544785541 C 7.547813847270184 13.563714543100449 6.809554372784689 13.691694259643553 5.985548270527851 13.691694259643553 C 4.839468316209924 13.691694259643553 3.814688721507851 13.422718692250601 2.9112099471514714 12.884768752119022 C 2.0119137440910775 12.346818811987443 1.3008423652190089 11.568093665873908 0.7779957118074426 10.548591777794286 C 0.2593318929660561 9.52908968491678 0 8.294841309638699 0 6.8458471298217765 C 0 5.39251464816504 0.26351472753623584 4.156097599828783 0.7905441496994332 3.1365959165470447 C 1.3175735389533565 2.1170934823397323 2.0328276536677823 1.3405366679545672 2.9363065596612588 0.8069255075245303 C 3.839785465654735 0.2689751577971833 4.8561995228535455 0 5.985548270527851 0 C 6.730081700685147 0 7.4202392028897854 0.10845768252725918 8.056020777141766 0.3253730475817776 C 8.695984856871185 0.542288412636296 9.262750680902702 0.8589845834746017 9.756318183417768 1.2754615600966943 C 10.249884994838077 1.6876008151396444 10.651431124087416 2.193013628004545 10.960956636984339 2.791699896292455 C 11.274664326265956 3.390386164580365 11.475437234571574 4.075838674462428 11.563275337219237 4.848057425938644 Z","fillRule":"nonzero"},{"d":"M11.5633 4.84806 L8.81519 4.84806 C8.765 4.4793 8.66252 4.15176 8.50776 3.86543 C8.353 3.57476 8.15432 3.32748 7.91171 3.12358 C7.66911 2.91968 7.38887 2.7635 7.07098 2.65504 C6.75727 2.54659 6.41637 2.49236 6.04829 2.49236 C5.38323 2.49236 4.80391 2.66372 4.31035 3.00645 C3.81678 3.34483 3.43406 3.8394 3.16218 4.49015 C2.8903 5.13655 2.75436 5.92179 2.75436 6.84585 C2.75436 7.79594 2.8903 8.59418 3.16218 9.24059 C3.43824 9.887 3.82305 10.3751 4.31662 10.7048 C4.81019 11.0345 5.38114 11.1993 6.02947 11.1993 C6.39337 11.1993 6.73008 11.1494 7.03961 11.0497 C7.35331 10.9499 7.63147 10.8046 7.87407 10.6137 C8.11667 10.4184 8.31744 10.182 8.47639 9.90435 C8.63952 9.6267 8.75245 9.31001 8.81519 8.95426 L11.5633 8.96728 C11.4922 9.57898 11.3144 10.169 11.03 10.7373 C10.7497 11.3013 10.3712 11.8067 9.89435 12.2535 C9.4217 12.6961 8.85702 13.0475 8.20033 13.3078 C7.54781 13.5637 6.80955 13.6917 5.98555 13.6917 C4.83947 13.6917 3.81469 13.4227 2.91121 12.8848 C2.01191 12.3468 1.30084 11.5681 0.777996 10.5486 C0.259332 9.52909 0 8.29484 0 6.84585 C0 5.39251 0.263515 4.1561 0.790544 3.1366 C1.31757 2.11709 2.03283 1.34054 2.93631 0.806926 C3.83979 0.268975 4.8562 0 5.98555 0 C6.73008 0 7.42024 0.108458 8.05602 0.325373 C8.69598 0.542288 9.26275 0.858985 9.75632 1.27546 C10.2499 1.6876 10.6514 2.19301 10.961 2.7917 C11.2747 3.39039 11.4754 4.07584 11.5633 4.84806 Z","fill":"rgba(255,255,255,1)","fillRule":"nonzero"}]}
+                display="block"
+                position="absolute"
+                top="9531px"
+                left="916px"
+              />
+            </View>
+            <View
+              width="1232px"
+              height="23px"
+              display="block"
+              position="absolute"
+              top="9942px"
+              left="calc(50% - 616px - -103px)"
+            >
+              <View
+                width="233px"
+                height="22px"
+                display="block"
+                position="absolute"
+                top="9943px"
+                left="103px"
+              >
+                <View
+                  width="233px"
+                  height="22px"
+                  display="block"
+                  position="absolute"
+                  top="9943px"
+                  left="calc(50% - 116.5px - -103px)"
+                >
+                  <Text
+                    fontFamily="Inter"
+                    fontSize="16px"
+                    fontWeight="400"
+                    color="rgba(255,255,255,1)"
+                    lineHeight="19.363636016845703px"
+                    textAlign="left"
+                    display="block"
+                    width="215px"
+                    height="22px"
+                    position="absolute"
+                    top="9943px"
+                    left="121px"
+                    whiteSpace="pre-wrap"
+                  >
+                    Copyright Alumni ABU 2025  
+                  </Text>
+                  <Flex
+                    width="16px"
+                    height="16px"
+                    overflow="hidden"
+                    position="absolute"
+                    top="9944px"
+                    left="103px"
+                  >
+                    <View
+                      width="14.33px"
+                      height="14.33px"
+                      display="block"
+                      position="absolute"
+                      top="6.25%"
+                      bottom="4.17%"
+                      left="0%"
+                      right="10.42%"
+                    >
+                      <Icon
+                        width="14.33px"
+                        height="14.33px"
+                        viewBox={{"minX":0,"minY":0,"width":14.333332061767578,"height":14.333332061767578}}
+                        paths={[{"d":"M 0 7.166666030883789 C 0 3.208666516799324 3.208666516799324 0 7.166666030883789 0 C 11.124665544968254 0 14.333332061767578 3.208666516799324 14.333332061767578 7.166666030883789 C 14.333332061767578 11.124665544968254 11.124665544968254 14.333332061767578 7.166666030883789 14.333332061767578 C 3.208666516799324 14.333332061767578 0 11.124665544968254 0 7.166666030883789 Z M 7.166666030883789 0.99999991128611 C 5.53116447334896 0.9999999112861105 3.9626489143830583 1.649700415807866 2.806174665095462 2.806174665095462 C 1.649700415807866 3.9626489143830583 0.9999999112861118 5.53116447334896 0.99999991128611 7.166666030883789 C 0.9999999112861121 8.802167588418618 1.649700415807866 10.370682829493107 2.806174665095462 11.527157078780704 C 3.9626489143830583 12.6836313280683 5.53116447334896 13.333332150481466 7.166666030883789 13.333332150481468 C 8.802167588418618 13.333332150481468 10.370682829493107 12.6836313280683 11.527157078780704 11.527157078780704 C 12.6836313280683 10.370682829493107 13.333332150481468 8.802167588418618 13.333332150481468 7.166666030883789 C 13.333332150481468 5.53116447334896 12.6836313280683 3.9626489143830583 11.527157078780704 2.806174665095462 C 10.370682829493107 1.649700415807866 8.802167588418618 0.9999999112861109 7.166666030883789 0.99999991128611 Z","fillRule":"evenodd"},{"d":"M0 7.16667 C0 3.20867 3.20867 0 7.16667 0 C11.1247 0 14.3333 3.20867 14.3333 7.16667 C14.3333 11.1247 11.1247 14.3333 7.16667 14.3333 C3.20867 14.3333 0 11.1247 0 7.16667 Z M7.16667 1 C5.53116 1 3.96265 1.6497 2.80617 2.80617 C1.6497 3.96265 1 5.53116 1 7.16667 C1 8.80217 1.6497 10.3707 2.80617 11.5272 C3.96265 12.6836 5.53116 13.3333 7.16667 13.3333 C8.80217 13.3333 10.3707 12.6836 11.5272 11.5272 C12.6836 10.3707 13.3333 8.80217 13.3333 7.16667 C13.3333 5.53116 12.6836 3.96265 11.5272 2.80617 C10.3707 1.6497 8.80217 1 7.16667 1 Z","fill":"rgba(255,255,255,1)","fillRule":"evenodd"}]}
+                        display="block"
+                        position="absolute"
+                        top="6.98%"
+                        bottom="-6.98%"
+                        left="0%"
+                        right="0%"
+                      />
+                      <Icon
+                        width="5px"
+                        height="6.33px"
+                        viewBox={{"minX":0,"minY":0,"width":5.000272274017334,"height":6.333339214324951}}
+                        paths={[{"d":"M 3.3573331810172045 1.000002748088061 C 2.021999961037013 1.000002748088061 0.9999999046377703 2.002002808336745 0.9999999046377703 3.1666696071624756 C 0.9999999046377703 4.331336405988206 2.021999961037013 5.33333654570976 3.3573331810172045 5.33333654570976 C 3.697999800256242 5.33333654570976 4.02066601717182 5.266669586562027 4.31066599110623 5.1486695710397345 C 4.371468012891135 5.123849734388315 4.436563739292892 5.111248866621925 4.502235619037266 5.111586258484378 C 4.567907498781639 5.111923650346831 4.6328698150999506 5.125192791116409 4.6934136047530455 5.150636047726924 C 4.75395739440614 5.176079304337439 4.808896624417168 5.213198754696752 4.85509508245811 5.259874368115829 C 4.9012935404990525 5.306549981534906 4.937846525006042 5.3618677380561115 4.9626663561761095 5.4226697732688764 C 4.987486187346177 5.483471808481641 5.000087052329722 5.548566913476546 4.999749660541781 5.614238807724266 C 4.99941226875384 5.679910701971987 4.986143130914692 5.744873668419897 4.960699879923207 5.805417471443823 C 4.935256628931723 5.8659612744677485 4.898137186770076 5.920900516611863 4.851461583659101 5.967098984855532 C 4.804785980548126 6.013297453099201 4.749468236243602 6.049849809895799 4.688666214458697 6.0746696465472185 C 4.265754888961543 6.246051479353698 3.813650403330223 6.333891887907994 3.3573331810172045 6.3333366711931225 C 1.5359999463479064 6.3333366711931225 0 4.9473364998163145 0 3.1666696071624756 C 0 1.386002714508637 1.5359999463479064 0.0000026156646474352114 3.3573331810172045 0.0000026156646474352114 C 3.813650403330223 -0.0005526010502240633 4.265754888961543 0.08728749655264498 4.688666214458697 0.25866932935912434 C 4.811549840486414 0.30870684881459987 4.909523043743225 0.4055101287586337 4.961033030119302 0.5277838574522463 C 5.012543016495379 0.650057586145859 5.013370160006157 0.7877858673629179 4.963332656568299 0.910669520528945 C 4.9132951531304405 1.0335531736949721 4.816492207489337 1.1315263985887345 4.694218505799335 1.1830363963405666 C 4.571944804109333 1.2345463940923986 4.4342165533089535 1.2353735377858468 4.311332927281236 1.1853360232974257 C 4.00827351731727 1.0625700893196017 3.684313820128771 0.999634555133505 3.3573331810172045 1.000002748088061 Z","fillRule":"evenodd"},{"d":"M3.35733 1 C2.022 1 1 2.002 1 3.16667 C1 4.33134 2.022 5.33334 3.35733 5.33334 C3.698 5.33334 4.02067 5.26667 4.31067 5.14867 C4.37147 5.12385 4.43656 5.11125 4.50224 5.11159 C4.56791 5.11192 4.63287 5.12519 4.69341 5.15064 C4.75396 5.17608 4.8089 5.2132 4.8551 5.25987 C4.90129 5.30655 4.93785 5.36187 4.96267 5.42267 C4.98749 5.48347 5.00009 5.54857 4.99975 5.61424 C4.99941 5.67991 4.98614 5.74487 4.9607 5.80542 C4.93526 5.86596 4.89814 5.9209 4.85146 5.9671 C4.80479 6.0133 4.74947 6.04985 4.68867 6.07467 C4.26576 6.24605 3.81365 6.33389 3.35733 6.33334 C1.536 6.33334 0 4.94734 0 3.16667 C0 1.386 1.536 2.61566e-06 3.35733 2.61566e-06 C3.81365 -0.000552601 4.26576 0.0872875 4.68867 0.258669 C4.81155 0.308707 4.90952 0.40551 4.96103 0.527784 C5.01254 0.650058 5.01337 0.787786 4.96333 0.91067 C4.9133 1.03355 4.81649 1.13153 4.69422 1.18304 C4.57195 1.23455 4.43422 1.23537 4.31133 1.18534 C4.00827 1.06257 3.68431 0.999635 3.35733 1 Z","fill":"rgba(255,255,255,1)","fillRule":"evenodd"}]}
+                        display="block"
+                        position="absolute"
+                        top="34.88%"
+                        bottom="20.93%"
+                        left="27.91%"
+                        right="37.21%"
+                      />
+                    </View>
+                  </Flex>
+                  <Flex
+                    width="20.7px"
+                    height="20.7px"
+                    overflow="hidden"
+                    position="absolute"
+                    top="9943.65px"
+                    left="295.01px"
+                  />
+                </View>
+              </View>
+              <Icon
+                width="1px"
+                height="19px"
+                viewBox={{"minX":0,"minY":0,"width":1,"height":19}}
+                paths={[{"d":"M 0.5 0 C 0.36739175021648407 1.1102230246251565e-16 0.24021441489458084 0.05267839878797531 0.14644622802734375 0.1464465856552124 C 0.05267804116010666 0.2402147725224495 0 0.36739175021648407 0 0.5 L 0 18.5 C 0 18.632608249783516 0.05267804116010666 18.75978558510542 0.14644622802734375 18.853553771972656 C 0.24021441489458084 18.947321958839893 0.36739175021648407 19 0.5 19 C 0.6326082497835159 19 0.7597855851054192 18.947321958839893 0.8535537719726562 18.853553771972656 C 0.9473219588398933 18.75978558510542 1 18.632608249783516 1 18.5 L 1 0.5 C 1 0.36739175021648407 0.9473219588398933 0.2402147725224495 0.8535537719726562 0.1464465856552124 C 0.7597855851054192 0.05267839878797531 0.6326082497835159 1.1102230246251565e-16 0.5 0 Z","fillRule":"evenodd"},{"d":"M0.5 0 C0.367392 1.11022e-16 0.240214 0.0526784 0.146446 0.146447 C0.052678 0.240215 0 0.367392 0 0.5 L0 18.5 C0 18.6326 0.052678 18.7598 0.146446 18.8536 C0.240214 18.9473 0.367392 19 0.5 19 C0.632608 19 0.759786 18.9473 0.853554 18.8536 C0.947322 18.7598 1 18.6326 1 18.5 L1 0.5 C1 0.367392 0.947322 0.240215 0.853554 0.146447 C0.759786 0.0526784 0.632608 1.11022e-16 0.5 0 Z","fill":"rgba(255,255,255,1)","fillRule":"evenodd"}]}
+                display="block"
+                position="absolute"
+                top="9942px"
+                left="340px"
+              />
+              <Text
+                fontFamily="Inter"
+                fontSize="16px"
+                fontWeight="400"
+                color="rgba(255,255,255,1)"
+                lineHeight="19.363636016845703px"
+                textAlign="left"
+                display="block"
+                width="150px"
+                height="22px"
+                position="absolute"
+                top="9943px"
+                left="348px"
+                whiteSpace="pre-wrap"
+              >
+                All Rights Reserved
+              </Text>
+              <Icon
+                width="1px"
+                height="19px"
+                viewBox={{"minX":0,"minY":0,"width":1,"height":19}}
+                paths={[{"d":"M 0.5 0 C 0.36739175021648407 1.1102230246251565e-16 0.24021441489458084 0.05267839878797531 0.14644622802734375 0.1464465856552124 C 0.05267804116010666 0.2402147725224495 0 0.36739175021648407 0 0.5 L 0 18.5 C 0 18.632608249783516 0.05267804116010666 18.75978558510542 0.14644622802734375 18.853553771972656 C 0.24021441489458084 18.947321958839893 0.36739175021648407 19 0.5 19 C 0.6326082497835159 19 0.7597855851054192 18.947321958839893 0.8535537719726562 18.853553771972656 C 0.9473219588398933 18.75978558510542 1 18.632608249783516 1 18.5 L 1 0.5 C 1 0.36739175021648407 0.9473219588398933 0.2402147725224495 0.8535537719726562 0.1464465856552124 C 0.7597855851054192 0.05267839878797531 0.6326082497835159 1.1102230246251565e-16 0.5 0 Z","fillRule":"evenodd"},{"d":"M0.5 0 C0.367392 1.11022e-16 0.240214 0.0526784 0.146446 0.146447 C0.052678 0.240215 0 0.367392 0 0.5 L0 18.5 C0 18.6326 0.052678 18.7598 0.146446 18.8536 C0.240214 18.9473 0.367392 19 0.5 19 C0.632608 19 0.759786 18.9473 0.853554 18.8536 C0.947322 18.7598 1 18.6326 1 18.5 L1 0.5 C1 0.367392 0.947322 0.240215 0.853554 0.146447 C0.759786 0.0526784 0.632608 1.11022e-16 0.5 0 Z","fill":"rgba(255,255,255,1)","fillRule":"evenodd"}]}
+                display="block"
+                position="absolute"
+                top="9943px"
+                left="501px"
+              />
+              <Text
+                fontFamily="Inter"
+                fontSize="16px"
+                fontWeight="400"
+                color="rgba(255,255,255,1)"
+                lineHeight="19.363636016845703px"
+                textAlign="left"
+                display="block"
+                width="190px"
+                height="22px"
+                position="absolute"
+                top="9943px"
+                left="1145px"
+                whiteSpace="pre-wrap"
+              >
+                Website by Kad ICT Hub
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      width="1453px"
+      height="448px"
+      display="block"
+      position="absolute"
+      top="9005px"
+      left="calc(50% - 726.5px - -0.5px)"
+    >
+      {/* <Image
+        width="1453px"
+        height="448px"
+        display="block"
+        position="absolute"
+        top="9005px"
+        left="-6px"
+        objectFit="cover"
+        alt=""
+      /> */}
+    </View>
+    <Flex
+      width="1421px"
+      height="1104px"
+      overflow="hidden"
+      position="absolute"
+      top="1043px"
+      left="calc(50% - 710.5px - -6.5px)"
+    >
+      <Icon
+        width="505px"
+        height="5px"
+        viewBox={{"minX":0,"minY":0,"width":505.0000064734122,"height":5.000109811873699}}
+        paths={[{"d":"M0 0 L505.025 0 L505.025 -2 L0 -2 L0 0 Z","stroke":"rgba(255,255,255,1)","fillRule":"nonzero","strokeWidth":2}]}
+        display="block"
+        position="absolute"
+        top="985px"
+        left="calc(50% - 252.5px - -148px)"
+        transformOrigin="top left"
+        transform="rotate(179.43deg)"
+      />
+      <Text
+        fontFamily="DM Sans"
+        fontSize="28px"
+        fontWeight="200"
+        color="rgba(0,0,0,1)"
+        lineHeight="36.45600128173828px"
+        textAlign="left"
+        display="block"
+        letterSpacing="0.41px"
+        width="641px"
+        position="absolute"
+        top="201px"
+        left="655px"
+        whiteSpace="pre-wrap"
+      >
+        More than just graduates, we are a family. The Ahmadu Bello University Alumni Association is the heart of our community, connecting alumni across generations and geographic boundaries. We believe in the power of shared experiences and the importance of lifelong relationships. We are here to support your personal and professional growth, celebrate your achievements, and provide a lasting connection to the institution you call home.
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="50px"
+        fontWeight="600"
+        color="rgba(30,30,30,1)"
+        lineHeight="51px"
+        textAlign="left"
+        display="block"
+        letterSpacing="1.85px"
+        position="absolute"
+        top="111px"
+        left="650px"
+        whiteSpace="pre-wrap"
+      >
+        Who We Are
+      </Text>
+      <View
+        width="1023.49px"
+        height="470px"
+        display="block"
+        position="absolute"
+        top="525px"
+        left="19px"
+      >
+        <View
+          width="1023.49px"
+          height="470px"
+          display="block"
+          position="absolute"
+          top="525px"
+          left="19px"
+        />
+      </View>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="22px"
+        fontWeight="200"
+        color="rgba(35,130,43,1)"
+        lineHeight="28.644001007080078px"
+        textAlign="center"
+        display="block"
+        width="134px"
+        position="absolute"
+        top="1004px"
+        left="112px"
+        whiteSpace="pre-wrap"
+      >
+        Learn More
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="22px"
+        fontWeight="200"
+        color="rgba(35,130,43,1)"
+        lineHeight="28.644001007080078px"
+        textAlign="center"
+        display="block"
+        width="134px"
+        position="absolute"
+        top="1004px"
+        left="556px"
+        whiteSpace="pre-wrap"
+      >
+        Learn More
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="22px"
+        fontWeight="200"
+        color="rgba(35,130,43,1)"
+        lineHeight="28.644001007080078px"
+        textAlign="center"
+        display="block"
+        width="134px"
+        position="absolute"
+        top="1004px"
+        left="948px"
+        whiteSpace="pre-wrap"
+      >
+        Learn More
+      </Text>
+      <Flex
+        gap="38px"
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        position="absolute"
+        top="758px"
+        left="121px"
+      >
+        <Text
+          fontFamily="DM Sans"
+          fontSize="25px"
+          fontWeight="600"
+          color="rgba(30,30,30,1)"
+          lineHeight="32.55000305175781px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Networking Opportunities
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="24px"
+          fontWeight="200"
+          color="rgba(30,30,30,1)"
+          lineHeight="31.248001098632812px"
+          textAlign="left"
+          display="block"
+          width="367.18px"
+          height="123px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Our online alumni directory allows you to reconnect with classmates and build valuable professional relationships.
+        </Text>
+      </Flex>
+      <Flex
+        gap="42px"
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        position="absolute"
+        top="758px"
+        left="562px"
+      >
+        <Text
+          fontFamily="DM Sans"
+          fontSize="25px"
+          fontWeight="600"
+          color="rgba(30,30,30,1)"
+          lineHeight="32.55000305175781px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Volunteer Opportunities
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="25px"
+          fontWeight="200"
+          color="rgba(30,30,30,1)"
+          lineHeight="32.55000305175781px"
+          textAlign="left"
+          display="block"
+          width="341.93px"
+          shrink="0"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          We offer opportunities for alumni to volunteer their time and expertise to support the institution and its students.
+        </Text>
+      </Flex>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="25px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="32.55000305175781px"
+        textAlign="left"
+        display="block"
+        width="389.42px"
+        position="absolute"
+        top="833px"
+        left="calc(50% - 194.71px - -428.21px)"
+        whiteSpace="pre-wrap"
+      >
+        We provide opportunities for alumni to support the institution through donations and fundraising initiatives.
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="25px"
+        fontWeight="600"
+        color="rgba(30,30,30,1)"
+        lineHeight="32.55000305175781px"
+        textAlign="left"
+        display="block"
+        position="absolute"
+        top="758px"
+        left="calc(50% - 176px - -409.5px)"
+        whiteSpace="pre-wrap"
+      >
+        Philanthropy and Giving Back
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="44px"
+        fontWeight="600"
+        color="rgba(30,30,30,1)"
+        lineHeight="42px"
+        textAlign="left"
+        display="block"
+        letterSpacing="1.85px"
+        position="absolute"
+        top="676px"
+        left="121px"
+        whiteSpace="pre-wrap"
+      >
+        What we do
+      </Text>
+      <View
+        width="458px"
+        height="457px"
+        display="block"
+        position="absolute"
+        top="94px"
+        left="118px"
+      >
+        <Icon
+          width="458px"
+          height="457px"
+          viewBox={{"minX":0,"minY":0,"width":458,"height":457}}
+          paths={[{"d":"M0 65.259 C0 29.2175 29.2175 0 65.2591 0 C101.301 0 130.518 29.2175 130.518 65.259 L130.518 391.741 C130.518 427.783 101.301 457 65.2591 457 C29.2175 457 0 427.783 0 391.741 L0 65.259 Z M163.741 65.259 C163.741 29.2175 192.958 0 229 0 C265.042 0 294.259 29.2175 294.259 65.259 L294.259 391.741 C294.259 427.783 265.042 457 229 457 C192.958 457 163.741 427.783 163.741 391.741 L163.741 65.259 Z M392.741 0 C356.699 0 327.482 29.2175 327.482 65.259 L327.482 391.741 C327.482 427.783 356.699 457 392.741 457 C428.783 457 458 427.783 458 391.741 L458 65.259 C458 29.2175 428.783 0 392.741 0 Z","fill":"rgba(217,217,217,1)","fillRule":"evenodd"}]}
+          display="block"
+          position="absolute"
+          top="94px"
+          left="118px"
+        />
+        {/* <Image
+          width="1205px"
+          height="553.35px"
+          display="block"
+          position="absolute"
+          top="88px"
+          left="-76px"
+          objectFit="cover"
+          alt=""
+        /> */}
+      </View>
+    </Flex>
+    <Flex
+      width="1433px"
+      height="867px"
+      overflow="hidden"
+      position="absolute"
+      top="3169px"
+      left="calc(50% - 716.5px - 0.5px)"
+    >
+      <Flex
+        gap="16px"
+        direction="column"
+        width="390px"
+        justifyContent="center"
+        alignItems="center"
+        position="absolute"
+        top="242px"
+        left="51px"
+        padding="16px 16px 16px 16px"
+        backgroundColor="rgba(255,255,255,1)"
+      >
+        <View
+          width="371px"
+          height="348px"
+          display="block"
+          shrink="0"
+          position="relative"
+          borderRadius="10px"
+          backgroundColor="rgba(217,217,217,1)"
+        />
+        <Text
+          fontFamily="DM Sans"
+          fontSize="32px"
+          fontWeight="700"
+          color="rgba(30,30,30,1)"
+          lineHeight="41.66400146484375px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Green Campus Initiative
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="22px"
+          fontWeight="300"
+          color="rgba(30,30,30,1)"
+          lineHeight="28.644001007080078px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0.29px"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Projects focused on sustainable building practices, renewable energy
+        </Text>
+      </Flex>
+      <Flex
+        gap="16px"
+        direction="column"
+        width="390px"
+        justifyContent="center"
+        alignItems="center"
+        position="absolute"
+        top="242px"
+        left="480px"
+        padding="16px 16px 16px 16px"
+        backgroundColor="rgba(255,255,255,1)"
+      >
+        <View
+          width="371px"
+          height="348px"
+          display="block"
+          shrink="0"
+          position="relative"
+          borderRadius="10px"
+          backgroundColor="rgba(217,217,217,1)"
+        />
+        <Text
+          fontFamily="DM Sans"
+          fontSize="32px"
+          fontWeight="700"
+          color="rgba(30,30,30,1)"
+          lineHeight="41.66400146484375px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Innovation Hubs
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="22px"
+          fontWeight="300"
+          color="rgba(30,30,30,1)"
+          lineHeight="28.644001007080078px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0.29px"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          State-of-the-art makerspaces, fabrication labs, and technology centers for hands-on learning.
+        </Text>
+      </Flex>
+      <Flex
+        gap="16px"
+        direction="column"
+        width="390px"
+        justifyContent="center"
+        alignItems="center"
+        position="absolute"
+        top="242px"
+        left="909px"
+        padding="16px 16px 16px 16px"
+        backgroundColor="rgba(255,255,255,1)"
+      >
+        <View
+          width="371px"
+          height="348px"
+          display="block"
+          shrink="0"
+          position="relative"
+          borderRadius="10px"
+          backgroundColor="rgba(217,217,217,1)"
+        />
+        <Text
+          fontFamily="DM Sans"
+          fontSize="32px"
+          fontWeight="700"
+          color="rgba(30,30,30,1)"
+          lineHeight="41.66400146484375px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Digital Campus
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="22px"
+          fontWeight="300"
+          color="rgba(30,30,30,1)"
+          lineHeight="28.644001007080078px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0.29px"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          High-speed Wi-Fi, robust digital infrastructure, and immersive virtual learning environments.
+        </Text>
+      </Flex>
+      <Flex
+        gap="16px"
+        direction="column"
+        width="390px"
+        justifyContent="center"
+        alignItems="center"
+        position="absolute"
+        top="232px"
+        left="1338px"
+        padding="16px 16px 16px 16px"
+        backgroundColor="rgba(255,255,255,1)"
+      >
+        <View
+          width="371px"
+          height="348px"
+          display="block"
+          shrink="0"
+          position="relative"
+          borderRadius="10px"
+          backgroundColor="rgba(217,217,217,1)"
+        />
+        <Text
+          fontFamily="DM Sans"
+          fontSize="32px"
+          fontWeight="700"
+          color="rgba(30,30,30,1)"
+          lineHeight="41.66400146484375px"
+          textAlign="left"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          The Legacy
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="22px"
+          fontWeight="300"
+          color="rgba(30,30,30,1)"
+          lineHeight="28.644001007080078px"
+          textAlign="left"
+          display="block"
+          letterSpacing="0.29px"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Your donations shows the next generation of Ahmadu Bello University Leaders.
+        </Text>
+      </Flex>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="50px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        lineHeight="65.10000610351562px"
+        textAlign="center"
+        display="block"
+        position="absolute"
+        top="21px"
+        left="calc(50% - 326px - -0.5px)"
+        whiteSpace="pre-wrap"
+      >
+        See Your Support in Action
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="36px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="43.20000076293945px"
+        textAlign="center"
+        display="block"
+        letterSpacing="0.57px"
+        width="893px"
+        position="absolute"
+        top="110px"
+        left="calc(50% - 446.5px - 0px)"
+        whiteSpace="pre-wrap"
+      >
+        Explore the initiatives where your donations are making a real and visible difference at ABU.
+      </Text>
+    </Flex>
+    <View
+      width="1214px"
+      height="493px"
+      display="block"
+      position="absolute"
+      top="6670px"
+      left="calc(50% - 607px - 0px)"
+    >
+      <View
+        width="1214px"
+        height="493px"
+        display="block"
+        position="absolute"
+        top="6670px"
+        left="113px"
+      >
+        <View
+          width="1213px"
+          height="314px"
+          display="block"
+          position="absolute"
+          top="6849px"
+          left="113px"
+        >
+          <View
+            width="377.11px"
+            height="314px"
+            display="block"
+            position="absolute"
+            top="6849px"
+            left="948.89px"
+          >
+            {/* <Image
+              width="377.11px"
+              height="314px"
+              display="block"
+              position="absolute"
+              top="6849px"
+              left="948.89px"
+              borderRadius="10px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            <View
+              width="377.11px"
+              height="144px"
+              display="block"
+              position="absolute"
+              top="7019px"
+              left="948.89px"
+              borderRadius="10px"
+              backgroundColor="rgba(30,30,30,1)"
+              opacity="0.699999988079071"
+            />
+            <View
+              width="337.78px"
+              height="96px"
+              display="block"
+              position="absolute"
+              top="7021px"
+              left="968px"
+            >
+              <Text
+                fontFamily="DM Sans"
+                fontSize="24px"
+                fontWeight="500"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="31.248001098632812px"
+                textAlign="left"
+                display="block"
+                width="126.04px"
+                position="absolute"
+                top="7021px"
+                left="968px"
+                whiteSpace="pre-wrap"
+              >
+                Friendship:
+              </Text>
+              <Text
+                fontFamily="DM Sans"
+                fontSize="20px"
+                fontWeight="200"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="26.040000915527344px"
+                textAlign="left"
+                display="block"
+                width="337.78px"
+                position="absolute"
+                top="7065px"
+                left="968px"
+                whiteSpace="pre-wrap"
+              >
+                From campus connections to lifelong bonds: friendships made at university
+              </Text>
+            </View>
+          </View>
+          <View
+            width="379.13px"
+            height="314px"
+            display="block"
+            position="absolute"
+            top="6849px"
+            left="113px"
+          >
+            {/* <Image
+              width="379.13px"
+              height="314px"
+              display="block"
+              position="absolute"
+              top="6849px"
+              left="113px"
+              borderRadius="10px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            <View
+              width="379.13px"
+              height="144px"
+              display="block"
+              position="absolute"
+              top="7019px"
+              left="113px"
+              borderRadius="10px"
+              backgroundColor="rgba(30,30,30,1)"
+              opacity="0.699999988079071"
+            />
+            <View
+              width="340.81px"
+              height="96px"
+              display="block"
+              position="absolute"
+              top="7021px"
+              left="133px"
+            >
+              <Text
+                fontFamily="DM Sans"
+                fontSize="20px"
+                fontWeight="200"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="26.040000915527344px"
+                textAlign="left"
+                display="block"
+                width="340.81px"
+                position="absolute"
+                top="7065px"
+                left="133px"
+                whiteSpace="pre-wrap"
+              >
+                This family's shared journey through ABU.
+              </Text>
+              <Text
+                fontFamily="DM Sans"
+                fontSize="24px"
+                fontWeight="500"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="31.248001098632812px"
+                textAlign="left"
+                display="block"
+                width="269.22px"
+                position="absolute"
+                top="7021px"
+                left="133px"
+                whiteSpace="pre-wrap"
+              >
+                Generations strong:
+              </Text>
+            </View>
+          </View>
+          <View
+            width="379.13px"
+            height="314px"
+            display="block"
+            position="absolute"
+            top="6849px"
+            left="529.43px"
+          >
+            {/* <Image
+              width="378.12px"
+              height="314px"
+              display="block"
+              position="absolute"
+              top="6849px"
+              left="530.44px"
+              borderRadius="10px"
+              objectFit="cover"
+              alt=""
+            /> */}
+            <View
+              width="379.13px"
+              height="144px"
+              display="block"
+              position="absolute"
+              top="7019px"
+              left="529.43px"
+              borderRadius="10px"
+              backgroundColor="rgba(30,30,30,1)"
+              opacity="0.699999988079071"
+            />
+            <View
+              width="356.94px"
+              height="121px"
+              display="block"
+              position="absolute"
+              top="7019px"
+              left="550px"
+            >
+              <Text
+                fontFamily="DM Sans"
+                fontSize="20px"
+                fontWeight="200"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="26.040000915527344px"
+                textAlign="left"
+                display="block"
+                width="356.94px"
+                position="absolute"
+                top="7062px"
+                left="550px"
+                whiteSpace="pre-wrap"
+              >
+                Rulers of Zazzau and Kano kingdoms established periods of amicable relations.
+              </Text>
+              <Text
+                fontFamily="DM Sans"
+                fontSize="24px"
+                fontWeight="500"
+                color="rgba(255,255,255,1)"
+                fontStyle="italic"
+                lineHeight="31.248001098632812px"
+                textAlign="left"
+                display="block"
+                width="269.22px"
+                position="absolute"
+                top="7019px"
+                left="550px"
+                whiteSpace="pre-wrap"
+              >
+                Royal Bonds:
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="24px"
+          fontWeight="200"
+          color="rgba(0,0,0,1)"
+          lineHeight="31.248001098632812px"
+          textAlign="left"
+          display="block"
+          width="1214px"
+          position="absolute"
+          top="6758px"
+          left="113px"
+          whiteSpace="pre-wrap"
+        >
+          Bonds Between Us explores the enduring relationships formed during Alumni institutional years, highlighting their evolution into lifelong bonds and connections.
+        </Text>
+        <Text
+          fontFamily="DM Sans"
+          fontSize="48px"
+          fontWeight="600"
+          color="rgba(30,30,30,1)"
+          fontStyle="italic"
+          lineHeight="62.496002197265625px"
+          textAlign="left"
+          display="block"
+          width="662px"
+          height="58px"
+          position="absolute"
+          top="6670px"
+          left="113px"
+          whiteSpace="pre-wrap"
+        >
+          Bonds Between Us (ABU)
+
+
+        </Text>
+      </View>
+    </View>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="48px"
+      fontWeight="700"
+      color="rgba(30,30,30,1)"
+      lineHeight="62.496002197265625px"
+      textAlign="left"
+      display="block"
+      width="690px"
+      height="52px"
+      position="absolute"
+      top="5713px"
+      left="96px"
+      whiteSpace="pre-wrap"
+    >
+      Alumni Success Stories 
+    </Text>
+    <Flex
+      gap="20px"
+      direction="column"
+      width="380.65px"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      position="absolute"
+      top="5946px"
+      left="538px"
+    >
+      {/* <Image
+        height="348px"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        borderRadius="10px"
+        objectFit="cover"
+        alt=""
+      /> */}
+      <Text
+        fontFamily="DM Sans"
+        fontSize="32px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        textTransform="uppercase"
+        lineHeight="41.66400146484375px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Fintech Legacy
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="15px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="19.530000686645508px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Aminu Bakori is a software engineer and entrepreneur, serving as the CEO and Founder of Payant and Sudo. At Sudo Africa, he spearheaded the development of programmable cards for developers. With Payant, he is simplifying invoicing and payments for businesses.
+      </Text>
+    </Flex>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="16px"
+      fontWeight="200"
+      color="rgba(35,130,43,1)"
+      lineHeight="20.832000732421875px"
+      textAlign="center"
+      display="block"
+      width="51px"
+      position="absolute"
+      top="6460px"
+      left="976px"
+      whiteSpace="pre-wrap"
+    >
+      View
+    </Text>
+    <Flex
+      gap="20px"
+      direction="column"
+      width="380.72px"
+      height="514px"
+      justifyContent="flex-start"
+      alignItems="flex-start"
+      position="absolute"
+      top="5946px"
+      left="979.28px"
+    >
+      {/* <Image
+        height="348px"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        borderRadius="10px"
+        objectFit="cover"
+        alt=""
+      /> */}
+      <Text
+        fontFamily="DM Sans"
+        fontSize="32px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        textTransform="uppercase"
+        lineHeight="41.66400146484375px"
+        textAlign="left"
+        display="block"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        NationS’ Legacy
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="16px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="20.832000732421875px"
+        textAlign="left"
+        display="block"
+        height="84px"
+        shrink="0"
+        alignSelf="stretch"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Umaru Musa Yar'Adua (Nigeria's 13th president, 2007-2010)  remembered for strong emphasis on upholding legal processes, Niger delta Amnesty Program...
+      </Text>
+    </Flex>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="16px"
+      fontWeight="200"
+      color="rgba(35,130,43,1)"
+      lineHeight="20.832000732421875px"
+      textAlign="center"
+      display="block"
+      width="58px"
+      position="absolute"
+      top="6476px"
+      left="530px"
+      whiteSpace="pre-wrap"
+    >
+      View
+    </Text>
+    <Text
+      fontFamily="DM Sans"
+      fontSize="24px"
+      fontWeight="200"
+      color="rgba(0,0,0,1)"
+      lineHeight="31.248001098632812px"
+      textAlign="left"
+      display="block"
+      width="1218px"
+      position="absolute"
+      top="5825px"
+      left="96px"
+      whiteSpace="pre-wrap"
+    >
+      Alumni success stories are more than just tales of individual achievement; they serve as a powerful testament to the institution's educational prowess and the latent potential within its graduates.
+    </Text>
+    <View
+      width="427.34px"
+      height="490px"
+      display="block"
+      position="absolute"
+      top="5946px"
+      left="83px"
+    >
+      {/* <Image
+        width="380.65px"
+        height="348px"
+        display="block"
+        position="absolute"
+        top="5946px"
+        left="96px"
+        borderRadius="10px"
+        objectFit="cover"
+        alt=""
+      /> */}
+      <Text
+        fontFamily="DM Sans"
+        fontSize="32px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        textTransform="uppercase"
+        lineHeight="41.66400146484375px"
+        textAlign="left"
+        display="block"
+        width="380.65px"
+        position="absolute"
+        top="6314px"
+        left="96px"
+        whiteSpace="pre-wrap"
+      >
+        Automobile Legacy
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="16px"
+        fontWeight="200"
+        color="rgba(35,130,43,1)"
+        lineHeight="20.832000732421875px"
+        textAlign="center"
+        display="block"
+        width="59px"
+        position="absolute"
+        top="6415px"
+        left="83px"
+        whiteSpace="pre-wrap"
+      >
+        View
+      </Text>
+      <View
+        width="414.34px"
+        height="40px"
+        display="block"
+        position="absolute"
+        top="6376px"
+        left="96px"
+      >
+        <Text
+          fontFamily="DM Sans"
+          fontSize="15px"
+          fontWeight="200"
+          color="rgba(0,0,0,1)"
+          lineHeight="19.530000686645508px"
+          textAlign="left"
+          display="block"
+          width="414.34px"
+          position="absolute"
+          top="6376px"
+          left="96px"
+          whiteSpace="pre-wrap"
+        >
+          Zailani Yusuf is the designer behind the groundbreaking Chevrolet Volt...
+        </Text>
+      </View>
+    </View>
+    <View
+      width="284px"
+      height="519px"
+      display="block"
+      position="absolute"
+      top="5946px"
+      left="1424px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="32px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        lineHeight="41.66400146484375px"
+        textAlign="left"
+        display="block"
+        width="284px"
+        position="absolute"
+        top="6314px"
+        left="1424px"
+        whiteSpace="pre-wrap"
+      >
+        THE Legacy
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="16px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="20.832000732421875px"
+        textAlign="left"
+        display="block"
+        width="268px"
+        position="absolute"
+        top="6376px"
+        left="1427px"
+        whiteSpace="pre-wrap"
+      >
+        Your donations shows the next generation of Ahmadu Bello University Leaders.
+      </Text>
+      {/* <Image
+        width="233px"
+        height="348px"
+        display="block"
+        position="absolute"
+        top="5946px"
+        left="1427px"
+        borderRadius="10px"
+        objectFit="cover"
+        alt=""
+      /> */}
+      <Text
+        fontFamily="DM Sans"
+        fontSize="16px"
+        fontWeight="200"
+        color="rgba(35,130,43,1)"
+        lineHeight="20.832000732421875px"
+        textAlign="center"
+        display="block"
+        width="51px"
+        position="absolute"
+        top="6444px"
+        left="1424px"
+        whiteSpace="pre-wrap"
+      >
+        View
+      </Text>
+    </View>
+    <Flex
+      gap="10px"
+      direction="row"
+      width="341px"
+      height="278.04px"
+      justifyContent="center"
+      alignItems="center"
+      position="absolute"
+      top="5145px"
+      left="1036px"
+      boxShadow="0px 4px 20px rgba(0, 0, 0, 0.30000001192092896)"
+      borderRadius="10px"
+      padding="14px 14px 14px 14px"
+      backgroundColor="rgba(0,0,0,1)"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="32px"
+        fontWeight="700"
+        color="rgba(255,255,255,1)"
+        lineHeight="50px"
+        textAlign="left"
+        display="block"
+        width="293.59px"
+        shrink="0"
+        position="relative"
+        whiteSpace="pre-wrap"
+      >
+        Removing BarriersThat Stand In The Way
+      </Text>
+    </Flex>
+    <Icon
+      width="0px"
+      height="298px"
+      viewBox={{"minX":0,"minY":0,"width":0.000038182162825251,"height":298.00001275539216}}
+      paths={[{"d":"M0 0 L298 0 L298 -2 L0 -2 L0 0 Z","stroke":"rgba(35,130,43,0.3)","fillRule":"nonzero","strokeWidth":2}]}
+      display="block"
+      position="absolute"
+      top="4781px"
+      left="calc(50% - 0px - 215px)"
+      transformOrigin="top left"
+      transform="rotate(90deg)"
+    />
+    <Icon
+      width="0px"
+      height="298px"
+      viewBox={{"minX":0,"minY":0,"width":0.000038182162825251,"height":298.00001275539216}}
+      paths={[{"d":"M0 0 L298 0 L298 -2 L0 -2 L0 0 Z","stroke":"rgba(35,130,43,0.3)","fillRule":"nonzero","strokeWidth":2}]}
+      display="block"
+      position="absolute"
+      top="4781px"
+      left="calc(50% - 0px - -233px)"
+      transformOrigin="top left"
+      transform="rotate(90deg)"
+    />
+    <View
+      width="373px"
+      height="275px"
+      display="block"
+      position="absolute"
+      top="4792px"
+      left="1036px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="200"
+        color="rgba(0,0,0,1)"
+        lineHeight="31.248001098632812px"
+        textAlign="left"
+        display="block"
+        width="309.85px"
+        position="absolute"
+        top="4850px"
+        left="1036px"
+        whiteSpace="pre-wrap"
+      >
+        Alumni support strengthens the community through volunteer work, partnerships, and donations, improving local lives and boosting regional prosperity.
+.
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="372.01px"
+        position="absolute"
+        top="4792px"
+        left="1036.99px"
+        whiteSpace="pre-wrap"
+      >
+        Our Community
+      </Text>
+    </View>
+    <View
+      width="292px"
+      height="250px"
+      display="block"
+      position="absolute"
+      top="4794px"
+      left="calc(50% - 146px - -12px)"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="200"
+        color="rgba(0,0,0,1)"
+        lineHeight="31.248001098632812px"
+        textAlign="left"
+        display="block"
+        width="291.21px"
+        height="181.92px"
+        position="absolute"
+        top="4862.08px"
+        left="586.79px"
+        whiteSpace="pre-wrap"
+      >
+        Alumni funding drives cutting-edge research and projects, enabling faculty and students to advance knowledge and tackle global issues.
+      </Text>
+      <Text
+        fontFamily="Inter"
+        fontSize="24px"
+        fontWeight="600"
+        color="rgba(30,30,30,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="292px"
+        height="36.38px"
+        position="absolute"
+        top="4794px"
+        left="586px"
+        whiteSpace="pre-wrap"
+      >
+        Projects and Research
+      </Text>
+    </View>
+    <View
+      width="311px"
+      height="243px"
+      display="block"
+      position="absolute"
+      top="4801px"
+      left="110px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="200"
+        color="rgba(0,0,0,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="311px"
+        position="absolute"
+        top="4858px"
+        left="110px"
+        whiteSpace="pre-wrap"
+      >
+        The Hardship Fund, fueled by alumni donations, helps students overcome unexpected financial obstacles, allowing them to continue their education.
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="600"
+        color="rgba(30,30,30,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="181.8px"
+        height="30px"
+        position="absolute"
+        top="4801px"
+        left="110px"
+        whiteSpace="pre-wrap"
+      >
+        Hardship Fund
+      </Text>
+    </View>
+    <View
+      width="353px"
+      height="275px"
+      display="block"
+      position="absolute"
+      top="5142px"
+      left="583px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="169.97px"
+        height="30.46px"
+        position="absolute"
+        top="5142px"
+        left="583px"
+        whiteSpace="pre-wrap"
+      >
+        General Fund
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="200"
+        color="rgba(0,0,0,1)"
+        lineHeight="31px"
+        textAlign="left"
+        display="block"
+        width="353px"
+        position="absolute"
+        top="5200px"
+        left="583px"
+        whiteSpace="pre-wrap"
+      >
+        The General Fund, through unrestricted alumni gifts, gives the university's leadership flexibility to address urgent needs and pursue new opportunities, ensuring long-term stability.
+      </Text>
+    </View>
+    <View
+      width="355px"
+      height="214px"
+      display="block"
+      position="absolute"
+      top="5149px"
+      left="113px"
+    >
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="200"
+        color="rgba(30,30,30,1)"
+        lineHeight="31.248001098632812px"
+        textAlign="left"
+        display="block"
+        width="337px"
+        position="absolute"
+        top="5208px"
+        left="113px"
+        whiteSpace="pre-wrap"
+      >
+        Alumni funding upgrades the institution's facilities, technology, and programs, including learning spaces and faculty development.
+      </Text>
+      <Text
+        fontFamily="DM Sans"
+        fontSize="24px"
+        fontWeight="700"
+        color="rgba(30,30,30,1)"
+        lineHeight="31.248001098632812px"
+        textAlign="left"
+        display="block"
+        width="355px"
+        position="absolute"
+        top="5149px"
+        left="113px"
+        whiteSpace="pre-wrap"
+      >
+        Institution Development 
+      </Text>
+    </View>
+    <Icon
+      width="0px"
+      height="298px"
+      viewBox={{"minX":0,"minY":0,"width":0.000038182162825251,"height":298.00001275539216}}
+      paths={[{"d":"M0 0 L298 0 L298 -2 L0 -2 L0 0 Z","stroke":"rgba(35,130,43,0.3)","fillRule":"nonzero","strokeWidth":2}]}
+      display="block"
+      position="absolute"
+      top="5149px"
+      left="calc(50% - 0px - 215px)"
+      transformOrigin="top left"
+      transform="rotate(90deg)"
+    />
+    <Flex
+      gap="24px"
+      direction="column"
+      width="1200px"
+      height="338px"
+      justifyContent="flex-start"
+      alignItems="center"
+      position="absolute"
+      top="9060px"
+      left="calc(50% - 600px - 0px)"
+      padding="64px 64px 64px 64px"
+    >
+      <Flex
+        gap="8px"
+        direction="column"
+        width="1072px"
+        justifyContent="flex-start"
+        alignItems="center"
+        shrink="0"
+        position="relative"
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="32px"
+          fontWeight="400"
+          color="rgba(255,255,255,1)"
+          lineHeight="38.400001525878906px"
+          textAlign="center"
+          display="block"
+          letterSpacing="-0.49px"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          Stay informed about ABU's progress, and receive exclusive invitations to events and gatherings.
+        </Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="20px"
+          fontWeight="400"
+          color="rgba(117,117,117,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          shrink="0"
+          alignSelf="stretch"
+          position="relative"
+          whiteSpace="pre-wrap"
+        >
+          With our daily newsletter
+        </Text>
+      </Flex>
+      {/* <FormNewsletter /> */}
+    </Flex>
+  </Flex>
+  )
 }

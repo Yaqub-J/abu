@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-amplify/ui-react": "^6.5.5",
-    "aws-amplify": "^6.6.6",
-    "next": "14.2.10",
+    "@aws-amplify/auth": "^6.11.6",
+    "@aws-amplify/core": "^6.10.6",
+    "@aws-amplify/ui-react": "^6.9.4",
+    "@tailwindcss/postcss": "^4.0.15",
+    "aws-amplify": "^6.13.6",
+    "next": "^15.2.3",
+    "postcss": "^8.5.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.54.2",
+    "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.5.1",
@@ -24,7 +30,7 @@
     "aws-cdk": "^2",
     "aws-cdk-lib": "^2",
     "constructs": "^10.3.0",
-    "esbuild": "^0.23.1",
+    "esbuild": "^0.25.1",
     "tsx": "^4.19.0",
     "typescript": "^5.6.2"
   }
