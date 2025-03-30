@@ -14,11 +14,11 @@ const Navbar: React.FC = () => {
 
   const navItems: NavItem[] = [
     { label: 'Home', href: '/' },
-    { label: 'Event & Program', href: '/events' },
-    { label: 'About Us', href: '/about' },
-    { label: 'News', href: '/news' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Career Opportunities', href: '/careers' },
+    { label: 'Event & Program', href: '/Events' },
+    { label: 'About Us', href: '/About' },
+    { label: 'News', href: '/News' },
+    { label: 'Projects', href: '/Projects' },
+    { label: 'Career Opportunities', href: '/Careers' },
   ];
 
   return (
