@@ -18,7 +18,6 @@ export default function Home() {
       <AlumniSuccessSection />
       <SupportingChangeSection />
       <DownloadAppSection />
-      <Footer />
     </div>
   );
 }
