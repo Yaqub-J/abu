@@ -1,6 +1,4 @@
-import {
-  Landing
-} from "@/app/(landing)/Home/page";
+import Landing from "@/app/(landing)/Home/page";
 import Navbar from "./(landing)/Home/landing/Navbar";
 import AlumniFooter from "./(landing)/Home/landing/Footer";
 
