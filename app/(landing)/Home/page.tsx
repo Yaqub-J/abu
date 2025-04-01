@@ -5,7 +5,7 @@ import Initiatives from "./landing/Initiatives";
 import MobileAppDownload from "./landing/MobileApp";
 import AlumniSuccessStories from "./landing/Stories";
 
-export function Landing() {
+export default function Page() {
     return (
       <>
       <Hero />
