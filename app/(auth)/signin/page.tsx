@@ -71,7 +71,7 @@ const SignUpPage: React.FC = () => {
           </div>
 
           <div className="text-sm">
-            <Link href="/forgot-password" className="text-gray-600 hover:text-gray-800">
+            <Link href="/dash" className="text-gray-600 hover:text-gray-800">
               Forgot Password?
             </Link>
           </div>
