@@ -1,43 +1,53 @@
 import { role } from "@/lib/data";
-import Image from "next/image";
 import Link from "next/link";
+import {
+  Home,
+  Users,
+  UserSquare2,
+  Calendar,
+  FolderKanban,
+  Heart,
+  User,
+  Settings,
+  LogOut
+} from "lucide-react";
 
 const menuItems = [
   {
     title: "MENU",
     items: [
       {
-        icon: "/home.png",
+        icon: Home,
         label: "Home",
-        href: "/admin",
+        href: "/dash",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/student.png",
+        icon: Users,
         label: "My Network",
         href: "/list/teachers",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/attendance.png",
+        icon: UserSquare2,
         label: "Groups",
         href: "/list/students",
         visible: ["admin", "teacher"],
       },
       {
-        icon: "/calendar.png",
+        icon: Calendar,
         label: "Events",
         href: "/list/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/subject.png",
+        icon: FolderKanban,
         label: "Projects",
         href: "/list/messages",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/finance.png",
+        icon: Heart,
         label: "Donations",
         href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
@@ -48,19 +58,19 @@ const menuItems = [
     title: "OTHER",
     items: [
       {
-        icon: "/profile.png",
+        icon: User,
         label: "Profile",
         href: "/profile",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/setting.png",
+        icon: Settings,
         label: "Settings",
         href: "/settings",
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "/logout.png",
+        icon: LogOut,
         label: "Logout",
         href: "/",
         visible: ["admin", "teacher", "student", "parent"],
@@ -74,18 +84,16 @@ const Menu = () => {
     <div className="mt-4 text-sm">
       {menuItems.map((i) => (
         <div className="flex flex-col gap-2" key={i.title}>
-          <span className="hidden lg:block text-gray-400 font-light my-4">
-            {i.title}
-          </span>
           {i.items.map((item) => {
             if (item.visible.includes(role)) {
+              const IconComponent = item.icon;
               return (
                 <Link
                   href={item.href}
                   key={item.label}
-                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-800 py-2 md:px-2 rounded-lg hover:bg-green-700 hover:text-white transition duration-200 ease-in-out"
                 >
-                  <Image src={item.icon} alt="" width={20} height={20} />
+                  <IconComponent size={20} className="text-green-600 hover:text-white" />
                   <span className="hidden lg:block">{item.label}</span>
                 </Link>
               );
