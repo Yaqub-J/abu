@@ -1,33 +1,30 @@
 import Image from "next/image"
-import { useAuthenticator } from "@aws-amplify/ui-react";
 
   
-const { signOut } = useAuthenticator();
 
 const Navbar = () => {
   return (
     <div className='flex items-center justify-between p-4'>
-      {/* SEARCH BAR */}
-      <div className='hidden md:flex items-center gap-2 text-xs rounded-full ring-[1.5px] ring-gray-300 px-2'>
-        <Image src="/search.png" alt="" width={14} height={14}/>
-        <input type="text" placeholder="Search..." className="w-[200px] p-2 bg-transparent outline-none"/>
-      </div>
-      {/* ICONS AND USER */}
-      <div className='flex items-center gap-6 justify-end w-full'>
-        <div className='bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer'>
-          <Image src="/message.png" alt="" width={20} height={20}/>
+      <div className="flex items-center">
+          <button className="mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <h1 className="text-2xl font-bold">Dashboard</h1>
         </div>
-        <div className='bg-white rounded-full w-7 h-7 flex items-center justify-center cursor-pointer relative'>
-          <Image src="/announcement.png" alt="" width={20} height={20}/>
-          <div className='absolute -top-3 -right-3 w-5 h-5 flex items-center justify-center bg-purple-500 text-white rounded-full text-xs'>1</div>
+        <div className="relative w-64">
+          <input
+            type="text"
+            placeholder="Search here..."
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <div className="absolute left-3 top-2.5 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
         </div>
-        <div className='flex flex-col'>
-          <span className="text-xs leading-3 font-medium">John Doe</span>
-          <span className="text-[10px] text-gray-500 text-right">Admin</span>
-          <button onClick={signOut}>Sign out</button>
-        </div>
-        <Image src="/avatar.png" alt="" width={36} height={36} className="rounded-full"/>
-      </div>
     </div>
   )
 }

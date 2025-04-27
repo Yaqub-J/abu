@@ -91,7 +91,7 @@ const Menu = () => {
                 <Link
                   href={item.href}
                   key={item.label}
-                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-800 py-2 md:px-2 rounded-lg hover:bg-green-700 hover:text-white transition duration-200 ease-in-out"
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-800 py-2 md:px-2 rounded-lg hover:bg-green-600 hover:text-white transition duration-200 ease-in-out"
                 >
                   <IconComponent size={20} className="text-green-600 hover:text-white" />
                   <span className="hidden lg:block">{item.label}</span>

@@ -1,5 +1,5 @@
-"use client";
 import Image from "next/image";
+import { JSX } from 'react';
 import {
   BarChart,
   Bar,
