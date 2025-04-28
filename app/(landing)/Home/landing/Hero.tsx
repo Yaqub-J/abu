@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row">
           {/* Donations Stat */}
           <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-200">
-            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">100</span>
+            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">178</span>
             <span className="text-gray-600 text-xl">Donations received</span>
           </div>
           
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
           
           {/* Alumni Stat */}
           <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12">
-            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">400</span>
+            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">120,000</span>
             <span className="text-gray-600 text-xl">Alumni registered</span>
           </div>
         </div>
