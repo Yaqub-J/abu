@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
           
           {/* Alumni Stat */}
           <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12">
-            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">120,000</span>
+            <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">120K</span>
             <span className="text-gray-600 text-xl">Alumni registered</span>
           </div>
         </div>

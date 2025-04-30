@@ -1,11 +1,15 @@
+import OngoingProjects from "./sections/OngoingProjects";
+import ProjectsPage from "./sections/Projectspage";
+import ProjectsSection from "./sections/ProjectsSection";
+import ShotsSection from "./sections/ShotsSection";
 
 export default function Projects() {
   return (
     <div>
-      <main className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">About Us</h1>
-        <p>More than just graduates, we are a family. The Ahmadu Bello University Alumni Association is the heart of our community, connecting alumni across generations and geographic boundaries.</p>
-      </main>
+      <ProjectsSection />
+      <ShotsSection />
+      <OngoingProjects />
+      <ProjectsPage />
     </div>
   );
 }

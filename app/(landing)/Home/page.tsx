@@ -11,7 +11,6 @@ export default function Page() {
       <Hero />
       <AboutSection />
       <Initiatives />
-      <AlumniSuccessStories />
       <AlumniAssociation />
       <MobileAppDownload />
       </>
