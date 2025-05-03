@@ -48,12 +48,12 @@ const Initiatives: React.FC = () => {
     {
       title: "Green Campus Initiative",
       description: "Projects focused on sustainable building practices, renewable energy",
-      imageUrl: "/images/green-campus.jpg" // Replace with your actual image path
+      imageUrl: "/greenhouse.png" // Replace with your actual image path
     },
     {
       title: "Innovation Hubs",
       description: "State-of-the-art makerspaces, fabrication labs, and technology centers for hands-on learning.",
-      imageUrl: "/images/innovation-hubs.jpg" // Replace with your actual image path
+      imageUrl: "/innovationhub.png" // Replace with your actual image path
     },
     {
       title: "Digital Campus",
@@ -115,15 +115,15 @@ const Initiatives: React.FC = () => {
       {/* Supporting Priorities Section */}
       <div className="flex flex-col lg:flex-row bg-gray-50 rounded-lg overflow-hidden mb-16">
         <div className="lg:w-1/2 bg-green-700 opacity-50 p-12 text-white">
-          <h2 className="text-3xl font-bold mb-6">Supporting Priorities</h2>
-          <p className="text-lg">
+          <h2 className="text-3xl text-c font-bold mb-6">Supporting Priorities</h2>
+          <p className="text-xl">
             Our alumni play a vital role in advancing Ahmadu Bello University mission and ensuring its continued excellence. We are immensely grateful for their generous support across a range of key priorities:
           </p>
         </div>
         <div className="lg:w-1/2">
           <div className="h-full relative">
             <Image
-              src="/Graduate.png" // Replace with your actual image
+              src="/priorities.png" // Replace with your actual image
               alt="Graduate celebrating"
               width={600}
               height={400}

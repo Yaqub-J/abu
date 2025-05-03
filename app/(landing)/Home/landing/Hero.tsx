@@ -51,15 +51,15 @@ const Hero: React.FC = () => {
 
       {/* Stats Card */}
       <div className="relative mx-4 md:mx-12 lg:mx-20 -mt-24 md:-mt-32 z-20">
-        <div className="bg-white rounded-lg shadow-xl flex flex-col md:flex-row">
+        <div className="bg-white rounded-4xl shadow-xl flex flex-col md:flex-row">
           {/* Donations Stat */}
-          <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-200">
+          <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-400">
             <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">178</span>
             <span className="text-gray-600 text-xl">Donations received</span>
           </div>
           
           {/* Projects Stat */}
-          <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-200">
+          <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-400">
             <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">40</span>
             <span className="text-gray-600 text-xl">Supported projects</span>
           </div>
