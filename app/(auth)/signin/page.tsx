@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -7,9 +6,10 @@ import Link from 'next/link';
 import { signIn } from 'aws-amplify/auth';
 import { useRouter } from 'next/navigation';
 
-const SignInPage = () => {
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
 
   const handleSignIn = async (e: React.FormEvent) => {
@@ -17,74 +17,53 @@ const SignInPage = () => {
     try {
       await signIn({ username: email, password });
       router.push('/dash');
-    } catch (error) {
-      console.error('Error signing in:', error);
+    } catch (err: any) {
+      setError(err.message || 'Error signing in');
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <div className="flex flex-col items-center mb-6">
-          <div className="relative w-40 h-40 mb-4">
-            <Link href={'/'}>
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
-                fill
-                className="object-contain opacity-25"
-              />
-            </Link>
-          </div>
-          
-          <h1 className="text-2xl font-bold text-gray-800">Sign in to your account</h1>
-          <p className="text-sm text-gray-600 text-center mt-1">
-            Welcome back! Please sign in to continue
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold">Sign In</h2>
         </div>
-
-        <form onSubmit={handleSignIn} className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+        <form className="mt-8 space-y-6" onSubmit={handleSignIn}>
+          <div>
             <input
               type="email"
-              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
+              placeholder="Email address"
+              className="w-full px-3 py-2 border rounded-md"
               required
             />
           </div>
-
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+          <div>
             <input
               type="password"
-              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500"
+              placeholder="Password"
+              className="w-full px-3 py-2 border rounded-md"
               required
             />
           </div>
-
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white rounded-md py-2 px-4 hover:bg-gray-800 transition-colors"
+            className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
           >
             Sign In
           </button>
-
-          <div className="text-sm text-center pt-2">
-            Don't have an account?{' '}
-            <Link href="/signup" className="text-green-600 hover:text-green-700">
-              Sign Up
-            </Link>
-          </div>
         </form>
+        <p className="text-center mt-2">
+          Don't have an account?{' '}
+          <Link href="/signup" className="text-blue-600 hover:text-blue-800">
+            Sign Up
+          </Link>
+        </p>
       </div>
     </div>
   );
-};
-
-export default SignInPage;
+}
