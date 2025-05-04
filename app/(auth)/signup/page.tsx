@@ -19,7 +19,10 @@ const SignUpPage = () => {
         username: email,
         password,
         options: {
-          autoSignIn: true
+          autoSignIn: true,
+          userAttributes: {
+            email
+          }
         }
       });
       router.push('/dash');
