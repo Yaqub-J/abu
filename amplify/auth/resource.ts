@@ -1,20 +1,25 @@
-
 import { defineAuth } from "@aws-amplify/backend";
 
 export const auth = defineAuth({
   loginWith: {
-    email: {
-      verificationEmailSubject: "Verify your email for School Portal",
-      verificationEmailBody: (code) => `Your verification code is: ${code}`,
-    }
+    email: true,
+    username: true
   },
   userAttributes: {
     email: { required: true, mutable: true },
-    // Using standard attributes instead of custom 'name'
-    given_name: { required: true, mutable: true },
-    family_name: { required: true, mutable: true },
-    
-    // Custom attributes for alumni with correct prefix
+    username: { required: true, mutable: false },
+    userRole: { 
+      required: true,
+      mutable: true,
+      type: 'string',
+      values: ['ADMIN', 'ALUMNI', 'CONTENT_MODERATOR', 'EVENT_MANAGER']
+    },
+    status: {
+      required: true,
+      mutable: true,
+      type: 'string',
+      values: ['ACTIVE', 'PENDING', 'SUSPENDED', 'INACTIVE']
+    },
     'custom:graduationYear': { 
       required: false, 
       mutable: true,
@@ -32,7 +37,7 @@ export const auth = defineAuth({
     }
   },
   multifactor: {
-    mode: "REQUIRED",
+    mode: "OPTIONAL",
     sms: true
   },
   passwordPolicy: {
@@ -42,5 +47,5 @@ export const auth = defineAuth({
     requireUppercase: true,
     requireLowercase: true
   },
-  userPoolGroups: ["Alumni", "Admins", "ContentModerators"]
+  userPoolGroups: ["Admins", "Alumni", "ContentModerators", "EventManagers"]
 });

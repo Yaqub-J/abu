@@ -1,17 +1,53 @@
-import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
-/*== STEP 1 ===============================================================
-The section below creates a Todo database table with a "content" field. Try
-adding a new "isDone" field as a boolean. The authorization rule below
-specifies that any user authenticated via an API key can "create", "read",
-"update", and "delete" any "Todo" records.
-=========================================================================*/
+import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { type Schema } from '../codegen/Schema';
+
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+  User: a.model({
+    email: a.string().required(),
+    username: a.string().required(),
+    userRole: a.enum(['ADMIN', 'ALUMNI', 'CONTENT_MODERATOR', 'EVENT_MANAGER']).required(),
+    status: a.enum(['ACTIVE', 'PENDING', 'SUSPENDED', 'INACTIVE']).required(),
+    userProfile: a.hasOne('UserProfile'),
+    alumniProfile: a.hasOne('AlumniProfile')
+  }).authorization([
+    a.allow.owner(),
+    a.allow.groups(['Admins'])
+  ]),
+
+  UserProfile: a.model({
+    userId: a.string().required(),
+    firstName: a.string().required(),
+    lastName: a.string().required(),
+    middleName: a.string(),
+    bio: a.string(),
+    avatar: a.string(),
+    phoneNumber: a.string(),
+    address: a.string(),
+    city: a.string(),
+    state: a.string(),
+    country: a.string(),
+    privacySettings: a.json()
+  }).authorization([
+    a.allow.owner(),
+    a.allow.groups(['Admins'])
+  ]),
+
+  AlumniProfile: a.model({
+    userId: a.string().required(),
+    graduationYear: a.integer().required(),
+    department: a.string().required(),
+    degree: a.string().required(),
+    employmentHistory: a.hasMany('Employment'),
+    educationDetails: a.hasMany('Education'),
+    connections: a.hasMany('Connection'),
+    projects: a.hasMany('ProjectParticipant'),
+    groups: a.hasMany('GroupMember')
+  }).authorization([
+    a.allow.owner(),
+    a.allow.groups(['Admins']),
+    a.allow.private().read()
+  ])
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -19,38 +55,9 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "apiKey",
+    defaultAuthorizationMode: 'userPool',
     apiKeyAuthorizationMode: {
-      expiresInDays: 30,
-    },
-  },
+      expiresInDays: 30
+    }
+  }
 });
-
-/*== STEP 2 ===============================================================
-Go to your frontend source code. From your client-side code, generate a
-Data client to make CRUDL requests to your table. (THIS SNIPPET WILL ONLY
-WORK IN THE FRONTEND CODE FILE.)
-
-Using JavaScript or Next.js React Server Components, Middleware, Server 
-Actions or Pages Router? Review how to generate Data clients for those use
-cases: https://docs.amplify.aws/gen2/build-a-backend/data/connect-to-API/
-=========================================================================*/
-
-/*
-"use client"
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-
-const client = generateClient<Schema>() // use this Data client for CRUDL requests
-*/
-
-/*== STEP 3 ===============================================================
-Fetch records from the database and use them in your frontend component.
-(THIS SNIPPET WILL ONLY WORK IN THE FRONTEND CODE FILE.)
-=========================================================================*/
-
-/* For example, in a React component, you can use this snippet in your
-  function's RETURN statement */
-// const { data: todos } = await client.models.Todo.list()
-
-// return <ul>{todos.map(todo => <li key={todo.id}>{todo.content}</li>)}</ul>
