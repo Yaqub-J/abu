@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
               </Link>
             ))}
           </div>
-          
+
           {/* Empty div to maintain flex spacing on mobile */}
           <div className="md:hidden"></div>
         </div>

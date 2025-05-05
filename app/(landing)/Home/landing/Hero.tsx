@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
           <Image
             src="/hero.png"
             alt="ABU group photo"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: "cover" }}
             priority
             className="rounded-2xl shadow-2xl"
           />
@@ -28,14 +28,14 @@ const Hero: React.FC = () => {
             <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
               Bringing Change<br />Since 1962
             </h1>
-            
+
             {/* Hero Text */}
             <p className="text-white text-lg md:text-xl mb-8 max-w-3xl">
               For over six decades, ABU has been a catalyst for progress, shaping leaders 
               and driving innovation. Your support empowers us to continue this legacy. 
               Join us as we build a future where ABU's impact resounds for generations.
             </p>
-            
+
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Link href="/login" className="inline-block text-center py-3 px-8 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors duration-300 text-lg font-medium">
@@ -57,13 +57,13 @@ const Hero: React.FC = () => {
             <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">178</span>
             <span className="text-gray-600 text-xl">Donations received</span>
           </div>
-          
+
           {/* Projects Stat */}
           <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12 border-b md:border-b-0 md:border-r border-gray-400">
             <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">40</span>
             <span className="text-gray-600 text-xl">Supported projects</span>
           </div>
-          
+
           {/* Alumni Stat */}
           <div className="flex-1 flex flex-col items-center justify-center py-8 md:py-12">
             <span className="text-green-700 text-5xl md:text-6xl font-bold mb-2">120K</span>
