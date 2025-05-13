@@ -1,12 +1,6 @@
 
-'use client';
-
 import { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 import Image from 'next/image';
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function DonationsPage() {
   const [amount, setAmount] = useState('');
@@ -34,8 +28,34 @@ export default function DonationsPage() {
   ];
 
   const handleDonate = async () => {
-    // Implement donation logic here
-    console.log('Donating', amount, 'to', selectedFund);
+    try {
+      // Initialize HydrogenPay
+      const hydrogenPay = new window.HydrogenPay({
+        publicKey: process.env.NEXT_PUBLIC_HYDROGEN_PUBLIC_KEY,
+        amount: Number(amount) * 100, // Convert to kobo
+        email: "donor@example.com", // Replace with actual donor email
+        firstname: "Donor",
+        lastname: "Name",
+        metadata: {
+          fund_type: selectedFund
+        },
+        onClose: () => {
+          console.log("Payment window closed");
+        },
+        onSuccess: (ref: string) => {
+          console.log("Payment successful", ref);
+          // Handle successful payment
+        },
+        onError: (error: Error) => {
+          console.error("Payment error", error);
+          // Handle payment error
+        }
+      });
+
+      hydrogenPay.openIframe();
+    } catch (error) {
+      console.error('Payment initialization failed:', error);
+    }
   };
 
   return (
