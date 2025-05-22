@@ -17,10 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <Script src="https://js.hydrogen.co/v1/inline.js" strategy="beforeInteractive" />
-      </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Script
+          src="https://js.hydrogen.co/v1/inline.js"
+          strategy="afterInteractive"
+          id="hydrogen-script"
+        />
+        {children}
+      </body>
     </html>
   )
 }
