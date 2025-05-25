@@ -122,4 +122,5 @@ const schema = a.schema({
 
 export type Schema = ClientSchema<typeof schema>;
 
-export default schema;
+const data = schema;
+export default data;
