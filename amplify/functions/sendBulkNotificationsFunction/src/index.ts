@@ -12,7 +12,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       Source: process.env.NOTIFICATION_EMAIL!,
       Template: template,
       DefaultTemplateData: '{}',
-      Destinations: recipients.map(recipient => ({
+      Destinations: recipients.map((recipient: { email: string, name: string, message: string }) => ({
         Destination: {
           ToAddresses: [recipient.email]
         },

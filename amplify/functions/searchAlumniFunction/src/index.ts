@@ -26,7 +26,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
     const command = new QueryCommand(params);
     const response = await dynamoDb.send(command);
 
-    const items = response.Items?.map(item => unmarshall(item)) || [];
+    const items = response.Items?.map((item: any) => unmarshall(item)) || [];
 
     return {
       statusCode: 200,
