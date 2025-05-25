@@ -1,0 +1,20 @@
+{
+  "name": "send-bulk-notifications-function",
+  "version": "1.0.0",
+  "description": "Lambda function for sending bulk notifications",
+  "main": "src/index.js",
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.379.1",
+    "@aws-sdk/client-sns": "^3.379.1",
+    "aws-lambda": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.119",
+    "@types/node": "^18.15.11",
+    "typescript": "^5.0.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

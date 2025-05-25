@@ -18,11 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Script
-          src="https://js.hydrogen.co/v1/inline.js"
-          strategy="afterInteractive"
-          id="hydrogen-script"
-        />
         {children}
       </body>
     </html>
