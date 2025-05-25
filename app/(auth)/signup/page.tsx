@@ -11,10 +11,16 @@ const SignUpPage = () => {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    
     try {
-      await signUp({
+      const { isSignUpComplete, userId } = await signUp({
         username: email,
         password,
         options: {
@@ -24,9 +30,17 @@ const SignUpPage = () => {
           }
         }
       });
-      router.push('/dash');
-    } catch (error) {
-      console.error('Error signing up:', error);
+      
+      console.log('Sign up successful:', { isSignUpComplete, userId });
+      
+      if (isSignUpComplete) {
+        router.push('/dash');
+      }
+    } catch (err: any) {
+      console.error('Error signing up:', err);
+      setError(err.message || 'Failed to sign up');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,6 +66,9 @@ const SignUpPage = () => {
         </div>
 
         <form onSubmit={handleSignUp} className="space-y-4">
+          {error && (
+            <div className="bg-red-50 text-red-500 p-3 rounded">{error}</div>
+          )}
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
             <input
@@ -78,9 +95,10 @@ const SignUpPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white rounded-md py-2 px-4 hover:bg-gray-800 transition-colors"
+            disabled={loading}
+            className="w-full bg-gray-900 text-white rounded-md py-2 px-4 hover:bg-gray-800 transition-colors disabled:bg-gray-600"
           >
-            Sign Up
+            {loading ? 'Signing up...' : 'Sign Up'}
           </button>
 
           <div className="text-sm text-center pt-2">

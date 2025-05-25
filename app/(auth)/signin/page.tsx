@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { signIn } from '@aws-amplify/auth';
+import { signIn } from 'aws-amplify/auth';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -18,9 +18,12 @@ export default function SignIn() {
     setError('');
 
     try {
-      await signIn({ username: email, password });
-      router.push('/dash');
+      const { isSignedIn } = await signIn({ username: email, password });
+      if (isSignedIn) {
+        router.push('/dash');
+      }
     } catch (err: any) {
+      console.error('Sign in error:', err);
       setError(err.message || 'Failed to sign in');
     } finally {
       setLoading(false);
