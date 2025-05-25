@@ -3,9 +3,13 @@ import { defineStorage } from '@aws-amplify/backend';
 
 const storage = defineStorage({
   name: 'storage',
-  access: (allow) => {
-    allow.auth();
-    allow.public();
+  access: ({ identityBased }) => {
+    return {
+      myFiles: identityBased({
+        authenticated: { access: ['read', 'write'] },
+        unauthenticated: { access: ['read'] }
+      })
+    };
   }
 });
 

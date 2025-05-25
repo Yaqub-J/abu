@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { DynamoDBClient, QueryCommand } from '@aws-sdk/client-dynamodb';
-import { unmarshall } from '@aws-sdk/util-dynamodb';
+import { unmarshall, marshall } from '@aws-sdk/util-dynamodb';
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
@@ -11,9 +11,9 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       TableName: process.env.ALUMNI_TABLE!,
       IndexName: 'stats-index',
       KeyConditionExpression: 'gsi1pk = :pk',
-      ExpressionAttributeValues: {
+      ExpressionAttributeValues: marshall({
         ':pk': 'STATS'
-      }
+      })
     };
 
     const userStatsCommand = new QueryCommand(userStatsParams);
@@ -24,9 +24,9 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       TableName: process.env.DONATION_TABLE!,
       IndexName: 'stats-index',
       KeyConditionExpression: 'gsi1pk = :pk',
-      ExpressionAttributeValues: {
+      ExpressionAttributeValues: marshall({
         ':pk': 'DONATION_STATS'
-      }
+      })
     };
 
     const donationStatsCommand = new QueryCommand(donationStatsParams);

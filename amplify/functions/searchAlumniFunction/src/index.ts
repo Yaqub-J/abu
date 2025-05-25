@@ -17,10 +17,10 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
         '#department': 'department',
         '#year': 'graduationYear'
       },
-      ExpressionAttributeValues: {
+      ExpressionAttributeValues: marshall({
         ':pk': 'ALUMNI',
         ':query': query.toLowerCase()
-      }
+      })
     };
 
     const command = new QueryCommand(params);
