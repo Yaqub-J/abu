@@ -28,10 +28,15 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
           <div>Email address: <a href="mailto:alumniabu@gmail.com" className="hover:underline mx-2">alumniabu@gmail.com</a></div>
           <div>Contact no: <a href="tel:09176899999965" className="hover:underline">09176899999965</a></div>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center space-x-3">
+            <Link href="/donations">
+              <button className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition-colors">
+                Donate
+              </button>
+            </Link>
             <Link href="/signup">
               <button className="bg-white text-black px-4 py-1 rounded hover:bg-gray-200 transition-colors">
-              Login/signup
+                Login/signup
               </button>
             </Link>
           </div>
@@ -102,6 +107,11 @@ const Navbar: React.FC = () => {
                 </div>
               </Link>
             ))}
+            <Link href="/donations">
+              <div className="block py-2 bg-green-600 hover:bg-green-700 px-4 mt-2 text-white font-medium" onClick={() => setIsMobileMenuOpen(false)}>
+                Donate Now
+              </div>
+            </Link>
           </div>
         )}
       </nav>

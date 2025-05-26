@@ -49,7 +49,7 @@ const menuItems = [
       {
         icon: Heart,
         label: "Donations",
-        href: "/list/announcements",
+        href: "/donations",
         visible: ["admin", "teacher", "student", "parent"],
       },
     ],

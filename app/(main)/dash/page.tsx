@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { withAuth } from '@/app/utils/authMiddleware';
 import { 
   CalendarIcon, 
   CheckIcon, 
@@ -43,4 +44,5 @@ const StudentPage = () => {
   );
 };
 
-export default StudentPage;
+// Wrap the component with the authentication middleware
+export default withAuth(StudentPage);

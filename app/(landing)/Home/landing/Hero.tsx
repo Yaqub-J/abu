@@ -39,9 +39,9 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Link href="/login" className="inline-block text-center py-3 px-8 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors duration-300 text-lg font-medium">
-                  Login/signup
+                  Login
               </Link>
-              <Link href="/donate" className="inline-block text-center py-3 px-8 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors duration-300 text-lg font-medium">
+              <Link href="/donations" className="inline-block text-center py-3 px-8 rounded-full bg-green-700 text-white hover:bg-green-800 transition-colors duration-300 text-lg font-medium">
                   Donate now
               </Link>
             </div>
