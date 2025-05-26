@@ -1,18 +1,14 @@
 "use client"
 
 import React from "react";
-import { Amplify } from "aws-amplify";
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import outputs from "@/amplify_outputs.json";
 
 import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
-
-
-Amplify.configure(outputs);
+import { AmplifyProvider } from "../components/AmplifyProvider";
 
 export default function DashboardLayout({
   children,
@@ -20,7 +16,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <AmplifyProvider>
         <Authenticator>
         <div className="h-screen flex">
       {/* LEFT */}
@@ -41,6 +37,6 @@ export default function DashboardLayout({
           </div>
     </div>
         </Authenticator>
-      </>
+    </AmplifyProvider>
   );
 }
