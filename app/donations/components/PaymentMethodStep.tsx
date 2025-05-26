@@ -2,13 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 
 interface DonationData {
+  amount: string;
+  currency: string;
+  frequency: string;
   cardType: string;
   cardHolder: string;
   cardNumber: string;
   expiryDate: string;
   cvv: string;
-  amount: string;
-  currency: string;
+  agreeToTerms: boolean;
 }
 
 interface PaymentMethodStepProps {

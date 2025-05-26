@@ -1,13 +1,19 @@
 import React from 'react';
 
+interface DonationData {
+  amount: string;
+  currency: string;
+  frequency: string;
+  cardType: string;
+  cardHolder: string;
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
+  agreeToTerms: boolean;
+}
+
 interface ConfirmationStepProps {
-  donationData: {
-    amount: string;
-    currency: string;
-    frequency: string;
-    cardType: string;
-    cardNumber: string;
-  };
+  donationData: DonationData;
   prevStep: () => void;
   handleSubmit: () => void;
 }

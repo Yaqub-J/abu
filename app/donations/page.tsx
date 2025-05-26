@@ -7,6 +7,18 @@ import PaymentMethodStep from './components/PaymentMethodStep';
 import ConfirmationStep from './components/ConfirmationStep';
 import StepIndicator from './components/StepIndicator';
 
+interface DonationData {
+  amount: string;
+  currency: string;
+  frequency: string;
+  cardType: string;
+  cardHolder: string;
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
+  agreeToTerms: boolean;
+}
+
 export default function DonationPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [donationData, setDonationData] = useState({
@@ -21,7 +33,7 @@ export default function DonationPage() {
     agreeToTerms: false,
   });
 
-  const updateDonationData = (data: Partial<typeof donationData>) => {
+  const updateDonationData = (data: Partial<DonationData>) => {
     setDonationData({ ...donationData, ...data });
   };
 
@@ -52,7 +64,7 @@ export default function DonationPage() {
       <div className="w-full md:w-1/2 bg-gray-800 text-white relative">
         <div className="absolute inset-0">
           <Image
-            src="/donation-background.jpg"
+            src="/donate.jpg"
             alt="Donation"
             fill
             className="object-cover opacity-70"
@@ -62,7 +74,7 @@ export default function DonationPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Make a<br />Donation<br />Today
           </h1>
-          <div className="bg-black bg-opacity-50 p-6 rounded-lg">
+          <div className="bg-black-50 p-6 rounded-lg">
             <p className="text-sm md:text-base">
               At ABU, we're proud to celebrate the incredible contributions of our alumni
               and the transformative projects they've spearheaded. From groundbreaking

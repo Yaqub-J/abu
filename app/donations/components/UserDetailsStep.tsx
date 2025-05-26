@@ -1,13 +1,15 @@
 import React from 'react';
 
+interface DonationData {
+  amount: string;
+  currency: string;
+  frequency: string;
+  agreeToTerms: boolean;
+}
+
 interface UserDetailsStepProps {
-  donationData: {
-    amount: string;
-    currency: string;
-    frequency: string;
-    agreeToTerms: boolean;
-  };
-  updateDonationData: (data: Partial<typeof donationData>) => void;
+  donationData: DonationData;
+  updateDonationData: (data: Partial<DonationData>) => void;
   nextStep: () => void;
 }
 
