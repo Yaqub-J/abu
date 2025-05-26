@@ -1,37 +1,30 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import Stripe from 'stripe';
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
 import { marshall } from '@aws-sdk/util-dynamodb';
+import { randomUUID } from 'crypto';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2023-10-16',
-});
-
+/**
+ * Mock payment handler that doesn't rely on Stripe
+ */
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
     const { amount, currency, userId, purpose } = JSON.parse(event.body || '{}');
 
-    // Create payment intent
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency,
-      payment_method_types: ['card'],
-      metadata: {
-        userId,
-        purpose
-      }
-    });
+    // Generate a mock payment ID and client secret
+    const paymentId = `pi_${randomUUID().replace(/-/g, '')}`;
+    const clientSecret = `${paymentId}_secret_${randomUUID().replace(/-/g, '').substring(0, 24)}`;
+    const status = 'requires_payment_method'; // Simulating initial payment status
 
     // Store payment record in DynamoDB
     const dynamoDb = new DynamoDBClient({});
     const putCommand = new PutItemCommand({
       TableName: process.env.DONATION_TABLE!,
       Item: marshall({
-        id: paymentIntent.id,
+        id: paymentId,
         userId,
         amount,
         currency,
-        status: paymentIntent.status,
+        status,
         purpose,
         createdAt: new Date().toISOString()
       })
@@ -39,10 +32,12 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 
     await dynamoDb.send(putCommand);
 
+    console.log(`Created mock payment intent: ${paymentId}`);
+
     return {
       statusCode: 200,
       body: JSON.stringify({
-        clientSecret: paymentIntent.client_secret
+        clientSecret
       })
     };
   } catch (error) {
