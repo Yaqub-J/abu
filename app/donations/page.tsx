@@ -54,7 +54,7 @@ export default function DonationPage() {
   const handleSubmit = async () => {
     // Handle final submission logic here
     console.log('Donation submitted:', donationData);
-    // You would typically call your API here to process the donation
+    // API here to process the donation
     alert('Thank you for your donation!');
   };
 
