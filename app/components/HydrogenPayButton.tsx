@@ -10,6 +10,8 @@ interface PaymentProps {
   currency?: string;
   description?: string;
   meta?: string;
+  frequency?: string;
+  isRecurring?: boolean;
   buttonText?: string;
   buttonClassName?: string;
   onSuccess?: (data: any) => void;
@@ -23,6 +25,8 @@ export default function HydrogenPayButton({
   currency = 'NGN',
   description = 'Payment for services',
   meta = '',
+  frequency = 'monthly',
+  isRecurring = false,
   buttonText = 'Pay Now',
   buttonClassName = 'bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded',
   onSuccess,
@@ -47,6 +51,8 @@ export default function HydrogenPayButton({
           currency,
           description,
           meta,
+          frequency,
+          isRecurring,
         }),
       });
       

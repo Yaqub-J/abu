@@ -8,6 +8,7 @@ export default function DonationForm() {
   const [amount, setAmount] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [isRecurring, setIsRecurring] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -89,14 +90,52 @@ export default function DonationForm() {
           />
         </div>
         
+        <div className="mt-4">
+          <div className="flex items-center space-x-3">
+            <input
+              id="donation-type-one-time"
+              name="donation-type"
+              type="radio"
+              checked={!isRecurring}
+              onChange={() => setIsRecurring(false)}
+              className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
+            />
+            <label htmlFor="donation-type-one-time" className="block text-sm font-medium text-gray-700">
+              One-time Donation
+            </label>
+          </div>
+          
+          <div className="flex items-center space-x-3 mt-2">
+            <input
+              id="donation-type-monthly"
+              name="donation-type"
+              type="radio"
+              checked={isRecurring}
+              onChange={() => setIsRecurring(true)}
+              className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
+            />
+            <label htmlFor="donation-type-monthly" className="block text-sm font-medium text-gray-700">
+              Monthly Recurring Donation
+            </label>
+          </div>
+          
+          {isRecurring && (
+            <div className="ml-7 mt-2 text-sm text-gray-500">
+              Your card will be charged this amount every month until you cancel.
+            </div>
+          )}
+        </div>
+        
         <HydrogenPayButton
           amount={parseFloat(amount) || 0}
           customerName={name}
           email={email}
           currency="NGN"
-          description="Donation to ABU"
-          meta="donation_type=one-time"
-          buttonText="Donate Now"
+          description={isRecurring ? "Monthly Donation to ABU" : "One-time Donation to ABU"}
+          meta={isRecurring ? "donation_type=monthly" : "donation_type=one-time"}
+          frequency="monthly"
+          isRecurring={isRecurring}
+          buttonText={isRecurring ? "Start Monthly Donation" : "Donate Now"}
           buttonClassName="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 disabled:opacity-50"
           onSuccess={handlePaymentSuccess}
           onError={handlePaymentError}
