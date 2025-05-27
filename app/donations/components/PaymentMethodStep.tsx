@@ -50,7 +50,7 @@ export default function PaymentMethodStep({
               <label htmlFor="mastercard" className="ml-2">
                 <div className="border rounded-md px-3 py-2 flex items-center justify-center w-24 h-12">
                   <Image 
-                    src="/mastercard-logo.png" 
+                    src="/logos/mastercard.png" 
                     alt="Mastercard" 
                     width={60} 
                     height={40} 
@@ -72,7 +72,7 @@ export default function PaymentMethodStep({
               <label htmlFor="paypal" className="ml-2">
                 <div className="border rounded-md px-3 py-2 flex items-center justify-center w-24 h-12">
                   <Image 
-                    src="/paypal-logo.png" 
+                    src="/logos/paypal.png" 
                     alt="PayPal" 
                     width={60} 
                     height={40} 
@@ -94,7 +94,7 @@ export default function PaymentMethodStep({
               <label htmlFor="verve" className="ml-2">
                 <div className="border rounded-md px-3 py-2 flex items-center justify-center w-24 h-12">
                   <Image 
-                    src="/verve-logo.png" 
+                    src="/logos/verve.png" 
                     alt="Verve" 
                     width={60} 
                     height={40} 
@@ -116,7 +116,7 @@ export default function PaymentMethodStep({
               <label htmlFor="visa" className="ml-2">
                 <div className="border rounded-md px-3 py-2 flex items-center justify-center w-24 h-12">
                   <Image 
-                    src="/visa-logo.png" 
+                    src="/logos/visa.png" 
                     alt="Visa" 
                     width={60} 
                     height={40} 
@@ -159,7 +159,7 @@ export default function PaymentMethodStep({
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
               <Image
-                src="/paypal-small.png"
+                src="/logos/paypal.png"
                 alt="PayPal"
                 width={24}
                 height={24}

@@ -20,21 +20,23 @@ const SignUpPage = () => {
     setError('');
     
     try {
-      const { isSignUpComplete, userId } = await signUp({
+      const { isSignUpComplete, userId, nextStep } = await signUp({
         username: email,
         password,
         options: {
-          autoSignIn: true,
           userAttributes: {
             email
           }
         }
       });
       
-      console.log('Sign up successful:', { isSignUpComplete, userId });
+      console.log('Sign up successful:', { isSignUpComplete, userId, nextStep });
       
       if (isSignUpComplete) {
         router.push('/dash');
+      } else if (nextStep.signUpStep === 'CONFIRM_SIGN_UP') {
+        // Redirect to verification page with email parameter
+        router.push(`/verification?email=${encodeURIComponent(email)}`);
       }
     } catch (err: any) {
       console.error('Error signing up:', err);

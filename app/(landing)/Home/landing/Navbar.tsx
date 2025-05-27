@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
                 Donate
               </button>
             </Link>
-            <Link href="/signup">
+            <Link href="/signin">
               <button className="bg-white text-black px-4 py-1 rounded hover:bg-gray-200 transition-colors">
                 Login/signup
               </button>

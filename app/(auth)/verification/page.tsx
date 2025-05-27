@@ -1,30 +1,50 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { confirmSignUp, resendSignUpCode } from 'aws-amplify/auth';
 
 export default function VerificationPage() {
   const [verificationCode, setVerificationCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [username, setUsername] = useState('');
   const router = useRouter();
+  const searchParams = useSearchParams();
+  
+  useEffect(() => {
+    // Get the username from query params
+    const userEmail = searchParams.get('email');
+    if (userEmail) {
+      setUsername(userEmail);
+    } else {
+      // If no username is provided, redirect to signup
+      router.push('/signup');
+    }
+  }, [searchParams, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
+    if (!username) {
+      setError('Username is missing. Please go back to sign up.');
+      setLoading(false);
+      return;
+    }
+
     try {
-      // In a real implementation, you would call Amplify's confirmSignUp method here
-      // For now, we'll just simulate a successful verification
-      console.log('Verification code submitted:', verificationCode);
+      // Call Amplify's confirmSignUp method
+      await confirmSignUp({
+        username,
+        confirmationCode: verificationCode
+      });
       
       // After successful verification, redirect to dashboard
-      setTimeout(() => {
-        router.push('/dash');
-      }, 1500);
+      router.push('/dash');
     } catch (err: any) {
       console.error('Verification error:', err);
       setError(err.message || 'Failed to verify code');
@@ -33,10 +53,25 @@ export default function VerificationPage() {
     }
   };
 
-  const handleResendCode = () => {
-    // In a real implementation, you would call Amplify's resendSignUpCode method here
-    console.log('Resend code requested');
-    alert('Verification code has been resent to your email');
+  const handleResendCode = async () => {
+    if (!username) {
+      setError('Username is missing. Please go back to sign up.');
+      return;
+    }
+    
+    setLoading(true);
+    try {
+      // Call Amplify's resendSignUpCode method
+      await resendSignUpCode({
+        username
+      });
+      alert('Verification code has been resent to your email');
+    } catch (err: any) {
+      console.error('Error resending code:', err);
+      setError(err.message || 'Failed to resend verification code');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

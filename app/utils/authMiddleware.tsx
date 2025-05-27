@@ -37,15 +37,11 @@ export function withAuth(Component: React.ComponentType<any>) {
       setError('');
 
       try {
-        // Bypass AWS Auth temporarily
-        // const { isSignedIn } = await signIn({ username: email, password });
-        // if (isSignedIn) {
-        //   setAuthenticated(true);
-        // }
-        
-        // Direct authentication (temporary solution)
-        console.log('Sign in successful (AWS Auth bypassed)');
-        setAuthenticated(true);
+        // Use proper AWS Amplify authentication
+        const { isSignedIn } = await signIn({ username: email, password });
+        if (isSignedIn) {
+          setAuthenticated(true);
+        }
       } catch (err: any) {
         console.error('Sign in error:', err);
         setError(err.message || 'Failed to sign in');
