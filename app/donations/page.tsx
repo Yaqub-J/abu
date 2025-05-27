@@ -2,10 +2,12 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import UserDetailsStep from './components/UserDetailsStep';
 import PaymentMethodStep from './components/PaymentMethodStep';
 import ConfirmationStep from './components/ConfirmationStep';
 import StepIndicator from './components/StepIndicator';
+import HydrogenPayButton from '../components/HydrogenPayButton';
 
 interface DonationData {
   amount: string;
@@ -20,7 +22,11 @@ interface DonationData {
 }
 
 export default function DonationPage() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  
   const [donationData, setDonationData] = useState({
     amount: '',
     currency: 'NGN',
@@ -52,10 +58,47 @@ export default function DonationPage() {
   };
 
   const handleSubmit = async () => {
-    // Handle final submission logic here
-    console.log('Donation submitted:', donationData);
-    // API here to process the donation
-    alert('Thank you for your donation!');
+    try {
+      setIsProcessing(true);
+      setErrorMessage('');
+      
+      // Initiate payment through Hydrogen Pay API
+      const response = await fetch('/api/hydrogen-pay', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: parseFloat(donationData.amount) || 0,
+          customerName: donationData.cardHolder,
+          email: 'customer@example.com', // This should be collected in UserDetailsStep
+          currency: donationData.currency,
+          description: `${donationData.frequency === 'monthly' ? 'Monthly' : 'One-time'} Donation to ABU`,
+          meta: `donation_type=${donationData.frequency}`,
+          frequency: donationData.frequency === 'monthly' ? 'monthly' : 'one-off',
+          isRecurring: donationData.frequency === 'monthly',
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Payment initiation failed');
+      }
+      
+      console.log('Payment initiated successfully:', data);
+      
+      // Redirect to payment gateway
+      if (data.redirectUrl || data.paymentUrl) {
+        window.location.href = data.redirectUrl || data.paymentUrl;
+      }
+      
+    } catch (error: any) {
+      console.error('Payment error:', error);
+      setErrorMessage(error.message || 'Payment initiation failed. Please try again.');
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -111,6 +154,8 @@ export default function DonationPage() {
             donationData={donationData} 
             prevStep={prevStep}
             handleSubmit={handleSubmit}
+            isProcessing={isProcessing}
+            errorMessage={errorMessage}
           />
         )}
       </div>

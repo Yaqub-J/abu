@@ -50,10 +50,16 @@ export default function UserDetailsStep({
             onChange={() => updateDonationData({ frequency: 'monthly' })}
           />
           <label htmlFor="monthly" className="ml-2 block text-sm text-gray-700">
-            Monthly
+            Monthly Recurring
           </label>
         </div>
       </div>
+      
+      {donationData.frequency === 'monthly' && (
+        <div className="mb-6 text-sm text-gray-500 text-center">
+          Your card will be charged this amount every month until you cancel.
+        </div>
+      )}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
