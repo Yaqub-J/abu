@@ -9,7 +9,8 @@ import {
   LightbulbIcon, 
   ChevronDownIcon,
   FlipHorizontalIcon,
-  MarsIcon
+  MarsIcon,
+  X
 } from 'lucide-react';
 
 
@@ -33,7 +34,7 @@ const StudentPage = () => {
               onClick={() => setWelcomeVisible(false)}
               className="absolute right-4 top-4"
             >
-              <MarsIcon className="h-5 w-5 text-gray-500" />
+              <X className="h-5 w-5 text-gray-500" />
             </button>
             <p className="text-gray-600">Welcome To Admin Dashboard</p>
           </div>

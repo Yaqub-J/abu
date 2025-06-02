@@ -39,3 +39,10 @@ next-env.d.ts
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+
+# other (Uzochi)
+.env
+ABU Project- Alumni.pdf
+Alumni App Database Design.pdf
+DEVELOPMENT-REQUIREMENTS.txt
+test.js
