@@ -145,7 +145,7 @@ const SignUpPage = () => {
             disabled={loading}
             className="w-full bg-black text-white rounded-md py-3 px-4 hover:bg-gray-800 transition-colors disabled:bg-gray-600"
           >
-            {loading ? 'Signing up...' : 'Sign Me In'}
+            {loading ? 'Signing up...' : 'Sign Me Up'}
           </button>
 
           <div className="text-sm text-center pt-4">

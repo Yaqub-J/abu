@@ -2,47 +2,84 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+
 import UserDetailsStep from './components/UserDetailsStep';
-import PaymentMethodStep from './components/PaymentMethodStep';
 import ConfirmationStep from './components/ConfirmationStep';
 import StepIndicator from './components/StepIndicator';
-import HydrogenPayButton from '../components/HydrogenPayButton';
 
+import outputs from '@/amplify_outputs.json';
+import { useRouter } from 'next/navigation';
+
+/*
+* Reduced the number of collected data fields
+* to match HydrogenPay payment gateway system
+*/
 interface DonationData {
   amount: string;
+  email: string;
+  customerName: string;
   currency: string;
   frequency: string;
-  cardType: string;
-  cardHolder: string;
-  cardNumber: string;
-  expiryDate: string;
-  cvv: string;
   agreeToTerms: boolean;
 }
 
+/*
+* currencyOptions constant dictionary object to handle currency type choice
+*/
+const currencyOptions = { 'NGN' : '\u20A6', 'USD' : '\u0024', 'GBP' : '\u00A3', 'EUR' : '\u20AC' };
+
+
+/*
+* Payment submission system now required only two steps
+*   1) User Details (customerName?, email, amount, frequency, isRecurring)
+*   2) Confirmation
+*/
 export default function DonationPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string[]>([]);
   
   const [donationData, setDonationData] = useState({
     amount: '',
+    email: '',
+    customerName: '',
     currency: 'NGN',
-    frequency: 'one-off',
-    cardType: 'mastercard',
-    cardHolder: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
+    frequency: 'single',
     agreeToTerms: false,
   });
 
+  /*
+  * Added small functionality to display proper selected currency symbol
+  * Original runtime currency selection code:
+  *   const [selectedCurrency, setSelectedCurrency] = useState(
+  *     currencyOptions[donationData.currency as keyof typeof currencyOptions]
+  *   );
+  */
+  const [selectedCurrency, setSelectedCurrency] = useState(currencyOptions['NGN']);
+
+  /*
+  * Select currency functionality
+  */
+  const updateSelectedCurrency = (currency: string) => {
+    setSelectedCurrency(currencyOptions[currency as keyof typeof currencyOptions])
+  };
+
+  /*
+  * Error handling function
+  *   Empties out all error messages
+  */
+  const emptyErrorMessage = () => {
+    setErrorMessage([]);
+  };
+  
   const updateDonationData = (data: Partial<DonationData>) => {
     setDonationData({ ...donationData, ...data });
   };
 
+  /*
+  * Step increment function
+  */
   const nextStep = () => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
@@ -50,6 +87,9 @@ export default function DonationPage() {
     }
   };
 
+  /*
+  * Step decrement function
+  */
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
@@ -60,42 +100,171 @@ export default function DonationPage() {
   const handleSubmit = async () => {
     try {
       setIsProcessing(true);
-      setErrorMessage('');
       
       // Initiate payment through Hydrogen Pay API
-      const response = await fetch('/api/hydrogen-pay', {
+      const response = await fetch('https://api.hydrogenpay.com/bepay/api/v1/merchant/initiate-payment/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
+          'Authorization': `Bearer ${outputs.custom.hydrogen_pay.test.PUBLIC_KEY}`
         },
+        
+        /* 
+        * NOTE:
+        *   THE FIELDS HAVE BEEN UPDATED TO REFLECT 
+        *   WHAT THE HYDROGEN PAY API ASKS FOR PER REQUEST
+        */
         body: JSON.stringify({
-          amount: parseFloat(donationData.amount) || 0,
-          customerName: donationData.cardHolder,
-          email: 'customer@example.com', // This should be collected in UserDetailsStep
+          amount: donationData.amount,
+          email: donationData.email,
+          customerName: donationData.customerName,
           currency: donationData.currency,
-          description: `${donationData.frequency === 'monthly' ? 'Monthly' : 'One-time'} Donation to ABU`,
-          meta: `donation_type=${donationData.frequency}`,
-          frequency: donationData.frequency === 'monthly' ? 'monthly' : 'one-off',
-          isRecurring: donationData.frequency === 'monthly',
+          description: `${donationData.frequency === 'single' ? 'Single' : 'Monthly'} Donation to ABU`,
+          /*
+          * NOTE:
+          *   JSON string format for meta field
+          *   Use JSON format in order to parse
+          *   data more easily
+          */
+          meta: `{"donation_frequency": "${donationData.frequency}"}`,
+          /*
+          * NOTE:
+          *   TODO:
+          *     The 'frequency' field must be updated to reflect
+          *     multiple possible recurring donation options should
+          *     more options be allowed
+          */
+          frequency: donationData.frequency === 'monthly' ? 2 : null,
+          isRecurring: donationData.frequency !== 'single' ? true : false,
+          callback: `${outputs.custom.public_app_url}/donations/thank-you/`,
+          /*
+          * NOTE:
+          *   'endDate' field is NECESSARY for submitting recurring payments
+          *   Hardcoded endDate to far into the future for 'recurring' payments
+          * 
+          * TODO:
+          *   CREATE FUNCTION TO PROPERLY ALLOW CUSTOMERS TO SET
+          *   RECURRING DONATION END DATE IF THEY DESIRE TO.
+          *   DESIGN FUNCTION TO PROPERLY SET TIME OF END DATE,
+          *   OR SET TO ESSENTIALLY 'FOREVER' IF NO END DATE IS CHOSEN.
+          */
+         endDate: '3025-12-31T00:00:00.000Z'
         }),
       });
+
+
+      // /*
+      // * DEBUGGING PURPOSES ONLY
+      // *   DO NOT DELETE THE BELOW COMMENTS AND CODE
+      // *   THIS IS A TEST FETCH REQUEST
+      // *   IT IS A COPY OF THE ORIGINAL
+      // *   FOR TESTING PURPOSES ONLY
+      // */
+      // const newResponse = await fetch('https://api.hydrogenpay.com/bepay/api/v1/merchant/initiate-payment/', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Cache-Control': 'no-cache',
+      //     'Authorization': `Bearer ${outputs.custom.hydrogen_pay.test.PUBLIC_KEY}`
+      //   },
+
+      //   /* 
+      //   * DEBUG
+      //   *   DO NOT DELETE THE BELOW COMMENTS
+      //   *   THEY ARE FOR DEBUGGING/TESTING PURPOSES
+      //   * 
+      //   * NOTE:
+      //   *   THE FIELDS HAVE BEEN UPDATED TO REFLECT 
+      //   *   WHAT THE HYDROGEN PAY API ASKS FOR PER REQUEST
+      //   */
+      //   body: JSON.stringify({
+      //     amount: donationData.amount,
+      //     email: donationData.email,
+      //     customerName: donationData.customerName,
+      //     currency: donationData.currency,
+      //     description: `${donationData.frequency === 'single' ? 'Single' : 'Monthly'} Donation to ABU`,
+      //     /*
+      //     * NOTE:
+      //     *   JSON string format for meta field
+      //     *   Use JSON format in order to parse
+      //     *   data more easily
+      //     */
+      //     meta: `{"donation_frequency": "${donationData.frequency}"}`,
+      //     /*
+      //     * NOTE:
+      //     *   TODO:
+      //     *     The 'frequency' field must be updated to reflect
+      //     *     multiple possible recurring donation options should
+      //     *     more options be allowed
+      //     */
+      //     frequency: donationData.frequency === 'monthly' ? 2 : null,
+      //     isRecurring: donationData.frequency !== 'single' ? true : false,
+      //     callback: `${outputs.custom.public_app_url}/donations/thank-you/`,
+      //     /*
+      //     * NOTE:
+      //     *   'endDate' field is NECESSARY for submitting recurring payments
+      //     *   Hardcoded endDate to far into the future for 'recurring' payments
+      //     * 
+      //     * TODO:
+      //     *   CREATE FUNCTION TO PROPERLY ALLOW CUSTOMERS TO SET
+      //     *   RECURRING DONATION END DATE IF THEY DESIRE TO.
+      //     *   DESIGN FUNCTION TO PROPERLY SET TIME OF END DATE,
+      //     *   OR SET TO ESSENTIALLY 'FOREVER' IF NO END DATE IS CHOSEN.
+      //     */
+      //     endDate: '3025-12-31T00:00:00.000Z'
+      //     endDate: `${donationData.frequency !== 'single' ? '3025-12-31T00:00:00.000Z' : ''}` // -- THIS LINE CURRENTLY DOES NOT WORK
+      //   }),
+      // });
       
+
       const data = await response.json();
       
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || 'Payment initiation failed');
+      /*
+      * NEW ERROR HANDLING
+      *   Print error(s) to screen
+      *   whether single or multiple
+      */
+      if (data.statusCode !== '90000') {
+        let eMsgArray:string[] = []; // -- Array of error messages
+        
+        // Display multiple error messages
+        if (data.error && data.error.length >= 1) {
+          data.error.map(async (e: any) => {
+            console.error('Error:', e.message);
+            eMsgArray = [
+              ...eMsgArray,
+              e.message
+            ]
+          });
+          setErrorMessage(eMsgArray);
+          eMsgArray = []; // -- clear out array
+          throw new Error('An error has occurred')
+        // Display single error message
+        } else {
+          console.error('Error:', data.message);
+          setErrorMessage([data.message]);
+          eMsgArray = []; // -- clear out array
+          throw new Error(data.message || 'Payment initiation failed');
+        }
       }
       
-      console.log('Payment initiated successfully:', data);
+      // DEBUG
+      // console.log('Payment initiated successfully:', data);
       
-      // Redirect to payment gateway
-      if (data.redirectUrl || data.paymentUrl) {
-        window.location.href = data.redirectUrl || data.paymentUrl;
+      /*
+      * TEMPORARY FIX
+      * Fixed payment gateway redirect
+      * TODO: FIX PAYMENT GATEWAY REDIRECT (Maybe don't use window.href.location)
+      *   CURRENTLY TOO SLOW - LEADING TO ERROR 504 GATEWAY TIMEOUT
+      *   POSSIBLY BECAUSE OF SLOW INTERNET ACCESS
+      */
+      if (data.data && data.data.url) {
+        router.push(data.data.url);
       }
       
     } catch (error: any) {
-      console.error('Payment error:', error);
-      setErrorMessage(error.message || 'Payment initiation failed. Please try again.');
+      console.log('Error:\n\t', errorMessage);
     } finally {
       setIsProcessing(false);
     }
@@ -137,25 +306,34 @@ export default function DonationPage() {
             donationData={donationData} 
             updateDonationData={updateDonationData} 
             nextStep={nextStep} 
+            selectedCurrency={selectedCurrency}
+            updateSelectedCurrency={updateSelectedCurrency}
           />
         )}
         
-        {currentStep === 2 && (
+        {/*
+          NOTE:
+            UNNECESSARY STEP -- COMMENTED OUT
+            FIXED BECAUSE THIS STEP COLLECTS UNNECESSARY INFORMATION
+            TO NAVIGATE TO HYDROGEN PAYMENT LINK
+        */}
+        {/* {currentStep === 2 && (
           <PaymentMethodStep 
             donationData={donationData} 
             updateDonationData={updateDonationData} 
             nextStep={nextStep}
             prevStep={prevStep}
           />
-        )}
+        )} */}
         
-        {currentStep === 3 && (
+        {currentStep === 2 && (
           <ConfirmationStep 
             donationData={donationData} 
             prevStep={prevStep}
             handleSubmit={handleSubmit}
             isProcessing={isProcessing}
             errorMessage={errorMessage}
+            emptyErrorMessage={emptyErrorMessage}
           />
         )}
       </div>

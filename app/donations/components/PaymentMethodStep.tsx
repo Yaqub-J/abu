@@ -1,12 +1,20 @@
+/*
+* NOTE: 6/30/2025 @ 4:20 pm EST
+*   THIS ENTIRE FUNCTION IS NO LONGER BEING USED
+*   PAYMENT SUBMISSION STEPS HAVE BEEN UPDATED TO
+*/
+
 import React from 'react';
 import Image from 'next/image';
 
 interface DonationData {
   amount: string;
+  email: string;
+  customerName: string;
   currency: string;
   frequency: string;
   cardType: string;
-  cardHolder: string;
+  cardHolder?: string;
   cardNumber: string;
   expiryDate: string;
   cvv: string;
@@ -136,7 +144,7 @@ export default function PaymentMethodStep({
             type="text"
             id="cardHolder"
             className="focus:ring-green-500 focus:border-green-500 block w-full py-3 px-4 border-gray-300 rounded-md"
-            placeholder="5067  0899  5633  XXXX  XXXX"
+            placeholder="ABU ZARIA"
             value={donationData.cardHolder}
             onChange={(e) => updateDonationData({ cardHolder: e.target.value })}
             required
@@ -192,7 +200,7 @@ export default function PaymentMethodStep({
               type="text"
               id="cvv"
               className="focus:ring-green-500 focus:border-green-500 block w-full py-3 px-4 border-gray-300 rounded-md"
-              placeholder="..."
+              placeholder="000"
               value={donationData.cvv}
               onChange={(e) => updateDonationData({ cvv: e.target.value })}
               required

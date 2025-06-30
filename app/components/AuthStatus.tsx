@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 export default function AuthStatus() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState('');
+  // const [userId, setUserId] = useState('');
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -19,6 +20,8 @@ export default function AuthStatus() {
       const currentUser = await getCurrentUser();
       setIsAuthenticated(true);
       setUserName(currentUser.username);
+      // setUserId(currentUser.userId);
+      // console.log(currentUser.userId);
     } catch (err) {
       setIsAuthenticated(false);
       setUserName('');
@@ -48,6 +51,7 @@ export default function AuthStatus() {
   return (
     <div className="flex items-center space-x-2">
       <span className="text-sm">Signed in as {userName}</span>
+      {/* <span className="text-sm">Signed in as {userId}</span> */}
       <button
         onClick={handleSignOut}
         className="px-3 py-1 text-sm bg-red-600 text-white rounded hover:bg-red-700 transition-colors"

@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import outputs from '@/amplify_outputs.json';
+// const outputs = require('./amplify_outputs.json');
 
 export async function POST(req: Request) {
   try {
@@ -71,8 +73,10 @@ export async function POST(req: Request) {
     const response = await fetch('https://api.hydrogenpay.com/bepay/api/v1/merchant/initiate-payment', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.HYDROGEN_PAY_API_KEY || 'PK_TEST_8d464b0df336b6cb4820b2cc8a319953'}`,
+        // 'Authorization': `Bearer ${process.env.HYDROGEN_PAY_API_KEY || 'PK_TEST_8d464b0df336b6cb4820b2cc8a319953'}`,
+        'Authorization': `Bearer ${outputs.custom.hydrogen_pay.test.PUBLIC_KEY}`,
         'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache'
       },
       body: JSON.stringify(requestBody),
     });
