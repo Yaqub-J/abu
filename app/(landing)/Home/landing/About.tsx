@@ -4,8 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import outputs from '@/amplify_outputs.json';
-import handlePgData from '../functions/HydrogenPayInline.js';
+/*
+* DEBUG
+*   DO NOT DELETE -- FOR TESTING AND DEBUGGING PURPOSES ONLY
+*   THESE IMPORTS ARE CURRENTLY UNNECESSARY
+*/
+// import outputs from '@/amplify_outputs.json';
+// import handlePgData from '../functions/HydrogenPayInline.js';
 
 interface ServiceCardProps {
   title: string;
@@ -26,25 +31,29 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description }) => {
 
 const AboutSection: React.FC = () => {
   /*
-  * PAYMENT OBJECT FOR TESTING AND DEBUGGING PURPOSES
-  * INCLUDES 'isAPI' boolean set to TRUE for popup
+  * DEBUG
+  *   PAYMENT OBJECT FOR TESTING AND DEBUGGING PURPOSES
+  *   INCLUDES 'isAPI' boolean set to TRUE for popup
+  * 
+  * NOTE:
+  *   DO NOT DELETE -- FOR TESTING PURPOSES ONLY
   */
-  let obj = {
-    amount: 100,                       // Payment amount
-    email: "bwitlawalyusuf@gmail.com", // Customer's email address
-    currency: "NGN",                   // Currency code (e.g., NGN for Nigerian Naira)
-    description: "test desc",          // Payment description (what the payment is for)
-    meta: "Lawal Yusuf",                 // Meta information (extra info to be passed with the payment)
-    callback: `${outputs.custom.public_app_url}`, // Callback URL for redirect after payment (can be replaced with your actual URL)
-    isAPI: true,                       // Flag to indicate if the transaction is via API (set to true)
-  };
+  // let obj = {
+  //   amount: 100,                       // Payment amount
+  //   email: "bwitlawalyusuf@gmail.com", // Customer's email address
+  //   currency: "NGN",                   // Currency code (e.g., NGN for Nigerian Naira)
+  //   description: "test desc",          // Payment description (what the payment is for)
+  //   meta: "Lawal Yusuf",                 // Meta information (extra info to be passed with the payment)
+  //   callback: `${outputs.custom.public_app_url}`, // Callback URL for redirect after payment (can be replaced with your actual URL)
+  //   isAPI: true,                       // Flag to indicate if the transaction is via API (set to true)
+  // };
 
-  const token = outputs.custom.hydrogen_pay.test.PUBLIC_KEY;
+  // const token = outputs.custom.hydrogen_pay.test.PUBLIC_KEY;
 
-  async function openDialogModal() {
-    let transactionRef = await handlePgData(obj, token);
-    // Handle transaction status and update UI accordingly
-  };
+  // async function openDialogModal() {
+  //   let transactionRef = await handlePgData(obj, token);
+  //   // Handle transaction status and update UI accordingly
+  // };
   
   return (
     <>
@@ -117,12 +126,22 @@ const AboutSection: React.FC = () => {
               {/* <Link href="/donate" className="inline-block bg-zinc-800 text-white py-3 px-8 rounded-full hover:bg-zinc-700 transition duration-300">
                   Donate now
                   </Link> */}
+              
+              {/*
+                DONATION POPUP MODAL
+                CURRENTLY UNUSED -- UNNECESSARY
+                DONATIONS CURRENTLY LINK TO NEW PAGE,
+                SO POPUP IS NOT NEEDED
 
-              {/* TESTING NEW DONATE FUNCTIONALITY */}
+                TODO:
+                  COMPLETE POPUP FUNCTIONALITY IN JSX/TSX
+              */}
+              {/* <button id="myBtn" className="inline-block bg-zinc-800 text-white py-3 px-8 rounded-full hover:bg-zinc-700 transition duration-300" onClick={() => (openDialogModal())}>Donate now</button> */}
+
+              {/* NEW DONATE LINK */}
               <Link href="/donations" className="inline-block bg-zinc-800 text-white py-3 px-8 rounded-full hover:bg-zinc-700 transition duration-300">
                   Donate now
               </Link>
-              {/* <button id="myBtn" className="inline-block bg-zinc-800 text-white py-3 px-8 rounded-full hover:bg-zinc-700 transition duration-300" onClick={() => (openDialogModal())}>Donate now</button> */}
             </div>
             
             {/* Image Grid */}

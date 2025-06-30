@@ -82,6 +82,7 @@ export default function ThankYouPage() {
     }
   }
 
+
   /*
   * USE-EFFECT FUNCTION FOR GATHERING
   * TRANSACTION REFERENCE NUMBER DATA
@@ -90,23 +91,6 @@ export default function ThankYouPage() {
     getTransactionData();
   }, [transactionRef]);
   
-  /*
-  * OLD THANK-YOU PAGE DATA HANDLING
-  */
-  // useEffect(() => {
-  //   // Get transaction reference from URL if available
-  //   // const transactionRef = searchParams.get('transactionRef');
-  //   const transactionRef = searchParams.get('TransactionRef');
-    
-  //   if (transactionRef) {
-  //     setTransactionDetails({
-  //       transactionRef,
-  //       status: searchParams.get('status') || 'successful',
-  //       amount: searchParams.get('amount') || '',
-  //       currency: searchParams.get('currency') || 'NGN',
-  //     });
-  //   }
-  // }, [searchParams]);
 
   return (
     <div className="min-h-screen py-12 flex relative">
@@ -147,13 +131,6 @@ export default function ThankYouPage() {
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
               </div>
-
-              {/* Red 'X' icon for errors */}
-              {/* <div className="size-20 rounded-full flex items-center justify-center bg-red-100">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-12 text-red-600">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                </svg>
-              </div> */}
               </>
               :
               /*

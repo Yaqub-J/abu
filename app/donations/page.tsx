@@ -69,7 +69,7 @@ export default function DonationPage() {
   * Error handling function
   *   Empties out all error messages
   */
-  const emptyErrorMessage = () => {
+  const emptyErrorMessages = () => {
     setErrorMessage([]);
   };
   
@@ -131,7 +131,7 @@ export default function DonationPage() {
           /*
           * NOTE:
           *   TODO:
-          *     The 'frequency' field must be updated to reflect
+          *     The 'frequency' and 'isRecurring' field must be updated to reflect
           *     multiple possible recurring donation options should
           *     more options be allowed
           */
@@ -194,7 +194,7 @@ export default function DonationPage() {
       //     /*
       //     * NOTE:
       //     *   TODO:
-      //     *     The 'frequency' field must be updated to reflect
+      //     *     The 'frequency' and 'isRecurring' fields must be updated to reflect
       //     *     multiple possible recurring donation options should
       //     *     more options be allowed
       //     */
@@ -220,6 +220,7 @@ export default function DonationPage() {
 
       const data = await response.json();
       
+
       /*
       * NEW ERROR HANDLING
       *   Print error(s) to screen
@@ -333,7 +334,7 @@ export default function DonationPage() {
             handleSubmit={handleSubmit}
             isProcessing={isProcessing}
             errorMessage={errorMessage}
-            emptyErrorMessage={emptyErrorMessage}
+            emptyErrorMessages={emptyErrorMessages}
           />
         )}
       </div>

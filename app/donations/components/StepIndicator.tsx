@@ -30,7 +30,7 @@ export default function StepIndicator({ currentStep }: StepIndicatorProps) {
         
         {/* Steps */}
         {steps.map((step) => (
-          <div key={step.number} className="flex flex-col items-center relative">
+          <div key={step.number} className="flex flex-col items-center relative z-10">
             <div 
               className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-lg mb-2
                 ${currentStep >= step.number ? 'bg-green-600' : 'bg-gray-300'}`}

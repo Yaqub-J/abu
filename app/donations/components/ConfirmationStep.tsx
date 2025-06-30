@@ -13,7 +13,7 @@ interface ConfirmationStepProps {
   handleSubmit: () => void;
   isProcessing?: boolean;
   errorMessage?: string[];
-  emptyErrorMessage: () => void;
+  emptyErrorMessages: () => void;
 }
 
 export default function ConfirmationStep({
@@ -22,7 +22,7 @@ export default function ConfirmationStep({
   handleSubmit,
   isProcessing = false,
   errorMessage = [],
-  emptyErrorMessage
+  emptyErrorMessages
 }: ConfirmationStepProps) {
 
   return (
@@ -137,7 +137,7 @@ export default function ConfirmationStep({
           type="button"
           onClick={() =>{
             prevStep();
-            emptyErrorMessage();
+            emptyErrorMessages();
           }}
           disabled={isProcessing}
           className="w-1/3 text-xl py-3 px-4 border border-gray-300 rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
